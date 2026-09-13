@@ -6,12 +6,11 @@ The stages are the ordinary ones. What changes when an agent holds a stage is
 that the handoff has to become an artifact rather than a conversation, and that
 a stage held without approval needs a check the agent does not control.
 
-The site is five pages:
+The site is four pages:
 
 - `index.html` — the argument and the map of twenty stages
 - `stages.html` — each stage: role, given, hands back, done when
 - `handoffs.html` — the artifact chain, and why it breaks where it does
-- `hands.html` — the four levels of who holds a stage
 - `implementations.html` — what holds each stage today
 
 Static HTML with one stylesheet, in the same family as agentmesh.ai,

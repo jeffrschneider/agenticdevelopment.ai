@@ -21,7 +21,6 @@
       <a class="on" href="index.html">Overview</a>
       <a href="stages.html">The stages</a>
       <a href="handoffs.html">The handoffs</a>
-      <a href="hands.html">Who holds a stage</a>
     </nav>
     <div class="grp">In practice</div>
     <nav>
@@ -55,7 +54,7 @@
           <div class="card role">
             <div class="n">01</div>
             <h3>The role</h3>
-            <p>The job, written before any particular agent exists to hold it. Roles are published separately, at <a href="https://agentroles.ai" style="color:var(--paper)">agentroles.ai</a>, so a stage here names a role rather than a product. Several stages have no published role yet, and that is worth saying out loud.</p>
+            <p>The job, written before any particular agent exists to hold it. Roles are published separately, at <a href="https://agentroles.ai" style="color:var(--paper)">agentroles.ai</a>, so a stage here names a role rather than a product. Where an agent holds the stage, it is named too, and the name is a link to its AgentDoc.</p>
           </div>
           <div class="card handoff">
             <div class="n">02</div>
@@ -74,7 +73,7 @@
         <h2>The Agent Development Lifecycle</h2>
                 <table class="clauses">
           <thead>
-            <tr><th>Stage</th><th>Role</th><th>Hands back</th><th>Today</th></tr>
+            <tr><th>Stage</th><th>Role</th><th>Hands back</th><th>Agent</th></tr>
           </thead>
           <tbody>
             <tr class="phase"><td colspan="4">Define</td></tr>
@@ -82,13 +81,13 @@
               <td><a href="stages.html#requirements">Requirements</a></td>
               <td style="color:var(--faint)">none</td>
               <td>a statement of the job: what it does, refuses, needs, records and costs</td>
-              <td><span class="hand assisted">person + model</span></td>
+              <td><span class="soon">coming soon</span></td>
             </tr>
             <tr>
               <td><a href="stages.html#design">Design</a></td>
               <td style="color:var(--faint)">none</td>
               <td>the shape: the steps, and which are program and which are judgment</td>
-              <td><span class="hand assisted">person + model</span></td>
+              <td><span class="soon">coming soon</span></td>
             </tr>
 
             <tr class="phase"><td colspan="4">Make</td></tr>
@@ -96,26 +95,26 @@
               <td><a href="stages.html#code">Code</a></td>
               <td style="color:var(--faint)">none</td>
               <td>the programs</td>
-              <td><span class="hand assisted">person + model</span></td>
+              <td><span class="soon">coming soon</span></td>
             </tr>
             <tr>
               <td><a href="stages.html#test">Test</a></td>
               <td style="color:var(--faint)">none</td>
               <td>tests, and a result from running them</td>
-              <td><span class="hand assisted">person + model</span></td>
+              <td><span class="soon">coming soon</span></td>
             </tr>
             <tr>
               <td><a href="stages.html#review">Review</a></td>
               <td style="color:var(--faint)">none</td>
               <td>findings against the program, each one answerable</td>
-              <td><span class="hand person">person</span></td>
+              <td><span class="soon">coming soon</span></td>
             </tr>
 
             <tr>
               <td><a href="stages.html#security">Security review</a></td>
               <td style="color:var(--faint)">none</td>
               <td>a statement of what this thing may reach, what it may spend, and what it must never do</td>
-              <td><span class="hand person">person</span></td>
+              <td><span class="soon">coming soon</span></td>
             </tr>
 
             <tr class="phase"><td colspan="4">Ship</td></tr>
@@ -123,25 +122,25 @@
               <td><a href="stages.html#build">Build and package</a></td>
               <td><a href="https://agentroles.ai/agent-builder.html">agent builder</a></td>
               <td>a package: the declaration, the parts, a manifest, a digest</td>
-              <td><span class="hand approved">agent, approved</span></td>
+              <td><a class="agent-on" href="https://app.agentmesh.ai/a/agentbuilder.jeffrschneider%40gmail.com/agentdoc">agentbuilder</a></td>
             </tr>
             <tr>
               <td><a href="stages.html#release">Release</a></td>
               <td><a href="https://agentroles.ai/agent-builder.html">agent builder</a></td>
               <td>a signed build record, and the package at an address</td>
-              <td><span class="hand agent">agent</span></td>
+              <td><a class="agent-on" href="https://app.agentmesh.ai/a/agentbuilder.jeffrschneider%40gmail.com/agentdoc">agentbuilder</a></td>
             </tr>
             <tr>
               <td><a href="stages.html#deploy">Deploy</a></td>
               <td><a href="https://agentroles.ai/deployment-manager.html">deployment manager</a></td>
               <td>a running agent with an identity, an address and an inbox</td>
-              <td><span class="hand approved">agent, approved</span></td>
+              <td><a class="agent-on" href="https://app.agentmesh.ai/a/deploymgr.jeffrschneider%40gmail.com/agentdoc">deploymgr</a></td>
             </tr>
             <tr>
               <td><a href="stages.html#configure">Configure</a></td>
               <td><a href="https://agentroles.ai/deployment-manager.html">deployment manager</a></td>
               <td>credentials bound by name, settings placed, ceilings set</td>
-              <td><span class="hand approved">agent, approved</span></td>
+              <td><a class="agent-on" href="https://app.agentmesh.ai/a/deploymgr.jeffrschneider%40gmail.com/agentdoc">deploymgr</a></td>
             </tr>
 
             <tr class="phase"><td colspan="4">Prove</td></tr>
@@ -149,13 +148,13 @@
               <td><a href="stages.html#acceptance">Acceptance</a></td>
               <td><a href="https://agentroles.ai/agent-evaluator.html">agent evaluator</a></td>
               <td>a signed verdict: does it do what its package says</td>
-              <td><span class="hand agent">agent</span></td>
+              <td><a class="agent-on" href="https://app.agentmesh.ai/a/agentevaluator.jeffrschneider%40gmail.com/agentdoc">agentevaluator</a></td>
             </tr>
             <tr>
               <td><a href="stages.html#eval">Eval</a></td>
               <td style="color:var(--faint)">none</td>
               <td>a graded judgment on the work itself, against a standard set beforehand</td>
-              <td><span class="hand person">person</span></td>
+              <td><span class="soon">coming soon</span></td>
             </tr>
 
             <tr class="phase"><td colspan="4">Use</td></tr>
@@ -163,13 +162,13 @@
               <td><a href="stages.html#docs">Docs</a></td>
               <td style="color:var(--faint)">none</td>
               <td>a document a stranger can read before deciding to use it</td>
-              <td><span class="hand approved">agent, approved</span></td>
+              <td><span class="soon">coming soon</span></td>
             </tr>
             <tr>
               <td><a href="stages.html#publish">Publish</a></td>
               <td style="color:var(--faint)">none</td>
               <td>an address a person can open, and the digest of what is there</td>
-              <td><span class="hand person">person</span></td>
+              <td><span class="soon">coming soon</span></td>
             </tr>
 
             <tr class="phase"><td colspan="4">Run</td></tr>
@@ -177,19 +176,19 @@
               <td><a href="stages.html#monitor">Monitor</a></td>
               <td style="color:var(--faint)">none</td>
               <td>whether each agent is alive, answering, and inside its limits</td>
-              <td><span class="hand person">person</span></td>
+              <td><span class="soon">coming soon</span></td>
             </tr>
             <tr>
               <td><a href="stages.html#incident">Incident response</a></td>
               <td style="color:var(--faint)">none</td>
               <td>what happened, what was done about it, and what changes as a result</td>
-              <td><span class="hand person">person</span></td>
+              <td><span class="soon">coming soon</span></td>
             </tr>
             <tr>
               <td><a href="stages.html#cost">Cost</a></td>
               <td><a href="https://agentroles.ai/bookkeeper.html">bookkeeper</a></td>
               <td>what was spent, against what was allowed</td>
-              <td><span class="hand person">person</span></td>
+              <td><span class="soon">coming soon</span></td>
             </tr>
 
             <tr class="phase"><td colspan="4">Change</td></tr>
@@ -197,19 +196,19 @@
               <td><a href="stages.html#update">Update</a></td>
               <td><a href="https://agentroles.ai/deployment-manager.html">deployment manager</a></td>
               <td>the same agent, on a new version, with what changed recorded</td>
-              <td><span class="hand approved">agent, approved</span></td>
+              <td><a class="agent-on" href="https://app.agentmesh.ai/a/deploymgr.jeffrschneider%40gmail.com/agentdoc">deploymgr</a></td>
             </tr>
             <tr>
               <td><a href="stages.html#rollback">Rollback</a></td>
               <td style="color:var(--faint)">none</td>
               <td>the same agent, back on the version before, and why</td>
-              <td><span class="hand person">person</span></td>
+              <td><span class="soon">coming soon</span></td>
             </tr>
             <tr>
               <td><a href="stages.html#decommission">Decommission</a></td>
               <td><a href="https://agentroles.ai/deployment-manager.html">deployment manager</a></td>
               <td>nothing running, the records kept, and the address retired</td>
-              <td><span class="hand approved">agent, approved</span></td>
+              <td><a class="agent-on" href="https://app.agentmesh.ai/a/deploymgr.jeffrschneider%40gmail.com/agentdoc">deploymgr</a></td>
             </tr>
           </tbody>
         </table>
@@ -217,9 +216,8 @@
 
       <section class="band">
         <h2>What the map shows</h2>
-        <p>The middle, from Build to Acceptance, is where agents already hold the work. That stretch was built out of artifacts before anybody thought about agents. Either end is held by people.</p>
-        <p>The front end is stuck on Code, Test, Review and Security review, where there is no artifact to pass. The back end is stuck on Eval, Publish, Cost, Incident response and Rollback, where nobody has written down the judgment or the authority that would settle them.</p>
-        <p>Twelve of the twenty stages have no published role, and nine have no artifact to hand on.</p>
+        <p>Seven stages have an agent, and they run together from Build to Acceptance with Update and Decommission behind them. That stretch was built out of artifacts before anybody thought about agents, which is why it went first.</p>
+        <p>The front of the lifecycle has none, and not for want of models that can write code. Code, Test, Review and Security review have no artifact to pass between them and no check on the way out that anybody has agreed on. The back has none either, for a different reason: Eval, Publish, Cost, Incident response and Rollback each need a judgment or an authority that nobody has written down.</p>
       </section>
 
       <section class="band" style="border-bottom:0">

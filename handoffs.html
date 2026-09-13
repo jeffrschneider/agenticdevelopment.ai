@@ -21,7 +21,6 @@
       <a href="index.html">Overview</a>
       <a href="stages.html">The stages</a>
       <a class="on" href="handoffs.html">The handoffs</a>
-      <a href="hands.html">Who holds a stage</a>
     </nav>
     <div class="grp">In practice</div>
     <nav>
@@ -113,13 +112,11 @@
 
         <p>The third is the one most often skipped, and it is the one that matters. An agent that writes the program, writes the test and runs the test has produced a closed loop, and a closed loop always passes.</p>
 
-        <p>Passing all three makes a stage safe to hold without approval. It does not make approval wrong. Some stages keep a person in the loop because the decision is theirs to own rather than because the agent needs watching, and <a href="hands.html">who holds a stage</a> separates the two.</p>
+        <p>Passing all three makes a stage safe to hold on its own. It does not make an approval wrong. Deploying, configuring and decommissioning change the world in ways that are awkward to undo, and a person saying yes to one of those is a record that a person decided, not a check on whether the agent was competent. That record is worth keeping whatever the agent is capable of.</p>
 
         <h2>What this is built on</h2>
 
         <p>The Build and Release entries describe a manifest, a digest and a signed build record, which is the provenance chain that <a href="https://slsa.dev">SLSA</a> and <a href="https://in-toto.io">in-toto</a> already specify and <a href="https://www.sigstore.dev">Sigstore</a> already implements. Nothing here replaces that work and a serious implementation should use it. What is added is the other end: the same expectation of a named artifact and an outside check applied to the stages where neither exists yet.</p>
-
-        <p>The four levels on <a href="hands.html">who holds a stage</a> are a maturity model, and maturity models for software delivery are well-travelled ground. This one is narrow on purpose. It asks one question, who holds this stage, and it is meant to be read stage by stage rather than as a single score for an organization.</p>
 
       </article>
     </div>

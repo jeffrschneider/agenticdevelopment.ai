@@ -92,19 +92,15 @@ section.band ul{ color:var(--dim); max-width:62ch; }
 .card.handoff{ border-top:2px solid var(--accent); }
 .card.done{ border-top:2px solid var(--enforced); }
 
-/* Who does a stage today. The word is the meaning; the bar is only a
-   second reading of the same word, never the only one. */
-.hand{ font-family:var(--wire); font-size:.66rem; font-weight:600; letter-spacing:.08em;
+/* Two states, and no third. Either an agent holds the stage, in which case it
+   is named and the name is a link to that agent's AgentDoc, or nothing does
+   yet. A person can always do any of it, which is why it is not a state. */
+.agent-on{ font-family:var(--wire); font-size:.82rem; font-weight:500; color:var(--accent);
+  text-decoration:none; border-bottom:1px solid rgba(198,217,107,.45); white-space:nowrap; }
+.agent-on:hover{ color:var(--paper); border-bottom-color:var(--paper); }
+.soon{ font-family:var(--wire); font-size:.66rem; font-weight:600; letter-spacing:.1em;
   text-transform:uppercase; white-space:nowrap; padding:2px 8px; border-radius:4px;
-  border:1px solid var(--line); color:var(--dim); background:var(--panel-2); }
-.hand.person{ color:var(--dim); }
-.hand.assisted{ color:var(--recorded); border-color:rgba(242,169,59,.5); }
-.hand.approved{ color:var(--evidence); border-color:rgba(107,168,255,.5); }
-.hand.agent{ color:var(--enforced); border-color:rgba(67,214,166,.5); }
-
-.gap{ font-family:var(--wire); font-size:.66rem; font-weight:700; letter-spacing:.1em;
-  text-transform:uppercase; white-space:nowrap; padding:2px 8px; border-radius:4px;
-  color:var(--ink); background:var(--accent); }
+  border:1px solid var(--line); color:var(--faint); background:var(--panel-2); }
 
 .figure{ margin:34px 0 4px; background:var(--panel); border:1px solid var(--line); border-radius:12px;
   overflow:hidden; box-shadow:0 30px 70px -40px rgba(0,0,0,.9); }
@@ -167,7 +163,8 @@ article.spec h2.phase-head:first-of-type{ margin-top:34px; }
 /* One stage, written out. */
 .stage{ border-top:1px solid var(--line); padding:34px 0 6px; }
 .stage:first-of-type{ border-top:0; }
-.stage .head{ display:flex; align-items:baseline; gap:12px; flex-wrap:wrap; margin-bottom:6px; }
+.stage .head{ display:flex; align-items:center; gap:12px; flex-wrap:wrap; margin-bottom:6px; }
+.stage .head .ico{ width:26px; height:26px; flex:0 0 26px; color:var(--accent); }
 .stage h2{ font-size:1.55rem; margin:0; }
 .stage .num{ font-family:var(--wire); font-size:.74rem; color:var(--faint); }
 .stage > p{ color:var(--dim); max-width:70ch; }
