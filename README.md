@@ -13,7 +13,6 @@ The site is five pages:
 - `handoffs.html` — the artifact chain, and why it breaks where it does
 - `hands.html` — the four levels of who holds a stage
 - `implementations.html` — what holds each stage today
-- `gaps.html` — the nine places it does not join up
 
 Static HTML with one stylesheet, in the same family as agentmesh.ai,
 agentroles.ai, agentdoc.net, agentsow.com and agentmandate.net: Space Grotesk

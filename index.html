@@ -26,7 +26,6 @@
     <div class="grp">In practice</div>
     <nav>
       <a href="implementations.html">Implementations</a>
-      <a href="gaps.html">Where it is thin</a>
     </nav>
     <div class="foot">
       <a href="https://agentmesh.ai/standards.html">The family of standards</a><br><br>
@@ -44,7 +43,7 @@
         <p class="lede">The stages have not changed. Somebody still has to decide what is wanted, write it, test it, review it, ship it, prove it works, and take it away again. What changes when an agent holds a stage is that the handoff has to become a thing, not a conversation. This is a map of the twenty stages, the role each one needs, and the artifact it hands to the next.</p>
         <div class="cta">
           <a class="btn btn-signal" href="stages.html">Read the stages</a>
-          <a class="btn btn-ghost" href="gaps.html">Where it is thin</a>
+          <a class="btn btn-ghost" href="handoffs.html">The handoffs</a>
         </div>
       </section>
 
@@ -72,19 +71,8 @@
       </section>
 
       <section class="band">
-        <h2>The handoff is the hard part</h2>
-        <p>The reason some stages move to agents easily and others do not has little to do with difficulty. It is about whether the work already had a shape.</p>
-        <p>Packaging moved first, everywhere, because a package was always an artifact: a set of files with a manifest and a digest. Deployment moved next, because an install is a written instruction with a result you can check. Neither needed a new idea, only an agent that could read what was already there.</p>
-        <p>Code has not moved, and not for want of models that can write it. It has not moved because there is no artifact between "here is what it should do" and "here is a program", and no check on the way out that anyone agrees on. The same is true of test and of review. <b>The stages that are stuck are the stages with no artifact on either side.</b></p>
-        <p>So the useful work in defining an agentic lifecycle is not drawing the stages. It is naming the artifacts, and noticing where one is missing. <a href="handoffs.html" style="color:var(--paper)">The handoffs</a> page follows the chain all the way through.</p>
-      </section>
-
-      <section class="band">
-        <h2>The map</h2>
-        <p>Twenty stages in seven phases. <b>Role</b> is the published contract a stage needs, and <i>none</i> means one has not been written yet. <b>Hands back</b> is the artifact the next stage is given. <b>Today</b> is who usually holds the stage in practice, which is <a href="hands.html" style="color:var(--paper)">four levels</a> from a person working alone to an agent working alone.</p>
-        <p>Two of these are not really steps in a sequence. Monitor and Cost run continuously from the moment something is deployed, and they are listed in order because a table has to have an order, not because they happen once. Security review is a step, and it is also a thing that ought to be happening at several others.</p>
-
-        <table class="clauses">
+        <h2>The Agent Development Lifecycle</h2>
+                <table class="clauses">
           <thead>
             <tr><th>Stage</th><th>Role</th><th>Hands back</th><th>Today</th></tr>
           </thead>
@@ -229,11 +217,9 @@
 
       <section class="band">
         <h2>What the map shows</h2>
-        <p>Read down the last column and the shape is plain. The middle of the lifecycle, from Build to Acceptance, is where agents already hold the work, because that stretch was built out of artifacts before anybody thought about agents. Either end is held by people.</p>
-        <p>That claim is drawn from one mesh, described on <a href="implementations.html" style="color:var(--paper)">Implementations</a>, and it is fair to ask whether the lifecycle produced the observation or the observation produced the lifecycle. The honest answer is that the gaps were found by hitting them, and the map was written afterwards.</p>
-        <p>The front end is stuck on Code, Test, Review and Security review, where there is no artifact to pass and no agreed check on the way out. The back end is stuck on Eval, Publish, Cost, Incident response and Rollback, which look like five different problems and share a shape: each one needs a judgment or an authority that nobody has written down.</p>
-        <p>Twelve of the twenty stages have no published role, and nine have no artifact to hand on. That is not a complaint about the state of the world. It is the list of things worth writing next, and it is why this site exists.</p>
-        <p><a href="gaps.html" style="color:var(--paper)">Where it is thin</a> goes through each of them.</p>
+        <p>The middle, from Build to Acceptance, is where agents already hold the work. That stretch was built out of artifacts before anybody thought about agents. Either end is held by people.</p>
+        <p>The front end is stuck on Code, Test, Review and Security review, where there is no artifact to pass. The back end is stuck on Eval, Publish, Cost, Incident response and Rollback, where nobody has written down the judgment or the authority that would settle them.</p>
+        <p>Twelve of the twenty stages have no published role, and nine have no artifact to hand on.</p>
       </section>
 
       <section class="band" style="border-bottom:0">

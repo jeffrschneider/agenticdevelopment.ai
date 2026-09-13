@@ -153,6 +153,17 @@ article.spec table td:first-child code{ white-space:nowrap; }
 article.spec blockquote{ margin:14px 0; padding:10px 18px; border-left:2px solid var(--accent);
   background:var(--panel); border-radius:0 8px 8px 0; color:var(--dim); }
 
+/* A phase is a divider, not a heading. It is set as a small mono label in the
+   accent, the way the rail groups its links and the way the map's table marks
+   a phase, so that it cannot be mistaken for the name of a stage. */
+article.spec h2.phase-head{
+  font-family:var(--wire); font-weight:600; font-size:.68rem; letter-spacing:.26em;
+  text-transform:uppercase; color:var(--accent); line-height:1;
+  margin:66px 0 0; padding:0 0 8px; border-top:0; border-bottom:1px solid rgba(198,217,107,.35);
+  display:block;
+}
+article.spec h2.phase-head:first-of-type{ margin-top:34px; }
+
 /* One stage, written out. */
 .stage{ border-top:1px solid var(--line); padding:34px 0 6px; }
 .stage:first-of-type{ border-top:0; }
