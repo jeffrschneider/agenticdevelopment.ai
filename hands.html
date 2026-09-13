@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Who holds a stage | Agentic Development</title>
+  <meta name="description" content="Four levels describing who holds a stage of the lifecycle: a person, a person with a model, an agent with a person approving, and an agent alone. What each one means, and what has to be true before a stage can move up.">
+  <link rel="icon" type="image/svg+xml" href="favicon.svg">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="site.css">
+</head>
+<body>
+<div class="layout">
+
+  <aside class="rail">
+    <a class="brand" href="index.html"><span class="dot"></span>agentic development</a>
+    <div class="grp">The lifecycle</div>
+    <nav>
+      <a href="index.html">Overview</a>
+      <a href="stages.html">The stages</a>
+      <a href="handoffs.html">The handoffs</a>
+      <a class="on" href="hands.html">Who holds a stage</a>
+    </nav>
+    <div class="grp">In practice</div>
+    <nav>
+      <a href="implementations.html">Implementations</a>
+      <a href="gaps.html">Where it is thin</a>
+    </nav>
+    <div class="foot">
+      <a href="https://agentmesh.ai/standards.html">The family of standards</a><br><br>
+      v0.1.0-draft<br>
+      a working draft, developed<br>alongside AgentMesh
+    </div>
+  </aside>
+
+  <main class="main">
+    <div class="wrap">
+      <article class="spec">
+        <h1>Who holds a stage</h1>
+        <p class="meta">Four levels, and what has to be true before a stage moves up one.</p>
+
+        <p>Saying a lifecycle is "agentic" is not useful, because no lifecycle is agentic all the way through and none is entirely manual either. What is useful is saying, stage by stage, who holds it. These are the four levels used across this site. They describe a stage as it is practiced, not a product and not an ambition.</p>
+
+        <h2>The four</h2>
+
+        <table>
+          <thead>
+            <tr><th>Level</th><th>What it means</th><th>Who is accountable</th></tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><span class="hand person">person</span></td>
+              <td>A person does the work. They may look things up, but nothing else produces the output.</td>
+              <td>the person</td>
+            </tr>
+            <tr>
+              <td><span class="hand assisted">person + model</span></td>
+              <td>A person drives and a model produces. The model has no identity of its own, and whatever record exists belongs to the session rather than to the work, so there is no address to ask. Every session starts over.</td>
+              <td>the person</td>
+            </tr>
+            <tr>
+              <td><span class="hand approved">agent, approved</span></td>
+              <td>An agent does the work and files the result, and a person says yes before it takes effect. The agent has an identity, keeps records, and can be asked afterwards.</td>
+              <td>shared: the agent for the work, the person for the decision</td>
+            </tr>
+            <tr>
+              <td><span class="hand agent">agent</span></td>
+              <td>An agent does the work and the result stands without anybody approving it. This is only safe where a check exists that the agent does not control.</td>
+              <td>the agent, and whoever runs it</td>
+            </tr>
+          </tbody>
+        </table>
+
+        <h2>The distinction that matters</h2>
+
+        <p>The interesting line is not between a person and a model. It is between <b>a model</b> and <b>an agent</b>, and it is the second and third rows above.</p>
+
+        <p>A model used inside somebody's session is a tool. The session may well be logged, and a transcript is a record, so the difference is not that nothing is written down. The difference is that the record belongs to the person's session rather than to the work: nothing downstream holds a reference to it, nothing is obliged to keep it, and there is no address to ask. The person is the index. That is workable and it is how most of this stage of the industry runs, but it does not compose, because the parts only exist while somebody is watching them.</p>
+
+        <p>An agent has an address, keeps records, and can be asked afterwards what it did and why. That is what lets one stage hand to the next without a person in the middle carrying the context.</p>
+
+        <p>So "person + model" is not a weaker version of "agent". It is a different arrangement, where the human is doing the part an agent would need an artifact for.</p>
+
+        <h2>Moving a stage up a level</h2>
+
+        <p>Each step up has one requirement, and it is not a better model.</p>
+
+        <p><b>From person to person and model</b> needs nothing but the model, which is why this step happened everywhere, quickly, and why it is not the interesting one.</p>
+
+        <p><b>From person and model to an agent with approval</b> needs the handoff. The stage before has to produce something the agent can be given, and the stage has to produce something the next one can read. Until both exist, an agent here is a model with a launcher and somebody still has to hold the context.</p>
+
+        <p><b>From an agent with approval to an agent alone</b> needs a check the agent does not control, written before the work, by something that is not the thing doing the work. Without it, removing the approval removes the only thing standing between a mistake and a result. With it, the approval is the ceremony and the check is the substance, and the ceremony can go.</p>
+
+        <h2>Why approval is not a stage of maturity</h2>
+
+        <p>It is tempting to read the four levels as a ladder where the top is the goal. Some stages should stay at <span class="hand approved">agent, approved</span> permanently, and not because the agent is not good enough.</p>
+        <p>There are two different reasons a stage keeps a person in the loop, and it is worth knowing which one applies. Either the check that would make the agent safe on its own has not been written, which is a gap and will close; or the act is one a person should own whatever the agent is capable of, which is not a gap and will not close.</p>
+
+        <p>Deploying, configuring and decommissioning change the world in ways that are awkward to undo, and the approval is not a check on the agent's competence. It is a record that a person decided. That record is worth keeping even when the agent is more reliable than the person approving it, which it often is.</p>
+
+        <p>The right question for each stage is not how high it can go. It is whether a person is in the loop to catch the agent, which is a gap to close, or to own the decision, which is not. Deploy, Configure and Decommission are the second kind. Code, Test and Review are the first.</p>
+
+      </article>
+    </div>
+  </main>
+</div>
+</body>
+</html>

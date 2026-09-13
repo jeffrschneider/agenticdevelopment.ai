@@ -1,317 +1,249 @@
 <!DOCTYPE html>
-<html lang="en" class="scroll-smooth">
+<html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Agentic Development | The Post-Agile Paradigm</title>
-    <script src="https://cdn.tailwindcss.com"></script>
-    <!-- Lucide Icons -->
-    <script src="https://unpkg.com/lucide@latest"></script>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700&family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
-    
-    <script>
-        tailwind.config = {
-            theme: {
-                extend: {
-                    fontFamily: {
-                        sans: ['Inter', 'sans-serif'],
-                        mono: ['JetBrains Mono', 'monospace'],
-                    },
-                    colors: {
-                        brand: {
-                            50: '#f0f9ff',
-                            500: '#0ea5e9',
-                            600: '#0284c7',
-                            900: '#0c4a6e',
-                        },
-                        dark: {
-                            bg: '#0f172a',
-                            surface: '#1e293b',
-                            border: '#334155'
-                        }
-                    },
-                    animation: {
-                        'pulse-slow': 'pulse 4s cubic-bezier(0.4, 0, 0.6, 1) infinite',
-                    }
-                }
-            }
-        }
-    </script>
-    <style>
-        body {
-            background-color: #0f172a;
-            color: #e2e8f0;
-        }
-        .grid-bg {
-            background-image: linear-gradient(to right, #1e293b 1px, transparent 1px),
-                              linear-gradient(to bottom, #1e293b 1px, transparent 1px);
-            background-size: 40px 40px;
-            mask-image: linear-gradient(to bottom, black 40%, transparent 100%);
-        }
-        .glass-card {
-            background: rgba(30, 41, 59, 0.7);
-            backdrop-filter: blur(10px);
-            border: 1px solid rgba(255, 255, 255, 0.1);
-        }
-        .gradient-text {
-            background: linear-gradient(135deg, #38bdf8 0%, #818cf8 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-        }
-    </style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Agentic Development: a lifecycle for software that agents build</title>
+  <meta name="description" content="The software lifecycle, written for work that agents do. The stages are the ordinary ones. What changes is who holds each stage, what gets handed between them, and what has to be true before a stage counts as finished. A map of twenty stages, the role each one needs, the artifact it hands on, and where the practice is still thin.">
+  <link rel="icon" type="image/svg+xml" href="favicon.svg">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="site.css">
 </head>
-<body class="antialiased relative overflow-x-hidden">
+<body>
+<div class="layout">
 
-    <!-- Background Grid Effect -->
-    <div class="fixed inset-0 grid-bg -z-10 h-screen"></div>
-
-    <!-- Navigation -->
-    <nav class="fixed w-full z-50 top-0 left-0 border-b border-white/10 bg-dark-bg/80 backdrop-blur-md">
-        <div class="container mx-auto px-6 h-16 flex items-center justify-between">
-            <div class="flex items-center gap-2">
-                <i data-lucide="cpu" class="text-brand-500 w-6 h-6"></i>
-                <span class="font-bold text-lg tracking-tight">Agentic <span class="text-brand-500">Development</span></span>
-            </div>
-            <div class="hidden md:flex items-center gap-8 text-sm font-medium text-slate-400">
-                <a href="#core" class="hover:text-white transition-colors">The Core</a>
-                <a href="#methodology" class="hover:text-white transition-colors">Methodology</a>
-                <a href="#ecosystem" class="hover:text-white transition-colors">Ecosystem</a>
-            </div>
-        </div>
+  <aside class="rail">
+    <a class="brand" href="index.html"><span class="dot"></span>agentic development</a>
+    <div class="grp">The lifecycle</div>
+    <nav>
+      <a class="on" href="index.html">Overview</a>
+      <a href="stages.html">The stages</a>
+      <a href="handoffs.html">The handoffs</a>
+      <a href="hands.html">Who holds a stage</a>
     </nav>
+    <div class="grp">In practice</div>
+    <nav>
+      <a href="implementations.html">Implementations</a>
+      <a href="gaps.html">Where it is thin</a>
+    </nav>
+    <div class="foot">
+      <a href="https://agentmesh.ai/standards.html">The family of standards</a><br><br>
+      v0.1.0-draft<br>
+      a working draft, developed<br>alongside AgentMesh
+    </div>
+  </aside>
 
-    <!-- Hero Section -->
-    <header class="relative pt-32 pb-20 lg:pt-48 lg:pb-32 container mx-auto px-6 text-center">
-        <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-blue-500/10 border border-blue-500/20 text-blue-400 text-xs font-mono mb-8 animate-fade-in-up">
-            <span class="relative flex h-2 w-2">
-              <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-blue-400 opacity-75"></span>
-              <span class="relative inline-flex rounded-full h-2 w-2 bg-blue-500"></span>
-            </span>
-            SYSTEM ONLINE: v2.0.4
+  <main class="main">
+    <div class="wrap">
+
+      <section class="hero">
+        <span class="eyebrow"><span class="tag">agentic-development</span> // the ordinary stages, and what changes when an agent holds one</span>
+        <h1>A lifecycle for software that agents build</h1>
+        <p class="lede">The stages have not changed. Somebody still has to decide what is wanted, write it, test it, review it, ship it, prove it works, and take it away again. What changes when an agent holds a stage is that the handoff has to become a thing, not a conversation. This is a map of the twenty stages, the role each one needs, and the artifact it hands to the next.</p>
+        <div class="cta">
+          <a class="btn btn-signal" href="stages.html">Read the stages</a>
+          <a class="btn btn-ghost" href="gaps.html">Where it is thin</a>
         </div>
-        
-        <h1 class="text-5xl lg:text-7xl font-extrabold tracking-tight mb-8">
-            Software at the <br />
-            <span class="gradient-text">Speed of Thought</span>
-        </h1>
-        
-        <p class="text-xl text-slate-400 max-w-2xl mx-auto mb-10 leading-relaxed">
-            Don't just write code; orchestrate intelligence. 
-            Leverage <span class="text-white font-semibold">AI Coding Agents</span> and <span class="text-white font-semibold">Shed & Shift</span> methodologies 
-            to automate the very fabric of software creation.
-        </p>
+      </section>
 
-        <div class="flex flex-col sm:flex-row items-center justify-center gap-4">
-            <a href="#core" class="w-full sm:w-auto px-8 py-3 bg-white text-slate-900 font-bold rounded-lg hover:bg-slate-100 transition-colors flex items-center justify-center gap-2">
-                Explore the Core <i data-lucide="arrow-down" class="w-4 h-4"></i>
-            </a>
-            <a href="https://enterpriseagents.net" target="_blank" class="w-full sm:w-auto px-8 py-3 glass-card text-white font-semibold rounded-lg hover:bg-white/5 transition-colors border border-white/10">
-                View Enterprise Agents
-            </a>
+      <section class="band">
+        <h2>Three things, for every stage</h2>
+        <p>A lifecycle that only names its stages is a diagram. What makes one usable is saying, for each stage, who is meant to hold it, what they are handed, and how anyone can tell it is finished. Those three questions are the whole of this map.</p>
+
+        <div class="cards">
+          <div class="card role">
+            <div class="n">01</div>
+            <h3>The role</h3>
+            <p>The job, written before any particular agent exists to hold it. Roles are published separately, at <a href="https://agentroles.ai" style="color:var(--paper)">agentroles.ai</a>, so a stage here names a role rather than a product. Several stages have no published role yet, and that is worth saying out loud.</p>
+          </div>
+          <div class="card handoff">
+            <div class="n">02</div>
+            <h3>The handoff</h3>
+            <p>What the stage is given and what it hands back, each an artifact somebody can name, read and check. A stage whose output is a conversation cannot be held by an agent, however capable the agent is.</p>
+          </div>
+          <div class="card done">
+            <div class="n">03</div>
+            <h3>What done means</h3>
+            <p>The check that says the stage really happened, made against something written down beforehand. Without it, a stage held by an agent is a stage nobody is accountable for.</p>
+          </div>
         </div>
-    </header>
+      </section>
 
-    <!-- The Core Section -->
-    <section id="core" class="py-24 relative">
-        <div class="container mx-auto px-6">
-            <div class="grid lg:grid-cols-2 gap-16 items-center">
-                <div>
-                    <h2 class="text-3xl font-bold mb-6 flex items-center gap-3">
-                        <i data-lucide="bot" class="text-brand-500"></i>
-                        The Primary Driver
-                    </h2>
-                    <p class="text-slate-400 text-lg mb-6">
-                        Agentic Development isn't just about using Copilot. It is a fundamental restructuring of the engineering loop. Use autonomous <strong>AI Coding Agents</strong> as the primary labor force.
-                    </p>
-                    <ul class="space-y-4 mb-8">
-                        <li class="flex items-start gap-3">
-                            <div class="mt-1 p-1 bg-green-500/10 rounded">
-                                <i data-lucide="check" class="w-4 h-4 text-green-500"></i>
-                            </div>
-                            <span class="text-slate-300">Autonomous code generation and self-correction</span>
-                        </li>
-                        <li class="flex items-start gap-3">
-                            <div class="mt-1 p-1 bg-green-500/10 rounded">
-                                <i data-lucide="check" class="w-4 h-4 text-green-500"></i>
-                            </div>
-                            <span class="text-slate-300">Continuous integration via agentic swarms</span>
-                        </li>
-                        <li class="flex items-start gap-3">
-                            <div class="mt-1 p-1 bg-green-500/10 rounded">
-                                <i data-lucide="check" class="w-4 h-4 text-green-500"></i>
-                            </div>
-                            <span class="text-slate-300">Maintain agent catalogs and MCP Servers</span>
-                        </li>
-                    </ul>
-                    <a href="https://aicodingagents.ai/" class="text-brand-500 hover:text-brand-400 font-semibold inline-flex items-center gap-1 group">
-                        Explore AI Coding Agents <i data-lucide="arrow-right" class="w-4 h-4 group-hover:translate-x-1 transition-transform"></i>
-                    </a>
-                </div>
-                
-                <div class="relative">
-                    <div class="absolute inset-0 bg-brand-500/20 blur-3xl rounded-full opacity-20 animate-pulse-slow"></div>
-                    <div class="glass-card p-8 rounded-2xl relative border-t border-white/20">
-                        <div class="font-mono text-xs text-blue-300 mb-4 border-b border-white/10 pb-2"> // AGENTIC_LOG_STREAM</div>
-                        <div class="space-y-3 font-mono text-sm">
-                            <div class="flex gap-2">
-                                <span class="text-slate-500">10:42:01</span>
-                                <span class="text-green-400">INFO</span>
-                                <span>Initializing SpecDriven protocol...</span>
-                            </div>
-                            <div class="flex gap-2">
-                                <span class="text-slate-500">10:42:02</span>
-                                <span class="text-purple-400">AGENT</span>
-                                <span>Parsing business requirements...</span>
-                            </div>
-                            <div class="flex gap-2">
-                                <span class="text-slate-500">10:42:05</span>
-                                <span class="text-blue-400">BUILD</span>
-                                <span>Generating Jitware artifact...</span>
-                            </div>
-                            <div class="flex gap-2">
-                                <span class="text-slate-500">10:42:08</span>
-                                <span class="text-yellow-400">WARN</span>
-                                <span>VibeSprawl detected. Optimizing...</span>
-                            </div>
-                            <div class="flex gap-2">
-                                <span class="text-slate-500">10:42:12</span>
-                                <span class="text-green-400">SUCCESS</span>
-                                <span>Deployment complete.</span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
+      <section class="band">
+        <h2>The handoff is the hard part</h2>
+        <p>The reason some stages move to agents easily and others do not has little to do with difficulty. It is about whether the work already had a shape.</p>
+        <p>Packaging moved first, everywhere, because a package was always an artifact: a set of files with a manifest and a digest. Deployment moved next, because an install is a written instruction with a result you can check. Neither needed a new idea, only an agent that could read what was already there.</p>
+        <p>Code has not moved, and not for want of models that can write it. It has not moved because there is no artifact between "here is what it should do" and "here is a program", and no check on the way out that anyone agrees on. The same is true of test and of review. <b>The stages that are stuck are the stages with no artifact on either side.</b></p>
+        <p>So the useful work in defining an agentic lifecycle is not drawing the stages. It is naming the artifacts, and noticing where one is missing. <a href="handoffs.html" style="color:var(--paper)">The handoffs</a> page follows the chain all the way through.</p>
+      </section>
 
-    <!-- Methodology Section -->
-    <section id="methodology" class="py-24 bg-dark-surface/50">
-        <div class="container mx-auto px-6">
-            <div class="text-center max-w-3xl mx-auto mb-16">
-                <h2 class="text-3xl font-bold mb-4">Core Methodologies</h2>
-                <p class="text-slate-400">
-                    Don't just build faster; build differently. These unique operating principles ensure that AI integration leads to clarity, not chaos.
-                </p>
-            </div>
+      <section class="band">
+        <h2>The map</h2>
+        <p>Twenty stages in seven phases. <b>Role</b> is the published contract a stage needs, and <i>none</i> means one has not been written yet. <b>Hands back</b> is the artifact the next stage is given. <b>Today</b> is who usually holds the stage in practice, which is <a href="hands.html" style="color:var(--paper)">four levels</a> from a person working alone to an agent working alone.</p>
+        <p>Two of these are not really steps in a sequence. Monitor and Cost run continuously from the moment something is deployed, and they are listed in order because a table has to have an order, not because they happen once. Security review is a step, and it is also a thing that ought to be happening at several others.</p>
 
-            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-                <!-- Shed and Shift -->
-                <div class="glass-card p-8 rounded-xl hover:border-brand-500/50 transition-colors group">
-                    <div class="w-12 h-12 bg-purple-500/20 rounded-lg flex items-center justify-center text-purple-400 mb-6 group-hover:scale-110 transition-transform">
-                        <i data-lucide="shuffle"></i>
-                    </div>
-                    <h3 class="text-xl font-bold mb-3">Shed and Shift</h3>
-                    <p class="text-slate-400 text-sm mb-6 leading-relaxed">
-                        Identify low-value cognitive tasks, "shed" them from human workflows, and "shift" them to agentic processes.
-                    </p>
-                    <a href="https://shedandshift.ai/" class="text-sm font-bold text-white border-b border-purple-500 pb-0.5 hover:text-purple-400 transition-colors">
-                        Learn the technique &rarr;
-                    </a>
-                </div>
+        <table class="clauses">
+          <thead>
+            <tr><th>Stage</th><th>Role</th><th>Hands back</th><th>Today</th></tr>
+          </thead>
+          <tbody>
+            <tr class="phase"><td colspan="4">Define</td></tr>
+            <tr>
+              <td><a href="stages.html#requirements">Requirements</a></td>
+              <td style="color:var(--faint)">none</td>
+              <td>a statement of the job: what it does, refuses, needs, records and costs</td>
+              <td><span class="hand assisted">person + model</span></td>
+            </tr>
+            <tr>
+              <td><a href="stages.html#design">Design</a></td>
+              <td style="color:var(--faint)">none</td>
+              <td>the shape: the steps, and which are program and which are judgment</td>
+              <td><span class="hand assisted">person + model</span></td>
+            </tr>
 
-                <!-- Spec Driven -->
-                <div class="glass-card p-8 rounded-xl hover:border-brand-500/50 transition-colors group">
-                    <div class="w-12 h-12 bg-blue-500/20 rounded-lg flex items-center justify-center text-blue-400 mb-6 group-hover:scale-110 transition-transform">
-                        <i data-lucide="file-code"></i>
-                    </div>
-                    <h3 class="text-xl font-bold mb-3">Spec Driven</h3>
-                    <p class="text-slate-400 text-sm mb-6 leading-relaxed">
-                        Work directly with business units to translate opaque processes into clear specifications that agents can execute against.
-                    </p>
-                    <a href="https://specdriven.ai/" class="text-sm font-bold text-white border-b border-blue-500 pb-0.5 hover:text-blue-400 transition-colors">
-                        See the process &rarr;
-                    </a>
-                </div>
+            <tr class="phase"><td colspan="4">Make</td></tr>
+            <tr>
+              <td><a href="stages.html#code">Code</a></td>
+              <td style="color:var(--faint)">none</td>
+              <td>the programs</td>
+              <td><span class="hand assisted">person + model</span></td>
+            </tr>
+            <tr>
+              <td><a href="stages.html#test">Test</a></td>
+              <td style="color:var(--faint)">none</td>
+              <td>tests, and a result from running them</td>
+              <td><span class="hand assisted">person + model</span></td>
+            </tr>
+            <tr>
+              <td><a href="stages.html#review">Review</a></td>
+              <td style="color:var(--faint)">none</td>
+              <td>findings against the program, each one answerable</td>
+              <td><span class="hand person">person</span></td>
+            </tr>
 
-                <!-- Jitware -->
-                <div class="glass-card p-8 rounded-xl hover:border-brand-500/50 transition-colors group">
-                    <div class="w-12 h-12 bg-emerald-500/20 rounded-lg flex items-center justify-center text-emerald-400 mb-6 group-hover:scale-110 transition-transform">
-                        <i data-lucide="zap"></i>
-                    </div>
-                    <h3 class="text-xl font-bold mb-3">Jitware</h3>
-                    <p class="text-slate-400 text-sm mb-6 leading-relaxed">
-                        Generate disposable, highly-specific micro-apps for immediate needs to avoid building monolithic technical debt.
-                    </p>
-                    <a href="https://jitware.net/" class="text-sm font-bold text-white border-b border-emerald-500 pb-0.5 hover:text-emerald-400 transition-colors">
-                        Understand Jitware &rarr;
-                    </a>
-                </div>
-            </div>
-        </div>
-    </section>
+            <tr>
+              <td><a href="stages.html#security">Security review</a></td>
+              <td style="color:var(--faint)">none</td>
+              <td>a statement of what this thing may reach, what it may spend, and what it must never do</td>
+              <td><span class="hand person">person</span></td>
+            </tr>
 
-    <!-- The Anti-Pattern: Vibe Sprawl -->
-    <section class="py-24">
-        <div class="container mx-auto px-6">
-            <div class="glass-card border-red-500/20 p-8 md:p-12 rounded-2xl flex flex-col md:flex-row items-center gap-12">
-                <div class="flex-1">
-                    <h2 class="text-3xl font-bold mb-4 text-white">Avoid <span class="text-red-400">Vibe Sprawl</span></h2>
-                    <p class="text-slate-400 mb-6">
-                        Without discipline, AI generation leads to "Vibe Sprawl"—a chaotic proliferation of hallucinated features. Strictly enforce boundaries via Agentic Integration protocols to ensure cohesion.
-                    </p>
-                    <a href="https://vibesprawl.com/" class="inline-flex items-center gap-2 px-6 py-3 bg-red-900/30 hover:bg-red-900/50 border border-red-500/30 text-red-200 rounded-lg transition-colors">
-                        <i data-lucide="alert-triangle" class="w-4 h-4"></i>
-                        Read the Warning
-                    </a>
-                </div>
-                <div class="w-full md:w-1/3 flex justify-center">
-                    <div class="relative w-48 h-48">
-                        <div class="absolute inset-0 border-2 border-red-500/30 rounded-full animate-ping opacity-20"></div>
-                        <div class="absolute inset-0 border border-red-500/10 rounded-full flex items-center justify-center bg-red-900/10 backdrop-blur-sm">
-                            <i data-lucide="activity" class="w-16 h-16 text-red-500"></i>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
+            <tr class="phase"><td colspan="4">Ship</td></tr>
+            <tr>
+              <td><a href="stages.html#build">Build and package</a></td>
+              <td><a href="https://agentroles.ai/agent-builder.html">agent builder</a></td>
+              <td>a package: the declaration, the parts, a manifest, a digest</td>
+              <td><span class="hand approved">agent, approved</span></td>
+            </tr>
+            <tr>
+              <td><a href="stages.html#release">Release</a></td>
+              <td><a href="https://agentroles.ai/agent-builder.html">agent builder</a></td>
+              <td>a signed build record, and the package at an address</td>
+              <td><span class="hand agent">agent</span></td>
+            </tr>
+            <tr>
+              <td><a href="stages.html#deploy">Deploy</a></td>
+              <td><a href="https://agentroles.ai/deployment-manager.html">deployment manager</a></td>
+              <td>a running agent with an identity, an address and an inbox</td>
+              <td><span class="hand approved">agent, approved</span></td>
+            </tr>
+            <tr>
+              <td><a href="stages.html#configure">Configure</a></td>
+              <td><a href="https://agentroles.ai/deployment-manager.html">deployment manager</a></td>
+              <td>credentials bound by name, settings placed, ceilings set</td>
+              <td><span class="hand approved">agent, approved</span></td>
+            </tr>
 
-    <!-- Infrastructure & Footer -->
-    <footer id="ecosystem" class="bg-dark-bg border-t border-white/10 pt-20 pb-10">
-        <div class="container mx-auto px-6">
-            <div class="grid md:grid-cols-4 gap-12 mb-16">
-                <div class="col-span-1 md:col-span-2">
-                    <a href="#" class="text-2xl font-bold tracking-tighter block mb-6">
-                        Agentic <span class="text-brand-500">Development</span>
-                    </a>
-                    <p class="text-slate-500 max-w-sm">
-                        Orchestrating the future of software development through autonomous agents, rigorous specifications, and just-in-time architecture.
-                    </p>
-                </div>
-                
-                <div>
-                    <h4 class="font-bold text-white mb-4">The Network</h4>
-                    <ul class="space-y-3 text-sm text-slate-400">
-                        <li><a href="https://aicodingagents.ai/" class="hover:text-brand-500 transition">AI Coding Agents</a></li>
-                        <li><a href="https://enterpriseagents.net" class="hover:text-brand-500 transition">Enterprise Agents</a></li>
-                        <li><a href="https://jitware.net/" class="hover:text-brand-500 transition">Jitware</a></li>
-                    </ul>
-                </div>
+            <tr class="phase"><td colspan="4">Prove</td></tr>
+            <tr>
+              <td><a href="stages.html#acceptance">Acceptance</a></td>
+              <td><a href="https://agentroles.ai/agent-evaluator.html">agent evaluator</a></td>
+              <td>a signed verdict: does it do what its package says</td>
+              <td><span class="hand agent">agent</span></td>
+            </tr>
+            <tr>
+              <td><a href="stages.html#eval">Eval</a></td>
+              <td style="color:var(--faint)">none</td>
+              <td>a graded judgment on the work itself, against a standard set beforehand</td>
+              <td><span class="hand person">person</span></td>
+            </tr>
 
-                <div>
-                    <h4 class="font-bold text-white mb-4">Techniques</h4>
-                    <ul class="space-y-3 text-sm text-slate-400">
-                        <li><a href="https://shedandshift.ai/" class="hover:text-brand-500 transition">Shed and Shift</a></li>
-                        <li><a href="https://specdriven.ai/" class="hover:text-brand-500 transition">Spec Driven</a></li>
-                        <li><a href="https://vibesprawl.com/" class="hover:text-red-400 transition">Avoid Vibe Sprawl</a></li>
-                    </ul>
-                </div>
-            </div>
+            <tr class="phase"><td colspan="4">Use</td></tr>
+            <tr>
+              <td><a href="stages.html#docs">Docs</a></td>
+              <td style="color:var(--faint)">none</td>
+              <td>a document a stranger can read before deciding to use it</td>
+              <td><span class="hand approved">agent, approved</span></td>
+            </tr>
+            <tr>
+              <td><a href="stages.html#publish">Publish</a></td>
+              <td style="color:var(--faint)">none</td>
+              <td>an address a person can open, and the digest of what is there</td>
+              <td><span class="hand person">person</span></td>
+            </tr>
 
-            <div class="border-t border-white/5 pt-8 flex flex-col md:flex-row justify-between items-center gap-4">
-                <div class="text-slate-600 text-sm">
-                    &copy; 2024 Agentic Development.
-                </div>
-            </div>
-        </div>
-    </footer>
+            <tr class="phase"><td colspan="4">Run</td></tr>
+            <tr>
+              <td><a href="stages.html#monitor">Monitor</a></td>
+              <td style="color:var(--faint)">none</td>
+              <td>whether each agent is alive, answering, and inside its limits</td>
+              <td><span class="hand person">person</span></td>
+            </tr>
+            <tr>
+              <td><a href="stages.html#incident">Incident response</a></td>
+              <td style="color:var(--faint)">none</td>
+              <td>what happened, what was done about it, and what changes as a result</td>
+              <td><span class="hand person">person</span></td>
+            </tr>
+            <tr>
+              <td><a href="stages.html#cost">Cost</a></td>
+              <td><a href="https://agentroles.ai/bookkeeper.html">bookkeeper</a></td>
+              <td>what was spent, against what was allowed</td>
+              <td><span class="hand person">person</span></td>
+            </tr>
 
-    <script>
-        // Initialize Icons
-        lucide.createIcons();
-    </script>
+            <tr class="phase"><td colspan="4">Change</td></tr>
+            <tr>
+              <td><a href="stages.html#update">Update</a></td>
+              <td><a href="https://agentroles.ai/deployment-manager.html">deployment manager</a></td>
+              <td>the same agent, on a new version, with what changed recorded</td>
+              <td><span class="hand approved">agent, approved</span></td>
+            </tr>
+            <tr>
+              <td><a href="stages.html#rollback">Rollback</a></td>
+              <td style="color:var(--faint)">none</td>
+              <td>the same agent, back on the version before, and why</td>
+              <td><span class="hand person">person</span></td>
+            </tr>
+            <tr>
+              <td><a href="stages.html#decommission">Decommission</a></td>
+              <td><a href="https://agentroles.ai/deployment-manager.html">deployment manager</a></td>
+              <td>nothing running, the records kept, and the address retired</td>
+              <td><span class="hand approved">agent, approved</span></td>
+            </tr>
+          </tbody>
+        </table>
+      </section>
+
+      <section class="band">
+        <h2>What the map shows</h2>
+        <p>Read down the last column and the shape is plain. The middle of the lifecycle, from Build to Acceptance, is where agents already hold the work, because that stretch was built out of artifacts before anybody thought about agents. Either end is held by people.</p>
+        <p>That claim is drawn from one mesh, described on <a href="implementations.html" style="color:var(--paper)">Implementations</a>, and it is fair to ask whether the lifecycle produced the observation or the observation produced the lifecycle. The honest answer is that the gaps were found by hitting them, and the map was written afterwards.</p>
+        <p>The front end is stuck on Code, Test, Review and Security review, where there is no artifact to pass and no agreed check on the way out. The back end is stuck on Eval, Publish, Cost, Incident response and Rollback, which look like five different problems and share a shape: each one needs a judgment or an authority that nobody has written down.</p>
+        <p>Twelve of the twenty stages have no published role, and nine have no artifact to hand on. That is not a complaint about the state of the world. It is the list of things worth writing next, and it is why this site exists.</p>
+        <p><a href="gaps.html" style="color:var(--paper)">Where it is thin</a> goes through each of them.</p>
+      </section>
+
+      <section class="band" style="border-bottom:0">
+        <h2>Where this comes from</h2>
+        <p>This draft is written alongside <a href="https://agentmesh.ai" style="color:var(--paper)">AgentMesh</a>, where the middle of the lifecycle is built and running, and where the gaps at either end were found the ordinary way, by hitting them. Roles are defined at <a href="https://agentroles.ai" style="color:var(--paper)">agentroles.ai</a>. What an agent publishes about itself is defined at <a href="https://agentdoc.net" style="color:var(--paper)">agentdoc.net</a>. <a href="implementations.html" style="color:var(--paper)">Implementations</a> lists what exists today, stage by stage.</p>
+        <p>It is a working draft. The stages are stable; the roles and the checks are not, and several are named here before they are written.</p>
+      </section>
+
+    </div>
+  </main>
+</div>
 </body>
 </html>
