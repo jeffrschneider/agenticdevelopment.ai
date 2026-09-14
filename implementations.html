@@ -59,6 +59,16 @@
               <td><a href="https://agentroles.ai/spec-writer.html">spec writer</a></td>
             </tr>
             <tr>
+              <td><a href="stages.html#test">Test</a></td>
+              <td><a class="agent-on" href="https://app.agentmesh.ai/a/test-writer.jeffrschneider%40gmail.com/agentdoc">test-writer</a></td>
+              <td><a href="https://agentroles.ai/test-writer.html">test writer</a></td>
+            </tr>
+            <tr>
+              <td><a href="stages.html#code">Code</a></td>
+              <td><a class="agent-on" href="https://app.agentmesh.ai/a/code-writer.jeffrschneider%40gmail.com/agentdoc">code-writer</a></td>
+              <td><a href="https://agentroles.ai/code-writer.html">code writer</a></td>
+            </tr>
+            <tr>
               <td><a href="stages.html#build">Build and package</a></td>
               <td><a class="agent-on" href="https://app.agentmesh.ai/a/agentbuilder.jeffrschneider%40gmail.com/agentdoc">agentbuilder</a></td>
               <td><a href="https://agentroles.ai/package-maker.html">package maker</a></td>
@@ -101,30 +111,8 @@
           </tbody>
         </table>
 
-        <p>Ten stages, five agents. The concentration in the middle is not an accident: those are the stages built out of artifacts, so one agent can hold several of them by reading the same package at different moments. The two newest, spec-writer and publisher, were installed this month, and the record of what they have done is short.</p>
+        <p>Twelve stages, seven agents. The concentration in the middle is not an accident: those are the stages built out of artifacts, so one agent can hold several of them by reading the same package at different moments. The four newest, spec-writer, test-writer, code-writer and publisher, were installed this month, and the record of what they have done is short. The code-writer's first delivery was refused by its own check.</p>
         <p>One mesh is one data point. The claim on the rest of this site, that the stretch from Build to Conformance moved first because it already had artifacts, is an observation drawn from here and from how provenance tooling was built elsewhere. It is offered as an explanation worth arguing with, not as a survey.</p>
-
-        <h2>Built, not yet installed</h2>
-
-        <table>
-          <thead>
-            <tr><th>Stage</th><th>Agent</th><th>What it does</th></tr>
-          </thead>
-          <tbody>
-            <tr>
-              <td><a href="stages.html#test">Test</a></td>
-              <td><span class="built">built</span><span class="agent-name">test-writer</span></td>
-              <td>writes the suite from the statement of the job before any program exists, and runs it against nothing to prove it asserts something</td>
-            </tr>
-            <tr>
-              <td><a href="stages.html#code">Code</a></td>
-              <td><span class="built">built</span><span class="agent-name">code-writer</span></td>
-              <td>lays out a workspace for a coding harness, checks each round against the suite, removes each program in turn to see that the suite notices, runs the builder, keeps the tests and the statement out of the writer's reach, and delivers only on a pass</td>
-            </tr>
-          </tbody>
-        </table>
-
-        <p>Both are packages that build. Neither has been installed on the mesh yet, and until it is, the stage is marked built rather than held. The builder already carries the rule that goes with them: given the code-writer's key, it packs only programs it can trace to a delivery that key signed, and refuses the rest with a reply naming where to send them. The rule switches on when the code-writer is installed.</p>
 
         <h2>The stages that are partly held</h2>
 
@@ -138,7 +126,7 @@
 
         <p>Review, Security review, Retract, Cost, Incident response and Rollback have nothing. Docs, Eval and Monitor have the partial holds above. Every one of the nine needs an agent and does not have one yet.</p>
 
-        <p>Worth saying plainly: <b>the stages that specify, test, write, build, ship and prove an agent are held or built, and the stage that reads what was written is not.</b> The first draft of this page said the opposite about writing.</p>
+        <p>Worth saying plainly: <b>the stages that specify, test, write, build, ship and prove an agent are held, and the stage that reads what was written is not.</b> The first draft of this page said the opposite about writing.</p>
 
         <h2>The standards this leans on</h2>
 

@@ -39,7 +39,7 @@
         <h1>The stages</h1>
         <p class="meta">Twenty-one stages in seven phases. Each one says what it is given, what it hands back, and what done means.</p>
 
-        <p><b>Given</b> and <b>Hands back</b> are the artifacts on either side of a stage. <b>Done when</b> is the check. <b>Role</b> is the published contract at <a href="https://agentroles.ai">agentroles.ai</a>, and every stage has one. A stage marked <span class="built">built</span> has an agent written for it that is not yet installed.</p>
+        <p><b>Given</b> and <b>Hands back</b> are the artifacts on either side of a stage. <b>Done when</b> is the check. <b>Role</b> is the published contract at <a href="https://agentroles.ai">agentroles.ai</a>, and every stage has one.</p>
 
         <h2 class="phase-head">Define</h2>
 
@@ -72,11 +72,11 @@
         <h2 class="phase-head">Make</h2>
 
         <section class="stage" id="test">
-          <div class="head"><svg class="ico" viewBox="0 0 24 24" aria-hidden="true" focusable="false" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M10 3v6l-5 9a2 2 0 0 0 1.8 3h10.4a2 2 0 0 0 1.8-3l-5-9V3"/><path d="M9 3h6"/></svg><h2 style="border:0;padding:0;margin:0">Test</h2><span class="num">03</span><span class="built">built</span><span class="agent-name">test-writer</span></div>
+          <div class="head"><svg class="ico" viewBox="0 0 24 24" aria-hidden="true" focusable="false" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M10 3v6l-5 9a2 2 0 0 0 1.8 3h10.4a2 2 0 0 0 1.8-3l-5-9V3"/><path d="M9 3h6"/></svg><h2 style="border:0;padding:0;margin:0">Test</h2><span class="num">03</span><a class="agent-on" href="https://app.agentmesh.ai/a/test-writer.jeffrschneider%40gmail.com/agentdoc">test-writer</a></div>
           <p>Writing the tests before the program, from the statement of the job, by something that will not write the program. Running tests is solved and has been for decades. Writing them was not, and the specific difficulty in agentic work is that the same model often writes the program and the test, so a test can pass by agreeing with a mistake. The answer is the order. The suite comes first, from the statement. It names the functions the program will have to export, so the program is written to meet an interface it did not choose. That is why Test sits before Code here, whatever the habit of the older lifecycles.</p>
           <p>A suite written before any program exists has to be checked in a particular way. It is run against an empty stand-in for every program the statement names, and it has to fail; a suite that passes with every function absent has asserted nothing. Once the programs exist, each is removed in turn and the suite has to notice. A program whose absence the suite never notices is a program nothing tests, and it is named.</p>
           <dl>
-            <dt>Agent</dt><dd>test-writer, built and not yet installed</dd>
+            <dt>Agent</dt><dd><a href="https://app.agentmesh.ai/a/test-writer.jeffrschneider%40gmail.com/agentdoc">test-writer</a>, whose AgentDoc says what it does, refuses, needs and records</dd>
             <dt>Role</dt><dd><a href="https://agentroles.ai/test-writer.html">test writer</a></dd>
             <dt>Given</dt><dd>the statement of the job</dd>
             <dt>Hands back</dt><dd>the suite, and what no test could be written for and why</dd>
@@ -85,12 +85,12 @@
         </section>
 
         <section class="stage" id="code">
-          <div class="head"><svg class="ico" viewBox="0 0 24 24" aria-hidden="true" focusable="false" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="m8 7-5 5 5 5"/><path d="m16 7 5 5-5 5"/></svg><h2 style="border:0;padding:0;margin:0">Code</h2><span class="num">04</span><span class="built">built</span><span class="agent-name">code-writer</span></div>
+          <div class="head"><svg class="ico" viewBox="0 0 24 24" aria-hidden="true" focusable="false" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="m8 7-5 5 5 5"/><path d="m16 7 5 5-5 5"/></svg><h2 style="border:0;padding:0;margin:0">Code</h2><span class="num">04</span><a class="agent-on" href="https://app.agentmesh.ai/a/code-writer.jeffrschneider%40gmail.com/agentdoc">code-writer</a></div>
           <p>Writing the programs. Models write code well and this stage did not move for a long time, which is the clearest evidence that capability was never the constraint. What it was waiting for was an input and a check: a statement of the job, and a suite written from it before any program exists, by something that will not write the program. With those two handed in, writing the code is a stage like any other, and the person who used to sit in the loop as the missing contract can leave it.</p>
           <p>This is the one stage where the model is in control rather than called at a named point. A coding harness works the way a coding session works, write, run the check, read the failures, fix, for as many rounds as it takes up to a ceiling. What makes that safe is that none of the check is the model's. The check is four things: the suite passes; each program is removed in turn and the suite has to notice; the builder, the program that turns a statement and its files into a package at the Build stage, takes what was written; and the tests and the statement are read-only to the writer, compared by digest on every round, so the writer of the program cannot also change what checks it. A test that cannot pass without breaking the statement is a conflict, reported for a person to settle, never resolved here.</p>
           <p>Only what this stage delivers, under its own signature, moves on to Build. Whatever else was written, in whatever language and by whoever, is a prototype, and making one is agentic prototyping. It is read here as the most exact statement of what was wanted and written again against the suite, which is agentic transpiling.</p>
           <dl>
-            <dt>Agent</dt><dd>code-writer, built and not yet installed</dd>
+            <dt>Agent</dt><dd><a href="https://app.agentmesh.ai/a/code-writer.jeffrschneider%40gmail.com/agentdoc">code-writer</a>, whose AgentDoc says what it does, refuses, needs and records. It is installed, and its first delivery was refused by its own check.</dd>
             <dt>Role</dt><dd><a href="https://agentroles.ai/code-writer.html">code writer</a></dd>
             <dt>Given</dt><dd>the statement of the job, the suite, and a prototype when there is one</dd>
             <dt>Hands back</dt><dd>the programs, an account of what was written and what the statement did not settle, and the record of every round</dd>
