@@ -92,15 +92,21 @@ section.band ul{ color:var(--dim); max-width:62ch; }
 .card.handoff{ border-top:2px solid var(--accent); }
 .card.done{ border-top:2px solid var(--enforced); }
 
-/* Two states, and no third. Either an agent holds the stage, in which case it
-   is named and the name is a link to that agent's AgentDoc, or nothing does
-   yet. A person can always do any of it, which is why it is not a state. */
+/* Three states. An agent holds the stage, in which case it is named and the
+   name is a link to that agent's AgentDoc. Or an agent is built for it and
+   not yet installed, in which case it is named and marked built. Or nothing
+   does yet. A person can always do any of it, which is why it is not a state.
+   Each mark carries a word, so none of them means anything by hue alone. */
 .agent-on{ font-family:var(--wire); font-size:.82rem; font-weight:500; color:var(--accent);
   text-decoration:none; border-bottom:1px solid rgba(198,217,107,.45); white-space:nowrap; }
 .agent-on:hover{ color:var(--paper); border-bottom-color:var(--paper); }
 .soon{ font-family:var(--wire); font-size:.66rem; font-weight:600; letter-spacing:.1em;
   text-transform:uppercase; white-space:nowrap; padding:2px 8px; border-radius:4px;
   border:1px solid var(--line); color:var(--faint); background:var(--panel-2); }
+.built{ font-family:var(--wire); font-size:.66rem; font-weight:600; letter-spacing:.1em;
+  text-transform:uppercase; white-space:nowrap; padding:2px 8px; border-radius:4px;
+  border:1px solid rgba(198,217,107,.45); color:var(--accent); background:var(--panel-2); }
+.built + .agent-name{ font-family:var(--wire); font-size:.82rem; color:var(--dim); white-space:nowrap; margin-left:6px; }
 
 .figure{ margin:34px 0 4px; background:var(--panel); border:1px solid var(--line); border-radius:12px;
   overflow:hidden; box-shadow:0 30px 70px -40px rgba(0,0,0,.9); }

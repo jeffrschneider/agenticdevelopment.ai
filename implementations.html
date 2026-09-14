@@ -28,7 +28,7 @@
     </nav>
     <div class="foot">
       <a href="https://agentmesh.ai/standards.html">The family of standards</a><br><br>
-      v0.1.0-draft<br>
+      v0.2.0-draft<br>
       a working draft, developed<br>alongside AgentMesh
     </div>
   </aside>
@@ -39,7 +39,7 @@
         <h1>Implementations</h1>
         <p class="meta">What holds each stage today, on the one mesh this draft is written alongside.</p>
 
-        <p>Everything listed is on <a href="https://agentmesh.ai">AgentMesh</a>, and each name links to that agent's AgentDoc, which says what it does, refuses, needs and records. The roles they declare are published separately at <a href="https://agentroles.ai">agentroles.ai</a>, so another mesh could hold the same roles with entirely different agents, which is the point of publishing roles at all.</p>
+        <p>Everything listed is on <a href="https://agentmesh.ai">AgentMesh</a>, and each name links to that agent's AgentDoc, which says what it does, refuses, needs and records. The roles they declare are published separately at <a href="https://agentroles.ai">agentroles.ai</a>, so another mesh could hold the same roles with entirely different agents, which is the point of publishing roles at all. The newer agents declare no published role yet; the role registry is behind the agents, and the gap is on the registry's side.</p>
 
         <h2>The stages that are held</h2>
 
@@ -48,6 +48,16 @@
             <tr><th>Stage</th><th>Agent</th><th>Role it declares</th></tr>
           </thead>
           <tbody>
+            <tr>
+              <td><a href="stages.html#requirements">Requirements</a></td>
+              <td><a class="agent-on" href="https://app.agentmesh.ai/a/spec-writer.jeffrschneider%40gmail.com/agentdoc">spec-writer</a></td>
+              <td style="color:var(--faint)">none published</td>
+            </tr>
+            <tr>
+              <td><a href="stages.html#design">Design</a></td>
+              <td><a class="agent-on" href="https://app.agentmesh.ai/a/spec-writer.jeffrschneider%40gmail.com/agentdoc">spec-writer</a></td>
+              <td style="color:var(--faint)">none published</td>
+            </tr>
             <tr>
               <td><a href="stages.html#build">Build and package</a></td>
               <td><a class="agent-on" href="https://app.agentmesh.ai/a/agentbuilder.jeffrschneider%40gmail.com/agentdoc">agentbuilder</a></td>
@@ -69,9 +79,14 @@
               <td><a href="https://agentroles.ai/deployment-manager.html">deployment manager</a></td>
             </tr>
             <tr>
-              <td><a href="stages.html#acceptance">Acceptance</a></td>
+              <td><a href="stages.html#conformance">Conformance</a></td>
               <td><a class="agent-on" href="https://app.agentmesh.ai/a/agentevaluator.jeffrschneider%40gmail.com/agentdoc">agentevaluator</a></td>
               <td><a href="https://agentroles.ai/agent-evaluator.html">agent evaluator</a></td>
+            </tr>
+            <tr>
+              <td><a href="stages.html#publish">Publish</a></td>
+              <td><a class="agent-on" href="https://app.agentmesh.ai/a/publisher.jeffrschneider%40gmail.com/agentdoc">publisher</a></td>
+              <td style="color:var(--faint)">none published</td>
             </tr>
             <tr>
               <td><a href="stages.html#update">Update</a></td>
@@ -86,8 +101,30 @@
           </tbody>
         </table>
 
-        <p>Seven stages, three agents. The concentration is not an accident: these are the stages built out of artifacts, so one agent can hold several of them by reading the same package at different moments.</p>
-        <p>One mesh is one data point. The claim on the rest of this site, that the stretch from Build to Acceptance moved first because it already had artifacts, is an observation drawn from here and from how provenance tooling was built elsewhere. It is offered as an explanation worth arguing with, not as a survey.</p>
+        <p>Ten stages, five agents. The concentration in the middle is not an accident: those are the stages built out of artifacts, so one agent can hold several of them by reading the same package at different moments. The two newest, spec-writer and publisher, were installed this month, and the record of what they have done is short.</p>
+        <p>One mesh is one data point. The claim on the rest of this site, that the stretch from Build to Conformance moved first because it already had artifacts, is an observation drawn from here and from how provenance tooling was built elsewhere. It is offered as an explanation worth arguing with, not as a survey.</p>
+
+        <h2>Built, not yet installed</h2>
+
+        <table>
+          <thead>
+            <tr><th>Stage</th><th>Agent</th><th>What it does</th></tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><a href="stages.html#test">Test</a></td>
+              <td><span class="built">built</span><span class="agent-name">test-writer</span></td>
+              <td>writes the suite from the statement of the job before any program exists, and runs it against nothing to prove it asserts something</td>
+            </tr>
+            <tr>
+              <td><a href="stages.html#code">Code</a></td>
+              <td><span class="built">built</span><span class="agent-name">code-writer</span></td>
+              <td>lays out a workspace for a coding harness, checks each round against the suite, removes each program in turn to see that the suite notices, runs the builder, keeps the tests and the statement out of the writer's reach, and delivers only on a pass</td>
+            </tr>
+          </tbody>
+        </table>
+
+        <p>Both are packages that build. Neither has been installed on the mesh yet, and until it is, the stage is marked built rather than held. The builder already carries the rule that goes with them: given the code-writer's key, it packs only programs it can trace to a delivery that key signed, and refuses the rest with a reply naming where to send them. The rule switches on when the code-writer is installed.</p>
 
         <h2>The stages that are partly held</h2>
 
@@ -95,13 +132,13 @@
 
         <p><b>Eval.</b> One agent grades the quality of one kind of work, against what was asked for. That is a working instance of the stage rather than an agent holding it.</p>
 
-        <p><b>Monitor.</b> Liveness across the fleet is watched by supervising programs rather than by an agent. The important property, that silence is treated as a failure rather than as no news, holds either way. The map marks this stage as a person's, because a program that watches keeps no record anybody can ask it about afterwards.</p>
+        <p><b>Monitor.</b> Liveness across the fleet is watched by supervising programs rather than by an agent. The important property, that silence is treated as a failure rather than as no news, holds either way. Nothing holds the stage, because a program that watches keeps no record anybody can ask it about afterwards.</p>
 
         <h2>What is not held at all</h2>
 
-        <p>Requirements, Design, Code, Test, Review, Security review, Eval, Publish, Monitor, Cost, Incident response and Rollback. Every one of them needs an agent and does not have one yet.</p>
+        <p>Review, Security review, Retract, Cost, Incident response and Rollback have nothing. Docs, Eval and Monitor have the partial holds above. Every one of the nine needs an agent and does not have one yet.</p>
 
-        <p>Worth saying plainly: <b>the stages that build, ship and prove an agent are held by agents, and the stage that writes one is not.</b></p>
+        <p>Worth saying plainly: <b>the stages that specify, test, write, build, ship and prove an agent are held or built, and the stage that reads what was written is not.</b> The first draft of this page said the opposite about writing.</p>
 
         <h2>The standards this leans on</h2>
 

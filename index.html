@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Agentic Development: a lifecycle for software that agents build</title>
-  <meta name="description" content="The software lifecycle, written for work that agents do. The stages are the ordinary ones. What changes is who holds each stage, what gets handed between them, and what has to be true before a stage counts as finished. A map of twenty stages, the role each one needs, the artifact it hands on, and where the practice is still thin.">
+  <meta name="description" content="The software lifecycle, written for work that agents do. The stages are the ordinary ones. What changes is who holds each stage, what gets handed between them, and what has to be true before a stage counts as finished. A map of twenty-one stages, the role each one needs, the artifact it hands on, and where the practice is still thin.">
   <link rel="icon" type="image/svg+xml" href="favicon.svg">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -28,7 +28,7 @@
     </nav>
     <div class="foot">
       <a href="https://agentmesh.ai/standards.html">The family of standards</a><br><br>
-      v0.1.0-draft<br>
+      v0.2.0-draft<br>
       a working draft, developed<br>alongside AgentMesh
     </div>
   </aside>
@@ -39,7 +39,7 @@
       <section class="hero">
         <span class="eyebrow"><span class="tag">agentic-development</span> // the ordinary stages, and what changes when an agent holds one</span>
         <h1>A lifecycle for software that agents build</h1>
-        <p class="lede">The stages have not changed. Somebody still has to decide what is wanted, write it, test it, review it, ship it, prove it works, and take it away again. What changes when an agent holds a stage is that the handoff has to become a thing, not a conversation. This is a map of the twenty stages, the role each one needs, and the artifact it hands to the next.</p>
+        <p class="lede">The stages have not changed. Somebody still has to decide what is wanted, write it, test it, review it, ship it, prove it works, and take it away again. What changes when an agent holds a stage is that the handoff has to become a thing, not a conversation. This is a map of the twenty-one stages, the role each one needs, and the artifact it hands to the next.</p>
         <div class="cta">
           <a class="btn btn-signal" href="stages.html">Read the stages</a>
           <a class="btn btn-ghost" href="handoffs.html">The handoffs</a>
@@ -71,6 +71,7 @@
 
       <section class="band">
         <h2>The Agent Development Lifecycle</h2>
+        <p>Three marks. A name that is a link is an agent holding the stage today. <span class="built">built</span> is an agent that exists for the stage and is not yet installed. <span class="soon">coming soon</span> is nothing yet.</p>
                 <table class="clauses">
           <thead>
             <tr><th>Stage</th><th>Role</th><th>Hands back</th><th>Agent</th></tr>
@@ -81,27 +82,27 @@
               <td><a href="stages.html#requirements">Requirements</a></td>
               <td style="color:var(--faint)">none</td>
               <td>a statement of the job: what it does, refuses, needs, records and costs</td>
-              <td><span class="soon">coming soon</span></td>
+              <td><a class="agent-on" href="https://app.agentmesh.ai/a/spec-writer.jeffrschneider%40gmail.com/agentdoc">spec-writer</a></td>
             </tr>
             <tr>
               <td><a href="stages.html#design">Design</a></td>
               <td style="color:var(--faint)">none</td>
               <td>the shape: the steps, and which are program and which are judgment</td>
-              <td><span class="soon">coming soon</span></td>
+              <td><a class="agent-on" href="https://app.agentmesh.ai/a/spec-writer.jeffrschneider%40gmail.com/agentdoc">spec-writer</a></td>
             </tr>
 
             <tr class="phase"><td colspan="4">Make</td></tr>
             <tr>
-              <td><a href="stages.html#code">Code</a></td>
-              <td style="color:var(--faint)">none</td>
-              <td>the programs</td>
-              <td><span class="soon">coming soon</span></td>
-            </tr>
-            <tr>
               <td><a href="stages.html#test">Test</a></td>
               <td style="color:var(--faint)">none</td>
-              <td>tests, and a result from running them</td>
-              <td><span class="soon">coming soon</span></td>
+              <td>the suite, written from the statement before any program exists</td>
+              <td><span class="built">built</span><span class="agent-name">test-writer</span></td>
+            </tr>
+            <tr>
+              <td><a href="stages.html#code">Code</a></td>
+              <td style="color:var(--faint)">none</td>
+              <td>the programs, passing a suite written before them</td>
+              <td><span class="built">built</span><span class="agent-name">code-writer</span></td>
             </tr>
             <tr>
               <td><a href="stages.html#review">Review</a></td>
@@ -145,16 +146,10 @@
 
             <tr class="phase"><td colspan="4">Prove</td></tr>
             <tr>
-              <td><a href="stages.html#acceptance">Acceptance</a></td>
+              <td><a href="stages.html#conformance">Conformance</a></td>
               <td><a href="https://agentroles.ai/agent-evaluator.html">agent evaluator</a></td>
               <td>a signed verdict: does it do what its package says</td>
               <td><a class="agent-on" href="https://app.agentmesh.ai/a/agentevaluator.jeffrschneider%40gmail.com/agentdoc">agentevaluator</a></td>
-            </tr>
-            <tr>
-              <td><a href="stages.html#eval">Eval</a></td>
-              <td style="color:var(--faint)">none</td>
-              <td>a graded judgment on the work itself, against a standard set beforehand</td>
-              <td><span class="soon">coming soon</span></td>
             </tr>
 
             <tr class="phase"><td colspan="4">Use</td></tr>
@@ -168,6 +163,12 @@
               <td><a href="stages.html#publish">Publish</a></td>
               <td style="color:var(--faint)">none</td>
               <td>an address a person can open, and the digest of what is there</td>
+              <td><a class="agent-on" href="https://app.agentmesh.ai/a/publisher.jeffrschneider%40gmail.com/agentdoc">publisher</a></td>
+            </tr>
+            <tr>
+              <td><a href="stages.html#retract">Retract</a></td>
+              <td style="color:var(--faint)">none</td>
+              <td>a record of what was taken down, by whom, and when</td>
               <td><span class="soon">coming soon</span></td>
             </tr>
 
@@ -176,6 +177,12 @@
               <td><a href="stages.html#monitor">Monitor</a></td>
               <td style="color:var(--faint)">none</td>
               <td>whether each agent is alive, answering, and inside its limits</td>
+              <td><span class="soon">coming soon</span></td>
+            </tr>
+            <tr>
+              <td><a href="stages.html#eval">Eval</a></td>
+              <td style="color:var(--faint)">none</td>
+              <td>a graded judgment on the work itself, against a standard set beforehand</td>
               <td><span class="soon">coming soon</span></td>
             </tr>
             <tr>
@@ -216,13 +223,19 @@
 
       <section class="band">
         <h2>What the map shows</h2>
-        <p>Seven stages have an agent, and they run together from Build to Acceptance with Update and Decommission behind them. That stretch was built out of artifacts before anybody thought about agents, which is why it went first.</p>
-        <p>The front of the lifecycle has none, and not for want of models that can write code. Code, Test, Review and Security review have no artifact to pass between them and no check on the way out that anybody has agreed on. The back has none either, for a different reason: Eval, Publish, Cost, Incident response and Rollback each need a judgment or an authority that nobody has written down.</p>
+        <p>Ten stages have an agent and two more have one built. The stretch from Build to Conformance, and Update and Decommission at the end of the chain, moved first because it was built out of artifacts before anybody thought about agents. The front moved next, when the missing artifact was made. That artifact is the test suite: a statement of what the program must be true of, written from the specification before any program exists, by something that will not write the program. Once the suite existed, writing the code became a stage with an input, an output and a check the writer does not control.</p>
+        <p>Review and Security review are the gap left at the front: nothing has agreed what a finding is or what answering one means. The back is thinner still. Eval, Cost, Incident response, Rollback and Retract each need a judgment or an authority that nobody has written down.</p>
+      </section>
+
+      <section class="band">
+        <h2>The official coder</h2>
+        <p>Anything a person makes in their own tool, a coding harness, a chat, a notebook, is a prototype: <b>agentic prototyping</b>, and nothing in this lifecycle stops it or needs to. What moves on to Build is only what the Code stage delivers. A prototype sent to be packaged is refused, with the reply naming where to send it, and the code-writer reads it as the most exact statement of what was wanted that exists and writes the programs again, in the stack every package on this mesh is written in, against the suite: <b>agentic transpiling</b>. The trace is the signed manifest every delivery already carries, so the rule is one refusal in one place.</p>
+        <p>That edge is deliberate. Anything the prototype did that the statement of the job never said does not survive the rewrite. If it is wanted, it goes into the statement first, and then the suite, and then the code.</p>
       </section>
 
       <section class="band" style="border-bottom:0">
         <h2>Where this comes from</h2>
-        <p>This draft is written alongside <a href="https://agentmesh.ai" style="color:var(--paper)">AgentMesh</a>, where the middle of the lifecycle is built and running, and where the gaps at either end were found the ordinary way, by hitting them. Roles are defined at <a href="https://agentroles.ai" style="color:var(--paper)">agentroles.ai</a>. What an agent publishes about itself is defined at <a href="https://agentdoc.net" style="color:var(--paper)">agentdoc.net</a>. <a href="implementations.html" style="color:var(--paper)">Implementations</a> lists what exists today, stage by stage.</p>
+        <p>This draft is written alongside <a href="https://agentmesh.ai" style="color:var(--paper)">AgentMesh</a>, where the middle of the lifecycle is built and running, where the front is partly held and partly built, and where the gaps were found the ordinary way, by hitting them. Roles are defined at <a href="https://agentroles.ai" style="color:var(--paper)">agentroles.ai</a>. What an agent publishes about itself is defined at <a href="https://agentdoc.net" style="color:var(--paper)">agentdoc.net</a>. <a href="implementations.html" style="color:var(--paper)">Implementations</a> lists what exists today, stage by stage.</p>
         <p>It is a working draft. The stages are stable; the roles and the checks are not, and several are named here before they are written.</p>
       </section>
 
