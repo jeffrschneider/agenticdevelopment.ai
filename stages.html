@@ -39,7 +39,7 @@
         <h1>The stages</h1>
         <p class="meta">Twenty-one stages in seven phases. Each one says what it is given, what it hands back, and what done means.</p>
 
-        <p><b>Given</b> and <b>Hands back</b> are the artifacts on either side of a stage. <b>Done when</b> is the check. <b>Role</b> is the published contract at <a href="https://agentroles.ai">agentroles.ai</a>, and every stage has one.</p>
+        <p><b>Given</b> and <b>Hands back</b> are the artifacts on either side of a stage. <b>Done when</b> is the check. <b>Role</b> is the published contract at <a href="https://agentroles.ai">agentroles.ai</a>, and every stage has one. <b>Process</b> is the phase of a published process at <a href="https://agentprocesses.ai/">agentprocesses.ai</a> that holds the stage, where one does.</p>
 
         <h2 class="phase-head">Define</h2>
 
@@ -50,6 +50,7 @@
           <dl>
             <dt>Agent</dt><dd><a href="https://app.agentmesh.ai/a/spec-writer.jeffrschneider%40gmail.com/agentdoc">spec-writer</a>, whose AgentDoc says what it does, refuses, needs and records</dd>
             <dt>Role</dt><dd><a href="https://agentroles.ai/spec-writer.html">spec writer</a></dd>
+            <dt>Process</dt><dd><a href="https://agentprocesses.ai/new-agent.html">New agent, phase write-the-spec</a></dd>
             <dt>Given</dt><dd>somebody's account of what they want, with whatever they have: notes, a document, an earlier statement, a prototype</dd>
             <dt>Hands back</dt><dd>a statement of the job: what it does, what it refuses, what it needs access to, what it records, and what it costs; and beside it the questions nobody else could answer</dd>
             <dt>Done when</dt><dd>a package could be built from the statement, and what could not be settled was asked rather than invented</dd>
@@ -63,6 +64,7 @@
           <dl>
             <dt>Agent</dt><dd><a href="https://app.agentmesh.ai/a/spec-writer.jeffrschneider%40gmail.com/agentdoc">spec-writer</a>, whose AgentDoc says what it does, refuses, needs and records</dd>
             <dt>Role</dt><dd><a href="https://agentroles.ai/spec-writer.html">spec writer</a></dd>
+            <dt>Process</dt><dd><a href="https://agentprocesses.ai/new-agent.html">New agent, phase write-the-spec</a></dd>
             <dt>Given</dt><dd>the statement of the job</dd>
             <dt>Hands back</dt><dd>the shape: the steps, what each is given and hands back, and whether each is a program or a judgment</dd>
             <dt>Done when</dt><dd>no step is both fully written down and left to a model to interpret</dd>
@@ -78,6 +80,7 @@
           <dl>
             <dt>Agent</dt><dd><a href="https://app.agentmesh.ai/a/test-writer.jeffrschneider%40gmail.com/agentdoc">test-writer</a>, whose AgentDoc says what it does, refuses, needs and records</dd>
             <dt>Role</dt><dd><a href="https://agentroles.ai/test-writer.html">test writer</a></dd>
+            <dt>Process</dt><dd><a href="https://agentprocesses.ai/new-agent.html">New agent, phase write-the-suite</a></dd>
             <dt>Given</dt><dd>the statement of the job</dd>
             <dt>Hands back</dt><dd>the suite, and what no test could be written for and why</dd>
             <dt>Done when</dt><dd>the suite fails against empty stand-ins for every program the statement names, and, once the programs exist, notices each one removed</dd>
@@ -92,6 +95,7 @@
           <dl>
             <dt>Agent</dt><dd><a href="https://app.agentmesh.ai/a/code-writer.jeffrschneider%40gmail.com/agentdoc">code-writer</a>, whose AgentDoc says what it does, refuses, needs and records. It is installed, and its first delivery was refused by its own check.</dd>
             <dt>Role</dt><dd><a href="https://agentroles.ai/code-writer.html">code writer</a></dd>
+            <dt>Process</dt><dd><a href="https://agentprocesses.ai/new-agent.html">New agent, phase write-the-scripts</a></dd>
             <dt>Given</dt><dd>the statement of the job, the suite, and a prototype when there is one</dd>
             <dt>Hands back</dt><dd>the programs, an account of what was written and what the statement did not settle, and the record of every round</dd>
             <dt>Done when</dt><dd>the suite passes, each program removed in turn is noticed, the builder takes the package, and no test and no line of the statement changed</dd>
@@ -103,6 +107,7 @@
           <p>Reading the program and saying what is wrong with it. This is the stage with the strongest argument for an agent and the least infrastructure for one. A review is already an artifact in every other setting: a list of findings, each naming a place and a claim, each one answerable. What is missing is an agreement on what a finding is and what answering one means.</p>
           <dl>
             <dt>Role</dt><dd><a href="https://agentroles.ai/code-critic.html">code critic</a></dd>
+            <dt>Process</dt><dd>no process holds it yet; the code critic has no implementation</dd>
             <dt>Given</dt><dd>the programs and the tests, and the account the Code stage wrote of what it did and how many rounds it took</dd>
             <dt>Hands back</dt><dd>findings, each naming a place, a claim and a consequence</dd>
             <dt>Done when</dt><dd>every finding is answered, by a change or by a stated reason</dd>
@@ -115,6 +120,7 @@
           <p>Dependency and supply-chain vetting belongs here rather than in Build. Build hashes what went into the package, which answers what is in it and not whether it should be.</p>
           <dl>
             <dt>Role</dt><dd><a href="https://agentroles.ai/code-critic.html">code critic</a></dd>
+            <dt>Process</dt><dd>no process holds it yet; the code critic has no implementation</dd>
             <dt>Given</dt><dd>the shape, the programs, and everything the package will ask to be given</dd>
             <dt>Hands back</dt><dd>a statement of what it may reach, what it may spend, what it must never do, and what was accepted knowingly</dd>
             <dt>Done when</dt><dd>every access the package asks for has a reason recorded against it</dd>
@@ -130,6 +136,7 @@
           <dl>
             <dt>Agent</dt><dd><a href="https://app.agentmesh.ai/a/agentbuilder.jeffrschneider%40gmail.com/agentdoc">agentbuilder</a>, whose AgentDoc says what it does, refuses, needs and records</dd>
             <dt>Role</dt><dd><a href="https://agentroles.ai/package-maker.html">package maker</a></dd>
+            <dt>Process</dt><dd><a href="https://agentprocesses.ai/new-agent.html">New agent, phase make-the-package</a></dd>
             <dt>Given</dt><dd>the shape and the programs</dd>
             <dt>Hands back</dt><dd>a package: the declaration, the parts, a manifest, a digest</dd>
             <dt>Done when</dt><dd>the declaration validates, what it promises matches what the install file asks for, and every program is traced to the Code stage's delivery</dd>
@@ -142,6 +149,7 @@
           <dl>
             <dt>Agent</dt><dd><a href="https://app.agentmesh.ai/a/agentbuilder.jeffrschneider%40gmail.com/agentdoc">agentbuilder</a>, whose AgentDoc says what it does, refuses, needs and records</dd>
             <dt>Role</dt><dd><a href="https://agentroles.ai/package-maker.html">package maker</a></dd>
+            <dt>Process</dt><dd><a href="https://agentprocesses.ai/new-agent.html">New agent, phase make-the-package; the package is the release</a></dd>
             <dt>Given</dt><dd>the package</dd>
             <dt>Hands back</dt><dd>a signed build record, and the package at an address</dd>
             <dt>Done when</dt><dd>the digest at the address matches the digest in the record, and the record verifies</dd>
@@ -154,6 +162,7 @@
           <dl>
             <dt>Agent</dt><dd><a href="https://app.agentmesh.ai/a/deploymgr.jeffrschneider%40gmail.com/agentdoc">deploymgr</a>, whose AgentDoc says what it does, refuses, needs and records</dd>
             <dt>Role</dt><dd><a href="https://agentroles.ai/deployment-manager.html">deployment manager</a></dd>
+            <dt>Process</dt><dd><a href="https://agentprocesses.ai/new-agent.html">New agent, phase deploy-the-agent, after the owner's yes at approve-the-deploy</a></dd>
             <dt>Given</dt><dd>the package, and where it is going</dd>
             <dt>Hands back</dt><dd>a running agent with an identity, an address and an inbox</dd>
             <dt>Done when</dt><dd>it is installed, it has its identity, and a message sent to its address is answered</dd>
@@ -166,6 +175,7 @@
           <dl>
             <dt>Agent</dt><dd><a href="https://app.agentmesh.ai/a/deploymgr.jeffrschneider%40gmail.com/agentdoc">deploymgr</a>, whose AgentDoc says what it does, refuses, needs and records</dd>
             <dt>Role</dt><dd><a href="https://agentroles.ai/deployment-manager.html">deployment manager</a></dd>
+            <dt>Process</dt><dd><a href="https://agentprocesses.ai/new-agent.html">New agent, phase deploy-the-agent; the bindings are settled at deploy</a></dd>
             <dt>Given</dt><dd>what the install file asks for, and the owner's answers as names</dd>
             <dt>Hands back</dt><dd>credentials bound by name, settings placed, a ceiling on everything that spends</dd>
             <dt>Done when</dt><dd>nothing the package asked for is missing, and no secret value appeared in the instruction</dd>
@@ -182,6 +192,7 @@
           <dl>
             <dt>Agent</dt><dd><a href="https://app.agentmesh.ai/a/agentevaluator.jeffrschneider%40gmail.com/agentdoc">agentevaluator</a>, whose AgentDoc says what it does, refuses, needs and records</dd>
             <dt>Role</dt><dd><a href="https://agentroles.ai/conformance-checker.html">conformance checker</a></dd>
+            <dt>Process</dt><dd><a href="https://agentprocesses.ai/new-agent.html">New agent, phase check-conformance</a></dd>
             <dt>Given</dt><dd>the package, the agent's address, and where its records live</dd>
             <dt>Hands back</dt><dd>a signed verdict, case by case</dd>
             <dt>Done when</dt><dd>every case derived from the declaration has run and the verdict is signed</dd>
@@ -195,6 +206,7 @@
           <p>The document a stranger reads before deciding to use the thing. In agentic work this is assembled from what the agent already declares rather than written fresh, for the same reason a résumé is a poor way to check a fact: a document that is authored can say anything, and a document that is gathered can only say what its sources say. Where a source is silent, the silence is printed.</p>
           <dl>
             <dt>Role</dt><dd><a href="https://agentroles.ai/doc-writer.html">doc writer</a>; the document format is defined at <a href="https://agentdoc.net">agentdoc.net</a></dd>
+            <dt>Process</dt><dd><a href="https://agentprocesses.ai/new-agent.html">New agent, phase publish-the-agent; the AgentDoc is assembled from the deployed agent</a></dd>
             <dt>Given</dt><dd>the declaration, the identity, and whatever records and verdicts exist</dd>
             <dt>Hands back</dt><dd>a document a stranger can read, with each claim traceable to its source</dd>
             <dt>Done when</dt><dd>nothing in it was authored, and every silence is shown rather than filled</dd>
@@ -208,6 +220,7 @@
           <dl>
             <dt>Agent</dt><dd><a href="https://app.agentmesh.ai/a/publisher.jeffrschneider%40gmail.com/agentdoc">publisher</a>, whose AgentDoc says what it does, refuses, needs and records</dd>
             <dt>Role</dt><dd><a href="https://agentroles.ai/publisher.html">publisher</a></dd>
+            <dt>Process</dt><dd><a href="https://agentprocesses.ai/new-agent.html">New agent, phase publish-the-agent</a></dd>
             <dt>Given</dt><dd>the deliverable, and where it may be written</dd>
             <dt>Hands back</dt><dd>an address a person can open, and the digest of what is there</dd>
             <dt>Done when</dt><dd>the address resolves and what it serves matches the digest recorded</dd>
@@ -220,6 +233,7 @@
           <p>The record of every name the publisher has placed is what lets it tell what it may take down. An address it never wrote is not its to remove, however it is asked.</p>
           <dl>
             <dt>Role</dt><dd><a href="https://agentroles.ai/publisher.html">publisher</a></dd>
+            <dt>Process</dt><dd><a href="https://agentprocesses.ai/retire-an-agent.html">Retire an agent, phase retract-the-listing</a></dd>
             <dt>Given</dt><dd>the address, or the name it was published under</dd>
             <dt>Hands back</dt><dd>a record of what was taken down, by whom, and when</dd>
             <dt>Done when</dt><dd>the address is read back and nothing is there, and the record says who took it down and why</dd>
@@ -234,6 +248,7 @@
           <p>In practice this is held by supervising programs rather than by anything with an identity, which is why nothing holds the stage yet: a program that watches keeps no record anybody can ask it about afterwards, and the person reading its output is the one who knows.</p>
           <dl>
             <dt>Role</dt><dd><a href="https://agentroles.ai/watcher.html">watcher</a></dd>
+            <dt>Process</dt><dd>no process holds it yet; the watcher has no implementation</dd>
             <dt>Given</dt><dd>the fleet, and what each agent declared it would do</dd>
             <dt>Hands back</dt><dd>whether each one is alive, answering, and inside its limits</dd>
             <dt>Done when</dt><dd>silence is treated as a failure rather than as no news</dd>
@@ -246,6 +261,7 @@
           <p>It sits in Run rather than Prove, where the first draft had it, because it judges what an agent does on real jobs after it is installed, beside the monitoring that says whether it answered at all. A standard set beforehand is what makes that a stage rather than an opinion.</p>
           <dl>
             <dt>Role</dt><dd><a href="https://agentroles.ai/agent-critic.html">agent critic</a></dd>
+            <dt>Process</dt><dd>no process holds it yet; the agent critic has no implementation</dd>
             <dt>Given</dt><dd>the work produced, and a standard set beforehand</dd>
             <dt>Hands back</dt><dd>a graded judgment, with the reason on each grade</dd>
             <dt>Done when</dt><dd>every piece is graded against the standard, and the standard predates the work</dd>
@@ -257,6 +273,7 @@
           <p>What happens after monitoring finds something, and before anybody decides to roll back. Detection is not response, and the gap between them is where most of the damage is done. The difficulty specific to agentic work is that a misbehaving agent keeps working: it has an inbox, it answers, and it produces steadily worse output for as long as nobody stops it. Stopping it is its own act, separate from fixing it.</p>
           <dl>
             <dt>Role</dt><dd><a href="https://agentroles.ai/incident-recorder.html">incident recorder</a></dd>
+            <dt>Process</dt><dd><a href="https://agentprocesses.ai/incident.html">Incident, phase record-the-incident; a reference process until a watcher exists</a></dd>
             <dt>Given</dt><dd>whatever monitoring saw, and the records of what the agent was doing</dd>
             <dt>Hands back</dt><dd>what happened, what was done about it, and what changes as a result</dd>
             <dt>Done when</dt><dd>the thing is stopped or well, and the account of it outlives the people who were there</dd>
@@ -268,6 +285,7 @@
           <p>Accounting for what the work spent against what it was allowed. Individual ceilings are the easy half and are usually in place. The half that is missing is the view across everything, which is exactly the view you need when the spend is made of many small automatic decisions rather than a few large deliberate ones.</p>
           <dl>
             <dt>Role</dt><dd><a href="https://agentroles.ai/watcher.html">watcher</a></dd>
+            <dt>Process</dt><dd>no process holds it yet; the watcher has no implementation</dd>
             <dt>Given</dt><dd>the ceilings, and the record of what each job spent</dd>
             <dt>Hands back</dt><dd>the account: what was spent, by whom, against what was allowed</dd>
             <dt>Done when</dt><dd>every spend is attributable to a job, and the total is reconciled against the ceilings</dd>
@@ -283,6 +301,7 @@
           <dl>
             <dt>Agent</dt><dd><a href="https://app.agentmesh.ai/a/deploymgr.jeffrschneider%40gmail.com/agentdoc">deploymgr</a>, whose AgentDoc says what it does, refuses, needs and records</dd>
             <dt>Role</dt><dd><a href="https://agentroles.ai/deployment-manager.html">deployment manager</a></dd>
+            <dt>Process</dt><dd><a href="https://agentprocesses.ai/new-agent.html">New agent, run again with the version that runs today attached as the prototype</a></dd>
             <dt>Given</dt><dd>a new package, and the agent it replaces the old one on</dd>
             <dt>Hands back</dt><dd>the same agent on the new version, with what changed recorded</dd>
             <dt>Done when</dt><dd>the identity and the address are unchanged, and the difference is written down</dd>
@@ -295,6 +314,7 @@
           <p>Moving the code back is also not the same as undoing the work. A version that ran for an hour has sent messages, spent money, written files and changed data somebody else now depends on, and none of that reverses when the version does. A rollback that only names the version is a rollback that leaves the mess.</p>
           <dl>
             <dt>Role</dt><dd><a href="https://agentroles.ai/deployment-manager.html">deployment manager</a></dd>
+            <dt>Process</dt><dd>no process holds it; rollback is the deployment manager's own act</dd>
             <dt>Given</dt><dd>the agent, and the version it was on before</dd>
             <dt>Hands back</dt><dd>the same agent back on that version, the reason it was moved, and what the bad version did that cannot be undone</dd>
             <dt>Done when</dt><dd>the agent is answering on the old version, the reason is recorded, and the side effects are named</dd>
@@ -307,6 +327,7 @@
           <dl>
             <dt>Agent</dt><dd><a href="https://app.agentmesh.ai/a/deploymgr.jeffrschneider%40gmail.com/agentdoc">deploymgr</a>, whose AgentDoc says what it does, refuses, needs and records</dd>
             <dt>Role</dt><dd><a href="https://agentroles.ai/deployment-manager.html">deployment manager</a></dd>
+            <dt>Process</dt><dd><a href="https://agentprocesses.ai/retire-an-agent.html">Retire an agent, phase remove-the-agent</a></dd>
             <dt>Given</dt><dd>the instruction, and the agent</dd>
             <dt>Hands back</dt><dd>nothing running, the records kept, and the address retired</dd>
             <dt>Done when</dt><dd>no work is in flight or the stuck work is accounted for, the records are kept, and the address is not reused</dd>
