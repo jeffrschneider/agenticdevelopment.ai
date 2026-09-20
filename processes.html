@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>The processes | Agentic Development</title>
+  <meta name="description" content="Three of the stages on this map are written down as processes an orchestrator can run: making a new agent, recording an incident, and retiring one. Each names who holds every phase, what passes between them, and what sends a phase backwards.">
+  <link rel="icon" type="image/svg+xml" href="favicon.svg">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="site.css">
+</head>
+<body>
+<div class="layout">
+
+  <aside class="rail">
+    <a class="brand" href="index.html"><span class="dot"></span>agentic development</a>
+    <div class="grp">The lifecycle</div>
+    <nav>
+      <a href="index.html">Overview</a>
+      <a href="stages.html">The stages</a>
+      <a href="handoffs.html">The handoffs</a>
+      <a class="on" href="processes.html">The processes</a>
+    </nav>
+    <div class="grp">In practice</div>
+    <nav>
+      <a href="implementations.html">Implementations</a>
+    </nav>
+    <div class="foot">
+      <a href="https://agentmesh.ai/standards.html">The family of standards</a><br><br>
+      v0.2.0-draft<br>
+      a working draft, developed<br>alongside AgentMesh
+    </div>
+  </aside>
+
+  <main class="main">
+    <div class="wrap">
+      <article class="spec">
+        <h1>The processes</h1>
+        <p class="meta">The stages on this map, written down closely enough that a machine can run them.</p>
+
+        <p>A map of stages says what ought to happen. It does not say who holds each one, what they are handed, what they must give back, or what to do when a step fails. Three stretches of this lifecycle are written down to that standard, in the <a href="https://agentcatalog.com/spec/agent-processes">Agent Processes</a> format, and an orchestrator reads them and runs them.</p>
+
+        <p>Each document names the phases in order, the agent or person who holds each one, the file that passes at every handoff, the ways a phase can send the work backwards, the rules that hold whatever happens, and what is worth measuring afterwards. They are kept at <a href="https://agentprocesses.ai/">agentprocesses.ai</a> rather than copied here, so there is one version of each rather than two.</p>
+
+        <h2>Making a new agent</h2>
+
+        <p>A request in words becomes a running agent. Nine phases: six held by agents of the lifecycle, three held by the person who asked. The spec phase settles four things before any shape is drawn, and two of those can end the run without building anything, which is a good outcome rather than a failure. Five named deviations send the work backwards, because the spec you approve is rarely the spec you first read.</p>
+
+        <p>There is no separate process for changing an agent. A change to a released one is this process run again, with the change in words and the version that runs today attached as the prototype.</p>
+
+        <p class="meta"><a href="https://agentprocesses.ai/new-agent.html">Read the new agent process &rarr;</a></p>
+
+        <h2>Recording an incident</h2>
+
+        <p>An agent goes quiet, or a job fails. The process builds a timeline of what is known from the platform's records and the agent's own, attributes every fact to where it came from, and marks the gaps as gaps. It never guesses a cause and never proposes a fix, because a record that quietly does either is worth less than one that admits what it does not know.</p>
+
+        <p class="meta"><a href="https://agentprocesses.ai/incident.html">Read the incident process &rarr;</a></p>
+
+        <h2>Retiring an agent</h2>
+
+        <p>Stopping an agent is easy. Retiring one is not: the address has to stop answering without breaking whatever pointed at it, the records have to outlive the thing they describe, and somebody has to decide whether the name is released or held. The process says who decides each of those and in what order.</p>
+
+        <p class="meta"><a href="https://agentprocesses.ai/retire-an-agent.html">Read the retirement process &rarr;</a></p>
+
+        <h2>What is not written down yet</h2>
+
+        <p>The stages this map marks as unheld have no process either, and the two are the same gap seen twice. A stage gets a process when what it is given and what it hands back are both artifacts, so review, security review, eval, retract, rollback and cost are unwritten for the same reason they are unheld: nobody has settled what passes at the handoff. The <a href="handoffs.html">handoffs page</a> shows where the chain breaks.</p>
+
+      </article>
+    </div>
+  </main>
+</div>
+</body>
+</html>
