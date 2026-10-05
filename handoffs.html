@@ -48,104 +48,104 @@
     <div class="wrap">
       <article class="spec">
         <h1>The handoffs</h1>
-        <p class="meta">What passes between stages, and why the chain breaks where it does.</p>
+        <p class="meta">This page shows what each stage hands to the next, and why the chain breaks where it does.</p>
 
-        <p>A stage can be held by an agent when two things are true of it: what it is given is an artifact, and what it hands back is an artifact. Not a conversation, not a shared understanding, not a person who knows. Something with a name, that can be read by whoever comes next and checked by somebody who was not there.</p>
+        <p>An agent can hold a stage when two things are true of it: what the stage is given is an artifact, and what it hands back is an artifact. An artifact is not a conversation, a shared understanding, or a person who happens to know. An artifact has a name. The next stage can read it, and somebody who was not there can check it.</p>
 
-        <p>This sounds like a low bar and it is not. It is the whole difference between the stages that have moved and the stages that have not.</p>
+        <p>That is harder to meet than it sounds. It is what separates the stages agents already hold from the stages they do not.</p>
 
         <h2>The chain</h2>
 
-        <p>Following one piece of work from somebody wanting it to the address being retired, here is what is actually handed over. The links that exist are solid. The links that are missing are marked with question marks. The links that are written down but not yet made are marked as coming.</p>
+        <p>Here is what is actually handed over as one piece of work goes from somebody wanting it to its address being retired. Where the artifact exists, the line names it. Where nothing is handed over yet, the line says missing. Where the artifact is written down but nothing makes it yet, the line says coming.</p>
 
         <div class="figure">
-          <div class="bar"><span class="lamp"></span> what passes between stages<span class="grow">solid = an artifact exists</span></div>
-<pre><span class="k">Requirements</span>  →  a statement of the job, and the questions it could not settle
-<span class="k">Design</span>        →  the shape: steps, and program or judgment on each
-<span class="x">Impact        →  (coming) the impact report: each dependent, and what the change does to it</span>
-<span class="x">Source        →  (coming) for each step, an agent or solution that fits, or "build one"</span>
-<span class="k">Test</span>          →  the suite, written from the statement before any program
-<span class="k">Code</span>          →  the programs, passing the suite, with an account and a run record
-<span class="a">Review        →  ???</span>
-<span class="a">Security rev. →  ???</span>
-<span class="k">Build</span>         →  a package: declaration, parts, manifest, digest
-<span class="k">Release</span>       →  a signed build record, and an address
-<span class="k">Deploy</span>        →  a running agent: identity, address, inbox
-<span class="k">Configure</span>     →  credentials by name, settings, ceilings
-<span class="k">Conformance</span>   →  a signed verdict against the declaration
-<span class="x">Acceptance    →  (coming) the requester's recorded yes, against "done"</span>
-<span class="k">Docs</span>          →  a document assembled from the declaration
-<span class="k">Publish</span>       →  an address a person can open, and the digest of what is there
-<span class="a">Retract       →  ???</span>
-<span class="k">Monitor</span>       →  liveness, measured by an answer
-<span class="a">Eval          →  ???</span>
-<span class="k">Incident</span>      →  a timeline of what is known, with each gap marked
-<span class="a">Cost          →  ???</span>
-<span class="k">Update</span>        →  the same agent, new version, difference recorded
-<span class="a">Rollback      →  ???</span>
-<span class="k">Decommission</span>  →  nothing running, records kept, address retired</pre>
-          <div class="cap">Six gaps, two at the front, where a program is read rather than written, and four across the back half: <b>the chain now runs from a statement of the job to a package, and thins out after the agent is running.</b> Three more links are written down and not yet made.</div>
+          <div class="bar"><span class="lamp"></span> what passes between stages<span class="grow">each line is one stage and what it hands on</span></div>
+<pre><span class="k">Requirements</span>     →  a statement of the job, and the questions it could not settle
+<span class="k">Design</span>           →  the shape: steps, and program or judgment on each
+<span class="x">Impact           →  (coming) the impact report: each dependent, and what the change does to it</span>
+<span class="x">Source           →  (coming) for each step, an agent or solution that fits, or "build one"</span>
+<span class="k">Test</span>             →  the suite, written from the statement before any program
+<span class="k">Code</span>             →  the programs, passing the suite, with an account and a run record
+<span class="a">Review           →  missing</span>
+<span class="a">Security review  →  missing</span>
+<span class="k">Build</span>            →  a package: declaration, parts, manifest, digest
+<span class="k">Release</span>          →  a signed build record, and an address
+<span class="k">Deploy</span>           →  a running agent: identity, address, inbox
+<span class="k">Configure</span>        →  credentials by name, settings, ceilings
+<span class="k">Conformance</span>      →  a signed verdict against the declaration
+<span class="x">Acceptance       →  (coming) the requester's recorded yes, against "done"</span>
+<span class="k">Docs</span>             →  a document assembled from the declaration
+<span class="k">Publish</span>          →  an address a person can open, and the digest of what is there
+<span class="a">Retract          →  missing</span>
+<span class="k">Monitor</span>          →  liveness, measured by an answer
+<span class="a">Eval             →  missing</span>
+<span class="k">Incident</span>         →  a timeline of what is known, with each gap marked
+<span class="a">Cost             →  missing</span>
+<span class="k">Update</span>           →  the same agent, new version, difference recorded
+<span class="a">Rollback         →  missing</span>
+<span class="k">Decommission</span>     →  nothing running, records kept, address retired</pre>
+          <div class="cap">Six stages are marked missing. Two of them, Review and Security review, are at the front, where a program is read rather than written. The other four are in the back half. <b>The chain now runs without a break from a statement of the job to a package, and has more gaps once the agent is running.</b> Three more links are written down but not yet made.</div>
         </div>
 
-        <p>Test comes before Code, here and on the map. The suite is written from the statement, before any program exists, and the program is written to it. A solid link says the artifact exists, not that an agent holds the stage: Docs and Monitor have the artifact, made by the platform's own programs, and no agent holds either stage yet. The three marked as coming, Impact, Source and Acceptance, have their artifact settled, and nothing makes it yet.</p>
+        <p>Test comes before Code, here and on the map. The suite is written from the statement, before any program exists, and the program is written to it. A line that names an artifact means the artifact exists. It does not mean an agent holds the stage. Monitor, for example, has its artifact, made by the platform's own programs, but no agent holds that stage yet. Impact, Source and Acceptance are marked as coming: what each one hands on is settled, but nothing makes it yet.</p>
 
-        <p>Update is changing too. The new version will run first as a candidate beside the old one, be proven there against its own declaration and against what each dependent counts as done, and only then be promoted. The artifact it hands on is the same agent on the new version, with a record of each of those three steps.</p>
+        <p>The Update stage is also changing. A new version will first run as a candidate beside the old one. There it will be checked against its own declaration, and against what each agent or solution that depends on it counts as done. Only then will it be promoted. Update hands on the same agent on the new version, with a record of the candidate run, the checks and the promotion.</p>
 
-        <h2>Why the middle joined up first</h2>
+        <h2>Why agents held the middle first</h2>
 
         <p>Nobody designed the middle of this lifecycle to be agentic. It became agentic because packaging, release and deployment had already been forced into artifacts for other reasons, decades ago, by people who wanted repeatable builds. A package with a manifest and a digest is an artifact whether or not an agent reads it.</p>
 
-        <p>So when agents arrived, four stages were already waiting with a defined input and a defined output, and moving them took an agent that could read what was there. That is why Build through Conformance moved quickly and nothing else did at first. It was not the easiest work. It was the work that already had a shape.</p>
+        <p>So when agents arrived, four stages already had a defined input and a defined output, and all it took was an agent that could read what was there. That is why agents could hold the stages from Build to Conformance early, and no other stages at first. Those stages were no easier than the rest. Agents could hold them first because each one already had a defined input and output.</p>
 
-        <h2>What unstuck the front</h2>
+        <h2>What got the front moving</h2>
 
-        <p>Code and Test were stuck together, and they were stuck for one reason: nothing was handed in and nothing checkable came out. A model given a design wrote a program. Another model given the same design wrote a different program. Neither could be compared to anything, because the design was prose and the program was the first artifact in the chain. Then the same hand wrote the tests, so the tests encoded whatever the program already did, including its mistakes.</p>
+        <p>Agents could not hold Code or Test, and the reason was the same for both. Nothing defined went in, and nothing that could be checked came out. A model given a design wrote a program. Another model given the same design wrote a different program. Neither could be compared to anything, because the design was prose and the program was the first artifact in the chain. Then the same author wrote the tests, so the tests encoded whatever the program already did, including its mistakes.</p>
 
-        <p>The missing piece was never a better model. It was a statement of what the program must be true of, written before the program and by something that was not going to write the program. That is what the Test stage now hands over: a suite written from the statement of the job, naming the functions the program will have to export, run against nothing before it is handed on so that it is known to assert something. With that in hand, Code has an input, an output, and a check its writer does not control, and it can be held by a coding harness working the way a coding session works, for as many rounds as it takes, inside a fence that keeps the tests and the statement out of its reach.</p>
+        <p>A better model would not have fixed this. What was missing was a statement of what must be true of the program, written before the program existed by something that would not write it. That is what the Test stage now hands over. It is a suite of tests written from the statement of the job, naming the functions the program will have to provide. Before it is handed on, the suite is run with no program present. Every test should fail, which shows that each one really checks something. With the suite in hand, the Code stage has an input, an output and a check its writer does not control. A coding harness can then hold the stage, working the way a coding session works, for as many rounds as it takes. The harness cannot change the tests or the statement.</p>
 
-        <p>One more artifact was needed to make the front hold, and it is not on the chain because nothing hands it from one stage to the next. A person's own work, in any tool and any language, is a prototype, and making one is agentic prototyping. It goes in to the Code stage, which reads it as the most exact statement of what was wanted and writes the programs again against the suite, which is agentic transpiling. Nothing comes out of the Code stage but what the Code stage delivers under its own signature, and the Build stage refuses everything else. That rule is what lets people prototype freely without the prototype becoming the product.</p>
+        <p>One more artifact was needed to make the front hold. It is not on the chain, because no stage hands it to the next. It is a prototype: a person's own working version of the thing, made in any tool and any language. Making one is called agentic prototyping. The prototype goes into the Code stage, which reads it as the most exact statement of what was wanted and writes the programs again so they pass the suite. That is called agentic transpiling. Only programs that the Code stage delivers and signs itself leave it, and the Build stage refuses anything else. That rule lets people prototype freely without the prototype becoming the product.</p>
 
         <h2>Why review is still stuck</h2>
 
-        <p>Review and Security review are the two gaps left at the front, and they share the same missing thing. A review is already an artifact in every other setting: a list of findings, each naming a place and a claim, each one answerable. What nobody has agreed is what a finding is and what answering one means. The Code stage now hands over more for a reviewer to read than it used to, the account of what was written and the record of how many rounds it took, and a program that took twenty-eight rounds is something a reviewer should know. The format for saying so is the gap.</p>
+        <p>Review and Security review are the two gaps left at the front, and the same thing is missing from both. Everywhere else, a review is already an artifact: a list of findings, each one naming a place and making a claim that can be answered. What nobody has agreed is what a finding is and what it means to answer one. The Code stage now gives a reviewer more to read than it used to: an account of what was written, and a record of how many rounds it took. A reviewer should know when a program took twenty-eight rounds. What is missing is an agreed format for saying so.</p>
 
         <h2>Why the back end is stuck</h2>
 
-        <p>Retract, Eval, Cost and Rollback look like four unrelated problems, and they have one thing in common: each needs an agreement that nobody has written down yet.</p>
+        <p>Retract, Eval, Cost and Rollback look like four unrelated problems, but they have one thing in common: each needs an agreement that nobody has written down yet.</p>
 
-        <p>Eval needs a standard that predates the work. Retract needs the authority that published to be the only one that takes down, and a record of every name it published, so that it knows what it may remove. Cost needs every spend attributable to a job. Rollback needs a rule about who may decide and on what evidence. In each case the machinery is easy and the missing thing is an agreement.</p>
+        <p>Eval needs a standard that was written before the work. Retract needs a rule that only whoever published something may take it down, and a record of every name it published, so it knows what it may remove. Cost needs every amount spent to be traceable to a job. Rollback needs a rule about who may decide, and on what evidence. In each case the machinery is easy to build, and what is missing is the agreement.</p>
 
-        <p>That is a more hopeful diagnosis than it sounds. Agreements can be written. This site is a place to write them, and Publish moved off this list by having its agreement written: an authority bound to one folder, a record of every name placed, and a read-back of every address before it is called published. Incident response moved off it the same way, by agreeing that the agent holding it records and does nothing else: a timeline of what is known, each gap marked as a gap, no cause guessed and nothing restarted.</p>
+        <p>Agreements can be written, and this site is a place to write them. Publish is no longer on this list, because its agreement was written: the publisher may write to one folder only, it records every name it places, and it reads every address back before calling it published. Incident response is off the list for the same reason: it was agreed that the agent holding it only keeps the record. It writes a timeline of what is known and marks what is not known as unknown. It does not guess at a cause, and it does not restart anything.</p>
 
         <h2>The ledger</h2>
 
-        <p>Some of what a stage finds is not handed to the next stage at all. A change that breaks something another person's work depends on leaves a debt to that person. A problem found and left unfixed is a debt too, owed to ourselves. The chain has nowhere to put either, so the lifecycle keeps them in a record beside it, the <a href="stages.html#ledger">ledger</a>.</p>
+        <p>Some of what a stage finds is not handed to the next stage at all. A change that breaks something another person's work depends on leaves a debt to that person. A problem found and left unfixed is a debt too, owed to ourselves. The chain has nowhere to put either, so the lifecycle keeps both in a separate record called the <a href="stages.html#ledger">ledger</a>.</p>
 
-        <p>The ledger holds two kinds of debt under one numbering. Change dependency debt is owed to the owner of something that depends on what changed. It has a deadline, and until it is settled the deployment manager will not promote, roll back or retire the changed agent. Technical debt is owed to ourselves and blocks nothing. Any stage can add an item, and the deployment manager reads the ledger before it acts. The ledger is coming.</p>
+        <p>The ledger holds two kinds of debt under one numbering. Change dependency debt is owed to the owner of something that depends on what changed. It has a deadline, and until it is settled the deployment manager will not promote, roll back or retire the changed agent. Technical debt is owed to ourselves and blocks nothing. Any stage can add an item, and the deployment manager reads the ledger before it acts. The ledger is a platform service rather than an agent, and it is coming.</p>
 
         <h2>The loops the chain does not draw</h2>
 
-        <p>The chain above runs one way and real work does not. A finding sends the program back to be written again. A failed test does the same, and inside the Code stage that loop runs many times before anything is handed on. A refused conformance check or a poor eval can send the whole thing back to design, and rollback is a reversal by definition. Most of the time anybody spends on software is spent going round one of those loops rather than moving forward along the chain.</p>
+        <p>The chain above runs one way, but real work does not. A finding sends the program back to be written again. A failed test does the same, and inside the Code stage that loop runs many times before anything is handed on. A refused conformance check or a poor eval can send the whole thing back to design, and rollback is a reversal by definition. Most of the time anybody spends on software is spent going round one of those loops rather than moving forward along the chain.</p>
 
-        <p>The chain is drawn straight anyway, because the question here is what passes between two stages, and that is the same artifact whether it is passing for the first time or the fourth. A loop is the same handoff happening again. Where it changes something is in the record: a stage that has run four times has four results, and "which one is current" is a question a straight line never has to answer.</p>
+        <p>The chain is drawn straight anyway, because the question here is what passes between two stages, and that is the same artifact whether it passes for the first time or the fourth. A loop is the same handoff happening again. The difference shows in the record. A stage that has run four times has four results, and somebody has to say which one is current, which a straight line never has to do.</p>
 
         <h2>The test for a stage</h2>
 
-        <p>When considering whether a stage is ready to be held by an agent, three questions settle it, and all three have to be yes.</p>
+        <p>Three questions settle whether a stage is ready for an agent to hold, and the answer to all three has to be yes.</p>
 
         <ul>
-          <li><b>Is the input an artifact?</b> Something with a name that the previous stage actually produces, not a thing the agent would have to go and ask about.</li>
-          <li><b>Is the output an artifact?</b> Something the next stage can read without the agent being present to explain it.</li>
-          <li><b>Is there a check the agent does not control?</b> Written before the work, by something other than the thing doing the work.</li>
+          <li><b>Is the input an artifact?</b> It has to be something with a name that the previous stage actually produces, not something the agent would have to go and ask about.</li>
+          <li><b>Is the output an artifact?</b> It has to be something the next stage can read without the agent there to explain it.</li>
+          <li><b>Is there a check the agent does not control?</b> It has to be written before the work, by something other than whatever does the work.</li>
         </ul>
 
-        <p>The third is the one most often skipped, and it is the one that matters. An agent that writes the program, writes the test and runs the test has produced a closed loop, and a closed loop always passes. Splitting the second from the first is what opened the loop at the front of this lifecycle.</p>
+        <p>The third question is the one most often skipped, and it is the one that matters most. An agent that writes the program, writes the tests and runs the tests has made a closed loop, and a closed loop always passes. Having the tests written by something other than the program's writer is what opened that loop at the front of this lifecycle.</p>
 
-        <p>Passing all three makes a stage safe to hold on its own. It does not make an approval wrong. Deploying, configuring and decommissioning change the world in ways that are awkward to undo, and a person saying yes to one of those is a record that a person decided, not a check on whether the agent was competent. That record is worth keeping whatever the agent is capable of.</p>
+        <p>Passing all three means an agent can safely hold the stage on its own. A person's approval can still be worth having. Deploying, configuring and decommissioning change things in ways that are awkward to undo. When a person says yes to one of them, that yes is a record that a person decided. It is not a check on whether the agent was competent. That record is worth keeping however capable the agent is.</p>
 
         <h2>What this is built on</h2>
 
-        <p>The Build and Release entries describe a manifest, a digest and a signed build record, which is the provenance chain that <a href="https://slsa.dev">SLSA</a> and <a href="https://in-toto.io">in-toto</a> already specify and <a href="https://www.sigstore.dev">Sigstore</a> already implements. Nothing here replaces that work and a serious implementation should use it. What is added is the other end: the same expectation of a named artifact and an outside check applied to the stages where neither existed, and the same provenance chain reaching one stage further back, to the programs themselves.</p>
+        <p>The Build and Release entries describe a manifest, a digest and a signed build record, which is the provenance chain that <a href="https://slsa.dev">SLSA</a> and <a href="https://in-toto.io">in-toto</a> already specify and <a href="https://www.sigstore.dev">Sigstore</a> already implements. Nothing here replaces that work, and a serious implementation should use it. What this site adds is the rest of the lifecycle. It applies the same expectation, a named artifact and an outside check, to the stages where neither existed, and it carries the same provenance chain one stage further back, to the programs themselves.</p>
 
       </article>
     </div>
