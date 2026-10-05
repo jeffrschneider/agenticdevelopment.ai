@@ -61,12 +61,12 @@
           <tbody>
             <tr>
               <td><a href="stages.html#requirements">Requirements</a></td>
-              <td><a class="agent-on" href="https://app.agentmesh.ai/a/spec-writer.platform%40agentmesh.ai/agentdoc">spec-writer</a><br><a class="agent-on" href="https://app.agentmesh.ai/a/planner.platform%40agentmesh.ai/agentdoc">planner</a></td>
+              <td><a class="agent-on" href="https://app.agentmesh.ai/a/spec-writer.platform%40agentmesh.ai/agentdoc">spec-writer</a><br><a class="agent-on" href="https://app.agentmesh.ai/a/planner.platform%40agentmesh.ai/agentdoc">solution-planner</a></td>
               <td><a href="https://agentroles.ai/spec-writer.html">spec writer</a>, for an agent<br>solution planner, for a solution</td>
             </tr>
             <tr>
               <td><a href="stages.html#design">Design</a></td>
-              <td><a class="agent-on" href="https://app.agentmesh.ai/a/spec-writer.platform%40agentmesh.ai/agentdoc">spec-writer</a><br><a class="agent-on" href="https://app.agentmesh.ai/a/planner.platform%40agentmesh.ai/agentdoc">planner</a></td>
+              <td><a class="agent-on" href="https://app.agentmesh.ai/a/spec-writer.platform%40agentmesh.ai/agentdoc">spec-writer</a><br><a class="agent-on" href="https://app.agentmesh.ai/a/planner.platform%40agentmesh.ai/agentdoc">solution-planner</a></td>
               <td><a href="https://agentroles.ai/spec-writer.html">spec writer</a>, for an agent<br>solution planner, for a solution</td>
             </tr>
             <tr>
@@ -81,27 +81,27 @@
             </tr>
             <tr>
               <td><a href="stages.html#build">Build and package</a></td>
-              <td><a class="agent-on" href="https://app.agentmesh.ai/a/agentbuilder.platform%40agentmesh.ai/agentdoc">agentbuilder</a></td>
+              <td><a class="agent-on" href="https://app.agentmesh.ai/a/agentbuilder.platform%40agentmesh.ai/agentdoc">package-maker</a></td>
               <td><a href="https://agentroles.ai/package-maker.html">package maker</a></td>
             </tr>
             <tr>
               <td><a href="stages.html#release">Release</a></td>
-              <td><a class="agent-on" href="https://app.agentmesh.ai/a/agentbuilder.platform%40agentmesh.ai/agentdoc">agentbuilder</a></td>
+              <td><a class="agent-on" href="https://app.agentmesh.ai/a/agentbuilder.platform%40agentmesh.ai/agentdoc">package-maker</a></td>
               <td><a href="https://agentroles.ai/package-maker.html">package maker</a></td>
             </tr>
             <tr>
               <td><a href="stages.html#deploy">Deploy</a></td>
-              <td><a class="agent-on" href="https://app.agentmesh.ai/a/deploymgr.platform%40agentmesh.ai/agentdoc">deploymgr</a></td>
+              <td><a class="agent-on" href="https://app.agentmesh.ai/a/deploymgr.platform%40agentmesh.ai/agentdoc">deployment-manager</a></td>
               <td><a href="https://agentroles.ai/deployment-manager.html">deployment manager</a></td>
             </tr>
             <tr>
               <td><a href="stages.html#configure">Configure</a></td>
-              <td><a class="agent-on" href="https://app.agentmesh.ai/a/deploymgr.platform%40agentmesh.ai/agentdoc">deploymgr</a></td>
+              <td><a class="agent-on" href="https://app.agentmesh.ai/a/deploymgr.platform%40agentmesh.ai/agentdoc">deployment-manager</a></td>
               <td><a href="https://agentroles.ai/deployment-manager.html">deployment manager</a></td>
             </tr>
             <tr>
               <td><a href="stages.html#conformance">Conformance</a></td>
-              <td><a class="agent-on" href="https://app.agentmesh.ai/a/agentevaluator.platform%40agentmesh.ai/agentdoc">agentevaluator</a></td>
+              <td><a class="agent-on" href="https://app.agentmesh.ai/a/agentevaluator.platform%40agentmesh.ai/agentdoc">conformance-checker</a></td>
               <td><a href="https://agentroles.ai/conformance-checker.html">conformance checker</a></td>
             </tr>
             <tr>
@@ -121,19 +121,19 @@
             </tr>
             <tr>
               <td><a href="stages.html#update">Update</a></td>
-              <td><a class="agent-on" href="https://app.agentmesh.ai/a/deploymgr.platform%40agentmesh.ai/agentdoc">deploymgr</a></td>
+              <td><a class="agent-on" href="https://app.agentmesh.ai/a/deploymgr.platform%40agentmesh.ai/agentdoc">deployment-manager</a></td>
               <td><a href="https://agentroles.ai/deployment-manager.html">deployment manager</a></td>
             </tr>
             <tr>
               <td><a href="stages.html#decommission">Decommission</a></td>
-              <td><a class="agent-on" href="https://app.agentmesh.ai/a/deploymgr.platform%40agentmesh.ai/agentdoc">deploymgr</a></td>
+              <td><a class="agent-on" href="https://app.agentmesh.ai/a/deploymgr.platform%40agentmesh.ai/agentdoc">deployment-manager</a></td>
               <td><a href="https://agentroles.ai/deployment-manager.html">deployment manager</a></td>
             </tr>
           </tbody>
         </table>
 
-        <p>Fourteen stages, ten agents. The concentration in the middle is not an accident: those are the stages built out of artifacts, so one agent can hold several of them by reading the same package at different moments. Most of these agents were installed in September 2026, and the record of what they have done is short. The code-writer's first delivery was refused by its own check.</p>
-        <p>Update is held, and it is changing. deploymgr moves an agent to its new version in place today. Running the new version as a candidate beside the old one, proving it there and then promoting it is coming, and so is reading the <a href="stages.html#ledger">ledger</a> first.</p>
+        <p>Fourteen stages, ten agents. Four of them are shown under the names they are being renamed to, and until the rename their links open the AgentDoc under the old name. The concentration in the middle is not an accident: those are the stages built out of artifacts, so one agent can hold several of them by reading the same package at different moments. Most of these agents were installed in September 2026, and the record of what they have done is short. The code-writer's first delivery was refused by its own check.</p>
+        <p>Update is held, and it is changing. deployment-manager moves an agent to its new version in place today. Running the new version as a candidate beside the old one, proving it there and then promoting it is coming, and so is reading the <a href="stages.html#ledger">ledger</a> first.</p>
         <p>One mesh is one data point. The claim on the rest of this site, that the stretch from Build to Conformance moved first because it already had artifacts, is an observation drawn from here and from how provenance tooling was built elsewhere. It is offered as an explanation worth arguing with, not as a survey.</p>
 
         <h2>The stages that are partly held</h2>

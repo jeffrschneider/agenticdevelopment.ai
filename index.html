@@ -82,7 +82,7 @@
 
       <section class="band">
         <h2>The Agent Development Lifecycle</h2>
-        <p>Three marks. A name that is a link is an agent holding the stage, or one role of it, today. <span class="soon">coming soon</span> means no agent holds that stage or role yet, and a stage counts as held when an agent holds at least one of its roles. <span class="person">a person</span> marks the one stage that is a person's act by design. Where a stage has two roles, the first is for making one agent and the second for a solution, which is several agents doing one job together. Docs is the exception. Its first role is assembling the AgentDoc, and its second is writing the documentation people read to use or maintain the software.</p>
+        <p>Three marks. A name that is a link is an agent holding the stage, or one role of it, today. <span class="soon">coming soon</span> means no agent holds that stage or role yet, and a stage counts as held when an agent holds at least one of its roles. <span class="person">a person</span> marks the one stage that is a person's act by design. Where a stage has two roles, the first is for making one agent and the second for a solution, which is several agents doing one job together. Docs is the exception. Its first role is assembling the AgentDoc, and its second is writing the documentation people read to use or maintain the software. Four agents are being renamed to match their roles: solution-planner, package-maker, deployment-manager and conformance-checker. Until the rename, their links open the AgentDoc under the old name.</p>
         <table class="clauses">
           <thead>
             <tr><th>Stage</th><th>Role</th><th>Hands back</th><th>Agent</th></tr>
@@ -93,13 +93,13 @@
               <td><a href="stages.html#requirements">Requirements</a></td>
               <td><a href="https://agentroles.ai/spec-writer.html">spec writer</a><br>solution planner</td>
               <td>a statement of the job: what it does, refuses, needs, records and costs</td>
-              <td><a class="agent-on" href="https://app.agentmesh.ai/a/spec-writer.platform%40agentmesh.ai/agentdoc">spec-writer</a><br><a class="agent-on" href="https://app.agentmesh.ai/a/planner.platform%40agentmesh.ai/agentdoc">planner</a></td>
+              <td><a class="agent-on" href="https://app.agentmesh.ai/a/spec-writer.platform%40agentmesh.ai/agentdoc">spec-writer</a><br><a class="agent-on" href="https://app.agentmesh.ai/a/planner.platform%40agentmesh.ai/agentdoc">solution-planner</a></td>
             </tr>
             <tr>
               <td><a href="stages.html#design">Design</a></td>
               <td><a href="https://agentroles.ai/spec-writer.html">spec writer</a><br>solution planner</td>
               <td>the shape: the steps, and which are program and which are judgment</td>
-              <td><a class="agent-on" href="https://app.agentmesh.ai/a/spec-writer.platform%40agentmesh.ai/agentdoc">spec-writer</a><br><a class="agent-on" href="https://app.agentmesh.ai/a/planner.platform%40agentmesh.ai/agentdoc">planner</a></td>
+              <td><a class="agent-on" href="https://app.agentmesh.ai/a/spec-writer.platform%40agentmesh.ai/agentdoc">spec-writer</a><br><a class="agent-on" href="https://app.agentmesh.ai/a/planner.platform%40agentmesh.ai/agentdoc">solution-planner</a></td>
             </tr>
             <tr>
               <td><a href="stages.html#impact">Impact</a></td>
@@ -146,25 +146,25 @@
               <td><a href="stages.html#build">Build and package</a></td>
               <td><a href="https://agentroles.ai/package-maker.html">package maker</a></td>
               <td>a package: the declaration, the parts, a manifest, a digest</td>
-              <td><a class="agent-on" href="https://app.agentmesh.ai/a/agentbuilder.platform%40agentmesh.ai/agentdoc">agentbuilder</a></td>
+              <td><a class="agent-on" href="https://app.agentmesh.ai/a/agentbuilder.platform%40agentmesh.ai/agentdoc">package-maker</a></td>
             </tr>
             <tr>
               <td><a href="stages.html#release">Release</a></td>
               <td><a href="https://agentroles.ai/package-maker.html">package maker</a></td>
               <td>a signed build record, and the package at an address</td>
-              <td><a class="agent-on" href="https://app.agentmesh.ai/a/agentbuilder.platform%40agentmesh.ai/agentdoc">agentbuilder</a></td>
+              <td><a class="agent-on" href="https://app.agentmesh.ai/a/agentbuilder.platform%40agentmesh.ai/agentdoc">package-maker</a></td>
             </tr>
             <tr>
               <td><a href="stages.html#deploy">Deploy</a></td>
               <td><a href="https://agentroles.ai/deployment-manager.html">deployment manager</a></td>
               <td>a running agent with an identity, an address and an inbox</td>
-              <td><a class="agent-on" href="https://app.agentmesh.ai/a/deploymgr.platform%40agentmesh.ai/agentdoc">deploymgr</a></td>
+              <td><a class="agent-on" href="https://app.agentmesh.ai/a/deploymgr.platform%40agentmesh.ai/agentdoc">deployment-manager</a></td>
             </tr>
             <tr>
               <td><a href="stages.html#configure">Configure</a></td>
               <td><a href="https://agentroles.ai/deployment-manager.html">deployment manager</a></td>
               <td>credentials bound by name, settings placed, ceilings set</td>
-              <td><a class="agent-on" href="https://app.agentmesh.ai/a/deploymgr.platform%40agentmesh.ai/agentdoc">deploymgr</a></td>
+              <td><a class="agent-on" href="https://app.agentmesh.ai/a/deploymgr.platform%40agentmesh.ai/agentdoc">deployment-manager</a></td>
             </tr>
 
             <tr class="phase"><td colspan="4">Prove</td></tr>
@@ -172,7 +172,7 @@
               <td><a href="stages.html#conformance">Conformance</a></td>
               <td><a href="https://agentroles.ai/conformance-checker.html">conformance checker</a></td>
               <td>a signed verdict: does it do what its package says</td>
-              <td><a class="agent-on" href="https://app.agentmesh.ai/a/agentevaluator.platform%40agentmesh.ai/agentdoc">agentevaluator</a></td>
+              <td><a class="agent-on" href="https://app.agentmesh.ai/a/agentevaluator.platform%40agentmesh.ai/agentdoc">conformance-checker</a></td>
             </tr>
             <tr>
               <td><a href="stages.html#acceptance">Acceptance</a></td>
@@ -232,7 +232,7 @@
               <td><a href="stages.html#update">Update</a></td>
               <td><a href="https://agentroles.ai/deployment-manager.html">deployment manager</a></td>
               <td>the new version run beside the old as a candidate, proven, then promoted, with what changed recorded</td>
-              <td><a class="agent-on" href="https://app.agentmesh.ai/a/deploymgr.platform%40agentmesh.ai/agentdoc">deploymgr</a></td>
+              <td><a class="agent-on" href="https://app.agentmesh.ai/a/deploymgr.platform%40agentmesh.ai/agentdoc">deployment-manager</a></td>
             </tr>
             <tr>
               <td><a href="stages.html#rollback">Rollback</a></td>
@@ -244,7 +244,7 @@
               <td><a href="stages.html#decommission">Decommission</a></td>
               <td><a href="https://agentroles.ai/deployment-manager.html">deployment manager</a></td>
               <td>nothing running, the records kept, and the address retired</td>
-              <td><a class="agent-on" href="https://app.agentmesh.ai/a/deploymgr.platform%40agentmesh.ai/agentdoc">deploymgr</a></td>
+              <td><a class="agent-on" href="https://app.agentmesh.ai/a/deploymgr.platform%40agentmesh.ai/agentdoc">deployment-manager</a></td>
             </tr>
           </tbody>
         </table>
@@ -294,7 +294,7 @@
         <h2>Where this comes from</h2>
         <p>This draft is written alongside <a href="https://agentmesh.ai" style="color:var(--paper)">AgentMesh</a>, where the middle of the lifecycle is built and running, where the front is partly held and partly built, and where the gaps were found the ordinary way, by hitting them. Roles are defined at <a href="https://agentroles.ai" style="color:var(--paper)">agentroles.ai</a>. What an agent publishes about itself is defined at <a href="https://agentdoc.net" style="color:var(--paper)">agentdoc.net</a>. <a href="implementations.html" style="color:var(--paper)">Implementations</a> lists what exists today, stage by stage.</p>
         <p>It is a working draft. The stages are stable; the roles and the checks are not, and several are named here before they are written.</p>
-        <p><i>v0.3.0-draft, 5 October 2026: Impact and Source are added to Define, Acceptance to Prove, and the ledger beside the stages. Update is described as candidate, prove and promote, which is coming. The incident recorder now holds Incident response, and the solution planner joins the spec writer at Requirements and Design. Security review names its own role, the security reviewer. Later the same day, Docs was split into two roles. The documenter holds the first by assembling and signing every AgentDoc. No agent holds the second, the doc writer, yet. The deployment manager keeps the name agentroles.ai publishes for its role, and its agent will be renamed to match.</i></p>
+        <p><i>v0.3.0-draft, 5 October 2026: Impact and Source are added to Define, Acceptance to Prove, and the ledger beside the stages. Update is described as candidate, prove and promote, which is coming. The incident recorder now holds Incident response, and the solution planner joins the spec writer at Requirements and Design. Security review names its own role, the security reviewer. Later the same day, Docs was split into two roles. The documenter holds the first by assembling and signing every AgentDoc. No agent holds the second, the doc writer, yet. The deployment manager keeps the name agentroles.ai publishes for its role, and its agent will be renamed to match. The agents are shown under their new names: solution-planner, package-maker, deployment-manager and conformance-checker.</i></p>
       </section>
 
     </div>
