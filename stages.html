@@ -259,11 +259,13 @@
         <h2 class="phase-head">Use</h2>
 
         <section class="stage" id="docs">
-          <div class="head"><svg class="ico" viewBox="0 0 24 24" aria-hidden="true" focusable="false" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M5 4h9a3 3 0 0 1 3 3v13H8a3 3 0 0 0-3 3z"/><path d="M17 7h2v13"/><path d="M9 9h5"/></svg><h2 style="border:0;padding:0;margin:0">Docs</h2><span class="num">15</span><span class="soon">coming soon</span></div>
+          <div class="head"><svg class="ico" viewBox="0 0 24 24" aria-hidden="true" focusable="false" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M5 4h9a3 3 0 0 1 3 3v13H8a3 3 0 0 0-3 3z"/><path d="M17 7h2v13"/><path d="M9 9h5"/></svg><h2 style="border:0;padding:0;margin:0">Docs</h2><span class="num">15</span><a class="agent-on" href="https://agentcatalog.com/a/documenter.system@agentmesh.ai">documenter</a><span class="soon">coming soon</span></div>
           <p>The document a stranger reads before deciding to use the thing. In agentic work this is assembled from what the agent already declares rather than written fresh, for the same reason a résumé is a poor way to check a fact: a document that is authored can say anything, and a document that is gathered can only say what its sources say. Where a source is silent, the silence is printed.</p>
-          <p>On AgentMesh every AgentDoc is assembled and signed by the documenter, an agent the platform runs for its own use. The documenter has no AgentDoc of its own yet, so this stage is still marked coming soon.</p>
+          <p>On AgentMesh every AgentDoc is assembled and signed by the documenter, an agent AgentMesh runs. It holds the first role of this stage. It does not have an AgentDoc of its own yet, so its name links to its catalog page.</p>
+          <p>The second role belongs to the doc writer, which writes the documentation people read to use or maintain the software. An AgentDoc is built only from records, but this documentation has to be written, so it is a different job. No agent holds that role yet.</p>
           <dl>
-            <dt>Role</dt><dd><a href="https://agentroles.ai/doc-writer.html">doc writer</a>; the document format is defined at <a href="https://agentdoc.net">agentdoc.net</a></dd>
+            <dt>Agent</dt><dd><a href="https://agentcatalog.com/a/documenter.system@agentmesh.ai">documenter</a> for the AgentDoc; no agent writes the documentation yet</dd>
+            <dt>Role</dt><dd>documenter for the AgentDoc, a role not yet published at agentroles.ai; <a href="https://agentroles.ai/doc-writer.html">doc writer</a> for the documentation, which no agent holds yet. The AgentDoc format is defined at <a href="https://agentdoc.net">agentdoc.net</a></dd>
             <dt>Process</dt><dd><a href="https://agentprocesses.ai/new-agent.html">New agent, phase publish-the-agent</a>: the AgentDoc is assembled from the deployed agent and its conformance record, and the owner reads it before the agent may be listed</dd>
             <dt>Given</dt><dd>the declaration, the identity, and whatever records and verdicts exist</dd>
             <dt>Hands back</dt><dd>a document a stranger can read, with each claim traceable to its source</dd>

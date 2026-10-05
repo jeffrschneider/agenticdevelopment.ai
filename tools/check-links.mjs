@@ -5,7 +5,11 @@
 //   node tools/check-links.mjs
 //
 // An agent link (https://app.agentmesh.ai/a/<handle>/agentdoc) passes when it
-// answers 200 with an HTML page whose title names an AgentDoc. A role link
+// answers 200 with an HTML page whose title names an AgentDoc. An agent that
+// has no AgentDoc of its own yet links to its catalog page
+// (https://agentcatalog.com/a/<handle>), which passes when it answers 200
+// with the catalog's page for that agent; the catalog answers 404 for an
+// agent it does not list. A role link
 // (https://agentroles.ai/...) passes when it answers 200 with an HTML page.
 // A link to a section (stages.html#impact, #ledger) passes when the page it
 // points at has an element with that id. Anything else fails, and the script
@@ -20,7 +24,9 @@ import { fileURLToPath } from "node:url";
 const root = join(dirname(fileURLToPath(import.meta.url)), "..");
 const pages = readdirSync(root).filter((f) => f.endsWith(".html")).sort();
 
-const AGENT = /^https:\/\/app\.agentmesh\.ai\/a\/[^/]+\/agentdoc$/;
+const AGENTDOC = /^https:\/\/app\.agentmesh\.ai\/a\/[^/]+\/agentdoc$/;
+const CATALOG = /^https:\/\/agentcatalog\.com\/a\/[^/]+$/;
+const AGENT = { test: (url) => AGENTDOC.test(url) || CATALOG.test(url) };
 const ROLE = /^https:\/\/agentroles\.ai\//;
 
 const html = new Map(pages.map((p) => [p, readFileSync(join(root, p), "utf8")]));
@@ -61,7 +67,8 @@ async function check(url) {
     if (res.status !== 200) return { kind, ok: false, why: `${res.status} ${body.replace(/\s+/g, " ").trim().slice(0, 120)}` };
     if (!type.includes("text/html")) return { kind, ok: false, why: `answered ${type}, not a page` };
     const title = (body.match(/<title>([^<]*)<\/title>/i) ?? [])[1] ?? "";
-    if (kind === "agent" && !/AgentDoc/.test(title)) return { kind, ok: false, why: `page title is "${title}", not an AgentDoc` };
+    if (AGENTDOC.test(url) && !/AgentDoc/.test(title)) return { kind, ok: false, why: `page title is "${title}", not an AgentDoc` };
+    if (CATALOG.test(url) && !/\S.*·\s*AgentMesh Catalog/.test(title)) return { kind, ok: false, why: `page title is "${title}", not a catalog agent page` };
     if (!title) return { kind, ok: false, why: "page has no title" };
     return { kind, ok: true, why: title.trim() };
   } catch (err) {

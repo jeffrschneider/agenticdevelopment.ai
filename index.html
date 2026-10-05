@@ -82,7 +82,7 @@
 
       <section class="band">
         <h2>The Agent Development Lifecycle</h2>
-        <p>Three marks. A name that is a link is an agent holding the stage today. <span class="soon">coming soon</span> means no agent holds it yet. <span class="person">a person</span> marks the one stage that is a person's act by design. Where a stage has two roles, the first is for making one agent and the second for a solution, which is several agents doing one job together.</p>
+        <p>Three marks. A name that is a link is an agent holding the stage, or one role of it, today. <span class="soon">coming soon</span> means no agent holds that stage or role yet, and a stage counts as held when an agent holds at least one of its roles. <span class="person">a person</span> marks the one stage that is a person's act by design. Where a stage has two roles, the first is for making one agent and the second for a solution, which is several agents doing one job together. Docs is the exception. Its first role is assembling the AgentDoc, and its second is writing the documentation people read to use or maintain the software.</p>
         <table class="clauses">
           <thead>
             <tr><th>Stage</th><th>Role</th><th>Hands back</th><th>Agent</th></tr>
@@ -184,9 +184,9 @@
             <tr class="phase"><td colspan="4">Use</td></tr>
             <tr>
               <td><a href="stages.html#docs">Docs</a></td>
-              <td><a href="https://agentroles.ai/doc-writer.html">doc writer</a></td>
-              <td>a document a stranger can read before deciding to use it</td>
-              <td><span class="soon">coming soon</span></td>
+              <td>documenter<br><a href="https://agentroles.ai/doc-writer.html">doc writer</a></td>
+              <td>the AgentDoc a stranger reads before deciding to use an agent, and the documentation for the people who use or maintain the software</td>
+              <td><a class="agent-on" href="https://agentcatalog.com/a/documenter.system@agentmesh.ai">documenter</a><br><span class="soon">coming soon</span></td>
             </tr>
             <tr>
               <td><a href="stages.html#publish">Publish</a></td>
@@ -280,7 +280,7 @@
       </section>
       <section class="band">
         <h2>What the map shows</h2>
-        <p>Thirteen of the twenty-four stages have an agent holding them, and Acceptance belongs to a person by design. The stretch from Build to Conformance, and Update and Decommission at the end of the chain, moved first because it was built out of artifacts before anybody thought about agents. The front moved next, when the missing artifact was made. That artifact is the test suite: a statement of what the program must be true of, written from the specification before any program exists, by something that will not write the program. Once the suite existed, writing the code became a stage with an input, an output and a check the writer does not control.</p>
+        <p>Fourteen of the twenty-four stages have an agent holding them, and Acceptance belongs to a person by design. The stretch from Build to Conformance, and Update and Decommission at the end of the chain, moved first because it was built out of artifacts before anybody thought about agents. The front moved next, when the missing artifact was made. That artifact is the test suite: a statement of what the program must be true of, written from the specification before any program exists, by something that will not write the program. Once the suite existed, writing the code became a stage with an input, an output and a check the writer does not control.</p>
         <p>Review and Security review are the gap left at the front: nothing has agreed what a finding is or what answering one means. Impact and Source are newer and smaller gaps. What each one hands on is already settled, the impact report and the catalog's answer for each step, and the agents to hold them are not built yet. The back is thinner still. Eval, Cost, Rollback and Retract each need a judgment or an authority that nobody has written down.</p>
       </section>
 
@@ -294,7 +294,7 @@
         <h2>Where this comes from</h2>
         <p>This draft is written alongside <a href="https://agentmesh.ai" style="color:var(--paper)">AgentMesh</a>, where the middle of the lifecycle is built and running, where the front is partly held and partly built, and where the gaps were found the ordinary way, by hitting them. Roles are defined at <a href="https://agentroles.ai" style="color:var(--paper)">agentroles.ai</a>. What an agent publishes about itself is defined at <a href="https://agentdoc.net" style="color:var(--paper)">agentdoc.net</a>. <a href="implementations.html" style="color:var(--paper)">Implementations</a> lists what exists today, stage by stage.</p>
         <p>It is a working draft. The stages are stable; the roles and the checks are not, and several are named here before they are written.</p>
-        <p><i>v0.3.0-draft, 5 October 2026: Impact and Source are added to Define, Acceptance to Prove, and the ledger beside the stages. Update is described as candidate, prove and promote, which is coming. The incident recorder now holds Incident response, and the solution planner joins the spec writer at Requirements and Design. Security review names its own role, the security reviewer, and the deployment manager is called the deploy manager here.</i></p>
+        <p><i>v0.3.0-draft, 5 October 2026: Impact and Source are added to Define, Acceptance to Prove, and the ledger beside the stages. Update is described as candidate, prove and promote, which is coming. The incident recorder now holds Incident response, and the solution planner joins the spec writer at Requirements and Design. Security review names its own role, the security reviewer, and the deployment manager is called the deploy manager here. Later the same day, Docs was split into two roles. The documenter holds the first by assembling and signing every AgentDoc. No agent holds the second, the doc writer, yet.</i></p>
       </section>
 
     </div>
