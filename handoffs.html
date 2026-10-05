@@ -39,7 +39,7 @@
     </nav>
     <div class="foot">
       <a href="https://agentmesh.ai/standards.html">The family of standards</a><br><br>
-      v0.2.0-draft<br>
+      v0.3.0-draft<br>
       a working draft, developed<br>alongside AgentMesh
     </div>
   </aside>
@@ -56,12 +56,14 @@
 
         <h2>The chain</h2>
 
-        <p>Following one piece of work from somebody wanting it to the address being retired, here is what is actually handed over. The links that exist are solid. The links that are missing are marked.</p>
+        <p>Following one piece of work from somebody wanting it to the address being retired, here is what is actually handed over. The links that exist are solid. The links that are missing are marked with question marks. The links that are written down but not yet made are marked as coming.</p>
 
         <div class="figure">
           <div class="bar"><span class="lamp"></span> what passes between stages<span class="grow">solid = an artifact exists</span></div>
 <pre><span class="k">Requirements</span>  →  a statement of the job, and the questions it could not settle
 <span class="k">Design</span>        →  the shape: steps, and program or judgment on each
+<span class="x">Impact        →  (coming) the impact report: each dependent, and what the change does to it</span>
+<span class="x">Source        →  (coming) for each step, an agent or solution that fits, or "build one"</span>
 <span class="k">Test</span>          →  the suite, written from the statement before any program
 <span class="k">Code</span>          →  the programs, passing the suite, with an account and a run record
 <span class="a">Review        →  ???</span>
@@ -71,20 +73,23 @@
 <span class="k">Deploy</span>        →  a running agent: identity, address, inbox
 <span class="k">Configure</span>     →  credentials by name, settings, ceilings
 <span class="k">Conformance</span>   →  a signed verdict against the declaration
+<span class="x">Acceptance    →  (coming) the requester's recorded yes, against "done"</span>
 <span class="k">Docs</span>          →  a document assembled from the declaration
 <span class="k">Publish</span>       →  an address a person can open, and the digest of what is there
 <span class="a">Retract       →  ???</span>
 <span class="k">Monitor</span>       →  liveness, measured by an answer
 <span class="a">Eval          →  ???</span>
-<span class="a">Incident      →  ???</span>
+<span class="k">Incident</span>      →  a timeline of what is known, with each gap marked
 <span class="a">Cost          →  ???</span>
 <span class="k">Update</span>        →  the same agent, new version, difference recorded
 <span class="a">Rollback      →  ???</span>
 <span class="k">Decommission</span>  →  nothing running, records kept, address retired</pre>
-          <div class="cap">Seven gaps. Two at the front, where a program is read rather than written, and five across the back half: <b>the chain now runs from a statement of the job to a package, and thins out after the agent is running.</b></div>
+          <div class="cap">Six gaps, two at the front, where a program is read rather than written, and four across the back half: <b>the chain now runs from a statement of the job to a package, and thins out after the agent is running.</b> Three more links are written down and not yet made.</div>
         </div>
 
-        <p>Test comes before Code, here and on the map. The suite is written from the statement, before any program exists, and the program is written to it. A solid link says the artifact exists, not that an agent holds the stage: Docs and Monitor have the artifact, made by tools, and no agent yet.</p>
+        <p>Test comes before Code, here and on the map. The suite is written from the statement, before any program exists, and the program is written to it. A solid link says the artifact exists, not that an agent holds the stage: Docs and Monitor have the artifact, made by the platform's own programs, and no agent holds either stage yet. The three marked as coming, Impact, Source and Acceptance, have their artifact settled, and nothing makes it yet.</p>
+
+        <p>Update is changing too. The new version will run first as a candidate beside the old one, be proven there against its own declaration and against what each dependent counts as done, and only then be promoted. The artifact it hands on is the same agent on the new version, with a record of each of those three steps.</p>
 
         <h2>Why the middle joined up first</h2>
 
@@ -106,11 +111,17 @@
 
         <h2>Why the back end is stuck</h2>
 
-        <p>Retract, Eval, Cost, Incident response and Rollback look like five unrelated problems and share one shape: each needs something written down that nobody has written down.</p>
+        <p>Retract, Eval, Cost and Rollback look like four unrelated problems, and they have one thing in common: each needs an agreement that nobody has written down yet.</p>
 
-        <p>Eval needs a standard that predates the work. Retract needs the authority that published to be the only one that takes down, and a record of every name it published, so that it knows what it may remove. Cost needs every spend attributable to a job. Incident response needs a way to stop an agent that is still answering. Rollback needs a rule about who may decide and on what evidence. In each case the machinery is easy and the missing thing is an agreement.</p>
+        <p>Eval needs a standard that predates the work. Retract needs the authority that published to be the only one that takes down, and a record of every name it published, so that it knows what it may remove. Cost needs every spend attributable to a job. Rollback needs a rule about who may decide and on what evidence. In each case the machinery is easy and the missing thing is an agreement.</p>
 
-        <p>That is a more hopeful diagnosis than it sounds. Agreements can be written. This site is a place to write them, and Publish moved off this list by having its agreement written: an authority bound to one folder, a record of every name placed, and a read-back of every address before it is called published.</p>
+        <p>That is a more hopeful diagnosis than it sounds. Agreements can be written. This site is a place to write them, and Publish moved off this list by having its agreement written: an authority bound to one folder, a record of every name placed, and a read-back of every address before it is called published. Incident response moved off it the same way, by agreeing that the agent holding it records and does nothing else: a timeline of what is known, each gap marked as a gap, no cause guessed and nothing restarted.</p>
+
+        <h2>The ledger</h2>
+
+        <p>Some of what a stage finds is not handed to the next stage at all. A change that breaks something another person's work depends on leaves a debt to that person. A problem found and left unfixed is a debt too, owed to ourselves. The chain has nowhere to put either, so the lifecycle keeps them in a record beside it, the <a href="stages.html#ledger">ledger</a>.</p>
+
+        <p>The ledger holds two kinds of debt under one numbering. Change dependency debt is owed to the owner of something that depends on what changed. It has a deadline, and until it is settled the deploy manager will not promote, roll back or retire the changed agent. Technical debt is owed to ourselves and blocks nothing. Any stage can add an item, and the deploy manager reads the ledger before it acts. The ledger is coming.</p>
 
         <h2>The loops the chain does not draw</h2>
 
