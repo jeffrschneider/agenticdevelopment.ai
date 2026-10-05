@@ -156,13 +156,13 @@
             </tr>
             <tr>
               <td><a href="stages.html#deploy">Deploy</a></td>
-              <td><a href="https://agentroles.ai/deployment-manager.html">deploy manager</a></td>
+              <td><a href="https://agentroles.ai/deployment-manager.html">deployment manager</a></td>
               <td>a running agent with an identity, an address and an inbox</td>
               <td><a class="agent-on" href="https://app.agentmesh.ai/a/deploymgr.platform%40agentmesh.ai/agentdoc">deploymgr</a></td>
             </tr>
             <tr>
               <td><a href="stages.html#configure">Configure</a></td>
-              <td><a href="https://agentroles.ai/deployment-manager.html">deploy manager</a></td>
+              <td><a href="https://agentroles.ai/deployment-manager.html">deployment manager</a></td>
               <td>credentials bound by name, settings placed, ceilings set</td>
               <td><a class="agent-on" href="https://app.agentmesh.ai/a/deploymgr.platform%40agentmesh.ai/agentdoc">deploymgr</a></td>
             </tr>
@@ -230,19 +230,19 @@
             <tr class="phase"><td colspan="4">Change</td></tr>
             <tr>
               <td><a href="stages.html#update">Update</a></td>
-              <td><a href="https://agentroles.ai/deployment-manager.html">deploy manager</a></td>
+              <td><a href="https://agentroles.ai/deployment-manager.html">deployment manager</a></td>
               <td>the new version run beside the old as a candidate, proven, then promoted, with what changed recorded</td>
               <td><a class="agent-on" href="https://app.agentmesh.ai/a/deploymgr.platform%40agentmesh.ai/agentdoc">deploymgr</a></td>
             </tr>
             <tr>
               <td><a href="stages.html#rollback">Rollback</a></td>
-              <td><a href="https://agentroles.ai/deployment-manager.html">deploy manager</a></td>
+              <td><a href="https://agentroles.ai/deployment-manager.html">deployment manager</a></td>
               <td>the same agent, back on the version before, and why</td>
               <td><span class="soon">coming soon</span></td>
             </tr>
             <tr>
               <td><a href="stages.html#decommission">Decommission</a></td>
-              <td><a href="https://agentroles.ai/deployment-manager.html">deploy manager</a></td>
+              <td><a href="https://agentroles.ai/deployment-manager.html">deployment manager</a></td>
               <td>nothing running, the records kept, and the address retired</td>
               <td><a class="agent-on" href="https://app.agentmesh.ai/a/deploymgr.platform%40agentmesh.ai/agentdoc">deploymgr</a></td>
             </tr>
@@ -252,7 +252,7 @@
 
       <section class="band" id="ledger">
         <h2>The ledger</h2>
-        <p>One record sits beside every stage rather than in the chain. The ledger holds two kinds of debt under one numbering. <b>Change dependency debt</b> is owed to somebody else: when a change breaks or alters something another person's work depends on, the debt is owed to that person, it has a deadline, and until it is settled the changed agent cannot be promoted, rolled back or retired. <b>Technical debt</b> is owed to ourselves, a problem found and not yet fixed, and it blocks nothing. Any stage can add to the ledger, and the deploy manager reads it before it acts. It is a record, not a stage, and it is coming.</p>
+        <p>One record sits beside every stage rather than in the chain. The ledger holds two kinds of debt under one numbering. <b>Change dependency debt</b> is owed to somebody else: when a change breaks or alters something another person's work depends on, the debt is owed to that person, it has a deadline, and until it is settled the changed agent cannot be promoted, rolled back or retired. <b>Technical debt</b> is owed to ourselves, a problem found and not yet fixed, and it blocks nothing. Any stage can add to the ledger, and the deployment manager reads it before it acts. It is a record, not a stage, and it is coming.</p>
         <table class="clauses">
           <thead>
             <tr><th>Record</th><th>Role</th><th>Holds</th><th>Agent</th></tr>
@@ -294,7 +294,7 @@
         <h2>Where this comes from</h2>
         <p>This draft is written alongside <a href="https://agentmesh.ai" style="color:var(--paper)">AgentMesh</a>, where the middle of the lifecycle is built and running, where the front is partly held and partly built, and where the gaps were found the ordinary way, by hitting them. Roles are defined at <a href="https://agentroles.ai" style="color:var(--paper)">agentroles.ai</a>. What an agent publishes about itself is defined at <a href="https://agentdoc.net" style="color:var(--paper)">agentdoc.net</a>. <a href="implementations.html" style="color:var(--paper)">Implementations</a> lists what exists today, stage by stage.</p>
         <p>It is a working draft. The stages are stable; the roles and the checks are not, and several are named here before they are written.</p>
-        <p><i>v0.3.0-draft, 5 October 2026: Impact and Source are added to Define, Acceptance to Prove, and the ledger beside the stages. Update is described as candidate, prove and promote, which is coming. The incident recorder now holds Incident response, and the solution planner joins the spec writer at Requirements and Design. Security review names its own role, the security reviewer, and the deployment manager is called the deploy manager here. Later the same day, Docs was split into two roles. The documenter holds the first by assembling and signing every AgentDoc. No agent holds the second, the doc writer, yet.</i></p>
+        <p><i>v0.3.0-draft, 5 October 2026: Impact and Source are added to Define, Acceptance to Prove, and the ledger beside the stages. Update is described as candidate, prove and promote, which is coming. The incident recorder now holds Incident response, and the solution planner joins the spec writer at Requirements and Design. Security review names its own role, the security reviewer. Later the same day, Docs was split into two roles. The documenter holds the first by assembling and signing every AgentDoc. No agent holds the second, the doc writer, yet. The deployment manager keeps the name agentroles.ai publishes for its role, and its agent will be renamed to match.</i></p>
       </section>
 
     </div>

@@ -204,7 +204,7 @@
           <p>Installing the package so that something is running and reachable. The agentic difference is that the result has an identity of its own and an address other agents can find, so a deploy is not finished when files land. Somebody has to be able to write to it and get an answer.</p>
           <dl>
             <dt>Agent</dt><dd><a href="https://app.agentmesh.ai/a/deploymgr.platform%40agentmesh.ai/agentdoc">deploymgr</a>, whose AgentDoc says what it does, refuses, needs and records</dd>
-            <dt>Role</dt><dd><a href="https://agentroles.ai/deployment-manager.html">deploy manager</a></dd>
+            <dt>Role</dt><dd><a href="https://agentroles.ai/deployment-manager.html">deployment manager</a></dd>
             <dt>Process</dt><dd><a href="https://agentprocesses.ai/new-agent.html">New agent, phase deploy-the-agent, after the owner's yes at approve-the-deploy</a></dd>
             <dt>Given</dt><dd>the package, and where it is going</dd>
             <dt>Hands back</dt><dd>a running agent with an identity, an address and an inbox</dd>
@@ -217,7 +217,7 @@
           <p>Binding what the package asked for: a credential for each service, a value for each setting, a number for each thing that spends. The rule that makes this safe is that a secret is named and never carried, so the instruction to deploy can be read, logged and repeated without leaking anything.</p>
           <dl>
             <dt>Agent</dt><dd><a href="https://app.agentmesh.ai/a/deploymgr.platform%40agentmesh.ai/agentdoc">deploymgr</a>, whose AgentDoc says what it does, refuses, needs and records</dd>
-            <dt>Role</dt><dd><a href="https://agentroles.ai/deployment-manager.html">deploy manager</a></dd>
+            <dt>Role</dt><dd><a href="https://agentroles.ai/deployment-manager.html">deployment manager</a></dd>
             <dt>Process</dt><dd><a href="https://agentprocesses.ai/new-agent.html">New agent, phase deploy-the-agent; the bindings are settled at deploy</a></dd>
             <dt>Given</dt><dd>what the install file asks for, and the owner's answers as names</dd>
             <dt>Hands back</dt><dd>credentials bound by name, settings placed, a ceiling on everything that spends</dd>
@@ -359,11 +359,11 @@
         <section class="stage" id="update">
           <div class="head"><svg class="ico" viewBox="0 0 24 24" aria-hidden="true" focusable="false" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M20 12a8 8 0 1 1-2.6-5.9"/><path d="M20 4v5h-5"/></svg><h2 style="border:0;padding:0;margin:0">Update</h2><span class="num">22</span><a class="agent-on" href="https://app.agentmesh.ai/a/deploymgr.platform%40agentmesh.ai/agentdoc">deploymgr</a></div>
           <p>Moving a running agent to a new version of its package while it keeps its identity, its address and its history. The version changes; the subject does not. What changed between the two versions has to be recorded, because the agent's own document will be read by people who were not present for the change.</p>
-          <p>It is done in three steps, and each is recorded. <b>Candidate</b>: the new version is installed beside the old one, under the same identity, and answers only the messages sent to test it. <b>Prove</b>: the conformance check runs against it, and so does what each dependent counts as done. <b>Promote</b>: the identity moves to the new version, and the old one stays installed but stopped for a while, in case it is needed back. Before promoting, the deploy manager reads the <a href="#ledger">ledger</a>, and an open debt that blocks the promote stops it.</p>
+          <p>It is done in three steps, and each is recorded. <b>Candidate</b>: the new version is installed beside the old one, under the same identity, and answers only the messages sent to test it. <b>Prove</b>: the conformance check runs against it, and so does what each dependent counts as done. <b>Promote</b>: the identity moves to the new version, and the old one stays installed but stopped for a while, in case it is needed back. Before promoting, the deployment manager reads the <a href="#ledger">ledger</a>, and an open debt that blocks the promote stops it.</p>
           <p>The code is rarely the risky part. The records an agent has already written are in the old version's shapes, and the new version has to go on reading them, which is the ordinary migration problem arriving in an unfamiliar place.</p>
           <dl>
             <dt>Agent</dt><dd><a href="https://app.agentmesh.ai/a/deploymgr.platform%40agentmesh.ai/agentdoc">deploymgr</a>, whose AgentDoc says what it does, refuses, needs and records. It updates an agent in place today; the candidate, prove and promote steps, and reading the ledger first, are coming.</dd>
-            <dt>Role</dt><dd><a href="https://agentroles.ai/deployment-manager.html">deploy manager</a></dd>
+            <dt>Role</dt><dd><a href="https://agentroles.ai/deployment-manager.html">deployment manager</a></dd>
             <dt>Process</dt><dd><a href="https://agentprocesses.ai/new-agent.html">New agent, run again with the version that runs today attached as the prototype</a></dd>
             <dt>Given</dt><dd>a new package, and the agent it is to replace</dd>
             <dt>Hands back</dt><dd>the same agent on the new version, proven as a candidate before it was promoted, with what changed recorded</dd>
@@ -377,8 +377,8 @@
           <p>Moving the code back is also not the same as undoing the work. A version that ran for an hour has sent messages, spent money, written files and changed data somebody else now depends on, and none of that reverses when the version does. A rollback that only names the version is a rollback that leaves the mess.</p>
           <p>When an update keeps the old version installed for a while after the promote, rolling back is the promote run in reverse, with the reason recorded.</p>
           <dl>
-            <dt>Role</dt><dd><a href="https://agentroles.ai/deployment-manager.html">deploy manager</a></dd>
-            <dt>Process</dt><dd>no process holds it; rollback is the deploy manager's own act</dd>
+            <dt>Role</dt><dd><a href="https://agentroles.ai/deployment-manager.html">deployment manager</a></dd>
+            <dt>Process</dt><dd>no process holds it; rollback is the deployment manager's own act</dd>
             <dt>Given</dt><dd>the agent, and the version it was on before</dd>
             <dt>Hands back</dt><dd>the same agent back on that version, the reason it was moved, and what the bad version did that cannot be undone</dd>
             <dt>Done when</dt><dd>the agent is answering on the old version, the reason is recorded, and the side effects are named</dd>
@@ -390,7 +390,7 @@
           <p>Taking an agent away. The part that is specific to agentic work is that an agent has an address other agents hold, and work in flight that somebody is waiting on. Removing it cleanly means the address stops answering rather than answering wrongly, and the records outlive the agent that made them.</p>
           <dl>
             <dt>Agent</dt><dd><a href="https://app.agentmesh.ai/a/deploymgr.platform%40agentmesh.ai/agentdoc">deploymgr</a>, whose AgentDoc says what it does, refuses, needs and records</dd>
-            <dt>Role</dt><dd><a href="https://agentroles.ai/deployment-manager.html">deploy manager</a></dd>
+            <dt>Role</dt><dd><a href="https://agentroles.ai/deployment-manager.html">deployment manager</a></dd>
             <dt>Process</dt><dd><a href="https://agentprocesses.ai/retire-an-agent.html">Retire an agent, phase remove-the-agent</a></dd>
             <dt>Given</dt><dd>the instruction, and the agent</dd>
             <dt>Hands back</dt><dd>nothing running, the records kept, and the address retired</dd>
@@ -403,7 +403,7 @@
         <section class="stage" id="ledger">
           <div class="head"><svg class="ico" viewBox="0 0 24 24" aria-hidden="true" focusable="false" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M5 5a2 2 0 0 1 2-2h12v15H7a2 2 0 0 0-2 2z"/><path d="M5 20a2 2 0 0 0 2 1h12v-3"/><path d="M9 7.5h6M9 11h6"/></svg><h2 style="border:0;padding:0;margin:0">The ledger</h2><span class="soon">coming soon</span></div>
           <p>Some of what a stage finds is owed rather than handed on. A change that breaks something another person's work depends on leaves a debt to that person. A problem found and left unfixed is a debt too, owed to ourselves. Neither belongs to one stage, so neither fits in the chain, and both get lost when they live in somebody's notes.</p>
-          <p>The ledger holds both, under one numbering. <b>Change dependency debt</b> is owed to somebody else: the owner of something that depends on what changed. It has a deadline, and until it is settled the changed agent cannot be promoted, rolled back or retired. <b>Technical debt</b> is owed to ourselves, and it blocks nothing. Any stage can add an item, and the deploy manager reads the ledger before it acts. The ledger calls no model and judges nothing. It numbers what it is told, records who changed each item, when and why, and never deletes one. It is a record, not a stage.</p>
+          <p>The ledger holds both, under one numbering. <b>Change dependency debt</b> is owed to somebody else: the owner of something that depends on what changed. It has a deadline, and until it is settled the changed agent cannot be promoted, rolled back or retired. <b>Technical debt</b> is owed to ourselves, and it blocks nothing. Any stage can add an item, and the deployment manager reads the ledger before it acts. The ledger calls no model and judges nothing. It numbers what it is told, records who changed each item, when and why, and never deletes one. It is a record, not a stage.</p>
           <dl>
             <dt>Role</dt><dd><a href="https://agentroles.ai/ledger.html">ledger</a></dd>
             <dt>Given</dt><dd>an item: what it is against, who it is owed to, what caused it, and what it blocks</dd>
