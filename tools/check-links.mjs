@@ -65,6 +65,10 @@ async function check(url) {
     const type = res.headers.get("content-type") ?? "";
     const body = await res.text();
     if (res.status !== 200) return { kind, ok: false, why: `${res.status} ${body.replace(/\s+/g, " ").trim().slice(0, 120)}` };
+    // A role's conformance check is a script, published beside its page.
+    if (/^https:\/\/agentroles\.ai\/checks\/[^/]+\.mjs$/.test(url)) {
+      return type.includes("javascript") ? { kind, ok: true, why: "conformance check script" } : { kind, ok: false, why: `answered ${type}, not a script` };
+    }
     if (!type.includes("text/html")) return { kind, ok: false, why: `answered ${type}, not a page` };
     const title = (body.match(/<title>([^<]*)<\/title>/i) ?? [])[1] ?? "";
     if (AGENTDOC.test(url) && !/AgentDoc/.test(title)) return { kind, ok: false, why: `page title is "${title}", not an AgentDoc` };
