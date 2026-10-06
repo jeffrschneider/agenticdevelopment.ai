@@ -61,7 +61,7 @@
           <p>Sometimes what is asked for is a solution: several agents doing one job together, each handing its result to the next. Then the solution planner holds this stage and Design. It writes down what the job is and what "done" means before anything runs, so the finished solution has something to be checked against. A step that no existing agent can do becomes a new agent, and the spec writer holds this stage for that agent.</p>
           <dl>
             <dt>Agent</dt><dd><a href="https://app.agentmesh.ai/a/spec-writer.platform%40agentmesh.ai/agentdoc">spec-writer</a> for an agent, and <a href="https://app.agentmesh.ai/a/planner.platform%40agentmesh.ai/agentdoc">solution-planner</a> for a solution; each one's AgentDoc says what it does, refuses, needs and records</dd>
-            <dt>Role</dt><dd><a href="https://agentroles.ai/spec-writer.html">spec writer</a> for an agent; solution planner for a solution, a role not yet published</dd>
+            <dt>Role</dt><dd><a href="https://agentroles.ai/spec-writer.html">spec writer</a> for an agent; <a href="https://agentroles.ai/solution-planner.html">solution planner</a> for a solution</dd>
             <dt>Process</dt><dd><a href="https://agentprocesses.ai/new-agent.html">New agent, phase write-the-spec</a></dd>
             <dt>Given</dt><dd>somebody's account of what they want, with whatever they have: notes, a document, an earlier statement, a prototype</dd>
             <dt>Hands back</dt><dd>a statement of the job: what it does, what it refuses, what it needs access to, what it records, and what it costs; and beside it the questions nobody else could answer</dd>
@@ -77,7 +77,7 @@
           <p>For a solution, the shape is the plan: the steps in order, what passes between them, and what each step needs. Which agent does each step is decided at Source.</p>
           <dl>
             <dt>Agent</dt><dd><a href="https://app.agentmesh.ai/a/spec-writer.platform%40agentmesh.ai/agentdoc">spec-writer</a> for an agent, and <a href="https://app.agentmesh.ai/a/planner.platform%40agentmesh.ai/agentdoc">solution-planner</a> for a solution; each one's AgentDoc says what it does, refuses, needs and records</dd>
-            <dt>Role</dt><dd><a href="https://agentroles.ai/spec-writer.html">spec writer</a> for an agent; solution planner for a solution, a role not yet published</dd>
+            <dt>Role</dt><dd><a href="https://agentroles.ai/spec-writer.html">spec writer</a> for an agent; <a href="https://agentroles.ai/solution-planner.html">solution planner</a> for a solution</dd>
             <dt>Process</dt><dd><a href="https://agentprocesses.ai/new-agent.html">New agent, phase write-the-spec</a></dd>
             <dt>Given</dt><dd>the statement of the job</dd>
             <dt>Hands back</dt><dd>the four answers above, and the shape: the steps, what each is given and hands back, and whether each is a program or a judgment</dd>
@@ -105,7 +105,7 @@
           <p>A catalog that always finds a match sends work to agents that do not fit. So the catalog has to be able to answer "nothing fits", with the reason, and that answer is what sends a step on to be built.</p>
           <p>On AgentMesh a catalog agent answers searches today, but it has no AgentDoc yet and nothing asks it about each step, so this stage is still marked coming soon.</p>
           <dl>
-            <dt>Role</dt><dd>catalog, a role not yet published</dd>
+            <dt>Role</dt><dd><a href="https://agentroles.ai/catalog.html">catalog</a></dd>
             <dt>Process</dt><dd>no process holds it yet</dd>
             <dt>Given</dt><dd>the steps, each with what it takes and what it hands back</dd>
             <dt>Hands back</dt><dd>for each step, an existing agent or solution that fits, or "build one", with the reason</dd>
@@ -162,7 +162,7 @@
           <p>Dependency and supply-chain vetting belongs here rather than in Build. Build hashes what went into the package, which answers what is in it and not whether it should be.</p>
           <p>The statement is checked against what the package says it will reach and the spending limit its owner set, before the agent is installed.</p>
           <dl>
-            <dt>Role</dt><dd>security reviewer, a role not yet published</dd>
+            <dt>Role</dt><dd><a href="https://agentroles.ai/security-reviewer.html">security reviewer</a></dd>
             <dt>Process</dt><dd>no process holds it yet; the security reviewer has no implementation</dd>
             <dt>Given</dt><dd>the shape, the programs, and everything the package will ask to be given</dd>
             <dt>Hands back</dt><dd>a statement of what it may reach, what it may spend, what it must never do, and what was accepted knowingly</dd>
@@ -265,7 +265,7 @@
           <p>The second role belongs to the doc writer, which writes the documentation people read to use or maintain the software. An AgentDoc is built only from records, but this documentation has to be written, so it is a different job. No agent holds that role yet.</p>
           <dl>
             <dt>Agent</dt><dd><a href="https://agentcatalog.com/a/documenter.system@agentmesh.ai">documenter</a> for the AgentDoc; no agent writes the documentation yet</dd>
-            <dt>Role</dt><dd>documenter for the AgentDoc, a role not yet published at agentroles.ai; <a href="https://agentroles.ai/doc-writer.html">doc writer</a> for the documentation, which no agent holds yet. The AgentDoc format is defined at <a href="https://agentdoc.net">agentdoc.net</a></dd>
+            <dt>Role</dt><dd><a href="https://agentroles.ai/documenter.html">documenter</a> for the AgentDoc; <a href="https://agentroles.ai/doc-writer.html">doc writer</a> for the documentation, which no agent holds yet. The AgentDoc format is defined at <a href="https://agentdoc.net">agentdoc.net</a></dd>
             <dt>Process</dt><dd><a href="https://agentprocesses.ai/new-agent.html">New agent, phase publish-the-agent</a>: the AgentDoc is assembled from the deployed agent and its conformance record, and the owner reads it before the agent may be listed</dd>
             <dt>Given</dt><dd>the declaration, the identity, and whatever records and verdicts exist</dd>
             <dt>Hands back</dt><dd>a document a stranger can read, with each claim traceable to its source</dd>
