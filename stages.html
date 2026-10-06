@@ -100,13 +100,14 @@
         </section>
 
         <section class="stage" id="source">
-          <div class="head"><svg class="ico" viewBox="0 0 24 24" aria-hidden="true" focusable="false" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="4" width="6.5" height="6.5" rx="1.2"/><rect x="13.5" y="4" width="6.5" height="6.5" rx="1.2"/><rect x="4" y="13.5" width="6.5" height="6.5" rx="1.2"/><path d="M16.75 14v6M13.75 17h6"/></svg><h2 style="border:0;padding:0;margin:0">Source</h2><span class="num">04</span><span class="soon">coming soon</span></div>
+          <div class="head"><svg class="ico" viewBox="0 0 24 24" aria-hidden="true" focusable="false" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="4" width="6.5" height="6.5" rx="1.2"/><rect x="13.5" y="4" width="6.5" height="6.5" rx="1.2"/><rect x="4" y="13.5" width="6.5" height="6.5" rx="1.2"/><path d="M16.75 14v6M13.75 17h6"/></svg><h2 style="border:0;padding:0;margin:0">Source</h2><span class="num">04</span><a class="agent-on" href="https://app.dev.agentmesh.ai/a/catalog.platform%40agentmesh.ai/agentdoc">catalog</a></div>
           <p>Finding what already exists before building anything new. Once the design has steps, each step needs something to do it, and the cheapest choice is something that already exists and has already been checked. The catalog is asked about each step, with what the step takes and what it hands back. For each step it answers with an agent or a solution that fits, or with "build one".</p>
           <p>A catalog that always finds a match sends work to agents that do not fit. So the catalog has to be able to answer "nothing fits", with the reason, and that answer is what sends a step on to be built.</p>
-          <p>On AgentMesh a catalog agent answers searches today, but it has no AgentDoc yet and nothing asks it about each step, so this stage is still marked coming soon.</p>
+          <p>On AgentMesh the catalog agent holds this stage. The Build page sends it the steps of every plan the solution planner makes, and it answers each step by checking what each listing says it takes and hands back. It runs on AgentMesh's test environment first, and reaches the production environment with the next release.</p>
           <dl>
-            <dt>Role</dt><dd><a href="https://agentroles.ai/catalog.html">catalog</a></dd>
-            <dt>Process</dt><dd>no process holds it yet</dd>
+            <dt>Agent</dt><dd><a href="https://app.dev.agentmesh.ai/a/catalog.platform%40agentmesh.ai/agentdoc">catalog</a>; its AgentDoc says what it does, refuses, needs and records</dd>
+            <dt>Role</dt><dd><a href="https://agentroles.ai/catalog.html">catalog</a>, with a <a href="https://agentroles.ai/checks/catalog-check.mjs">conformance check</a> it passes</dd>
+            <dt>Process</dt><dd>the Build page's plan, between the solution planner's steps and the platform's check; no process document holds it yet</dd>
             <dt>Given</dt><dd>the steps, each with what it takes and what it hands back</dd>
             <dt>Hands back</dt><dd>for each step, an existing agent or solution that fits, or "build one", with the reason</dd>
             <dt>Done when</dt><dd>every step has an answer, and every "build one" says why nothing fit</dd>
