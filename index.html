@@ -4,11 +4,11 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Agentic Development</title>
-  <meta name="description" content="A reference Agent Development Lifecycle you tailor: every stage from deciding what is wanted to retiring the agent, the role that holds it, what it is given and hands back, and how you can tell it is done. Whatever your lifecycle looks like, it ends in an Agent Package.">
+  <meta name="description" content="A reference Agent Development Lifecycle you tailor: every stage, the role that holds it, what it is given and hands back, and how you can tell it is done. Every agent ends with a signed Descriptor and a registration; an agent a platform runs also arrives as an Agent Package.">
   <meta property="og:type" content="website">
   <meta property="og:site_name" content="Agentic Development">
   <meta property="og:title" content="No two teams have ever agreed on a development lifecycle">
-  <meta property="og:description" content="So this one is built to be tailored. Change the stages and who holds them, and every agent still comes out the same way: as an Agent Package.">
+  <meta property="og:description" content="So this one is built to be tailored. Change the stages and who holds them, and every agent still ends the same way: with a signed Descriptor and a registration, and, when a platform runs it, an Agent Package.">
   <meta property="og:url" content="https://agenticdevelopment.ai/">
   <meta property="og:image" content="https://agenticdevelopment.ai/brand/png/og-image-v2.png">
   <meta property="og:image:width" content="1200">
@@ -158,7 +158,7 @@
 
         <div class="caption">
           <h1>No two teams have <span class="ever">ever</span> agreed on a development lifecycle.</h1>
-          <p class="turn">So this one is <b>built to be tailored</b>. Change the stages, change who holds them, and every agent still comes out the same way: as an Agent Package.</p>
+          <p class="turn">So this one is <b>built to be tailored</b>. Change the stages, change who holds them, and every agent still ends the same way: with a signed Descriptor and a registration, and, when a platform runs it, an Agent Package.</p>
           <div class="cta">
             <a class="btn btn-signal" href="stages.html">Read the stages</a>
             <a class="btn btn-ghost" href="https://github.com/jeffrschneider/adlc">Get the code</a>
@@ -177,9 +177,9 @@
             <dl>
               <dt>Role</dt><dd><a href="https://agentroles.ai/test-writer.html">test writer</a></dd>
               <dt>Given</dt><dd>the statement of the job</dd>
-              <dt>Hands back</dt><dd>the suite, and what no test could be written for and why</dd>
-              <dt>Done when</dt><dd>the suite fails against empty stand-ins for every program the statement names, and, once the programs exist, notices each one removed</dd>
-              <dt>Why here</dt><dd><b>Test sits before Code</b>, so a test can't pass by agreeing with a mistake. Your teams can still argue about it.</dd>
+              <dt>Hands back</dt><dd>the suite, and what no test could be written for</dd>
+              <dt>Done when</dt><dd>the suite fails against empty stand-ins, and notices each program removed</dd>
+              <dt>Why here</dt><dd>Tests come before the program, from the statement, so a test can't pass by agreeing with a mistake. (Yes, people argue about this.)</dd>
             </dl>
           </div>
         </div>
@@ -217,7 +217,7 @@
         <div class="split">
           <div>
             <h2>Everyone agrees on the ending.</h2>
-            <p>However your lifecycle runs, it ends in an <a href="https://commonagent.net/package.html">Agent Package</a>: the declaration, the parts, a manifest and a digest.</p>
+            <p>However your lifecycle runs, every agent ends with a signed <a href="https://commonagent.net/descriptor.html">Descriptor</a> and a registration. An agent a platform runs also arrives as an <a href="https://commonagent.net/package.html">Agent Package</a>: the declaration, the parts, a manifest and a digest.</p>
             <p>Our <a href="https://github.com/jeffrschneider/adlc/tree/main/agents/package-maker">package maker</a> is the easy on-ramp to the mesh. Any other tool works, as long as the package is valid.</p>
             <p>A platform checks every package before it installs or updates anything, so every agent it runs meets the same gate, whoever built it.</p>
           </div>
@@ -315,10 +315,10 @@ solution-planner</span></pre>
             <li><a href="stages.html#security">Security review</a></li>
           </ul></div>
           <div class="phase"><h3>Ship</h3><ul>
-            <li class="onramp"><a href="stages.html#package"><svg class="box-ico" viewBox="0 0 24 24" aria-hidden="true" focusable="false" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3 4 7v10l8 4 8-4V7z"/><path d="m4 7 8 4 8-4M12 11v10"/></svg>Package<span class="vh"> (the on-ramp)</span></a></li>
-            <li class="onramp"><a href="stages.html#release"><svg class="box-ico" viewBox="0 0 24 24" aria-hidden="true" focusable="false" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3 4 7v10l8 4 8-4V7z"/><path d="m4 7 8 4 8-4M12 11v10"/></svg>Release<span class="vh"> (the on-ramp)</span></a></li>
+            <li class="onramp"><a href="stages.html#package"><svg class="box-ico" viewBox="0 0 24 24" aria-hidden="true" focusable="false" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3 4 7v10l8 4 8-4V7z"/><path d="m4 7 8 4 8-4M12 11v10"/></svg>Package <span class="onramp-tag">on-ramp</span></a></li>
+            <li class="onramp"><a href="stages.html#release"><svg class="box-ico" viewBox="0 0 24 24" aria-hidden="true" focusable="false" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3 4 7v10l8 4 8-4V7z"/><path d="m4 7 8 4 8-4M12 11v10"/></svg>Release <span class="onramp-tag">on-ramp</span></a></li>
             <li class="onramp-note">The on-ramp: your work becomes an Agent Package.</li>
-            <li class="golive"><a href="stages.html#deploy"><svg class="live-ico" viewBox="0 0 24 24" aria-hidden="true" focusable="false" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v8"/><path d="M6.3 6.8a8 8 0 1 0 11.4 0"/></svg>Deploy<span class="vh"> (goes live)</span></a></li>
+            <li class="golive"><a href="stages.html#deploy"><svg class="live-ico" viewBox="0 0 24 24" aria-hidden="true" focusable="false" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v8"/><path d="M6.3 6.8a8 8 0 1 0 11.4 0"/></svg>Deploy <span class="golive-tag">goes live</span></a></li>
             <li class="onramp-note golive-line">Goes live: credentials and limits in place before it starts.</li>
           </ul></div>
           <div class="phase"><h3>Prove</h3><ul>

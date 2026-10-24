@@ -59,12 +59,13 @@
           <li><a href="#phase-run">Run</a></li>
           <li><a href="#phase-change">Change</a></li>
         </ul>
+        <p class="note">Retract and Rollback name their roles; the reference publisher and deployment-manager agents don't hold them.</p>
       </header>
 
         <h2 class="phase-head" id="phase-define">Define</h2>
         <section class="stage" id="requirements">
           <div class="head"><svg class="ico" viewBox="0 0 24 24" aria-hidden="true" focusable="false" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M6 3h8l4 4v14H6z"/><path d="M14 3v4h4"/><path d="M9 12h6M9 16h6"/></svg><h2>Requirements</h2><span class="num">01</span><a class="agent-on" href="https://github.com/jeffrschneider/adlc/tree/main/agents/spec-writer">spec-writer</a><a class="agent-on" href="https://github.com/jeffrschneider/adlc/tree/main/agents/solution-planner">solution-planner</a></div>
-          <p class="why">Whoever builds from it can't ask what you meant, so it says everything, and never invents a name, a price or an access.</p>
+          <p class="why">Whoever builds from it can't ask what you meant, so it says everything, and never invents a name, a price or a permission.</p>
           <dl>
             <dt>Role</dt><dd><a href="https://agentroles.ai/spec-writer.html">spec writer</a> for an agent; <a href="https://agentroles.ai/solution-planner.html">solution planner</a> for a solution</dd>
             <dt>Given</dt><dd>somebody's account of what they want, with whatever they have</dd>
@@ -80,7 +81,7 @@
             <dl>
               <dt>Role</dt><dd>solution architect, or a person</dd>
               <dt>Given</dt><dd>the statement of the job, and the organization's stack</dd>
-              <dt>Hands back</dt><dd>an architecture record: the systems the agent reaches, in plain words (database, files, text reasoning, mail sender); the product bound to each in dev, test and prod, the organization's stack first and a platform default for the rest; dependencies on other agents and services; the agent's kind (a harness reading skills, code that speaks the network itself, or a container); limits on cost, speed, data and trust; and each decision with its reason</dd>
+              <dt>Hands back</dt><dd>an architecture record:<ul class="handlist"><li>the systems the agent reaches, in plain words (database, files, text reasoning, mail sender)</li><li>the product bound to each in dev, test and prod: the organization's stack first, a platform default for the rest</li><li>dependencies on other agents and services</li><li>the agent's kind: a harness reading skills, code that speaks the network itself, or a container</li><li>limits on cost, speed, data and trust</li><li>each decision, with its reason</li></ul></dd>
             </dl>
           </div>
           <div class="part">
@@ -151,20 +152,20 @@
           <p class="why">The blast radius is set before the credentials are given, not after.</p>
           <dl>
             <dt>Role</dt><dd><a href="https://agentroles.ai/security-reviewer.html">security reviewer</a></dd>
-            <dt>Given</dt><dd>the shape, the programs, and everything the package will ask for</dd>
-            <dt>Hands back</dt><dd>what it may reach, what it may spend, and what it must never do</dd>
-            <dt>Done when</dt><dd>every access asked for has a recorded reason</dd>
+            <dt>Given</dt><dd>the architecture record and the design, the programs, and everything the package will ask for</dd>
+            <dt>Hands back</dt><dd>what it may reach, what it may spend, what it must never do, and the reason for each</dd>
+            <dt>Done when</dt><dd>every permission asked for has a recorded reason</dd>
           </dl>
         </section>
         <h2 class="phase-head" id="phase-ship">Ship</h2>
         <section class="stage onramp" id="package"><span id="build" aria-hidden="true"></span>
           <div class="head"><svg class="ico" viewBox="0 0 24 24" aria-hidden="true" focusable="false" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3 4 7v10l8 4 8-4V7z"/><path d="m4 7 8 4 8-4M12 11v10"/></svg><h2>Package</h2><span class="num">09</span><span class="onramp-tag"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3 4 7v10l8 4 8-4V7z"/><path d="m4 7 8 4 8-4M12 11v10"/></svg>on-ramp</span><a class="agent-on" href="https://github.com/jeffrschneider/adlc/tree/main/agents/package-maker">package-maker</a></div>
-          <p class="why">Your work becomes an Agent Package, the easy way onto the mesh. Any tool works if the package is valid; building only generates the views and digests.</p>
+          <p class="why">Your work becomes an Agent Package, the easy way onto the mesh. Any tool works if the package is valid.</p>
           <dl>
             <dt>Role</dt><dd><a href="https://agentroles.ai/package-maker.html">package maker</a></dd>
-            <dt>Given</dt><dd>the shape and the programs</dd>
+            <dt>Given</dt><dd>the architecture record, the design and the programs</dd>
             <dt>Hands back</dt><dd>the package: the declaration (agent-descriptor.json and agent-runtime-requirements.json), the parts, a manifest and a digest</dd>
-            <dt>Done when</dt><dd>the declaration validates and matches the runtime requirements, and every program traces to Code</dd>
+            <dt>Done when</dt><dd>the declaration validates and matches the runtime requirements, and every program in the package is listed in its manifest</dd>
           </dl>
         </section>
         <section class="stage onramp" id="release">
@@ -183,7 +184,7 @@
           <dl>
             <dt>Role</dt><dd><a href="https://agentroles.ai/deployment-manager.html">deployment manager</a></dd>
             <dt>Given</dt><dd>the package, where it goes, and the owner's answers as names and numbers</dd>
-            <dt>Hands back</dt><dd>a running agent with an identity, an address and an inbox; its Descriptor signed and registered; credentials placed by name and ceilings set before it starts; a signed deployment record</dd>
+            <dt>Hands back</dt><dd>a running agent with an identity, an address and an inbox; its Descriptor signed and registered; settings, credentials (placed by name) and ceilings in place before it starts; a signed deployment record</dd>
             <dt>Done when</dt><dd>nothing asked for is missing, no secret appeared, a message gets an answer, and the record is signed</dd>
           </dl>
         </section>
@@ -211,7 +212,7 @@
         <h2 class="phase-head" id="phase-use">Use</h2>
         <section class="stage" id="docs">
           <div class="head"><svg class="ico" viewBox="0 0 24 24" aria-hidden="true" focusable="false" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M5 4h9a3 3 0 0 1 3 3v13H8a3 3 0 0 0-3 3z"/><path d="M17 7h2v13"/><path d="M9 9h5"/></svg><h2>Docs</h2><span class="num">14</span><a class="agent-on" href="https://github.com/jeffrschneider/adlc/tree/main/agents/documenter">documenter</a><span class="role-tag">role: <a href="https://agentroles.ai/doc-writer.html">doc writer</a></span></div>
-          <p class="why">Gathered from what the agent declares, not written, so it can only say what its sources say.</p>
+          <p class="why">The AgentDoc is gathered from what the agent declares, not written, so it can only say what its sources say.</p>
           <dl>
             <dt>Role</dt><dd><a href="https://agentroles.ai/documenter.html">documenter</a> for the AgentDoc; <a href="https://agentroles.ai/doc-writer.html">doc writer</a> for the documentation</dd>
             <dt>Given</dt><dd>the declaration, the identity, and any records and verdicts</dd>
@@ -221,7 +222,7 @@
         </section>
         <section class="stage" id="publish">
           <div class="head"><svg class="ico" viewBox="0 0 24 24" aria-hidden="true" focusable="false" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="8.5"/><path d="M3.5 12h17"/><path d="M12 3.5c2.4 2.4 3.6 5.3 3.6 8.5S14.4 18.1 12 20.5c-2.4-2.4-3.6-5.3-3.6-8.5S9.6 5.9 12 3.5z"/></svg><h2>Publish</h2><span class="num">15</span><a class="agent-on" href="https://github.com/jeffrschneider/adlc/tree/main/agents/publisher">publisher</a></div>
-          <p class="why">The one stage where a mistake is public.</p>
+          <p class="why">The stage where a deliverable becomes public.</p>
           <dl>
             <dt>Role</dt><dd><a href="https://agentroles.ai/publisher.html">publisher</a></dd>
             <dt>Given</dt><dd>the deliverable, and where it may be written</dd>
@@ -247,7 +248,7 @@
             <dt>Role</dt><dd><a href="https://agentroles.ai/watcher.html">watcher</a></dd>
             <dt>Given</dt><dd>the fleet, and what each agent declared</dd>
             <dt>Hands back</dt><dd>whether each agent is alive, answering, and inside its limits</dd>
-            <dt>Done when</dt><dd>silence counts as a failure, not as no news</dd>
+            <dt>Done when</dt><dd>each agent has a current answer or an open alert</dd>
           </dl>
         </section>
         <section class="stage" id="eval">
@@ -267,7 +268,7 @@
             <dt>Role</dt><dd><a href="https://agentroles.ai/incident-recorder.html">incident recorder</a></dd>
             <dt>Given</dt><dd>what monitoring saw, and the agent's records</dd>
             <dt>Hands back</dt><dd>a timeline of what's known, with every gap marked</dd>
-            <dt>Done when</dt><dd>the account outlives the people who were there</dd>
+            <dt>Done when</dt><dd>every fact names its source, and every gap is marked</dd>
           </dl>
         </section>
         <section class="stage" id="cost">
@@ -313,7 +314,7 @@
         </section>
         <section class="stage" id="decommission">
           <div class="head"><svg class="ico" viewBox="0 0 24 24" aria-hidden="true" focusable="false" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="4" rx="1"/><path d="M5 8v11a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1V8"/><path d="M10 12h4"/></svg><h2>Decommission</h2><span class="num">24</span><a class="agent-on" href="https://github.com/jeffrschneider/adlc/tree/main/agents/deployment-manager">deployment-manager</a></div>
-          <p class="why">The address stops answering rather than answering wrongly.</p>
+          <p class="why">This is retiring an agent: the address stops answering rather than answering wrongly.</p>
           <dl>
             <dt>Role</dt><dd><a href="https://agentroles.ai/deployment-manager.html">deployment manager</a></dd>
             <dt>Given</dt><dd>the instruction, and the agent</dd>
@@ -324,7 +325,7 @@
         <h2 class="phase-head" id="phase-beside">Beside the stages</h2>
         <section class="stage record" id="ledger">
           <div class="head"><svg class="ico" viewBox="0 0 24 24" aria-hidden="true" focusable="false" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M5 5a2 2 0 0 1 2-2h12v15H7a2 2 0 0 0-2 2z"/><path d="M5 20a2 2 0 0 0 2 1h12v-3"/><path d="M9 7.5h6M9 11h6"/></svg><h2>The ledger</h2><span class="role-tag">kept by the platform</span></div>
-          <p class="why">Debts a change leaves behind: owed to someone who depends on it, or to ourselves. An open dependency debt blocks promote, rollback and retire.</p>
+          <p class="why">Debts a change leaves behind: owed to someone who depends on it, or to the agent's own team. An open dependency debt blocks promote and retire; a rollback is allowed and recorded.</p>
         </section>
 
 

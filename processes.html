@@ -48,47 +48,47 @@
     <div class="wrap">
 
       <header class="page-head">
-        <h1>A process is a lifecycle you can actually run.</h1>
+        <h1>A process is a lifecycle you can run.</h1>
         <p class="turn">A map says what ought to happen. A process says who holds each step, what passes between them, and what happens when a step goes wrong. Copy one of these, put your own holders in it, and run it.</p>
       </header>
 
       <div class="prose">
-        <p>Each is written in the open <a href="https://agentprocesses.ai/spec.html">Agent Processes</a> format, so an orchestrator can run it. Steps a person holds have a dashed edge.</p>
+        <p>Each is written in the open <a href="https://agentprocesses.ai/spec.html">Agent Processes</a> format, so an orchestrator can run it.</p>
 
         <h2 id="new-agent">Make a new agent</h2>
-        <p>A request in words becomes a running agent. The owner says yes at three gates, and agents hold the rest. Five named deviations send the work backwards, because the spec you approve is rarely the spec you first read.</p>
+        <p>A request in words becomes a running agent. The owner says yes at three gates, and agents hold the rest.</p>
         <ol class="steps">
-          <li><span class="sn">Write the spec</span><span class="sw">the four answers settled and the spec drafted</span><span class="sh"><a href="https://agentroles.ai/spec-writer.html">spec writer</a>, with the owner</span></li>
-          <li class="person"><span class="sn">Approve the spec</span><span class="sw">the owner answers what is open and says yes</span><span class="sh">the owner</span></li>
-          <li><span class="sn">Write the suite</span><span class="sw">tests from the spec alone, shown to fail against nothing</span><span class="sh"><a href="https://agentroles.ai/test-writer.html">test writer</a></span></li>
-          <li><span class="sn">Write the scripts</span><span class="sw">the scripts the spec names, passing the suite</span><span class="sh"><a href="https://agentroles.ai/code-writer.html">code writer</a></span></li>
-          <li class="onramp"><span class="sn"><svg class="box-ico" viewBox="0 0 24 24" aria-hidden="true" focusable="false" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3 4 7v10l8 4 8-4V7z"/><path d="m4 7 8 4 8-4M12 11v10"/></svg>Make the package <span class="onramp-tag">on-ramp</span></span><span class="sw">a signed package from the spec and the scripts only</span><span class="sh"><a href="https://agentroles.ai/package-maker.html">package maker</a></span></li>
-          <li class="person"><span class="sn">Approve the deploy</span><span class="sw">the owner reads the package's record and says yes</span><span class="sh">the owner</span></li>
+          <li><span class="sn">Write the spec</span><span class="sw">the statement of the job drafted, with its open questions</span><span class="sh"><a href="https://agentroles.ai/spec-writer.html">spec writer</a>, with the owner</span></li>
+          <li><span class="sn">Approve the spec <span class="person-tag">a person</span></span><span class="sw">the owner answers the open questions and says yes</span><span class="sh">the owner</span></li>
+          <li><span class="sn">Write the suite</span><span class="sw">tests from the statement alone, shown to fail against nothing</span><span class="sh"><a href="https://agentroles.ai/test-writer.html">test writer</a></span></li>
+          <li><span class="sn">Write the scripts</span><span class="sw">the programs the statement names, passing the suite</span><span class="sh"><a href="https://agentroles.ai/code-writer.html">code writer</a></span></li>
+          <li class="onramp"><span class="sn"><svg class="box-ico" viewBox="0 0 24 24" aria-hidden="true" focusable="false" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3 4 7v10l8 4 8-4V7z"/><path d="m4 7 8 4 8-4M12 11v10"/></svg>Make the package <span class="onramp-tag">on-ramp</span></span><span class="sw">the package made from the statement and the programs, then signed at Release</span><span class="sh"><a href="https://agentroles.ai/package-maker.html">package maker</a></span></li>
+          <li><span class="sn">Approve the deploy <span class="person-tag">a person</span></span><span class="sw">the owner reads the signed build record and says yes</span><span class="sh">the owner</span></li>
           <li class="golive"><span class="sn"><svg class="live-ico" viewBox="0 0 24 24" aria-hidden="true" focusable="false" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v8"/><path d="M6.3 6.8a8 8 0 1 0 11.4 0"/></svg>Deploy the agent <span class="golive-tag">goes live</span></span><span class="sw">the package installed with its credentials and limits in place, or the running agent updated</span><span class="sh"><a href="https://agentroles.ai/deployment-manager.html">deployment manager</a></span></li>
           <li><span class="sn">Check conformance</span><span class="sw">the package's own declarations tested on the agent</span><span class="sh"><a href="https://agentroles.ai/conformance-checker.html">conformance checker</a></span></li>
-          <li class="person"><span class="sn">Publish the agent</span><span class="sw">the owner reads the AgentDoc and says it may be listed</span><span class="sh">the owner</span></li>
+          <li><span class="sn">Publish the agent <span class="person-tag">a person</span></span><span class="sw">the owner reads the AgentDoc and says it may be listed in the catalog</span><span class="sh">the owner</span></li>
         </ol>
-        <p>To change an agent, run this again with the running version attached as the prototype.</p>
+        <p>To change an agent, start at <a href="stages.html#impact">Impact</a>, then <a href="stages.html#update">Update</a>.</p>
         <p><a href="https://agentprocesses.ai/make-a-new-agent.html">Read Make a new agent at agentprocesses.ai</a></p>
 
         <h2 id="incident">Record an incident</h2>
         <p>An agent goes quiet, or a job fails. The process builds a timeline from the records, marks the gaps, and never guesses a cause. Deciding what to do stays with a person.</p>
         <ol class="steps">
           <li><span class="sn">Notice the failure</span><span class="sw">the quiet agent or failed job, and the time</span><span class="sh"><a href="https://agentroles.ai/watcher.html">watcher</a>, or a person</span></li>
-          <li class="person"><span class="sn">Gather the records</span><span class="sw">the platform's and the agent's records, attached</span><span class="sh">the incident owner</span></li>
+          <li><span class="sn">Gather the records <span class="person-tag">a person</span></span><span class="sw">the platform's and the agent's records, attached</span><span class="sh">the incident owner</span></li>
           <li><span class="sn">Record the incident</span><span class="sw">a timeline naming every fact's source and every gap</span><span class="sh"><a href="https://agentroles.ai/incident-recorder.html">incident recorder</a></span></li>
-          <li class="person"><span class="sn">Decide what happens</span><span class="sw">leave it, restart it, retire it, or change it</span><span class="sh">the incident owner</span></li>
+          <li><span class="sn">Decide what happens <span class="person-tag">a person</span></span><span class="sw">leave it, restart it, retire it, or change it</span><span class="sh">the incident owner</span></li>
         </ol>
         <p><a href="https://agentprocesses.ai/record-an-incident.html">Read Record an incident at agentprocesses.ai</a></p>
 
         <h2 id="retire-an-agent">Retire an agent</h2>
         <p>Stopping an agent is easy. Retiring one means the address stops answering cleanly, the records outlive the agent, and someone decides what happens to the name.</p>
         <ol class="steps">
-          <li class="person"><span class="sn">Say what goes</span><span class="sw">the agent, the reason, and who must be told first</span><span class="sh">the owner</span></li>
-          <li class="person"><span class="sn">Retract the listing</span><span class="sw">the agent's listing taken out of the catalog</span><span class="sh">the owner</span></li>
-          <li class="person"><span class="sn">Approve the removal</span><span class="sw">the owner reads what will be removed and says yes</span><span class="sh">the owner</span></li>
+          <li><span class="sn">Say what goes <span class="person-tag">a person</span></span><span class="sw">the agent, the reason, and who must be told first</span><span class="sh">the owner</span></li>
+          <li><span class="sn">Retract the listing</span><span class="sw">the listing taken out of the catalog by whoever listed it, on the owner's decision</span><span class="sh"><a href="https://agentroles.ai/publisher.html">publisher</a></span></li>
+          <li><span class="sn">Approve the removal <span class="person-tag">a person</span></span><span class="sw">the owner reads what will be removed and says yes</span><span class="sh">the owner</span></li>
           <li><span class="sn">Remove the agent</span><span class="sw">the deployment manager instructed to remove it all</span><span class="sh">the owner and the <a href="https://agentroles.ai/deployment-manager.html">deployment manager</a></span></li>
-          <li class="person"><span class="sn">Close the AgentDoc</span><span class="sw">the AgentDoc marked retired, with date and reason</span><span class="sh">the owner</span></li>
+          <li><span class="sn">Close the AgentDoc <span class="person-tag">a person</span></span><span class="sw">the AgentDoc marked retired, with date and reason</span><span class="sh">the owner</span></li>
         </ol>
         <p><a href="https://agentprocesses.ai/retire-an-agent.html">Read Retire an agent at agentprocesses.ai</a></p>
 
