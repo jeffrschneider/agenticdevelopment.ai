@@ -36,10 +36,11 @@
     <div class="grp">In practice</div>
     <nav>
       <a href="implementations.html">Implementations</a>
+      <a href="https://github.com/jeffrschneider/adlc">The code</a>
     </nav>
     <div class="foot">
       <a href="https://agentmesh.ai/standards.html">The family of standards</a><br><br>
-      v0.3.0-draft<br>
+      v0.4.0-draft<br>
       a working draft, developed<br>alongside AgentMesh
     </div>
   </aside>
@@ -62,7 +63,8 @@
           <dl>
             <dt>Agent</dt><dd><a href="https://app.agentmesh.ai/a/spec-writer.platform%40agentmesh.ai/agentdoc">spec-writer</a> for an agent, and <a href="https://app.agentmesh.ai/a/planner.platform%40agentmesh.ai/agentdoc">solution-planner</a> for a solution; each one's AgentDoc says what it does, refuses, needs and records</dd>
             <dt>Role</dt><dd><a href="https://agentroles.ai/spec-writer.html">spec writer</a> for an agent; <a href="https://agentroles.ai/solution-planner.html">solution planner</a> for a solution</dd>
-            <dt>Process</dt><dd><a href="https://agentprocesses.ai/new-agent.html">New agent, phase write-the-spec</a></dd>
+            <dt>Source code</dt><dd><a href="https://github.com/jeffrschneider/adlc/tree/main/agents/spec-writer">agents/spec-writer</a> and <a href="https://github.com/jeffrschneider/adlc/tree/main/agents/solution-planner">agents/solution-planner</a>, reference implementations in the lifecycle's open source repository</dd>
+            <dt>Process</dt><dd><a href="processes.html#new-agent">New agent, phase write-the-spec</a></dd>
             <dt>Given</dt><dd>somebody's account of what they want, with whatever they have: notes, a document, an earlier statement, a prototype</dd>
             <dt>Hands back</dt><dd>a statement of the job: what it does, what it refuses, what it needs access to, what it records, and what it costs; and beside it the questions nobody else could answer</dd>
             <dt>Done when</dt><dd>a package could be built from the statement, and what could not be settled was asked rather than invented</dd>
@@ -78,7 +80,8 @@
           <dl>
             <dt>Agent</dt><dd><a href="https://app.agentmesh.ai/a/spec-writer.platform%40agentmesh.ai/agentdoc">spec-writer</a> for an agent, and <a href="https://app.agentmesh.ai/a/planner.platform%40agentmesh.ai/agentdoc">solution-planner</a> for a solution; each one's AgentDoc says what it does, refuses, needs and records</dd>
             <dt>Role</dt><dd><a href="https://agentroles.ai/spec-writer.html">spec writer</a> for an agent; <a href="https://agentroles.ai/solution-planner.html">solution planner</a> for a solution</dd>
-            <dt>Process</dt><dd><a href="https://agentprocesses.ai/new-agent.html">New agent, phase write-the-spec</a></dd>
+            <dt>Source code</dt><dd><a href="https://github.com/jeffrschneider/adlc/tree/main/agents/spec-writer">agents/spec-writer</a> and <a href="https://github.com/jeffrschneider/adlc/tree/main/agents/solution-planner">agents/solution-planner</a>, reference implementations in the lifecycle's open source repository</dd>
+            <dt>Process</dt><dd><a href="processes.html#new-agent">New agent, phase write-the-spec</a></dd>
             <dt>Given</dt><dd>the statement of the job</dd>
             <dt>Hands back</dt><dd>the four answers above, and the shape: the steps, what each is given and hands back, and whether each is a program or a judgment</dd>
             <dt>Done when</dt><dd>no step is both fully written down and left to a model to interpret, no system the design names is one the organization cannot stand a product behind, and the four answers are the person's rather than the writer's</dd>
@@ -92,7 +95,7 @@
           <p>This half needs no model, because it is a comparison and a list. The other half, running the new version against what each dependent counts as done, needs the new version to exist, so it happens at <a href="#conformance">Prove</a>. Each breaking change and each change of behavior is written in the <a href="#ledger">ledger</a> as a debt owed to that dependent's owner.</p>
           <dl>
             <dt>Role</dt><dd><a href="https://agentroles.ai/impact-analyst.html">impact analyst</a></dd>
-            <dt>Process</dt><dd>no process holds it yet; it is coming to <a href="https://agentprocesses.ai/new-agent.html">New agent</a>, for a run that has the version running today attached</dd>
+            <dt>Process</dt><dd>no process holds it yet; it is coming to <a href="processes.html#new-agent">New agent</a>, for a run that has the version running today attached</dd>
             <dt>Given</dt><dd>the change, the version that runs today, and the list of what depends on it</dd>
             <dt>Hands back</dt><dd>the impact report: each dependent and what the change does to it, what has to be redone and what can be reused, and what the change will cost</dd>
             <dt>Done when</dt><dd>every dependent is named and given one of the three answers, and the person who asked approves or refuses the change from the report before anything is built</dd>
@@ -107,6 +110,7 @@
           <dl>
             <dt>Agent</dt><dd><a href="https://app.dev.agentmesh.ai/a/catalog.platform%40agentmesh.ai/agentdoc">catalog</a>; its AgentDoc says what it does, refuses, needs and records</dd>
             <dt>Role</dt><dd><a href="https://agentroles.ai/catalog.html">catalog</a>, with a <a href="https://agentroles.ai/checks/catalog-check.mjs">conformance check</a> it passes</dd>
+            <dt>Source code</dt><dd><a href="https://github.com/jeffrschneider/adlc/tree/main/agents/catalog">agents/catalog</a>, a reference implementation in the lifecycle's open source repository</dd>
             <dt>Process</dt><dd>the Build page's plan, between the solution planner's steps and the platform's check; no process document holds it yet</dd>
             <dt>Given</dt><dd>the steps, each with what it takes and what it hands back</dd>
             <dt>Hands back</dt><dd>for each step, an existing agent or solution that fits, or "build one", with the reason</dd>
@@ -123,7 +127,8 @@
           <dl>
             <dt>Agent</dt><dd><a href="https://app.agentmesh.ai/a/test-writer.platform%40agentmesh.ai/agentdoc">test-writer</a>, whose AgentDoc says what it does, refuses, needs and records</dd>
             <dt>Role</dt><dd><a href="https://agentroles.ai/test-writer.html">test writer</a></dd>
-            <dt>Process</dt><dd><a href="https://agentprocesses.ai/new-agent.html">New agent, phase write-the-suite</a></dd>
+            <dt>Source code</dt><dd><a href="https://github.com/jeffrschneider/adlc/tree/main/agents/test-writer">agents/test-writer</a>, a reference implementation in the lifecycle's open source repository</dd>
+            <dt>Process</dt><dd><a href="processes.html#new-agent">New agent, phase write-the-suite</a></dd>
             <dt>Given</dt><dd>the statement of the job</dd>
             <dt>Hands back</dt><dd>the suite, and what no test could be written for and why</dd>
             <dt>Done when</dt><dd>the suite fails against empty stand-ins for every program the statement names, and, once the programs exist, notices each one removed</dd>
@@ -134,11 +139,12 @@
           <div class="head"><svg class="ico" viewBox="0 0 24 24" aria-hidden="true" focusable="false" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="m8 7-5 5 5 5"/><path d="m16 7 5 5-5 5"/></svg><h2 style="border:0;padding:0;margin:0">Code</h2><span class="num">06</span><a class="agent-on" href="https://app.agentmesh.ai/a/code-writer.platform%40agentmesh.ai/agentdoc">code-writer</a></div>
           <p>Writing the programs. Models write code well and this stage did not move for a long time, which is the clearest evidence that capability was never the constraint. What it was waiting for was an input and a check: a statement of the job, and a suite written from it before any program exists, by something that will not write the program. With those two handed in, writing the code is a stage like any other, and the person who used to sit in the loop as the missing contract can leave it.</p>
           <p>This is the one stage where the model is in control rather than called at a named point. A coding harness works the way a coding session works, write, run the check, read the failures, fix, for as many rounds as it takes up to a ceiling. What makes that safe is that none of the check is the model's. The check is four things: the suite passes; each program is removed in turn and the suite has to notice; the builder, the program that turns a statement and its files into a package at the Build stage, takes what was written; and the tests and the statement are read-only to the writer, compared by digest on every round, so the writer of the program cannot also change what checks it. A test that cannot pass without breaking the statement is a conflict, reported for a person to settle, never resolved here.</p>
-          <p>Only what this stage delivers, under its own signature, moves on to Build. Whatever else was written, in whatever language and by whoever, is a prototype, and making one is agentic prototyping. It is read here as the most exact statement of what was wanted and written again against the suite, which is agentic transpiling.</p>
+          <p>What this stage delivers, signed by the code writer that holds it, is what moves on to Build. Any code writer can hold it: AgentMesh's code-writer, your own agent, or a vendor's. Whatever else was written, in whatever language and by whoever, is a prototype, and making one is agentic prototyping. It is read here as the most exact statement of what was wanted and written again against the suite, which is agentic transpiling.</p>
           <dl>
             <dt>Agent</dt><dd><a href="https://app.agentmesh.ai/a/code-writer.platform%40agentmesh.ai/agentdoc">code-writer</a>, whose AgentDoc says what it does, refuses, needs and records. It is installed, and its first delivery was refused by its own check.</dd>
             <dt>Role</dt><dd><a href="https://agentroles.ai/code-writer.html">code writer</a></dd>
-            <dt>Process</dt><dd><a href="https://agentprocesses.ai/new-agent.html">New agent, phase write-the-scripts</a></dd>
+            <dt>Source code</dt><dd><a href="https://github.com/jeffrschneider/adlc/tree/main/agents/code-writer">agents/code-writer</a>, a reference implementation in the lifecycle's open source repository</dd>
+            <dt>Process</dt><dd><a href="processes.html#new-agent">New agent, phase write-the-scripts</a></dd>
             <dt>Given</dt><dd>the statement of the job, the suite, and a prototype when there is one</dd>
             <dt>Hands back</dt><dd>the programs, an account of what was written and what the statement did not settle, and the record of every round</dd>
             <dt>Done when</dt><dd>the suite passes, each program removed in turn is noticed, the builder takes the package, and no test and no line of the statement changed</dd>
@@ -176,11 +182,12 @@
         <section class="stage" id="build">
           <div class="head"><svg class="ico" viewBox="0 0 24 24" aria-hidden="true" focusable="false" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3 4 7v10l8 4 8-4V7z"/><path d="m4 7 8 4 8-4M12 11v10"/></svg><h2 style="border:0;padding:0;margin:0">Build and package</h2><span class="num">09</span><a class="agent-on" href="https://app.agentmesh.ai/a/agentbuilder.platform%40agentmesh.ai/agentdoc">package-maker</a></div>
           <p>Turning the shape and the programs into one thing that travels. This is where agentic work moved first, because a package was already an artifact: files, a manifest, a digest. The package also carries the declaration, which is what the rest of the lifecycle reads.</p>
-          <p>This is also where the rule about prototypes is enforced. The builder packs only programs it can trace to a delivery the Code stage signed, and refuses the rest with a reply naming where to send them. The trace is the signed manifest every delivery carries, so nothing new has to be signed to hold the rule.</p>
+          <p>The package maker packs programs from any code writer. An organization that wants every program traced to one writer can turn that on here: the reference package maker then packs only programs it can trace to a delivery that writer signed, and refuses the rest with a reply naming where to send them. The trace is the signed manifest every delivery carries, so nothing new has to be signed to hold the rule.</p>
           <dl>
             <dt>Agent</dt><dd><a href="https://app.agentmesh.ai/a/agentbuilder.platform%40agentmesh.ai/agentdoc">package-maker</a>, whose AgentDoc says what it does, refuses, needs and records</dd>
             <dt>Role</dt><dd><a href="https://agentroles.ai/package-maker.html">package maker</a></dd>
-            <dt>Process</dt><dd><a href="https://agentprocesses.ai/new-agent.html">New agent, phase make-the-package</a></dd>
+            <dt>Source code</dt><dd><a href="https://github.com/jeffrschneider/adlc/tree/main/agents/package-maker">agents/package-maker</a>, a reference implementation in the lifecycle's open source repository</dd>
+            <dt>Process</dt><dd><a href="processes.html#new-agent">New agent, phase make-the-package</a></dd>
             <dt>Given</dt><dd>the shape and the programs</dd>
             <dt>Hands back</dt><dd>a package: the declaration, the parts, a manifest, a digest</dd>
             <dt>Done when</dt><dd>the declaration validates, what it promises matches what the install file asks for, and every program is traced to the Code stage's delivery</dd>
@@ -193,7 +200,8 @@
           <dl>
             <dt>Agent</dt><dd><a href="https://app.agentmesh.ai/a/agentbuilder.platform%40agentmesh.ai/agentdoc">package-maker</a>, whose AgentDoc says what it does, refuses, needs and records</dd>
             <dt>Role</dt><dd><a href="https://agentroles.ai/package-maker.html">package maker</a></dd>
-            <dt>Process</dt><dd><a href="https://agentprocesses.ai/new-agent.html">New agent, phase make-the-package; the package is the release</a></dd>
+            <dt>Source code</dt><dd><a href="https://github.com/jeffrschneider/adlc/tree/main/agents/package-maker">agents/package-maker</a>, a reference implementation in the lifecycle's open source repository</dd>
+            <dt>Process</dt><dd><a href="processes.html#new-agent">New agent, phase make-the-package; the package is the release</a></dd>
             <dt>Given</dt><dd>the package</dd>
             <dt>Hands back</dt><dd>a signed build record, and the package at an address</dd>
             <dt>Done when</dt><dd>the digest at the address matches the digest in the record, and the record verifies</dd>
@@ -206,7 +214,8 @@
           <dl>
             <dt>Agent</dt><dd><a href="https://app.agentmesh.ai/a/deploymgr.platform%40agentmesh.ai/agentdoc">deployment-manager</a>, whose AgentDoc says what it does, refuses, needs and records</dd>
             <dt>Role</dt><dd><a href="https://agentroles.ai/deployment-manager.html">deployment manager</a></dd>
-            <dt>Process</dt><dd><a href="https://agentprocesses.ai/new-agent.html">New agent, phase deploy-the-agent, after the owner's yes at approve-the-deploy</a></dd>
+            <dt>Source code</dt><dd><a href="https://github.com/jeffrschneider/adlc/tree/main/agents/deployment-manager">agents/deployment-manager</a>, a reference implementation in the lifecycle's open source repository</dd>
+            <dt>Process</dt><dd><a href="processes.html#new-agent">New agent, phase deploy-the-agent, after the owner's yes at approve-the-deploy</a></dd>
             <dt>Given</dt><dd>the package, and where it is going</dd>
             <dt>Hands back</dt><dd>a running agent with an identity, an address and an inbox</dd>
             <dt>Done when</dt><dd>it is installed, it has its identity, and a message sent to its address is answered</dd>
@@ -219,7 +228,8 @@
           <dl>
             <dt>Agent</dt><dd><a href="https://app.agentmesh.ai/a/deploymgr.platform%40agentmesh.ai/agentdoc">deployment-manager</a>, whose AgentDoc says what it does, refuses, needs and records</dd>
             <dt>Role</dt><dd><a href="https://agentroles.ai/deployment-manager.html">deployment manager</a></dd>
-            <dt>Process</dt><dd><a href="https://agentprocesses.ai/new-agent.html">New agent, phase deploy-the-agent; the bindings are settled at deploy</a></dd>
+            <dt>Source code</dt><dd><a href="https://github.com/jeffrschneider/adlc/tree/main/agents/deployment-manager">agents/deployment-manager</a>, a reference implementation in the lifecycle's open source repository</dd>
+            <dt>Process</dt><dd><a href="processes.html#new-agent">New agent, phase deploy-the-agent; the bindings are settled at deploy</a></dd>
             <dt>Given</dt><dd>what the install file asks for, and the owner's answers as names</dd>
             <dt>Hands back</dt><dd>credentials bound by name, settings placed, a ceiling on everything that spends</dd>
             <dt>Done when</dt><dd>nothing the package asked for is missing, and no secret value appeared in the instruction</dd>
@@ -236,7 +246,8 @@
           <dl>
             <dt>Agent</dt><dd><a href="https://app.agentmesh.ai/a/agentevaluator.platform%40agentmesh.ai/agentdoc">conformance-checker</a>, whose AgentDoc says what it does, refuses, needs and records</dd>
             <dt>Role</dt><dd><a href="https://agentroles.ai/conformance-checker.html">conformance checker</a></dd>
-            <dt>Process</dt><dd><a href="https://agentprocesses.ai/new-agent.html">New agent, phase check-conformance</a></dd>
+            <dt>Source code</dt><dd><a href="https://github.com/jeffrschneider/adlc/tree/main/agents/conformance-checker">agents/conformance-checker</a>, a reference implementation in the lifecycle's open source repository</dd>
+            <dt>Process</dt><dd><a href="processes.html#new-agent">New agent, phase check-conformance</a></dd>
             <dt>Given</dt><dd>the package, the agent's address, and where its records live</dd>
             <dt>Hands back</dt><dd>a signed verdict, case by case</dd>
             <dt>Done when</dt><dd>every case derived from the declaration has run and the verdict is signed</dd>
@@ -250,7 +261,7 @@
           <p>On AgentMesh, a place to record this answer is coming.</p>
           <dl>
             <dt>Role</dt><dd>the requester, the person who asked</dd>
-            <dt>Process</dt><dd>no process asks for it yet; it is coming to <a href="https://agentprocesses.ai/new-agent.html">New agent</a>, before the run closes</dd>
+            <dt>Process</dt><dd>no process asks for it yet; it is coming to <a href="processes.html#new-agent">New agent</a>, before the run closes</dd>
             <dt>Given</dt><dd>what was delivered, and "done" as it was written down at Requirements</dd>
             <dt>Hands back</dt><dd>a recorded yes against "done", or a no that says what is missing</dd>
             <dt>Done when</dt><dd>the answer is recorded with who gave it and when, and the request is closed</dd>
@@ -267,7 +278,8 @@
           <dl>
             <dt>Agent</dt><dd><a href="https://agentcatalog.com/a/documenter.system@agentmesh.ai">documenter</a> for the AgentDoc; no agent writes the documentation yet</dd>
             <dt>Role</dt><dd><a href="https://agentroles.ai/documenter.html">documenter</a> for the AgentDoc; <a href="https://agentroles.ai/doc-writer.html">doc writer</a> for the documentation, which no agent holds yet. The AgentDoc format is defined at <a href="https://agentdoc.net">agentdoc.net</a></dd>
-            <dt>Process</dt><dd><a href="https://agentprocesses.ai/new-agent.html">New agent, phase publish-the-agent</a>: the AgentDoc is assembled from the deployed agent and its conformance record, and the owner reads it before the agent may be listed</dd>
+            <dt>Source code</dt><dd><a href="https://github.com/jeffrschneider/adlc/tree/main/agents/documenter">agents/documenter</a>, a reference implementation in the lifecycle's open source repository</dd>
+            <dt>Process</dt><dd><a href="processes.html#new-agent">New agent, phase publish-the-agent</a>: the AgentDoc is assembled from the deployed agent and its conformance record, and the owner reads it before the agent may be listed</dd>
             <dt>Given</dt><dd>the declaration, the identity, and whatever records and verdicts exist</dd>
             <dt>Hands back</dt><dd>a document a stranger can read, with each claim traceable to its source</dd>
             <dt>Done when</dt><dd>nothing in it was authored, and every silence is shown rather than filled</dd>
@@ -281,7 +293,8 @@
           <dl>
             <dt>Agent</dt><dd><a href="https://app.agentmesh.ai/a/publisher.platform%40agentmesh.ai/agentdoc">publisher</a>, whose AgentDoc says what it does, refuses, needs and records</dd>
             <dt>Role</dt><dd><a href="https://agentroles.ai/publisher.html">publisher</a></dd>
-            <dt>Process</dt><dd>no phase of a published process is held by this agent yet. In <a href="https://agentprocesses.ai/new-agent.html">New agent</a> the listing is made by the platform from the descriptor once the owner says the agent may be listed</dd>
+            <dt>Source code</dt><dd><a href="https://github.com/jeffrschneider/adlc/tree/main/agents/publisher">agents/publisher</a>, a reference implementation in the lifecycle's open source repository</dd>
+            <dt>Process</dt><dd>no phase of a published process is held by this agent yet. In <a href="processes.html#new-agent">New agent</a> the listing is made by the platform from the descriptor once the owner says the agent may be listed</dd>
             <dt>Given</dt><dd>the deliverable, and where it may be written</dd>
             <dt>Hands back</dt><dd>an address a person can open, and the digest of what is there</dd>
             <dt>Done when</dt><dd>the address resolves and what it serves matches the digest recorded</dd>
@@ -294,7 +307,7 @@
           <p>The record of every name the publisher has placed is what lets it tell what it may take down. An address it never wrote is not its to remove, however it is asked.</p>
           <dl>
             <dt>Role</dt><dd><a href="https://agentroles.ai/publisher.html">publisher</a></dd>
-            <dt>Process</dt><dd><a href="https://agentprocesses.ai/retire-an-agent.html">Retire an agent, phase retract-the-listing</a></dd>
+            <dt>Process</dt><dd><a href="processes.html#retire-an-agent">Retire an agent, phase retract-the-listing</a></dd>
             <dt>Given</dt><dd>the address, or the name it was published under</dd>
             <dt>Hands back</dt><dd>a record of what was taken down, by whom, and when</dd>
             <dt>Done when</dt><dd>the address is read back and nothing is there, and the record says who took it down and why</dd>
@@ -336,7 +349,8 @@
           <dl>
             <dt>Agent</dt><dd><a href="https://app.agentmesh.ai/a/incident-recorder.platform%40agentmesh.ai/agentdoc">incident-recorder</a>, whose AgentDoc says what it does, refuses, needs and records</dd>
             <dt>Role</dt><dd><a href="https://agentroles.ai/incident-recorder.html">incident recorder</a></dd>
-            <dt>Process</dt><dd><a href="https://agentprocesses.ai/incident.html">Incident, phase record-the-incident; a reference process until a watcher exists</a></dd>
+            <dt>Source code</dt><dd><a href="https://github.com/jeffrschneider/adlc/tree/main/agents/incident-recorder">agents/incident-recorder</a>, a reference implementation in the lifecycle's open source repository</dd>
+            <dt>Process</dt><dd><a href="processes.html#incident">Incident, phase record-the-incident; a reference process until a watcher exists</a></dd>
             <dt>Given</dt><dd>whatever monitoring saw, and the records of what the agent was doing</dd>
             <dt>Hands back</dt><dd>what happened, what was done about it, and what changes as a result</dd>
             <dt>Done when</dt><dd>the thing is stopped or well, and the account of it outlives the people who were there</dd>
@@ -365,7 +379,8 @@
           <dl>
             <dt>Agent</dt><dd><a href="https://app.agentmesh.ai/a/deploymgr.platform%40agentmesh.ai/agentdoc">deployment-manager</a>, whose AgentDoc says what it does, refuses, needs and records. It updates an agent in place today; the candidate, prove and promote steps, and reading the ledger first, are coming.</dd>
             <dt>Role</dt><dd><a href="https://agentroles.ai/deployment-manager.html">deployment manager</a></dd>
-            <dt>Process</dt><dd><a href="https://agentprocesses.ai/new-agent.html">New agent, run again with the version that runs today attached as the prototype</a></dd>
+            <dt>Source code</dt><dd><a href="https://github.com/jeffrschneider/adlc/tree/main/agents/deployment-manager">agents/deployment-manager</a>, a reference implementation in the lifecycle's open source repository</dd>
+            <dt>Process</dt><dd><a href="processes.html#new-agent">New agent, run again with the version that runs today attached as the prototype</a></dd>
             <dt>Given</dt><dd>a new package, and the agent it is to replace</dd>
             <dt>Hands back</dt><dd>the same agent on the new version, proven as a candidate before it was promoted, with what changed recorded</dd>
             <dt>Done when</dt><dd>the candidate passed its checks before the promote, the identity and the address are unchanged, and the difference is written down</dd>
@@ -392,7 +407,8 @@
           <dl>
             <dt>Agent</dt><dd><a href="https://app.agentmesh.ai/a/deploymgr.platform%40agentmesh.ai/agentdoc">deployment-manager</a>, whose AgentDoc says what it does, refuses, needs and records</dd>
             <dt>Role</dt><dd><a href="https://agentroles.ai/deployment-manager.html">deployment manager</a></dd>
-            <dt>Process</dt><dd><a href="https://agentprocesses.ai/retire-an-agent.html">Retire an agent, phase remove-the-agent</a></dd>
+            <dt>Source code</dt><dd><a href="https://github.com/jeffrschneider/adlc/tree/main/agents/deployment-manager">agents/deployment-manager</a>, a reference implementation in the lifecycle's open source repository</dd>
+            <dt>Process</dt><dd><a href="processes.html#retire-an-agent">Retire an agent, phase remove-the-agent</a></dd>
             <dt>Given</dt><dd>the instruction, and the agent</dd>
             <dt>Hands back</dt><dd>nothing running, the records kept, and the address retired</dd>
             <dt>Done when</dt><dd>no work is in flight or the stuck work is accounted for, the records are kept, and the address is not reused</dd>

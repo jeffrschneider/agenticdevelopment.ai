@@ -34,4 +34,4 @@ agenticdevelopment.ai/draft/ with `noindex`. When it is approved, its pages
 replace the ones at the root (without the `noindex` line) and `draft/` is
 emptied.
 
-A working draft, v0.3.0-draft, developed alongside AgentMesh.
+A working draft, v0.4.0-draft, developed alongside AgentMesh.

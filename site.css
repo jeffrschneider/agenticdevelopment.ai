@@ -102,6 +102,10 @@ section.band ul{ color:var(--dim); max-width:62ch; }
 .agent-on{ font-family:var(--wire); font-size:.82rem; font-weight:500; color:var(--accent);
   text-decoration:none; border-bottom:1px solid rgba(198,217,107,.45); white-space:nowrap; }
 .agent-on:hover{ color:var(--paper); border-bottom-color:var(--paper); }
+/* The link to an agent's code in the ADLC repository, beside its AgentDoc link. */
+.src{ font-family:var(--wire); font-size:.66rem; font-weight:500; letter-spacing:.06em; color:var(--faint);
+  text-decoration:none; border-bottom:1px dotted var(--line); white-space:nowrap; margin-left:4px; }
+.src:hover{ color:var(--paper); border-bottom-color:var(--paper); }
 .soon{ font-family:var(--wire); font-size:.66rem; font-weight:600; letter-spacing:.1em;
   text-transform:uppercase; white-space:nowrap; padding:2px 8px; border-radius:4px;
   border:1px solid var(--line); color:var(--faint); background:var(--panel-2); }

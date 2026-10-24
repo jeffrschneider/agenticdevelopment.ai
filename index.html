@@ -36,10 +36,11 @@
     <div class="grp">In practice</div>
     <nav>
       <a href="implementations.html">Implementations</a>
+      <a href="https://github.com/jeffrschneider/adlc">The code</a>
     </nav>
     <div class="foot">
       <a href="https://agentmesh.ai/standards.html">The family of standards</a><br><br>
-      v0.3.0-draft<br>
+      v0.4.0-draft<br>
       a working draft, developed<br>alongside AgentMesh
     </div>
   </aside>
@@ -52,10 +53,25 @@
         <h1>A lifecycle for agents building agents</h1>
         <p class="lede">Agents can now write, test and release other agents, and they can do it far faster than a team of people. They can only do it safely if every step leaves behind something the next step can check. Without that, a faster process just produces more agents that nobody can trust, repair or switch off.</p>
         <p class="lede">This lifecycle maps the twenty-four stages an agent goes through, from deciding what is wanted to taking it away again. For each stage it names the role that holds it, what the stage is given, what it hands back, and how anyone can tell the stage is finished. Every handoff is a written artifact, so the next agent can start as soon as the last one finishes, without waiting for a person to explain what was meant. And because every agent goes through the same stages, each one meets the same safety checks, is proven the same way before it is released, and can be updated, rolled back or retired in the same way.</p>
+        <p class="lede">This lifecycle is a reference, built to be customized. Add stages, drop them, or fill any role with your own agent. One thing stays fixed: whatever your lifecycle produces ends as an <a href="https://commonagent.net/package.html">Agent Package</a>.</p>
         <div class="cta">
           <a class="btn btn-signal" href="stages.html">Read the stages</a>
           <a class="btn btn-ghost" href="handoffs.html">The handoffs</a>
+          <a class="btn btn-ghost" href="https://github.com/jeffrschneider/adlc">Get the code</a>
         </div>
+      </section>
+
+      <section class="band" id="customize">
+        <h2>Make the lifecycle your own</h2>
+        <p>The stages, the roles and the agents on this site are a reference. Run the lifecycle as written, or shape it to the way your organization works:</p>
+        <ul>
+          <li>add the stages your work needs, such as a legal review or a load test;</li>
+          <li>drop the stages you do not need;</li>
+          <li>fill any role with your own agent, a vendor's agent or a person;</li>
+          <li>run the stages under your own processes, in your own order.</li>
+        </ul>
+        <p>The one fixed point is the end. Whatever your lifecycle produces arrives as a valid Agent Package, in the open format published at <a href="https://commonagent.net/package.html">commonagent.net/package.html</a>: the declaration of what the agent does and refuses, its parts, a manifest and a digest. A platform checks the package before it installs anything, so every agent meets the same gate, however it was built and whoever built it.</p>
+        <p>The roles are written down at <a href="https://agentroles.ai">agentroles.ai</a>, so an agent you build can hold any of them. AgentMesh's own agents for each role are open source under Apache-2.0, as reference implementations to run, study or replace, at <a href="https://github.com/jeffrschneider/adlc">github.com/jeffrschneider/adlc</a>.</p>
       </section>
 
       <section class="band">
@@ -94,13 +110,13 @@
               <td><a href="stages.html#requirements">Requirements</a></td>
               <td><a href="https://agentroles.ai/spec-writer.html">spec writer</a><br>solution planner</td>
               <td>a statement of the job: what it does, refuses, needs, records and costs</td>
-              <td><a class="agent-on" href="https://app.agentmesh.ai/a/spec-writer.platform%40agentmesh.ai/agentdoc">spec-writer</a><br><a class="agent-on" href="https://app.agentmesh.ai/a/planner.platform%40agentmesh.ai/agentdoc">solution-planner</a></td>
+              <td><a class="agent-on" href="https://app.agentmesh.ai/a/spec-writer.platform%40agentmesh.ai/agentdoc">spec-writer</a> <a class="src" href="https://github.com/jeffrschneider/adlc/tree/main/agents/spec-writer">source</a><br><a class="agent-on" href="https://app.agentmesh.ai/a/planner.platform%40agentmesh.ai/agentdoc">solution-planner</a> <a class="src" href="https://github.com/jeffrschneider/adlc/tree/main/agents/solution-planner">source</a></td>
             </tr>
             <tr>
               <td><a href="stages.html#design">Design</a></td>
               <td><a href="https://agentroles.ai/spec-writer.html">spec writer</a><br>solution planner</td>
               <td>the shape: the steps, and which are program and which are judgment</td>
-              <td><a class="agent-on" href="https://app.agentmesh.ai/a/spec-writer.platform%40agentmesh.ai/agentdoc">spec-writer</a><br><a class="agent-on" href="https://app.agentmesh.ai/a/planner.platform%40agentmesh.ai/agentdoc">solution-planner</a></td>
+              <td><a class="agent-on" href="https://app.agentmesh.ai/a/spec-writer.platform%40agentmesh.ai/agentdoc">spec-writer</a> <a class="src" href="https://github.com/jeffrschneider/adlc/tree/main/agents/spec-writer">source</a><br><a class="agent-on" href="https://app.agentmesh.ai/a/planner.platform%40agentmesh.ai/agentdoc">solution-planner</a> <a class="src" href="https://github.com/jeffrschneider/adlc/tree/main/agents/solution-planner">source</a></td>
             </tr>
             <tr>
               <td><a href="stages.html#impact">Impact</a></td>
@@ -112,7 +128,7 @@
               <td><a href="stages.html#source">Source</a></td>
               <td><a href="https://agentroles.ai/catalog.html">catalog</a></td>
               <td>for each step, an existing agent or solution that fits, or "build one"</td>
-              <td><a class="agent-on" href="https://app.dev.agentmesh.ai/a/catalog.platform%40agentmesh.ai/agentdoc">catalog</a><br>on the test environment first</td>
+              <td><a class="agent-on" href="https://app.dev.agentmesh.ai/a/catalog.platform%40agentmesh.ai/agentdoc">catalog</a> <a class="src" href="https://github.com/jeffrschneider/adlc/tree/main/agents/catalog">source</a><br>on the test environment first</td>
             </tr>
 
             <tr class="phase"><td colspan="4">Make</td></tr>
@@ -120,13 +136,13 @@
               <td><a href="stages.html#test">Test</a></td>
               <td><a href="https://agentroles.ai/test-writer.html">test writer</a></td>
               <td>the suite, written from the statement before any program exists</td>
-              <td><a class="agent-on" href="https://app.agentmesh.ai/a/test-writer.platform%40agentmesh.ai/agentdoc">test-writer</a></td>
+              <td><a class="agent-on" href="https://app.agentmesh.ai/a/test-writer.platform%40agentmesh.ai/agentdoc">test-writer</a> <a class="src" href="https://github.com/jeffrschneider/adlc/tree/main/agents/test-writer">source</a></td>
             </tr>
             <tr>
               <td><a href="stages.html#code">Code</a></td>
               <td><a href="https://agentroles.ai/code-writer.html">code writer</a></td>
               <td>the programs, passing a suite written before them</td>
-              <td><a class="agent-on" href="https://app.agentmesh.ai/a/code-writer.platform%40agentmesh.ai/agentdoc">code-writer</a></td>
+              <td><a class="agent-on" href="https://app.agentmesh.ai/a/code-writer.platform%40agentmesh.ai/agentdoc">code-writer</a> <a class="src" href="https://github.com/jeffrschneider/adlc/tree/main/agents/code-writer">source</a></td>
             </tr>
             <tr>
               <td><a href="stages.html#review">Review</a></td>
@@ -147,25 +163,25 @@
               <td><a href="stages.html#build">Build and package</a></td>
               <td><a href="https://agentroles.ai/package-maker.html">package maker</a></td>
               <td>a package: the declaration, the parts, a manifest, a digest</td>
-              <td><a class="agent-on" href="https://app.agentmesh.ai/a/agentbuilder.platform%40agentmesh.ai/agentdoc">package-maker</a></td>
+              <td><a class="agent-on" href="https://app.agentmesh.ai/a/agentbuilder.platform%40agentmesh.ai/agentdoc">package-maker</a> <a class="src" href="https://github.com/jeffrschneider/adlc/tree/main/agents/package-maker">source</a></td>
             </tr>
             <tr>
               <td><a href="stages.html#release">Release</a></td>
               <td><a href="https://agentroles.ai/package-maker.html">package maker</a></td>
               <td>a signed build record, and the package at an address</td>
-              <td><a class="agent-on" href="https://app.agentmesh.ai/a/agentbuilder.platform%40agentmesh.ai/agentdoc">package-maker</a></td>
+              <td><a class="agent-on" href="https://app.agentmesh.ai/a/agentbuilder.platform%40agentmesh.ai/agentdoc">package-maker</a> <a class="src" href="https://github.com/jeffrschneider/adlc/tree/main/agents/package-maker">source</a></td>
             </tr>
             <tr>
               <td><a href="stages.html#deploy">Deploy</a></td>
               <td><a href="https://agentroles.ai/deployment-manager.html">deployment manager</a></td>
               <td>a running agent with an identity, an address and an inbox</td>
-              <td><a class="agent-on" href="https://app.agentmesh.ai/a/deploymgr.platform%40agentmesh.ai/agentdoc">deployment-manager</a></td>
+              <td><a class="agent-on" href="https://app.agentmesh.ai/a/deploymgr.platform%40agentmesh.ai/agentdoc">deployment-manager</a> <a class="src" href="https://github.com/jeffrschneider/adlc/tree/main/agents/deployment-manager">source</a></td>
             </tr>
             <tr>
               <td><a href="stages.html#configure">Configure</a></td>
               <td><a href="https://agentroles.ai/deployment-manager.html">deployment manager</a></td>
               <td>credentials bound by name, settings placed, ceilings set</td>
-              <td><a class="agent-on" href="https://app.agentmesh.ai/a/deploymgr.platform%40agentmesh.ai/agentdoc">deployment-manager</a></td>
+              <td><a class="agent-on" href="https://app.agentmesh.ai/a/deploymgr.platform%40agentmesh.ai/agentdoc">deployment-manager</a> <a class="src" href="https://github.com/jeffrschneider/adlc/tree/main/agents/deployment-manager">source</a></td>
             </tr>
 
             <tr class="phase"><td colspan="4">Prove</td></tr>
@@ -173,7 +189,7 @@
               <td><a href="stages.html#conformance">Conformance</a></td>
               <td><a href="https://agentroles.ai/conformance-checker.html">conformance checker</a></td>
               <td>a signed verdict: does it do what its package says</td>
-              <td><a class="agent-on" href="https://app.agentmesh.ai/a/agentevaluator.platform%40agentmesh.ai/agentdoc">conformance-checker</a></td>
+              <td><a class="agent-on" href="https://app.agentmesh.ai/a/agentevaluator.platform%40agentmesh.ai/agentdoc">conformance-checker</a> <a class="src" href="https://github.com/jeffrschneider/adlc/tree/main/agents/conformance-checker">source</a></td>
             </tr>
             <tr>
               <td><a href="stages.html#acceptance">Acceptance</a></td>
@@ -187,13 +203,13 @@
               <td><a href="stages.html#docs">Docs</a></td>
               <td>documenter<br><a href="https://agentroles.ai/doc-writer.html">doc writer</a></td>
               <td>the AgentDoc a stranger reads before deciding to use an agent, and the documentation for the people who use or maintain the software</td>
-              <td><a class="agent-on" href="https://agentcatalog.com/a/documenter.system@agentmesh.ai">documenter</a><br><span class="soon">coming soon</span></td>
+              <td><a class="agent-on" href="https://agentcatalog.com/a/documenter.system@agentmesh.ai">documenter</a> <a class="src" href="https://github.com/jeffrschneider/adlc/tree/main/agents/documenter">source</a><br><span class="soon">coming soon</span></td>
             </tr>
             <tr>
               <td><a href="stages.html#publish">Publish</a></td>
               <td><a href="https://agentroles.ai/publisher.html">publisher</a></td>
               <td>an address a person can open, and the digest of what is there</td>
-              <td><a class="agent-on" href="https://app.agentmesh.ai/a/publisher.platform%40agentmesh.ai/agentdoc">publisher</a></td>
+              <td><a class="agent-on" href="https://app.agentmesh.ai/a/publisher.platform%40agentmesh.ai/agentdoc">publisher</a> <a class="src" href="https://github.com/jeffrschneider/adlc/tree/main/agents/publisher">source</a></td>
             </tr>
             <tr>
               <td><a href="stages.html#retract">Retract</a></td>
@@ -219,7 +235,7 @@
               <td><a href="stages.html#incident">Incident response</a></td>
               <td><a href="https://agentroles.ai/incident-recorder.html">incident recorder</a></td>
               <td>what happened, what was done about it, and what changes as a result</td>
-              <td><a class="agent-on" href="https://app.agentmesh.ai/a/incident-recorder.platform%40agentmesh.ai/agentdoc">incident-recorder</a></td>
+              <td><a class="agent-on" href="https://app.agentmesh.ai/a/incident-recorder.platform%40agentmesh.ai/agentdoc">incident-recorder</a> <a class="src" href="https://github.com/jeffrschneider/adlc/tree/main/agents/incident-recorder">source</a></td>
             </tr>
             <tr>
               <td><a href="stages.html#cost">Cost</a></td>
@@ -233,7 +249,7 @@
               <td><a href="stages.html#update">Update</a></td>
               <td><a href="https://agentroles.ai/deployment-manager.html">deployment manager</a></td>
               <td>the new version run beside the old as a candidate, proven, then promoted, with what changed recorded</td>
-              <td><a class="agent-on" href="https://app.agentmesh.ai/a/deploymgr.platform%40agentmesh.ai/agentdoc">deployment-manager</a></td>
+              <td><a class="agent-on" href="https://app.agentmesh.ai/a/deploymgr.platform%40agentmesh.ai/agentdoc">deployment-manager</a> <a class="src" href="https://github.com/jeffrschneider/adlc/tree/main/agents/deployment-manager">source</a></td>
             </tr>
             <tr>
               <td><a href="stages.html#rollback">Rollback</a></td>
@@ -245,7 +261,7 @@
               <td><a href="stages.html#decommission">Decommission</a></td>
               <td><a href="https://agentroles.ai/deployment-manager.html">deployment manager</a></td>
               <td>nothing running, the records kept, and the address retired</td>
-              <td><a class="agent-on" href="https://app.agentmesh.ai/a/deploymgr.platform%40agentmesh.ai/agentdoc">deployment-manager</a></td>
+              <td><a class="agent-on" href="https://app.agentmesh.ai/a/deploymgr.platform%40agentmesh.ai/agentdoc">deployment-manager</a> <a class="src" href="https://github.com/jeffrschneider/adlc/tree/main/agents/deployment-manager">source</a></td>
             </tr>
           </tbody>
         </table>
@@ -271,11 +287,11 @@
 
       <section class="band" id="processes">
         <h2>The three processes</h2>
-        <p>The lifecycle is run as process documents, published at <a href="https://agentprocesses.ai/">agentprocesses.ai</a>. Each page there says what has actually happened with it.</p>
+        <p>The lifecycle is run as process documents, written in the format published at <a href="https://agentprocesses.ai/">agentprocesses.ai</a>. The <a href="processes.html">processes page</a> says what each one does and what has actually happened with it.</p>
         <ul>
-          <li><a href="https://agentprocesses.ai/new-agent.html">New agent</a>: a request in words becomes a deployed agent, with the owner's yes at two gates. Has run end to end once, on 2026-09-15.</li>
-          <li><a href="https://agentprocesses.ai/retire-an-agent.html">Retire an agent</a>: the listing down, the owner's yes, the removal, the AgentDoc closed. Written, not yet run.</li>
-          <li><a href="https://agentprocesses.ai/incident.html">Incident</a>: notice, gather the records, record the incident with every gap named, decide. A reference process with no holder for the watcher's phase yet.</li>
+          <li><a href="processes.html#new-agent">New agent</a>: a request in words becomes a deployed agent, with the owner's yes at two gates. Has run end to end once, on 2026-09-15.</li>
+          <li><a href="processes.html#retire-an-agent">Retire an agent</a>: the listing down, the owner's yes, the removal, the AgentDoc closed. Written, not yet run.</li>
+          <li><a href="processes.html#incident">Incident</a>: notice, gather the records, record the incident with every gap named, decide. A reference process with no holder for the watcher's phase yet.</li>
         </ul>
         <p>A change to a released agent is New agent run again with the version that runs today attached as the prototype; there is no separate change process. Two steps are coming to that run: working out what the change touches before anything is built, and running the new version beside the old one until it is proven. Stages no process holds yet say so on the <a href="stages.html">stages page</a>.</p>
       </section>
@@ -286,16 +302,17 @@
       </section>
 
       <section class="band">
-        <h2>The official coder</h2>
-        <p>Anything a person makes in their own tool, a coding harness, a chat, a notebook, is a prototype: <b>agentic prototyping</b>, and nothing in this lifecycle stops it or needs to. What moves on to Build is only what the Code stage delivers. A prototype sent to be packaged is refused, with the reply naming where to send it, and the code-writer reads it as the most exact statement of what was wanted that exists and writes the programs again, in the stack every package on this mesh is written in, against the suite: <b>agentic transpiling</b>. The trace is the signed manifest every delivery already carries, so the rule is one refusal in one place.</p>
-        <p>That edge is deliberate. Anything the prototype did that the statement of the job never said does not survive the rewrite. If it is wanted, it goes into the statement first, and then the suite, and then the code.</p>
+        <h2>Any code writer can hold the Code stage</h2>
+        <p>Anything a person makes in their own tool, a coding harness, a chat, a notebook, is a prototype: <b>agentic prototyping</b>, and nothing in this lifecycle stops it or needs to. The Code stage reads a prototype as the most exact statement of what was wanted and writes the programs again, in the stack its packages are written in, against the suite: <b>agentic transpiling</b>. Anything the prototype did that the statement of the job never said does not survive the rewrite. If it is wanted, it goes into the statement first, and then the suite, and then the code.</p>
+        <p>Which code writer holds the stage is your choice. AgentMesh's <a href="https://github.com/jeffrschneider/adlc/tree/main/agents/code-writer">code-writer</a> is one; your own agent, a vendor's, or the coding harness your team already uses can hold the same <a href="https://agentroles.ai/code-writer.html">role</a>. The package maker packs programs from any of them, because what the rest of the lifecycle checks is the package. An organization that wants every program traced to one code writer can require it: the reference <a href="https://github.com/jeffrschneider/adlc/tree/main/agents/package-maker">package maker</a> has a setting that packs only programs a named code writer delivered, traced through the signed manifest every delivery carries.</p>
       </section>
 
       <section class="band" style="border-bottom:0">
         <h2>Where this comes from</h2>
-        <p>This draft is written alongside <a href="https://agentmesh.ai" style="color:var(--paper)">AgentMesh</a>, where the middle of the lifecycle is built and running, where the front is partly held and partly built, and where the gaps were found the ordinary way, by hitting them. Roles are defined at <a href="https://agentroles.ai" style="color:var(--paper)">agentroles.ai</a>. What an agent publishes about itself is defined at <a href="https://agentdoc.net" style="color:var(--paper)">agentdoc.net</a>. <a href="implementations.html" style="color:var(--paper)">Implementations</a> lists what exists today, stage by stage.</p>
+        <p>This draft is written alongside <a href="https://agentmesh.ai" style="color:var(--paper)">AgentMesh</a>, where the middle of the lifecycle is built and running, where the front is partly held and partly built, and where the gaps were found the ordinary way, by hitting them. Roles are defined at <a href="https://agentroles.ai" style="color:var(--paper)">agentroles.ai</a>. What an agent publishes about itself is defined at <a href="https://agentdoc.net" style="color:var(--paper)">agentdoc.net</a>. <a href="implementations.html" style="color:var(--paper)">Implementations</a> lists what exists today, stage by stage, and the code of every agent there is at <a href="https://github.com/jeffrschneider/adlc" style="color:var(--paper)">github.com/jeffrschneider/adlc</a>.</p>
         <p>It is a working draft. The stages are stable; the roles and the checks are not, and several are named here before they are written.</p>
         <p><i>v0.3.0-draft, 5 October 2026: Impact and Source are added to Define, Acceptance to Prove, and the ledger beside the stages. Update is described as candidate, prove and promote, which is coming. The incident recorder now holds Incident response, and the solution planner joins the spec writer at Requirements and Design. Security review names its own role, the security reviewer. Later the same day, Docs was split into two roles. The documenter holds the first by assembling and signing every AgentDoc. No agent holds the second, the doc writer, yet. The ledger is a platform service rather than an agent, so it has no role. The deployment manager keeps the name agentroles.ai publishes for its role, and its agent will be renamed to match. The agents are shown under their new names: solution-planner, package-maker, deployment-manager and conformance-checker.</i></p>
+        <p><i>v0.4.0-draft, 24 October 2026: the lifecycle is a reference to customize, and its one fixed point is that what it produces ends as an Agent Package. Any code writer can hold the Code stage. AgentMesh's agents for the roles are published as open source reference implementations, and each agent on the map links to its source.</i></p>
       </section>
 
     </div>
