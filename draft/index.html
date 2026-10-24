@@ -6,11 +6,21 @@
   <meta name="robots" content="noindex">
   <title>Agentic Development</title>
   <meta name="description" content="A reference Agent Development Lifecycle you tailor: every stage from deciding what is wanted to retiring the agent, the role that holds it, what it is given and hands back, and how you can tell it is done. Whatever your lifecycle looks like, it ends in an Agent Package.">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="Agentic Development">
+  <meta property="og:title" content="No two teams have ever agreed on a development lifecycle">
+  <meta property="og:description" content="So this one is built to be tailored. Change the stages and who holds them, and every agent still comes out the same way: as an Agent Package.">
+  <meta property="og:url" content="https://agenticdevelopment.ai/draft/">
+  <meta property="og:image" content="https://agenticdevelopment.ai/brand/png/og-image-v2.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="A cartoon tug of war: two people pull a lifecycle banner in half, one side reading Design, Test, Code and the other Design, Code, Test, while a box labeled package sits ignored on the floor between them. Headline: No two teams have ever agreed on a development lifecycle.">
+  <meta name="twitter:card" content="summary_large_image">
   <link rel="icon" type="image/svg+xml" href="../favicon.svg">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500;600&family=Kalam:wght@400;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="home.css">
+  <link rel="stylesheet" href="site.css">
 </head>
 <body>
 <div class="layout">
@@ -21,12 +31,12 @@
     <nav>
       <a class="on" href="./">Overview</a>
       <a href="stages.html">The stages</a>
-      <a href="../handoffs.html">The handoffs</a>
-      <a href="../processes.html">The processes</a>
+      <a href="handoffs.html">The handoffs</a>
+      <a href="processes.html">The processes</a>
     </nav>
     <div class="grp">In practice</div>
     <nav>
-      <a href="../implementations.html">Implementations</a>
+      <a href="implementations.html">Implementations</a>
       <a href="https://github.com/jeffrschneider/adlc">The code</a>
     </nav>
     <div class="foot">
@@ -52,7 +62,7 @@
             <ellipse cx="810" cy="462" rx="86" ry="7" fill="#000" opacity=".16"/>
             <ellipse cx="482" cy="462" rx="58" ry="6" fill="#000" opacity=".16"/>
 
-            <!-- the package, which nobody is arguing about -->
+            <!-- the package, which both of them ignore -->
             <g stroke="var(--outline)" stroke-width="3" stroke-linejoin="round">
               <polygon points="436,400 456,384 538,384 518,400" fill="#E9BD80"/>
               <polygon points="518,400 538,384 538,444 518,460" fill="var(--box-side)"/>
@@ -178,14 +188,14 @@
 
       <section class="band">
         <h2>Cut it to fit the way you work.</h2>
-        <p>Run the reference as written, or change it. Add the stages your work needs, like a legal review. Drop the ones you don't. Rename anything. Put your own agent, a vendor's agent or a person in any role, and run the stages in your own order.</p>
+        <p>Run the reference as written, or change it. Add the stages your work needs, like a legal review. Drop the ones you don't. Give any stage your own name. Put your own agent, a vendor's agent or a person in any role, and run the stages in your own order.</p>
         <ul class="strip" aria-label="A tailored lifecycle">
-          <li><span class="chip"><span class="nm">Requirements</span><small>as written</small></span></li>
+          <li><span class="chip renamed"><span class="nm"><span class="was">Requirements</span>Wishlist</span><small>new name</small></span></li>
           <li><span class="chip"><span class="nm">Test</span><small>as written</small></span></li>
           <li><span class="chip held"><span class="nm">Code</span><small>your own agent</small></span></li>
           <li><span class="chip added"><span class="nm">Legal review</span><small>added</small></span></li>
-          <li><span class="chip pkg"><svg class="box-ico" viewBox="0 0 24 24" aria-hidden="true" focusable="false" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3 4 7v10l8 4 8-4V7z"/><path d="m4 7 8 4 8-4M12 11v10"/></svg><span class="nm">Build and package</span><small>as written</small></span></li>
-          <li><span class="chip pkg renamed"><svg class="box-ico" viewBox="0 0 24 24" aria-hidden="true" focusable="false" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3 4 7v10l8 4 8-4V7z"/><path d="m4 7 8 4 8-4M12 11v10"/></svg><span class="nm"><span class="was">Release</span>Ship it</span><small>renamed</small></span></li>
+          <li><span class="chip pkg"><svg class="box-ico" viewBox="0 0 24 24" aria-hidden="true" focusable="false" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3 4 7v10l8 4 8-4V7z"/><path d="m4 7 8 4 8-4M12 11v10"/></svg><span class="nm">Build and package</span><small>on-ramp</small></span></li>
+          <li><span class="chip pkg"><svg class="box-ico" viewBox="0 0 24 24" aria-hidden="true" focusable="false" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3 4 7v10l8 4 8-4V7z"/><path d="m4 7 8 4 8-4M12 11v10"/></svg><span class="nm">Release</span><small>on-ramp</small></span></li>
           <li><span class="chip dropped"><span class="nm">Eval</span><small>dropped</small></span></li>
         </ul>
       </section>
@@ -294,7 +304,7 @@ solution-planner</span></pre>
           <div class="phase"><h3>Ship</h3><ul>
             <li class="onramp"><a href="stages.html#build"><svg class="box-ico" viewBox="0 0 24 24" aria-hidden="true" focusable="false" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3 4 7v10l8 4 8-4V7z"/><path d="m4 7 8 4 8-4M12 11v10"/></svg>Build and package<span class="vh"> (the on-ramp)</span></a></li>
             <li class="onramp"><a href="stages.html#release"><svg class="box-ico" viewBox="0 0 24 24" aria-hidden="true" focusable="false" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3 4 7v10l8 4 8-4V7z"/><path d="m4 7 8 4 8-4M12 11v10"/></svg>Release<span class="vh"> (the on-ramp)</span></a></li>
-            <li class="onramp-note">Where your work becomes an Agent Package.</li>
+            <li class="onramp-note">The on-ramp: where your work becomes an Agent Package.</li>
             <li><a href="stages.html#deploy">Deploy</a></li>
             <li><a href="stages.html#configure">Configure</a></li>
           </ul></div>
@@ -319,9 +329,10 @@ solution-planner</span></pre>
             <li><a href="stages.html#decommission">Decommission</a></li>
           </ul></div>
         </div>
+        <p>Beside the stages sits the <a href="stages.html#ledger">ledger</a>, where the debts a change leaves behind are written down.</p>
         <div class="cta">
           <a class="btn btn-signal" href="stages.html">Read the stages</a>
-          <a class="btn btn-ghost" href="../handoffs.html">See the handoffs</a>
+          <a class="btn btn-ghost" href="handoffs.html">See the handoffs</a>
         </div>
       </section>
 

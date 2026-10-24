@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="robots" content="noindex">
+  <title>Implementations: Agentic Development</title>
+  <meta name="description" content="The open-source reference agents that hold the stages of the Agent Development Lifecycle, and the roles every other stage names so you can build to them.">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="Agentic Development">
+  <meta property="og:title" content="Implementations | Agentic Development">
+  <meta property="og:description" content="The open-source reference agents that hold the stages of the Agent Development Lifecycle, and the roles every other stage names so you can build to them.">
+  <meta property="og:url" content="https://agenticdevelopment.ai/draft/implementations.html">
+  <meta property="og:image" content="https://agenticdevelopment.ai/brand/png/og-image-v2.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="A cartoon tug of war: two people pull a lifecycle banner in half, one side reading Design, Test, Code and the other Design, Code, Test, while a box labeled package sits ignored on the floor between them. Headline: No two teams have ever agreed on a development lifecycle.">
+  <meta name="twitter:card" content="summary_large_image">
+  <link rel="icon" type="image/svg+xml" href="../favicon.svg">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500;600&family=Kalam:wght@400;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="site.css">
+</head>
+<body>
+<div class="layout">
+
+  <aside class="rail">
+    <a class="brand" href="./"><span class="dot"></span>agentic development</a>
+    <div class="grp">The lifecycle</div>
+    <nav>
+      <a href="./">Overview</a>
+      <a href="stages.html">The stages</a>
+      <a href="handoffs.html">The handoffs</a>
+      <a href="processes.html">The processes</a>
+    </nav>
+    <div class="grp">In practice</div>
+    <nav>
+      <a class="on" href="implementations.html">Implementations</a>
+      <a href="https://github.com/jeffrschneider/adlc">The code</a>
+    </nav>
+    <div class="foot">
+      <a href="https://agentmesh.ai/standards.html">The family of standards</a>
+    </div>
+  </aside>
+
+  <main class="main">
+    <div class="wrap">
+
+      <header class="page-head">
+        <h1>These agents hold the stages, and you can swap any of them.</h1>
+        <p class="turn">Each one is a reference implementation, open source under Apache-2.0. Run it as it is, read how it holds its role, or put your own agent in its place. Whatever holds a stage, the lifecycle ends the same way: as a valid <a href="https://commonagent.net/package.html">Agent Package</a>.</p>
+      </header>
+
+      <div class="prose">
+        <p>The code for every agent below is at <a href="https://github.com/jeffrschneider/adlc">github.com/jeffrschneider/adlc</a>, one folder each. Each name links to the agent's AgentDoc, which says what it does, refuses, needs and records. The roles are published separately at <a href="https://agentroles.ai">agentroles.ai</a>, so another platform can hold the same roles with entirely different agents. That's the whole point of publishing roles.</p>
+        <p>The agents call their platform's services, such as catalog search, runs and memory, which are part of the platform rather than agents. The platform that runs them lists every service and how to call it at <a href="https://dev.agentmesh.ai/platform-services.html">dev.agentmesh.ai/platform-services.html</a>, and its own agents at <a href="https://dev.agentmesh.ai/platform-agents.html">dev.agentmesh.ai/platform-agents.html</a>.</p>
+
+        <h2>Eleven reference agents hold fifteen stages.</h2>
+        <table class="tbl">
+          <thead><tr><th>Stage</th><th>Agent</th><th>Role</th><th class="src-col">Source</th></tr></thead>
+          <tbody>
+            <tr><td><a href="stages.html#requirements">Requirements</a></td><td><a class="agent-on" href="https://app.agentmesh.ai/a/spec-writer.platform%40agentmesh.ai/agentdoc">spec-writer</a><br><a class="agent-on" href="https://app.agentmesh.ai/a/planner.platform%40agentmesh.ai/agentdoc">solution-planner</a></td><td><a href="https://agentroles.ai/spec-writer.html">spec writer</a>, for an agent<br><a href="https://agentroles.ai/solution-planner.html">solution planner</a>, for a solution</td><td class="src-col"><a href="https://github.com/jeffrschneider/adlc/tree/main/agents/spec-writer">spec-writer</a><br><a href="https://github.com/jeffrschneider/adlc/tree/main/agents/solution-planner">solution-planner</a></td></tr>
+            <tr><td><a href="stages.html#design">Design</a></td><td><a class="agent-on" href="https://app.agentmesh.ai/a/spec-writer.platform%40agentmesh.ai/agentdoc">spec-writer</a><br><a class="agent-on" href="https://app.agentmesh.ai/a/planner.platform%40agentmesh.ai/agentdoc">solution-planner</a></td><td><a href="https://agentroles.ai/spec-writer.html">spec writer</a>, for an agent<br><a href="https://agentroles.ai/solution-planner.html">solution planner</a>, for a solution</td><td class="src-col"><a href="https://github.com/jeffrschneider/adlc/tree/main/agents/spec-writer">spec-writer</a><br><a href="https://github.com/jeffrschneider/adlc/tree/main/agents/solution-planner">solution-planner</a></td></tr>
+            <tr><td><a href="stages.html#source">Source</a></td><td><a class="agent-on" href="https://app.dev.agentmesh.ai/a/catalog.platform%40agentmesh.ai/agentdoc">catalog</a></td><td><a href="https://agentroles.ai/catalog.html">catalog</a></td><td class="src-col"><a href="https://github.com/jeffrschneider/adlc/tree/main/agents/catalog">catalog</a></td></tr>
+            <tr><td><a href="stages.html#test">Test</a></td><td><a class="agent-on" href="https://app.agentmesh.ai/a/test-writer.platform%40agentmesh.ai/agentdoc">test-writer</a></td><td><a href="https://agentroles.ai/test-writer.html">test writer</a></td><td class="src-col"><a href="https://github.com/jeffrschneider/adlc/tree/main/agents/test-writer">test-writer</a></td></tr>
+            <tr><td><a href="stages.html#code">Code</a></td><td><a class="agent-on" href="https://app.agentmesh.ai/a/code-writer.platform%40agentmesh.ai/agentdoc">code-writer</a></td><td><a href="https://agentroles.ai/code-writer.html">code writer</a></td><td class="src-col"><a href="https://github.com/jeffrschneider/adlc/tree/main/agents/code-writer">code-writer</a></td></tr>
+            <tr class="onramp"><td><svg class="box-ico" viewBox="0 0 24 24" aria-hidden="true" focusable="false" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3 4 7v10l8 4 8-4V7z"/><path d="m4 7 8 4 8-4M12 11v10"/></svg><a href="stages.html#build">Build and package</a> <span class="onramp-tag">on-ramp</span></td><td><a class="agent-on" href="https://app.agentmesh.ai/a/agentbuilder.platform%40agentmesh.ai/agentdoc">package-maker</a></td><td><a href="https://agentroles.ai/package-maker.html">package maker</a></td><td class="src-col"><a href="https://github.com/jeffrschneider/adlc/tree/main/agents/package-maker">package-maker</a></td></tr>
+            <tr class="onramp"><td><svg class="box-ico" viewBox="0 0 24 24" aria-hidden="true" focusable="false" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3 4 7v10l8 4 8-4V7z"/><path d="m4 7 8 4 8-4M12 11v10"/></svg><a href="stages.html#release">Release</a> <span class="onramp-tag">on-ramp</span></td><td><a class="agent-on" href="https://app.agentmesh.ai/a/agentbuilder.platform%40agentmesh.ai/agentdoc">package-maker</a></td><td><a href="https://agentroles.ai/package-maker.html">package maker</a></td><td class="src-col"><a href="https://github.com/jeffrschneider/adlc/tree/main/agents/package-maker">package-maker</a></td></tr>
+            <tr><td><a href="stages.html#deploy">Deploy</a></td><td><a class="agent-on" href="https://app.agentmesh.ai/a/deploymgr.platform%40agentmesh.ai/agentdoc">deployment-manager</a></td><td><a href="https://agentroles.ai/deployment-manager.html">deployment manager</a></td><td class="src-col"><a href="https://github.com/jeffrschneider/adlc/tree/main/agents/deployment-manager">deployment-manager</a></td></tr>
+            <tr><td><a href="stages.html#configure">Configure</a></td><td><a class="agent-on" href="https://app.agentmesh.ai/a/deploymgr.platform%40agentmesh.ai/agentdoc">deployment-manager</a></td><td><a href="https://agentroles.ai/deployment-manager.html">deployment manager</a></td><td class="src-col"><a href="https://github.com/jeffrschneider/adlc/tree/main/agents/deployment-manager">deployment-manager</a></td></tr>
+            <tr><td><a href="stages.html#conformance">Conformance</a></td><td><a class="agent-on" href="https://app.agentmesh.ai/a/agentevaluator.platform%40agentmesh.ai/agentdoc">conformance-checker</a></td><td><a href="https://agentroles.ai/conformance-checker.html">conformance checker</a></td><td class="src-col"><a href="https://github.com/jeffrschneider/adlc/tree/main/agents/conformance-checker">conformance-checker</a></td></tr>
+            <tr><td><a href="stages.html#docs">Docs</a></td><td><a class="agent-on" href="https://agentcatalog.com/a/documenter.system@agentmesh.ai">documenter</a></td><td><a href="https://agentroles.ai/documenter.html">documenter</a>, for the AgentDoc</td><td class="src-col"><a href="https://github.com/jeffrschneider/adlc/tree/main/agents/documenter">documenter</a></td></tr>
+            <tr><td><a href="stages.html#publish">Publish</a></td><td><a class="agent-on" href="https://app.agentmesh.ai/a/publisher.platform%40agentmesh.ai/agentdoc">publisher</a></td><td><a href="https://agentroles.ai/publisher.html">publisher</a></td><td class="src-col"><a href="https://github.com/jeffrschneider/adlc/tree/main/agents/publisher">publisher</a></td></tr>
+            <tr><td><a href="stages.html#incident">Incident response</a></td><td><a class="agent-on" href="https://app.agentmesh.ai/a/incident-recorder.platform%40agentmesh.ai/agentdoc">incident-recorder</a></td><td><a href="https://agentroles.ai/incident-recorder.html">incident recorder</a></td><td class="src-col"><a href="https://github.com/jeffrschneider/adlc/tree/main/agents/incident-recorder">incident-recorder</a></td></tr>
+            <tr><td><a href="stages.html#update">Update</a></td><td><a class="agent-on" href="https://app.agentmesh.ai/a/deploymgr.platform%40agentmesh.ai/agentdoc">deployment-manager</a></td><td><a href="https://agentroles.ai/deployment-manager.html">deployment manager</a></td><td class="src-col"><a href="https://github.com/jeffrschneider/adlc/tree/main/agents/deployment-manager">deployment-manager</a></td></tr>
+            <tr><td><a href="stages.html#decommission">Decommission</a></td><td><a class="agent-on" href="https://app.agentmesh.ai/a/deploymgr.platform%40agentmesh.ai/agentdoc">deployment-manager</a></td><td><a href="https://agentroles.ai/deployment-manager.html">deployment manager</a></td><td class="src-col"><a href="https://github.com/jeffrschneider/adlc/tree/main/agents/deployment-manager">deployment-manager</a></td></tr>
+          </tbody>
+        </table>
+        <p>The middle is crowded on purpose. Those stages are built out of artifacts, so one agent can hold several of them by reading the same package at different moments. The deployment manager alone holds four.</p>
+        <p class="onramp-callout"><svg class="box-ico" viewBox="0 0 24 24" aria-hidden="true" focusable="false" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3 4 7v10l8 4 8-4V7z"/><path d="m4 7 8 4 8-4M12 11v10"/></svg><b>Build and package</b> and <b>Release</b> are the on-ramp. The package maker turns your work into an Agent Package, which is the easy way onto the mesh. Any other tool works too, as long as the package is valid.</p>
+
+        <h2>Every other stage names its role, so you can build to it.</h2>
+        <p>These stages have a role and a written handoff. Put your own agent in the role, contract one, or have a person hold it.</p>
+        <table class="tbl">
+          <thead><tr><th>Stage</th><th>Role</th></tr></thead>
+          <tbody>
+            <tr><td><a href="stages.html#impact">Impact</a></td><td><a href="https://agentroles.ai/impact-analyst.html">impact analyst</a></td></tr>
+            <tr><td><a href="stages.html#review">Review</a></td><td><a href="https://agentroles.ai/code-critic.html">code critic</a></td></tr>
+            <tr><td><a href="stages.html#security">Security review</a></td><td><a href="https://agentroles.ai/security-reviewer.html">security reviewer</a></td></tr>
+            <tr><td><a href="stages.html#acceptance">Acceptance</a></td><td>the person who asked, by design</td></tr>
+            <tr><td><a href="stages.html#docs">Docs, the documentation</a></td><td><a href="https://agentroles.ai/doc-writer.html">doc writer</a></td></tr>
+            <tr><td><a href="stages.html#retract">Retract</a></td><td><a href="https://agentroles.ai/publisher.html">publisher</a></td></tr>
+            <tr><td><a href="stages.html#monitor">Monitor</a></td><td><a href="https://agentroles.ai/watcher.html">watcher</a></td></tr>
+            <tr><td><a href="stages.html#eval">Eval</a></td><td><a href="https://agentroles.ai/agent-critic.html">agent critic</a></td></tr>
+            <tr><td><a href="stages.html#cost">Cost</a></td><td><a href="https://agentroles.ai/watcher.html">watcher</a></td></tr>
+            <tr><td><a href="stages.html#rollback">Rollback</a></td><td><a href="https://agentroles.ai/deployment-manager.html">deployment manager</a></td></tr>
+          </tbody>
+        </table>
+        <p>Beside the stages sits the <a href="stages.html#ledger">ledger</a>, which the platform keeps. It isn't an agent, so it has no role.</p>
+
+        <h2>It leans on a few open standards.</h2>
+        <table class="tbl">
+          <thead><tr><th>What</th><th>Where</th></tr></thead>
+          <tbody>
+            <tr><td>What an agent publishes about itself</td><td><a href="https://agentdoc.net">agentdoc.net</a></td></tr>
+            <tr><td>What travels as a package</td><td><a href="https://commonagent.net/package.html">commonagent.net/package.html</a></td></tr>
+            <tr><td>Recurring jobs, published as contracts</td><td><a href="https://agentroles.ai">agentroles.ai</a></td></tr>
+            <tr><td>How a process is written down</td><td><a href="https://agentprocesses.ai/">agentprocesses.ai</a></td></tr>
+            <tr><td>The rest of the family</td><td><a href="https://agentmesh.ai/standards.html">agentmesh.ai/standards.html</a></td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <footer class="footer">
+        <span>Agentic Development</span>
+        <span>Sponsored by <a href="https://agentmesh.ai">AgentMesh</a></span>
+        <span>Reference agents under Apache-2.0 on <a href="https://github.com/jeffrschneider/adlc">GitHub</a></span>
+      </footer>
+
+    </div>
+  </main>
+</div>
+</body>
+</html>
