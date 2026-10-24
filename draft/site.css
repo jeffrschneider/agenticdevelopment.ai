@@ -1,22 +1,41 @@
-/* The draft site. Same tokens as ../site.css (Space Grotesk, IBM Plex,
-   blueprint grid, lime lead accent, dark only), plus a few illustration
-   tokens for the cartoons. Kalam is the marker hand, and it is
-   used only inside the cartoon and its speech bubbles. */
+/* The draft site. Same family as ../site.css (Space Grotesk, IBM Plex,
+   blueprint grid, lime lead accent), plus a few illustration tokens for the
+   cartoons. Light is the default; a visitor whose system asks for dark gets
+   the dark set, unless the page says data-theme="light". Kalam is the marker
+   hand, used only inside the cartoons and their speech bubbles.
+   Every "-ink" token is the text-safe version of its hue for that theme. */
 :root{
-  --ink:#0F1310; --panel:#171C17; --panel-2:#1C231C; --line:#2C3529;
-  --paper:#EEF1E8; --dim:#9EA895; --faint:#808A76;
-  --enforced:#43D6A6; --evidence:#6BA8FF; --recorded:#F2A93B;
-  --accent:#C6D96B; --accent-ink:#C6D96B; --evidence-ink:#6BA8FF; --on-accent:#1B2110;
-  --glow:rgba(198,217,107,.09);
+  --ink:#EEF1E8; --panel:#F8FAF4; --panel-2:#E6EBDD; --line:#D2D9C6;
+  --paper:#141A13; --dim:#4C5745; --faint:#5F6857;
+  --enforced:#43D6A6; --evidence:#6BA8FF; --recorded:#F2A93B; --live:#178A63;
+  --accent:#C6D96B; --accent-ink:#55661A; --evidence-ink:#1F5FBF; --on-accent:#1B2110;
+  --recorded-ink:#8A5200; --live-ink:#0A6B4B;
+  --glow:rgba(150,175,60,.14);
   /* the cartoon */
   --outline:#0F1310; --board:#F6F8F0; --board-ink:#1A2019;
   --skin-a:#E9B48C; --skin-b:#9A633F; --hair-a:#3A2A20; --hair-b:#5B5F66;
   --top-a:#C6D96B; --top-b:#6BA8FF; --pants:#38404F; --box:#D8A566; --box-side:#B9874C;
-  --floor:#3A4536; --bubble:#F6F8F0; --bubble-ink:#141A13;
+  --floor:#B9C2AC; --bubble:#FFFFFF; --bubble-ink:#141A13;
   --disp:'Space Grotesk', sans-serif;
   --body:'IBM Plex Sans', system-ui, sans-serif;
   --wire:'IBM Plex Mono', ui-monospace, monospace;
   --hand:'Kalam', 'Comic Neue', cursive;
+  color-scheme:light;
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    --ink:#0F1310; --panel:#171C17; --panel-2:#1C231C; --line:#2C3529;
+    --paper:#EEF1E8; --dim:#9EA895; --faint:#808A76;
+    --accent-ink:#C6D96B; --evidence-ink:#6BA8FF; --recorded-ink:#F2A93B; --live-ink:#43D6A6; --live:#43D6A6;
+    --glow:rgba(198,217,107,.09); --floor:#3A4536; --bubble:#F6F8F0;
+    color-scheme:dark;
+  }
+}
+:root[data-theme="dark"]{
+  --ink:#0F1310; --panel:#171C17; --panel-2:#1C231C; --line:#2C3529;
+  --paper:#EEF1E8; --dim:#9EA895; --faint:#808A76;
+  --accent-ink:#C6D96B; --evidence-ink:#6BA8FF; --recorded-ink:#F2A93B; --live-ink:#43D6A6; --live:#43D6A6;
+  --glow:rgba(198,217,107,.09); --floor:#3A4536; --bubble:#F6F8F0;
   color-scheme:dark;
 }
 
@@ -49,7 +68,7 @@ a:focus-visible, .btn:focus-visible{ outline:2px solid var(--accent-ink); outlin
 .rail nav a{ display:block; font-family:var(--wire); font-size:.8rem; color:var(--dim); text-decoration:none;
   padding:6px 0 6px 12px; margin-left:-12px; border-left:2px solid transparent; }
 .rail nav a:hover{ color:var(--paper); }
-.rail nav a.on{ color:var(--paper); border-left-color:var(--accent); }
+.rail nav a.on{ color:var(--paper); border-left-color:var(--accent-ink); }
 .rail .foot{ margin-top:26px; padding-top:18px; border-top:1px solid var(--line);
   font-family:var(--wire); font-size:.72rem; color:var(--faint); line-height:1.7; }
 .rail .foot a{ color:var(--dim); }
@@ -138,7 +157,7 @@ section.band p a, .inline-links a{ color:var(--paper); text-decoration-color:var
 .chip.added small{ color:var(--accent-ink); }
 .chip.dropped{ opacity:.85; }
 .chip.dropped .nm{ text-decoration:line-through; text-decoration-thickness:2px; }
-.chip.renamed small{ color:var(--recorded); }
+.chip.renamed small{ color:var(--recorded-ink); }
 .chip.held small{ color:var(--evidence-ink); }
 .chip .was{ color:var(--faint); text-decoration:line-through; margin-right:6px; }
 
@@ -229,7 +248,6 @@ section.band p a, .inline-links a{ color:var(--paper); text-decoration-color:var
    Agent Package. Wherever stages are listed they carry the package colour,
    a box, and a word, so the mark never rests on colour alone. */
 .box-ico{ width:15px; height:15px; flex:0 0 15px; color:var(--recorded-ink); vertical-align:-2px; margin-right:6px; }
-:root{ --recorded-ink:#F2A93B; }
 .phase li.onramp a{ display:inline-flex; align-items:baseline; color:var(--recorded-ink); font-weight:600; }
 .phase li.onramp .box-ico{ align-self:center; }
 .phase li.onramp-note{ font-family:var(--wire); font-size:.68rem; line-height:1.45; color:var(--dim);
@@ -266,7 +284,7 @@ section.band p a, .inline-links a{ color:var(--paper); text-decoration-color:var
 .stage{ border-top:1px solid var(--line); padding:32px 0 8px; scroll-margin-top:16px; }
 .phase-head + .stage{ border-top:0; }
 .stage .head{ display:flex; align-items:center; gap:10px 12px; flex-wrap:wrap; margin-bottom:8px; }
-.stage .head .ico{ width:26px; height:26px; flex:0 0 26px; color:var(--accent); }
+.stage .head .ico{ width:26px; height:26px; flex:0 0 26px; color:var(--accent-ink); }
 .stage .head h2{ font-size:1.55rem; margin:0; }
 .stage .num{ font-family:var(--wire); font-size:.74rem; color:var(--faint); }
 .stage > p{ color:var(--dim); max-width:68ch; }
@@ -277,7 +295,7 @@ section.band p a, .inline-links a{ color:var(--paper); text-decoration-color:var
   color:var(--faint); padding:10px 14px 10px 0; border-top:1px solid var(--line); }
 .stage dd{ margin:0; padding:9px 0; border-top:1px solid var(--line); color:var(--dim); }
 .stage dd a{ color:var(--paper); text-decoration-color:var(--accent-ink); text-underline-offset:3px; }
-.stage.record .head .ico{ color:var(--evidence); }
+.stage.record .head .ico{ color:var(--evidence-ink); }
 
 .agent-on{ font-family:var(--wire); font-size:.8rem; font-weight:500; color:var(--accent-ink);
   text-decoration:none; border-bottom:1px solid rgba(198,217,107,.45); white-space:nowrap; }
@@ -290,10 +308,10 @@ section.band p a, .inline-links a{ color:var(--paper); text-decoration-color:var
 /* the on-ramp: Build and package, and Release */
 .stage.onramp{ border-left:3px solid var(--recorded); padding-left:22px; margin-left:-25px; border-top-color:transparent;
   background:linear-gradient(90deg, rgba(242,169,59,.07), transparent 60%); border-radius:0 10px 10px 0; }
-.stage.onramp .head .ico{ color:var(--recorded); }
+.stage.onramp .head .ico{ color:var(--recorded-ink); }
 .onramp-tag{ display:inline-flex; align-items:center; gap:5px; font-family:var(--wire); font-size:.64rem; font-weight:600;
   letter-spacing:.1em; text-transform:uppercase; white-space:nowrap; padding:2px 8px; border-radius:4px;
-  border:1px solid rgba(242,169,59,.55); color:var(--recorded); background:var(--panel-2); }
+  border:1px solid rgba(242,169,59,.7); color:var(--recorded-ink); background:var(--panel-2); }
 .onramp-tag svg{ width:11px; height:11px; }
 .stage .onramp-note, .onramp-callout{ margin:14px 0; padding:10px 14px; border:1px solid rgba(242,169,59,.4); border-radius:8px;
   background:var(--panel); color:var(--paper); max-width:68ch; }
@@ -369,3 +387,29 @@ section.band p a, .inline-links a{ color:var(--paper); text-decoration-color:var
   .tbl .src-col{ display:none; }
   .tbl{ display:table; }
 }
+
+/* goes live: Deploy, where the agent starts with its credentials and limits */
+.live-ico{ width:15px; height:15px; flex:0 0 15px; color:var(--live-ink); vertical-align:-2px; margin-right:6px; }
+.golive-tag{ display:inline-flex; align-items:center; gap:5px; font-family:var(--wire); font-size:.64rem; font-weight:600;
+  letter-spacing:.1em; text-transform:uppercase; white-space:nowrap; padding:2px 8px; border-radius:4px;
+  border:1px solid var(--live); color:var(--live-ink); background:var(--panel-2); }
+.golive-tag svg{ width:11px; height:11px; }
+.stage.golive{ border-left:3px solid var(--live); padding-left:22px; margin-left:-25px; border-top-color:transparent;
+  background:linear-gradient(90deg, rgba(47,191,143,.08), transparent 60%); border-radius:0 10px 10px 0; }
+.stage.golive .head .ico{ color:var(--live-ink); }
+.stage .golive-note{ margin:14px 0; padding:10px 14px; border:1px solid var(--live); border-radius:8px;
+  background:var(--panel); color:var(--paper); max-width:68ch; }
+.phase li.golive a{ display:inline-flex; align-items:baseline; color:var(--live-ink); font-weight:600; }
+.phase li.golive .live-ico{ align-self:center; }
+.chain li.golive .st{ color:var(--live-ink); font-weight:600; }
+.chain li.golive{ background:rgba(47,191,143,.07); }
+.steps li.golive{ border-color:var(--live); background:linear-gradient(90deg, rgba(47,191,143,.09), var(--panel) 70%); }
+.steps li.golive .sn{ color:var(--live-ink); }
+.tbl tr.golive td:first-child{ color:var(--live-ink); font-weight:600; }
+.chip.live{ display:inline-grid; grid-template-columns:auto auto; align-items:center; border-color:var(--live); }
+.chip.live small{ grid-column:2; color:var(--live-ink); }
+.chain .golive-tag, .steps .golive-tag, .tbl .golive-tag{ margin-left:8px; vertical-align:1px; }
+@media (max-width: 860px){ .stage.golive{ margin-left:-12px; padding-left:12px; } }
+.phase li.golive-line{ border-left-color:var(--live); }
+.stage > span[id]{ display:block; scroll-margin-top:48px; }
+.stage{ scroll-margin-top:48px; }

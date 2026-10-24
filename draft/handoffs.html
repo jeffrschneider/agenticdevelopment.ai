@@ -61,9 +61,9 @@
               <rect x="288" y="6" width="266" height="288" rx="14"/>
             </g>
             <text x="139" y="38" text-anchor="middle" font-size="20" fill="var(--dim)">not a handoff</text>
-            <path d="M58,26 L70,38 M70,26 L58,38" stroke="var(--recorded)" stroke-width="3.5" stroke-linecap="round"/>
+            <path d="M58,26 L70,38 M70,26 L58,38" stroke="var(--recorded-ink)" stroke-width="3.5" stroke-linecap="round"/>
             <text x="421" y="38" text-anchor="middle" font-size="20" fill="var(--paper)">a handoff</text>
-            <path d="M350,32 L356,38 L368,25" fill="none" stroke="var(--accent)" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"/>
+            <path d="M350,32 L356,38 L368,25" fill="none" stroke="var(--accent-ink)" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"/>
 
             <!-- panel one: talk -->
             <g stroke="var(--outline)" stroke-width="3" stroke-linejoin="round">
@@ -141,10 +141,9 @@
           <li><span class="st"><a href="stages.html#review">Review</a></span><span class="hb">findings, each naming a place, a claim and a consequence</span></li>
           <li><span class="st"><a href="stages.html#security">Security review</a></span><span class="hb">what it may reach, what it may spend, and what it must never do</span></li>
           <li class="ph">Ship</li>
-          <li class="onramp"><span class="st"><a href="stages.html#build"><svg class="box-ico" viewBox="0 0 24 24" aria-hidden="true" focusable="false" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3 4 7v10l8 4 8-4V7z"/><path d="m4 7 8 4 8-4M12 11v10"/></svg>Build and package</a> <span class="onramp-tag">on-ramp</span></span><span class="hb">a package: declaration, parts, manifest, digest</span></li>
+          <li class="onramp"><span class="st"><a href="stages.html#package"><svg class="box-ico" viewBox="0 0 24 24" aria-hidden="true" focusable="false" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3 4 7v10l8 4 8-4V7z"/><path d="m4 7 8 4 8-4M12 11v10"/></svg>Package</a> <span class="onramp-tag">on-ramp</span></span><span class="hb">the package: declaration (agent-descriptor.json and agent-runtime-requirements.json), parts, manifest, digest</span></li>
           <li class="onramp"><span class="st"><a href="stages.html#release"><svg class="box-ico" viewBox="0 0 24 24" aria-hidden="true" focusable="false" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3 4 7v10l8 4 8-4V7z"/><path d="m4 7 8 4 8-4M12 11v10"/></svg>Release</a> <span class="onramp-tag">on-ramp</span></span><span class="hb">a signed build record, and the package at an address</span></li>
-          <li><span class="st"><a href="stages.html#deploy">Deploy</a></span><span class="hb">a running agent: identity, address, inbox</span></li>
-          <li><span class="st"><a href="stages.html#configure">Configure</a></span><span class="hb">credentials by name, settings, ceilings</span></li>
+          <li class="golive"><span class="st"><a href="stages.html#deploy"><svg class="live-ico" viewBox="0 0 24 24" aria-hidden="true" focusable="false" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v8"/><path d="M6.3 6.8a8 8 0 1 0 11.4 0"/></svg>Deploy</a> <span class="golive-tag">goes live</span></span><span class="hb">a running agent with identity, address and inbox; credentials placed by name and ceilings set before it starts; a signed deployment record</span></li>
           <li class="ph">Prove</li>
           <li><span class="st"><a href="stages.html#conformance">Conformance</a></span><span class="hb">a signed verdict against the declaration</span></li>
           <li><span class="st"><a href="stages.html#acceptance">Acceptance</a></span><span class="hb">the requester's recorded yes, against "done"</span></li>
@@ -159,16 +158,17 @@
           <li><span class="st"><a href="stages.html#cost">Cost</a></span><span class="hb">what was spent, by whom, against what was allowed</span></li>
           <li class="ph">Change</li>
           <li><span class="st"><a href="stages.html#update">Update</a></span><span class="hb">the same agent on a new version, proven first, difference recorded</span></li>
+          <li><span class="st"><a href="stages.html#reconfigure">Reconfigure</a></span><span class="hb">the same agent on the same version, with changed settings, credentials or ceilings, and a signed record of what changed</span></li>
           <li><span class="st"><a href="stages.html#rollback">Rollback</a></span><span class="hb">the same agent on the version before, and why</span></li>
           <li><span class="st"><a href="stages.html#decommission">Decommission</a></span><span class="hb">nothing running, records kept, address retired</span></li>
         </ol>
-        <p class="onramp-callout"><svg class="box-ico" viewBox="0 0 24 24" aria-hidden="true" focusable="false" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3 4 7v10l8 4 8-4V7z"/><path d="m4 7 8 4 8-4M12 11v10"/></svg><b>Build and package</b> and <b>Release</b> are the on-ramp: where your work becomes an Agent Package, the easy way onto the mesh.</p>
+        <p class="onramp-callout"><svg class="box-ico" viewBox="0 0 24 24" aria-hidden="true" focusable="false" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3 4 7v10l8 4 8-4V7z"/><path d="m4 7 8 4 8-4M12 11v10"/></svg><b>Package</b> and <b>Release</b> are the on-ramp: where your work becomes an Agent Package, the easy way onto the mesh. <b>Deploy</b> is where it <span class="golive-tag">goes live</span>, with its credentials placed and its limits set before it starts. There's never a moment when the agent is live without them.</p>
         <p>Test comes before Code, here and on the map. The suite is written from the statement before any program exists, and the program is written to it.</p>
         <p>Update hands on the same agent on its new version, after a candidate run beside the old one. There it's checked against its own declaration, and against what each agent or solution that depends on it counts as done. Only then is it promoted, with a record of the candidate run, the checks and the promotion.</p>
 
         <h2>The middle went first because it was already made of artifacts.</h2>
         <p>The middle of this lifecycle wasn't designed to be agentic. Packaging, release and deployment were forced into artifacts decades ago by people who wanted repeatable builds. A package with a manifest and a digest is an artifact whether or not an agent ever reads it.</p>
-        <p>So when agents arrived, the stages from Build to Conformance already had a defined input and a defined output, and all it took was an agent that could read what was there. Those stages were no easier than the rest. They were just ready.</p>
+        <p>So when agents arrived, the stages from Package to Conformance already had a defined input and a defined output, and all it took was an agent that could read what was there. Those stages were no easier than the rest. They were just ready.</p>
 
         <h2>The front moved once the tests came first.</h2>
         <p>Code and Test were stuck for the same reason. Nothing defined went in, and nothing checkable came out. Give a model a design and it writes a program. Give another model the same design and it writes a different one. Neither can be compared to anything, because the design is prose and the program is the first artifact in the chain. Then the same author writes the tests, so the tests faithfully encode whatever the program does, mistakes included.</p>
@@ -202,10 +202,10 @@
           <li><b>Is there a check the agent doesn't control?</b><span>Written before the work, by something other than whatever does the work.</span></li>
         </ul>
         <p>The third question is the one most often skipped, and the one that matters most. An agent that writes the program, writes the tests and runs the tests has built a closed loop, and a closed loop always passes. Having the tests written by something other than the program's writer is what opened that loop at the front of this lifecycle.</p>
-        <p>Passing all three means an agent can safely hold the stage on its own. A person's approval can still be worth having. Deploying, configuring and decommissioning change things in ways that are awkward to undo. When a person says yes to one of them, that yes is a record that a person decided, not a check on whether the agent was competent, and it's worth keeping however capable the agent is.</p>
+        <p>Passing all three means an agent can safely hold the stage on its own. A person's approval can still be worth having. Deploying, reconfiguring and decommissioning change things in ways that are awkward to undo. When a person says yes to one of them, that yes is a record that a person decided, not a check on whether the agent was competent, and it's worth keeping however capable the agent is.</p>
 
         <h2>It builds on SLSA, in-toto and Sigstore.</h2>
-        <p>The Build and Release stages describe a manifest, a digest and a signed build record, which is the provenance chain <a href="https://slsa.dev">SLSA</a> and <a href="https://in-toto.io">in-toto</a> specify and <a href="https://www.sigstore.dev">Sigstore</a> implements. Nothing here replaces that work, and a serious implementation should use it. What this site adds is the rest of the lifecycle: the same expectation of a named artifact and an outside check, applied to the stages where neither existed, and the same provenance chain carried one stage further back, to the programs themselves.</p>
+        <p>The Package and Release stages describe a manifest, a digest and a signed build record, which is the provenance chain <a href="https://slsa.dev">SLSA</a> and <a href="https://in-toto.io">in-toto</a> specify and <a href="https://www.sigstore.dev">Sigstore</a> implements. Nothing here replaces that work, and a serious implementation should use it. What this site adds is the rest of the lifecycle: the same expectation of a named artifact and an outside check, applied to the stages where neither existed, and the same provenance chain carried one stage further back, to the programs themselves.</p>
       </div>
 
       <footer class="footer">

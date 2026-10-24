@@ -194,7 +194,7 @@
           <li><span class="chip"><span class="nm">Test</span><small>as written</small></span></li>
           <li><span class="chip held"><span class="nm">Code</span><small>your own agent</small></span></li>
           <li><span class="chip added"><span class="nm">Legal review</span><small>added</small></span></li>
-          <li><span class="chip pkg"><svg class="box-ico" viewBox="0 0 24 24" aria-hidden="true" focusable="false" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3 4 7v10l8 4 8-4V7z"/><path d="m4 7 8 4 8-4M12 11v10"/></svg><span class="nm">Build and package</span><small>on-ramp</small></span></li>
+          <li><span class="chip pkg"><svg class="box-ico" viewBox="0 0 24 24" aria-hidden="true" focusable="false" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3 4 7v10l8 4 8-4V7z"/><path d="m4 7 8 4 8-4M12 11v10"/></svg><span class="nm">Package</span><small>on-ramp</small></span></li>
           <li><span class="chip pkg"><svg class="box-ico" viewBox="0 0 24 24" aria-hidden="true" focusable="false" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3 4 7v10l8 4 8-4V7z"/><path d="m4 7 8 4 8-4M12 11v10"/></svg><span class="nm">Release</span><small>on-ramp</small></span></li>
           <li><span class="chip dropped"><span class="nm">Eval</span><small>dropped</small></span></li>
         </ul>
@@ -211,10 +211,10 @@
           <div class="routes">
             <svg viewBox="0 0 460 270" role="img" aria-label="Three very different routes, all ending in the same box labeled package">
               <text x="16" y="34">seven stages</text>
-              <path d="M18,50 C110,50 130,18 196,42 S300,118 352,128" fill="none" stroke="var(--accent)" stroke-width="4" stroke-linecap="round"/>
+              <path d="M18,50 C110,50 130,18 196,42 S300,118 352,128" fill="none" stroke="var(--accent-ink)" stroke-width="4" stroke-linecap="round"/>
               <text x="16" y="120">twenty-four stages</text>
-              <path d="M18,138 C78,98 118,180 178,140 S258,98 300,138 L352,134" fill="none" stroke="var(--evidence)" stroke-width="4" stroke-linecap="round"/>
-              <path d="M18,212 C88,212 98,160 158,186 S238,240 270,196 Q290,160 316,176 Q336,190 322,206 Q300,214 304,186 Q312,150 352,140" fill="none" stroke="var(--recorded)" stroke-width="4" stroke-linecap="round"/>
+              <path d="M18,138 C78,98 118,180 178,140 S258,98 300,138 L352,134" fill="none" stroke="var(--evidence-ink)" stroke-width="4" stroke-linecap="round"/>
+              <path d="M18,212 C88,212 98,160 158,186 S238,240 270,196 Q290,160 316,176 Q336,190 322,206 Q300,214 304,186 Q312,150 352,140" fill="none" stroke="var(--recorded-ink)" stroke-width="4" stroke-linecap="round"/>
               <text x="16" y="252">two stages and a lot of hope</text>
               <g stroke="var(--outline)" stroke-width="3" stroke-linejoin="round">
                 <polygon points="356,112 374,98 448,98 430,112" fill="#E9BD80"/>
@@ -302,11 +302,11 @@ solution-planner</span></pre>
             <li><a href="stages.html#security">Security review</a></li>
           </ul></div>
           <div class="phase"><h3>Ship</h3><ul>
-            <li class="onramp"><a href="stages.html#build"><svg class="box-ico" viewBox="0 0 24 24" aria-hidden="true" focusable="false" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3 4 7v10l8 4 8-4V7z"/><path d="m4 7 8 4 8-4M12 11v10"/></svg>Build and package<span class="vh"> (the on-ramp)</span></a></li>
+            <li class="onramp"><a href="stages.html#package"><svg class="box-ico" viewBox="0 0 24 24" aria-hidden="true" focusable="false" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3 4 7v10l8 4 8-4V7z"/><path d="m4 7 8 4 8-4M12 11v10"/></svg>Package<span class="vh"> (the on-ramp)</span></a></li>
             <li class="onramp"><a href="stages.html#release"><svg class="box-ico" viewBox="0 0 24 24" aria-hidden="true" focusable="false" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3 4 7v10l8 4 8-4V7z"/><path d="m4 7 8 4 8-4M12 11v10"/></svg>Release<span class="vh"> (the on-ramp)</span></a></li>
-            <li class="onramp-note">The on-ramp: where your work becomes an Agent Package.</li>
-            <li><a href="stages.html#deploy">Deploy</a></li>
-            <li><a href="stages.html#configure">Configure</a></li>
+            <li class="onramp-note">The on-ramp: your work becomes an Agent Package.</li>
+            <li class="golive"><a href="stages.html#deploy"><svg class="live-ico" viewBox="0 0 24 24" aria-hidden="true" focusable="false" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v8"/><path d="M6.3 6.8a8 8 0 1 0 11.4 0"/></svg>Deploy<span class="vh"> (goes live)</span></a></li>
+            <li class="onramp-note golive-line">Goes live: credentials and limits in place before it starts.</li>
           </ul></div>
           <div class="phase"><h3>Prove</h3><ul>
             <li><a href="stages.html#conformance">Conformance</a></li>
@@ -325,6 +325,7 @@ solution-planner</span></pre>
           </ul></div>
           <div class="phase"><h3>Change</h3><ul>
             <li><a href="stages.html#update">Update</a></li>
+            <li><a href="stages.html#reconfigure">Reconfigure</a></li>
             <li><a href="stages.html#rollback">Rollback</a></li>
             <li><a href="stages.html#decommission">Decommission</a></li>
           </ul></div>
