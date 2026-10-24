@@ -31,6 +31,7 @@
     <nav>
       <a href="./">Overview</a>
       <a href="stages.html">The stages</a>
+      <a href="assets.html">The assets</a>
       <a href="handoffs.html">The handoffs</a>
       <a href="processes.html">The processes</a>
     </nav>
@@ -49,12 +50,11 @@
 
       <header class="page-head">
         <h1>These agents hold the stages, and you can swap any of them.</h1>
-        <p class="turn">Each one is a reference implementation, open source under Apache-2.0. Run it as it is, read how it holds its role, or put your own agent in its place. Whatever holds a stage, the lifecycle ends the same way: as a valid <a href="https://commonagent.net/package.html">Agent Package</a>.</p>
+        <p class="turn">Each is a reference implementation, open source under Apache-2.0. Run it, read it, or put your own agent in its place.</p>
       </header>
 
       <div class="prose">
-        <p>The code for every agent below is at <a href="https://github.com/jeffrschneider/adlc">github.com/jeffrschneider/adlc</a>, one folder each. Each name links to the agent's AgentDoc, which says what it does, refuses, needs and records. The roles are published separately at <a href="https://agentroles.ai">agentroles.ai</a>, so another platform can hold the same roles with entirely different agents. That's the whole point of publishing roles.</p>
-        <p>The agents call their platform's services, such as catalog search, runs and memory, which are part of the platform rather than agents. The platform that runs them lists every service and how to call it at <a href="https://dev.agentmesh.ai/platform-services.html">dev.agentmesh.ai/platform-services.html</a>, and its own agents at <a href="https://dev.agentmesh.ai/platform-agents.html">dev.agentmesh.ai/platform-agents.html</a>.</p>
+        <p>The code is at <a href="https://github.com/jeffrschneider/adlc">github.com/jeffrschneider/adlc</a>, one folder per agent, and each name links to the agent's AgentDoc. The roles are published at <a href="https://agentroles.ai">agentroles.ai</a>, so any platform can hold them with different agents. The agents call platform services such as catalog search, runs and memory, listed at <a href="https://dev.agentmesh.ai/platform-services.html">dev.agentmesh.ai/platform-services.html</a>.</p>
 
         <h2>Eleven reference agents hold fifteen stages.</h2>
         <table class="tbl">
@@ -77,11 +77,11 @@
             <tr><td><a href="stages.html#decommission">Decommission</a></td><td><a class="agent-on" href="https://app.agentmesh.ai/a/deploymgr.platform%40agentmesh.ai/agentdoc">deployment-manager</a></td><td><a href="https://agentroles.ai/deployment-manager.html">deployment manager</a></td><td class="src-col"><a href="https://github.com/jeffrschneider/adlc/tree/main/agents/deployment-manager">deployment-manager</a></td></tr>
           </tbody>
         </table>
-        <p>The middle is crowded on purpose. Those stages are built out of artifacts, so one agent can hold several of them by reading the same package at different moments. The deployment manager alone holds four.</p>
-        <p class="onramp-callout"><svg class="box-ico" viewBox="0 0 24 24" aria-hidden="true" focusable="false" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3 4 7v10l8 4 8-4V7z"/><path d="m4 7 8 4 8-4M12 11v10"/></svg><b>Package</b> and <b>Release</b> are the on-ramp. The package maker turns your work into an Agent Package, which is the easy way onto the mesh. Any other tool works too, as long as the package is valid. <b>Deploy</b> is where the agent <span class="golive-tag">goes live</span>, with its credentials and limits in place before it starts.</p>
+        <p>One agent can hold several stages by reading the same package at different moments. The deployment manager holds four.</p>
+        <p class="onramp-callout"><svg class="box-ico" viewBox="0 0 24 24" aria-hidden="true" focusable="false" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3 4 7v10l8 4 8-4V7z"/><path d="m4 7 8 4 8-4M12 11v10"/></svg><b>Package</b> and <b>Release</b> are the on-ramp: the easy way onto the mesh. <b>Deploy</b> is where the agent <span class="golive-tag">goes live</span>.</p>
 
         <h2>Every other stage names its role, so you can build to it.</h2>
-        <p>These stages have a role and a written handoff. Put your own agent in the role, contract one, or have a person hold it.</p>
+        <p>Put your own agent in the role, contract one, or have a person hold it.</p>
         <table class="tbl">
           <thead><tr><th>Stage</th><th>Role</th></tr></thead>
           <tbody>

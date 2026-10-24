@@ -5,11 +5,11 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="robots" content="noindex">
   <title>The stages: Agentic Development</title>
-  <meta name="description" content="All twenty-four stages of the reference Agent Development Lifecycle: what each is given, what it hands back, the role that holds it, and how you can tell it is done.">
+  <meta name="description" content="All twenty-four stages of the reference Agent Development Lifecycle: the role that holds each, what it is given, what it hands back, and how you can tell it is done.">
   <meta property="og:type" content="website">
   <meta property="og:site_name" content="Agentic Development">
   <meta property="og:title" content="The stages | Agentic Development">
-  <meta property="og:description" content="All twenty-four stages of the reference Agent Development Lifecycle: what each is given, what it hands back, the role that holds it, and how you can tell it is done.">
+  <meta property="og:description" content="All twenty-four stages of the reference Agent Development Lifecycle: the role that holds each, what it is given, what it hands back, and how you can tell it is done.">
   <meta property="og:url" content="https://agenticdevelopment.ai/draft/stages.html">
   <meta property="og:image" content="https://agenticdevelopment.ai/brand/png/og-image-v2.png">
   <meta property="og:image:width" content="1200">
@@ -31,6 +31,7 @@
     <nav>
       <a href="./">Overview</a>
       <a class="on" href="stages.html">The stages</a>
+      <a href="assets.html">The assets</a>
       <a href="handoffs.html">The handoffs</a>
       <a href="processes.html">The processes</a>
     </nav>
@@ -49,7 +50,7 @@
 
       <header class="page-head">
         <h1>Here are all twenty-four stages.</h1>
-        <p class="turn">They run in seven phases, from deciding what's wanted to retiring the agent. Each one says what it's given, what it hands back, and how you can tell it's done. Take the ones you need, skip the ones you don't, and call the rest whatever you like.</p>
+        <p class="turn">They run in seven phases, from the first idea to the last day. Each card says who holds the stage, what it's given, what it hands back, and how you know it's done. Keep what you need.</p>
         <ul class="jump" aria-label="Jump to a phase">
           <li><a href="#phase-define">Define</a></li>
           <li><a href="#phase-make">Make</a></li>
@@ -58,348 +59,260 @@
           <li><a href="#phase-use">Use</a></li>
           <li><a href="#phase-run">Run</a></li>
           <li><a href="#phase-change">Change</a></li>
-          <li><a href="#phase-beside">Beside the stages</a></li>
         </ul>
       </header>
 
-      <div class="prose">
-        <p><b>Given</b> and <b>Hands back</b> are the artifacts on either side of a stage. <b>Done when</b> is the check. <b>Role</b> is the job. Roles an agent can hold are published as contracts at <a href="https://agentroles.ai">agentroles.ai</a>. Where a reference agent holds the role, its name sits beside the stage and links to its AgentDoc; where none does, the stage shows its role, ready for your agent or a person. <b>Process</b> names the phase of an example process at <a href="https://agentprocesses.ai/">agentprocesses.ai</a> that runs the stage.</p>
-        <p class="onramp-callout"><svg class="box-ico" viewBox="0 0 24 24" aria-hidden="true" focusable="false" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3 4 7v10l8 4 8-4V7z"/><path d="m4 7 8 4 8-4M12 11v10"/></svg><b>Package</b> and <b>Release</b> are the on-ramp. They're where your work becomes an Agent Package, which is the easy way onto the mesh. <b>Deploy</b> is marked <span class="golive-tag">goes live</span>: it's where the agent starts, with its credentials and limits already in place.</p>
-      </div>
-
         <h2 class="phase-head" id="phase-define">Define</h2>
         <section class="stage" id="requirements">
-          <div class="head"><svg class="ico" viewBox="0 0 24 24" aria-hidden="true" focusable="false" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M6 3h8l4 4v14H6z"/><path d="M14 3v4h4"/><path d="M9 12h6M9 16h6"/></svg><h2>Requirements</h2><span class="num">01</span><a class="agent-on" href="https://app.agentmesh.ai/a/spec-writer.platform%40agentmesh.ai/agentdoc">spec-writer</a><a class="agent-on" href="https://app.agentmesh.ai/a/planner.platform%40agentmesh.ai/agentdoc">solution-planner</a></div>
-          <p>Deciding what the thing is for. An agent built from this statement can't lean over and ask what you meant, so the statement has to say more than a human team would ever bother to write down. What the agent refuses matters as much as what it does.</p>
-          <p>Three things are never made up here, however tempting: the agent's name, its price, and its access to any system. Each one is a commitment somebody will be held to, so each one is asked for, and the statement goes out with the question open rather than quietly filled in.</p>
-          <p>Sometimes the ask is a solution: several agents doing one job together, each handing its result to the next. Then the solution planner holds this stage and Design. It writes down what the job is and what "done" means before anything runs, so the finished solution has something to be checked against. Any step no existing agent can do becomes a new agent, and the spec writer takes it from there.</p>
+          <div class="head"><svg class="ico" viewBox="0 0 24 24" aria-hidden="true" focusable="false" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M6 3h8l4 4v14H6z"/><path d="M14 3v4h4"/><path d="M9 12h6M9 16h6"/></svg><h2>Requirements</h2><span class="num">01</span><a class="agent-on" href="https://app.agentmesh.ai/a/spec-writer.platform%40agentmesh.ai/agentdoc">spec-writer</a><a class="src" href="https://github.com/jeffrschneider/adlc/tree/main/agents/spec-writer">source</a><a class="agent-on" href="https://app.agentmesh.ai/a/planner.platform%40agentmesh.ai/agentdoc">solution-planner</a><a class="src" href="https://github.com/jeffrschneider/adlc/tree/main/agents/solution-planner">source</a></div>
+          <p class="why">Whoever builds from it can't ask what you meant, so it says everything, and never invents a name, a price or an access.</p>
           <dl>
-            <dt>Agent</dt><dd><a class="agent-on" href="https://app.agentmesh.ai/a/spec-writer.platform%40agentmesh.ai/agentdoc">spec-writer</a> for an agent, <a class="agent-on" href="https://app.agentmesh.ai/a/planner.platform%40agentmesh.ai/agentdoc">solution-planner</a> for a solution</dd>
             <dt>Role</dt><dd><a href="https://agentroles.ai/spec-writer.html">spec writer</a> for an agent; <a href="https://agentroles.ai/solution-planner.html">solution planner</a> for a solution</dd>
-            <dt>Source code</dt><dd><a href="https://github.com/jeffrschneider/adlc/tree/main/agents/spec-writer">agents/spec-writer</a> and <a href="https://github.com/jeffrschneider/adlc/tree/main/agents/solution-planner">agents/solution-planner</a></dd>
-            <dt>Process</dt><dd><a href="processes.html#new-agent">Make a new agent, phase write-the-spec</a></dd>
-            <dt>Given</dt><dd>somebody's account of what they want, with whatever they have: notes, a document, an earlier statement, a prototype</dd>
-            <dt>Hands back</dt><dd>a statement of the job: what it does, refuses, needs access to, records and costs, plus the questions only the person asking can answer</dd>
-            <dt>Done when</dt><dd>a package could be built from the statement, and anything that couldn't be settled was asked rather than invented</dd>
+            <dt>Given</dt><dd>somebody's account of what they want, with whatever they have</dd>
+            <dt>Hands back</dt><dd>a statement of the job: what it does, refuses, needs, records and costs, plus the open questions</dd>
+            <dt>Done when</dt><dd>a package could be built from it, and nothing unsettled was invented</dd>
           </dl>
         </section>
         <section class="stage" id="design">
-          <div class="head"><svg class="ico" viewBox="0 0 24 24" aria-hidden="true" focusable="false" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M4 20 20 4"/><path d="M4 14v6h6"/><path d="M14 4h6v6"/><circle cx="12" cy="12" r="2.4"/></svg><h2>Design</h2><span class="num">02</span><a class="agent-on" href="https://app.agentmesh.ai/a/spec-writer.platform%40agentmesh.ai/agentdoc">spec-writer</a><a class="agent-on" href="https://app.agentmesh.ai/a/planner.platform%40agentmesh.ai/agentdoc">solution-planner</a></div>
-          <p>Turning the statement into a shape: the steps, in order, and for each one the decision that matters most in agentic work. Is this step a program, or a judgment? A written procedure handed to a model to improvise is the shape that fails, and it fails quietly, because nothing checks the procedure was followed.</p>
-          <p>The statement and the shape travel as one artifact, so the same agent holds both stages. Each step says when it's the right one, what a good result looks like, what happens when there's nothing to give, and how it's done.</p>
-          <p>Four questions get answered before any steps are drawn, because each changes what a later stage does, and all four are cheap to answer now and expensive to discover later. <b>Which kind of agent</b> is this, of the four an agent's inside can be? <b>One agent or several</b>? Work whose handoffs cross to another agent is a process, not one overloaded agent. <b>Can the organization put a real product behind every system the design names</b>? That's read against its own stack, so a design that can't be deployed is refused here rather than at the approval. And <b>does the thing already exist</b>, as an agent to contract, a repository to copy, or a released agent to change? The person picks from a short list each time, the simplest answer comes preselected, and the writer never answers on their behalf.</p>
-          <p>For a solution, the shape is the plan: the steps in order, what passes between them, and what each step needs. Which agent does each step gets decided at Source.</p>
+          <div class="head"><svg class="ico" viewBox="0 0 24 24" aria-hidden="true" focusable="false" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M4 20 20 4"/><path d="M4 14v6h6"/><path d="M14 4h6v6"/><circle cx="12" cy="12" r="2.4"/></svg><h2>Design</h2><span class="num">02</span><a class="agent-on" href="https://app.agentmesh.ai/a/spec-writer.platform%40agentmesh.ai/agentdoc">spec-writer</a><a class="src" href="https://github.com/jeffrschneider/adlc/tree/main/agents/spec-writer">source</a><a class="agent-on" href="https://app.agentmesh.ai/a/planner.platform%40agentmesh.ai/agentdoc">solution-planner</a><a class="src" href="https://github.com/jeffrschneider/adlc/tree/main/agents/solution-planner">source</a></div>
+          <p class="why">The decision that matters most: is each step a program or a judgment?</p>
           <dl>
-            <dt>Agent</dt><dd><a class="agent-on" href="https://app.agentmesh.ai/a/spec-writer.platform%40agentmesh.ai/agentdoc">spec-writer</a> for an agent, <a class="agent-on" href="https://app.agentmesh.ai/a/planner.platform%40agentmesh.ai/agentdoc">solution-planner</a> for a solution</dd>
             <dt>Role</dt><dd><a href="https://agentroles.ai/spec-writer.html">spec writer</a> for an agent; <a href="https://agentroles.ai/solution-planner.html">solution planner</a> for a solution</dd>
-            <dt>Source code</dt><dd><a href="https://github.com/jeffrschneider/adlc/tree/main/agents/spec-writer">agents/spec-writer</a> and <a href="https://github.com/jeffrschneider/adlc/tree/main/agents/solution-planner">agents/solution-planner</a></dd>
-            <dt>Process</dt><dd><a href="processes.html#new-agent">Make a new agent, phase write-the-spec</a></dd>
             <dt>Given</dt><dd>the statement of the job</dd>
-            <dt>Hands back</dt><dd>the four answers, and the shape: the steps, what each is given and hands back, and whether each is a program or a judgment</dd>
-            <dt>Done when</dt><dd>no step is both fully written down and left to a model to interpret, every system named is one the organization can put a real product behind, and the four answers are the person's, not the writer's</dd>
+            <dt>Hands back</dt><dd>the steps, what each is given and hands back, and whether each is a program or a judgment</dd>
+            <dt>Done when</dt><dd>no step is both fully written down and left to a model, and the person made every choice</dd>
           </dl>
         </section>
         <section class="stage" id="impact">
           <div class="head"><svg class="ico" viewBox="0 0 24 24" aria-hidden="true" focusable="false" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="2"/><path d="M8.2 7.8a6 6 0 0 0 0 8.4M15.8 7.8a6 6 0 0 1 0 8.4"/><path d="M5.1 4.9a10 10 0 0 0 0 14.2M18.9 4.9a10 10 0 0 1 0 14.2"/></svg><h2>Impact</h2><span class="num">03</span><span class="role-tag">role: <a href="https://agentroles.ai/impact-analyst.html">impact analyst</a></span></div>
-          <p>Working out what a change touches before anything is built. The first time an agent is made, nothing depends on it and this stage has nothing to do. Every change after that lands on something people may already rely on: a solution that calls the agent, a schedule that runs it, a share somebody else is using. A change that's safe for its owner can break all of those.</p>
-          <p>So the change is compared with what runs now. For an agent, the old and new declarations are compared and every dependent is listed, both from what's declared, like the solutions that name it, and from what was seen, like who called it recently. Each dependent gets one of three answers. <b>Compatible</b>: the change adds something optional or widens a limit. <b>Breaking</b>: something the dependent sends or gets back changes. <b>A change of behavior</b>: the contract is the same, but the agent acts differently, which no declaration can show. For a solution, the old and new requirements and plans are compared step by step.</p>
-          <p>This half needs no model, because it's a comparison and a list. The other half, running the new version against what each dependent counts as done, needs the new version to exist, so it happens at <a href="#conformance">Prove</a>. Each breaking change and each change of behavior goes into the <a href="#ledger">ledger</a> as a debt owed to that dependent's owner.</p>
+          <p class="why">A change that's safe for its owner can break everyone who depends on it.</p>
           <dl>
             <dt>Role</dt><dd><a href="https://agentroles.ai/impact-analyst.html">impact analyst</a></dd>
-            <dt>Given</dt><dd>the change, the version that runs now, and the list of what depends on it</dd>
-            <dt>Hands back</dt><dd>the impact report: each dependent and what the change does to it, what has to be redone, what can be reused, and what the change will cost</dd>
-            <dt>Done when</dt><dd>every dependent is named and given one of the three answers, and the person who asked approves or refuses the change from the report before anything is built</dd>
+            <dt>Given</dt><dd>the change, the running version, and what depends on it</dd>
+            <dt>Hands back</dt><dd>the impact report: each dependent marked compatible, breaking or a change of behavior</dd>
+            <dt>Done when</dt><dd>every dependent is named and answered, and the person approves before anything is built</dd>
           </dl>
         </section>
         <section class="stage" id="source">
-          <div class="head"><svg class="ico" viewBox="0 0 24 24" aria-hidden="true" focusable="false" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="4" width="6.5" height="6.5" rx="1.2"/><rect x="13.5" y="4" width="6.5" height="6.5" rx="1.2"/><rect x="4" y="13.5" width="6.5" height="6.5" rx="1.2"/><path d="M16.75 14v6M13.75 17h6"/></svg><h2>Source</h2><span class="num">04</span><a class="agent-on" href="https://app.dev.agentmesh.ai/a/catalog.platform%40agentmesh.ai/agentdoc">catalog</a></div>
-          <p>Finding what already exists before building anything new. Once the design has steps, each step needs something to do it, and the cheapest choice is something that already exists and has already been checked. The catalog is asked about each step, with what the step takes and hands back, and answers with an agent or solution that fits, or with "build one".</p>
-          <p>A catalog that always finds a match sends work to agents that don't fit. So the catalog has to be able to say "nothing fits", with the reason, and that answer is what sends a step off to be built.</p>
+          <div class="head"><svg class="ico" viewBox="0 0 24 24" aria-hidden="true" focusable="false" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="4" width="6.5" height="6.5" rx="1.2"/><rect x="13.5" y="4" width="6.5" height="6.5" rx="1.2"/><rect x="4" y="13.5" width="6.5" height="6.5" rx="1.2"/><path d="M16.75 14v6M13.75 17h6"/></svg><h2>Source</h2><span class="num">04</span><a class="agent-on" href="https://app.dev.agentmesh.ai/a/catalog.platform%40agentmesh.ai/agentdoc">catalog</a><a class="src" href="https://github.com/jeffrschneider/adlc/tree/main/agents/catalog">source</a></div>
+          <p class="why">The cheapest step is one somebody already built and checked.</p>
           <dl>
-            <dt>Agent</dt><dd><a class="agent-on" href="https://app.dev.agentmesh.ai/a/catalog.platform%40agentmesh.ai/agentdoc">catalog</a></dd>
-            <dt>Role</dt><dd><a href="https://agentroles.ai/catalog.html">catalog</a>, with a <a href="https://agentroles.ai/checks/catalog-check.mjs">conformance check</a> it passes</dd>
-            <dt>Source code</dt><dd><a href="https://github.com/jeffrschneider/adlc/tree/main/agents/catalog">agents/catalog</a></dd>
-            <dt>Given</dt><dd>the steps, each with what it takes and what it hands back</dd>
-            <dt>Hands back</dt><dd>for each step, an existing agent or solution that fits, or "build one", with the reason</dd>
-            <dt>Done when</dt><dd>every step has an answer, and every "build one" says why nothing fit</dd>
+            <dt>Role</dt><dd><a href="https://agentroles.ai/catalog.html">catalog</a></dd>
+            <dt>Given</dt><dd>the steps, each with what it takes and hands back</dd>
+            <dt>Hands back</dt><dd>for each step, an agent or solution that fits, or "build one" with the reason</dd>
+            <dt>Done when</dt><dd>every step has an answer, and every "build one" says why</dd>
           </dl>
         </section>
         <h2 class="phase-head" id="phase-make">Make</h2>
         <section class="stage" id="test">
-          <div class="head"><svg class="ico" viewBox="0 0 24 24" aria-hidden="true" focusable="false" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M10 3v6l-5 9a2 2 0 0 0 1.8 3h10.4a2 2 0 0 0 1.8-3l-5-9V3"/><path d="M9 3h6"/></svg><h2>Test</h2><span class="num">05</span><a class="agent-on" href="https://app.agentmesh.ai/a/test-writer.platform%40agentmesh.ai/agentdoc">test-writer</a></div>
-          <p>Writing the tests before the program, from the statement of the job, by something that won't write the program. Running tests was solved decades ago. Writing them wasn't, and agentic work adds a twist: the same model often writes the program and the test, so a test can pass by agreeing with a mistake.</p>
-          <p>The fix is the order. The suite comes first, straight from the statement. It names the functions the program will have to export, so the program is written to meet an interface it didn't choose. That's why Test sits before Code here, whatever the older lifecycles got used to. (Yes, people argue about this. You can reorder yours.)</p>
-          <p>A suite written before any program exists gets checked in a particular way. It runs against an empty stand-in for every program the statement names, and it has to fail; a suite that passes with every function missing has asserted nothing. Once the programs exist, each is removed in turn and the suite has to notice. A program whose absence goes unnoticed is a program nothing tests, and it gets named.</p>
+          <div class="head"><svg class="ico" viewBox="0 0 24 24" aria-hidden="true" focusable="false" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M10 3v6l-5 9a2 2 0 0 0 1.8 3h10.4a2 2 0 0 0 1.8-3l-5-9V3"/><path d="M9 3h6"/></svg><h2>Test</h2><span class="num">05</span><a class="agent-on" href="https://app.agentmesh.ai/a/test-writer.platform%40agentmesh.ai/agentdoc">test-writer</a><a class="src" href="https://github.com/jeffrschneider/adlc/tree/main/agents/test-writer">source</a></div>
+          <p class="why">Tests come before the program, from the statement, so a test can't pass by agreeing with a mistake. (Yes, people argue about this.)</p>
           <dl>
-            <dt>Agent</dt><dd><a class="agent-on" href="https://app.agentmesh.ai/a/test-writer.platform%40agentmesh.ai/agentdoc">test-writer</a></dd>
             <dt>Role</dt><dd><a href="https://agentroles.ai/test-writer.html">test writer</a></dd>
-            <dt>Source code</dt><dd><a href="https://github.com/jeffrschneider/adlc/tree/main/agents/test-writer">agents/test-writer</a></dd>
-            <dt>Process</dt><dd><a href="processes.html#new-agent">Make a new agent, phase write-the-suite</a></dd>
             <dt>Given</dt><dd>the statement of the job</dd>
-            <dt>Hands back</dt><dd>the suite, and what no test could be written for and why</dd>
-            <dt>Done when</dt><dd>the suite fails against empty stand-ins for every program the statement names, and, once the programs exist, notices each one removed</dd>
+            <dt>Hands back</dt><dd>the suite, and what no test could be written for</dd>
+            <dt>Done when</dt><dd>the suite fails against empty stand-ins, and notices each program removed</dd>
           </dl>
         </section>
         <section class="stage" id="code">
-          <div class="head"><svg class="ico" viewBox="0 0 24 24" aria-hidden="true" focusable="false" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="m8 7-5 5 5 5"/><path d="m16 7 5 5-5 5"/></svg><h2>Code</h2><span class="num">06</span><a class="agent-on" href="https://app.agentmesh.ai/a/code-writer.platform%40agentmesh.ai/agentdoc">code-writer</a></div>
-          <p>Writing the programs. Models write code well, and capability was never what held this stage back. What it needed was an input and a check: a statement of the job, and a suite written from it before any program exists. With those two in hand, writing code is a stage like any other, and the person who used to sit in the loop as the missing contract can step out of it.</p>
-          <p>This is the one stage where the model drives rather than being called at a named point. A coding harness works the way a coding session works: write, run the check, read the failures, fix, for as many rounds as it takes, up to a ceiling. What makes that safe is that none of the check belongs to the model. The suite passes. Each program, removed in turn, is noticed. The package maker takes what was written. And the tests and the statement are read-only to the writer, compared by digest every round, so whoever writes the program can't also change what checks it. A test that can't pass without breaking the statement is a conflict, reported for a person to settle.</p>
-          <p>Any code writer can hold this stage: the reference code-writer, your own agent, or a vendor's. Anything a person makes in their own tool, in any language, is a prototype, and making one is <b>agentic prototyping</b>. The Code stage reads the prototype as the most exact statement of what was wanted and writes the programs again against the suite, which is <b>agentic transpiling</b>. What leaves the stage is that rewrite, signed by the code writer that made it.</p>
+          <div class="head"><svg class="ico" viewBox="0 0 24 24" aria-hidden="true" focusable="false" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="m8 7-5 5 5 5"/><path d="m16 7 5 5-5 5"/></svg><h2>Code</h2><span class="num">06</span><a class="agent-on" href="https://app.agentmesh.ai/a/code-writer.platform%40agentmesh.ai/agentdoc">code-writer</a><a class="src" href="https://github.com/jeffrschneider/adlc/tree/main/agents/code-writer">source</a></div>
+          <p class="why">Any code writer can hold it; your prototype is read as the spec and written again against the suite.</p>
           <dl>
-            <dt>Agent</dt><dd><a class="agent-on" href="https://app.agentmesh.ai/a/code-writer.platform%40agentmesh.ai/agentdoc">code-writer</a></dd>
             <dt>Role</dt><dd><a href="https://agentroles.ai/code-writer.html">code writer</a></dd>
-            <dt>Source code</dt><dd><a href="https://github.com/jeffrschneider/adlc/tree/main/agents/code-writer">agents/code-writer</a></dd>
-            <dt>Process</dt><dd><a href="processes.html#new-agent">Make a new agent, phase write-the-scripts</a></dd>
-            <dt>Given</dt><dd>the statement of the job, the suite, and a prototype when there is one</dd>
-            <dt>Hands back</dt><dd>the programs, an account of what was written and what the statement didn't settle, and the record of every round</dd>
-            <dt>Done when</dt><dd>the suite passes, each program removed in turn is noticed, the package maker takes the programs, and no test and no line of the statement changed</dd>
+            <dt>Given</dt><dd>the statement, the suite, and a prototype if there is one</dd>
+            <dt>Hands back</dt><dd>the programs, an account of what was written, and a record of every round</dd>
+            <dt>Done when</dt><dd>the suite passes, and the tests and statement are unchanged</dd>
           </dl>
         </section>
         <section class="stage" id="review">
           <div class="head"><svg class="ico" viewBox="0 0 24 24" aria-hidden="true" focusable="false" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="6.5"/><path d="m16 16 5 5"/></svg><h2>Review</h2><span class="num">07</span><span class="role-tag">role: <a href="https://agentroles.ai/code-critic.html">code critic</a></span></div>
-          <p>Reading the program and saying what's wrong with it. In every other setting a review is already an artifact: a list of findings, each naming a place and making a claim, each one answerable. For an agent to hold it, the findings need an agreed shape, and so does what it means to answer one.</p>
-          <p>The Code stage gives a reviewer plenty to read: what was written, and how many rounds it took. A reviewer should know when a program took twenty-eight rounds.</p>
+          <p class="why">A review is already an artifact everywhere else: findings you can answer.</p>
           <dl>
             <dt>Role</dt><dd><a href="https://agentroles.ai/code-critic.html">code critic</a></dd>
-            <dt>Given</dt><dd>the programs and the tests, and the Code stage's account of what it did and how many rounds it took</dd>
+            <dt>Given</dt><dd>the programs, the tests, and the Code stage's account</dd>
             <dt>Hands back</dt><dd>findings, each naming a place, a claim and a consequence</dd>
-            <dt>Done when</dt><dd>every finding is answered, by a change or by a stated reason</dd>
+            <dt>Done when</dt><dd>every finding is answered, by a change or a reason</dd>
           </dl>
         </section>
         <section class="stage" id="security">
           <div class="head"><svg class="ico" viewBox="0 0 24 24" aria-hidden="true" focusable="false" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3 5 6v6c0 4.4 3 8 7 9 4-1 7-4.6 7-9V6z"/><path d="m9 12 2 2 4-4"/></svg><h2>Security review</h2><span class="num">08</span><span class="role-tag">role: <a href="https://agentroles.ai/security-reviewer.html">security reviewer</a></span></div>
-          <p>Deciding what this thing may reach, what it may spend, and what it must never do, before it's given any of it. It's a stage of its own because the thing being built holds credentials and acts unattended, so the blast radius is set at design time and is very hard to shrink afterwards. A review after the credential is bound isn't a review. It's an audit.</p>
-          <p>Dependency and supply-chain vetting belongs here, not in Package. Packaging hashes what went into the package, which says what's in it, not whether it should be. The statement is checked against what the package says it will reach and the spending limit its owner set, before the agent is installed.</p>
+          <p class="why">The blast radius is set before the credentials are given, not after.</p>
           <dl>
             <dt>Role</dt><dd><a href="https://agentroles.ai/security-reviewer.html">security reviewer</a></dd>
-            <dt>Given</dt><dd>the shape, the programs, and everything the package will ask to be given</dd>
-            <dt>Hands back</dt><dd>a statement of what it may reach, what it may spend, what it must never do, and what was accepted knowingly</dd>
-            <dt>Done when</dt><dd>every access the package asks for has a reason recorded against it</dd>
+            <dt>Given</dt><dd>the shape, the programs, and everything the package will ask for</dd>
+            <dt>Hands back</dt><dd>what it may reach, what it may spend, and what it must never do</dd>
+            <dt>Done when</dt><dd>every access asked for has a recorded reason</dd>
           </dl>
         </section>
         <h2 class="phase-head" id="phase-ship">Ship</h2>
         <section class="stage onramp" id="package"><span id="build" aria-hidden="true"></span>
-          <div class="head"><svg class="ico" viewBox="0 0 24 24" aria-hidden="true" focusable="false" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3 4 7v10l8 4 8-4V7z"/><path d="m4 7 8 4 8-4M12 11v10"/></svg><h2>Package</h2><span class="num">09</span><span class="onramp-tag"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3 4 7v10l8 4 8-4V7z"/><path d="m4 7 8 4 8-4M12 11v10"/></svg>the on-ramp</span><a class="agent-on" href="https://app.agentmesh.ai/a/agentbuilder.platform%40agentmesh.ai/agentdoc">package-maker</a></div>
-          <p>Turning the shape and the programs into one thing that travels: an Agent Package. It holds the declaration, written as agent-descriptor.json and agent-runtime-requirements.json, plus the parts, a manifest and a digest. Building is a small part of this stage: it only generates the views and the digests. A package was an artifact long before agents showed up, which is why agents took to this stage so easily, and the declaration inside it is what the rest of the lifecycle reads.</p>
-          <p class="onramp-note">The package maker turns your work into an Agent Package, and that's the easy way onto the mesh. Any tool can make the package, as long as the package is valid.</p>
-          <p>The package maker packs programs from any code writer. An organization that wants every program traced to one writer can switch that on: the reference package maker then packs only programs it can trace to a delivery that writer signed, and refuses the rest with a reply saying where to send them. The trace is the signed manifest every delivery already carries, so nothing new has to be signed.</p>
+          <div class="head"><svg class="ico" viewBox="0 0 24 24" aria-hidden="true" focusable="false" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3 4 7v10l8 4 8-4V7z"/><path d="m4 7 8 4 8-4M12 11v10"/></svg><h2>Package</h2><span class="num">09</span><span class="onramp-tag"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3 4 7v10l8 4 8-4V7z"/><path d="m4 7 8 4 8-4M12 11v10"/></svg>on-ramp</span><a class="agent-on" href="https://app.agentmesh.ai/a/agentbuilder.platform%40agentmesh.ai/agentdoc">package-maker</a><a class="src" href="https://github.com/jeffrschneider/adlc/tree/main/agents/package-maker">source</a></div>
+          <p class="why">Your work becomes an Agent Package, the easy way onto the mesh. Any tool works if the package is valid; building only generates the views and digests.</p>
           <dl>
-            <dt>Agent</dt><dd><a class="agent-on" href="https://app.agentmesh.ai/a/agentbuilder.platform%40agentmesh.ai/agentdoc">package-maker</a></dd>
             <dt>Role</dt><dd><a href="https://agentroles.ai/package-maker.html">package maker</a></dd>
-            <dt>Source code</dt><dd><a href="https://github.com/jeffrschneider/adlc/tree/main/agents/package-maker">agents/package-maker</a></dd>
-            <dt>Process</dt><dd><a href="processes.html#new-agent">Make a new agent, phase make-the-package</a></dd>
             <dt>Given</dt><dd>the shape and the programs</dd>
             <dt>Hands back</dt><dd>the package: the declaration (agent-descriptor.json and agent-runtime-requirements.json), the parts, a manifest and a digest</dd>
-            <dt>Done when</dt><dd>the declaration validates, what it promises matches what the runtime requirements ask for, and every program is traced to the Code stage's delivery</dd>
+            <dt>Done when</dt><dd>the declaration validates and matches the runtime requirements, and every program traces to Code</dd>
           </dl>
         </section>
         <section class="stage onramp" id="release">
-          <div class="head"><svg class="ico" viewBox="0 0 24 24" aria-hidden="true" focusable="false" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M12 16V4"/><path d="m7 9 5-5 5 5"/><path d="M4 16v3a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-3"/></svg><h2>Release</h2><span class="num">10</span><span class="onramp-tag"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3 4 7v10l8 4 8-4V7z"/><path d="m4 7 8 4 8-4M12 11v10"/></svg>the on-ramp</span><a class="agent-on" href="https://app.agentmesh.ai/a/agentbuilder.platform%40agentmesh.ai/agentdoc">package-maker</a></div>
-          <p>Putting the package somewhere, under a digest, with a record of who built it from what. That record is why anyone downstream can trust the bytes, and it's signed by an identity rather than asserted by a pipeline.</p>
-          <p class="onramp-note">The package maker puts the Agent Package at an address with a signed record, ready for the mesh to install.</p>
+          <div class="head"><svg class="ico" viewBox="0 0 24 24" aria-hidden="true" focusable="false" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M12 16V4"/><path d="m7 9 5-5 5 5"/><path d="M4 16v3a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-3"/></svg><h2>Release</h2><span class="num">10</span><span class="onramp-tag"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3 4 7v10l8 4 8-4V7z"/><path d="m4 7 8 4 8-4M12 11v10"/></svg>on-ramp</span><a class="agent-on" href="https://app.agentmesh.ai/a/agentbuilder.platform%40agentmesh.ai/agentdoc">package-maker</a><a class="src" href="https://github.com/jeffrschneider/adlc/tree/main/agents/package-maker">source</a></div>
+          <p class="why">The signed record is why anyone downstream can trust the bytes.</p>
           <dl>
-            <dt>Agent</dt><dd><a class="agent-on" href="https://app.agentmesh.ai/a/agentbuilder.platform%40agentmesh.ai/agentdoc">package-maker</a></dd>
             <dt>Role</dt><dd><a href="https://agentroles.ai/package-maker.html">package maker</a></dd>
-            <dt>Source code</dt><dd><a href="https://github.com/jeffrschneider/adlc/tree/main/agents/package-maker">agents/package-maker</a></dd>
-            <dt>Process</dt><dd><a href="processes.html#new-agent">Make a new agent, phase make-the-package, where the package is the release</a></dd>
             <dt>Given</dt><dd>the package</dd>
             <dt>Hands back</dt><dd>a signed build record, and the package at an address</dd>
-            <dt>Done when</dt><dd>the digest at the address matches the digest in the record, and the record verifies</dd>
+            <dt>Done when</dt><dd>the digest at the address matches the record, and the record verifies</dd>
           </dl>
         </section>
         <section class="stage golive" id="deploy"><span id="configure" aria-hidden="true"></span>
-          <div class="head"><svg class="ico" viewBox="0 0 24 24" aria-hidden="true" focusable="false" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v8"/><path d="M6.3 6.8a8 8 0 1 0 11.4 0"/></svg><h2>Deploy</h2><span class="num">11</span><span class="golive-tag"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v8"/><path d="M6.3 6.8a8 8 0 1 0 11.4 0"/></svg>goes live</span><a class="agent-on" href="https://app.agentmesh.ai/a/deploymgr.platform%40agentmesh.ai/agentdoc">deployment-manager</a></div>
-          <p>Installing the package, placing its credentials and setting its limits, all before it starts. The result has an identity of its own and an address other agents can find, so a deploy isn't finished when the files land. It's finished when somebody can write to it and get an answer.</p>
-          <p class="golive-note">There's never a moment when the agent is live without its credentials and its limits. They're in place before it starts.</p>
-          <p>Credentials are placed by name: a secret is named in the instruction and never carried in it, so the instruction can be read, logged and repeated without leaking anything. Every setting gets its value and everything that spends gets its ceiling. Then the agent starts, and the deployment manager signs a record of what it placed and checked.</p>
+          <div class="head"><svg class="ico" viewBox="0 0 24 24" aria-hidden="true" focusable="false" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v8"/><path d="M6.3 6.8a8 8 0 1 0 11.4 0"/></svg><h2>Deploy</h2><span class="num">11</span><span class="golive-tag"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v8"/><path d="M6.3 6.8a8 8 0 1 0 11.4 0"/></svg>goes live</span><a class="agent-on" href="https://app.agentmesh.ai/a/deploymgr.platform%40agentmesh.ai/agentdoc">deployment-manager</a><a class="src" href="https://github.com/jeffrschneider/adlc/tree/main/agents/deployment-manager">source</a></div>
+          <p class="why">There's never a moment when the agent is live without its credentials and limits; secrets are named, never carried.</p>
           <dl>
-            <dt>Agent</dt><dd><a class="agent-on" href="https://app.agentmesh.ai/a/deploymgr.platform%40agentmesh.ai/agentdoc">deployment-manager</a></dd>
             <dt>Role</dt><dd><a href="https://agentroles.ai/deployment-manager.html">deployment manager</a></dd>
-            <dt>Source code</dt><dd><a href="https://github.com/jeffrschneider/adlc/tree/main/agents/deployment-manager">agents/deployment-manager</a></dd>
-            <dt>Process</dt><dd><a href="processes.html#new-agent">Make a new agent, phase deploy-the-agent, after the owner's yes at approve-the-deploy</a></dd>
-            <dt>Given</dt><dd>the package, where it's going, and the owner's answers as names and numbers</dd>
-            <dt>Hands back</dt><dd>a running agent with an identity, an address and an inbox; its credentials placed by name and its ceilings set before it starts; and a signed deployment record</dd>
-            <dt>Done when</dt><dd>it's installed with its identity, nothing the package asked for is missing, no secret value appeared in the instruction, a message sent to its address is answered, and the deployment record is signed</dd>
+            <dt>Given</dt><dd>the package, where it goes, and the owner's answers as names and numbers</dd>
+            <dt>Hands back</dt><dd>a running agent with an identity, an address and an inbox; its Descriptor signed and registered; credentials placed by name and ceilings set before it starts; a signed deployment record</dd>
+            <dt>Done when</dt><dd>nothing asked for is missing, no secret appeared, a message gets an answer, and the record is signed</dd>
           </dl>
         </section>
         <h2 class="phase-head" id="phase-prove">Prove</h2>
         <section class="stage" id="conformance">
-          <div class="head"><svg class="ico" viewBox="0 0 24 24" aria-hidden="true" focusable="false" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="4" width="14" height="17" rx="2"/><path d="M9 4h6v3H9z"/><path d="m9 13 2 2 4-4"/></svg><h2>Conformance</h2><span class="num">12</span><a class="agent-on" href="https://app.agentmesh.ai/a/agentevaluator.platform%40agentmesh.ai/agentdoc">conformance-checker</a></div>
-          <p>Checking that the running agent does what its package says. The cases come from the declaration rather than being written by hand, which makes the check cheap enough to run on every deploy. It answers one question, and answering it isn't the same as saying the work is good.</p>
-          <p>It's only half independent, and it's worth being plain about that. The declaration was written at Package, so a check derived from it catches an agent that doesn't do what it promised, and can't catch an agent that promised the wrong thing. The outside opinion is <a href="#eval">Eval</a>, which is why the two are separate stages.</p>
-          <p>When the agent is a new version of one already running, this check runs on the new version while it's still a candidate, before it replaces the old one (see <a href="#update">Update</a>).</p>
+          <div class="head"><svg class="ico" viewBox="0 0 24 24" aria-hidden="true" focusable="false" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="4" width="14" height="17" rx="2"/><path d="M9 4h6v3H9z"/><path d="m9 13 2 2 4-4"/></svg><h2>Conformance</h2><span class="num">12</span><a class="agent-on" href="https://app.agentmesh.ai/a/agentevaluator.platform%40agentmesh.ai/agentdoc">conformance-checker</a><a class="src" href="https://github.com/jeffrschneider/adlc/tree/main/agents/conformance-checker">source</a></div>
+          <p class="why">It checks the agent keeps its promises, not that the promises were right; that's Eval.</p>
           <dl>
-            <dt>Agent</dt><dd><a class="agent-on" href="https://app.agentmesh.ai/a/agentevaluator.platform%40agentmesh.ai/agentdoc">conformance-checker</a></dd>
             <dt>Role</dt><dd><a href="https://agentroles.ai/conformance-checker.html">conformance checker</a></dd>
-            <dt>Source code</dt><dd><a href="https://github.com/jeffrschneider/adlc/tree/main/agents/conformance-checker">agents/conformance-checker</a></dd>
-            <dt>Process</dt><dd><a href="processes.html#new-agent">Make a new agent, phase check-conformance</a></dd>
-            <dt>Given</dt><dd>the package, the agent's address, and where its records live</dd>
+            <dt>Given</dt><dd>the package, the agent's address, and its records</dd>
             <dt>Hands back</dt><dd>a signed verdict, case by case</dd>
-            <dt>Done when</dt><dd>every case derived from the declaration ran, and the verdict is signed</dd>
+            <dt>Done when</dt><dd>every case from the declaration ran, and the verdict is signed</dd>
           </dl>
         </section>
         <section class="stage" id="acceptance">
           <div class="head"><svg class="ico" viewBox="0 0 24 24" aria-hidden="true" focusable="false" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="8" r="3.2"/><path d="M3.5 20c0-3.3 2.5-5.5 5.5-5.5s5.5 2.2 5.5 5.5"/><path d="m15 11 2 2 4-4"/></svg><h2>Acceptance</h2><span class="num">13</span><span class="person-tag">a person</span></div>
-          <p>The person who asked decides the result is what they asked for. Conformance proves the agent does what its package says. This stage asks whether that's what was wanted, and only the person who asked can answer. It's a person's act on purpose.</p>
-          <p>The answer is checked against "done": what the result had to be, written down at Requirements before the work began. So the question isn't whether the person likes it, but whether it does what they said it must. The answer is recorded with who gave it and when, and it closes the request. For a solution, the result checked is its first run.</p>
+          <p class="why">Only the person who asked can say it's what they wanted.</p>
           <dl>
             <dt>Role</dt><dd>the requester, the person who asked</dd>
-            <dt>Given</dt><dd>what was delivered, and "done" as it was written down at Requirements</dd>
+            <dt>Given</dt><dd>what was delivered, and "done" as written at Requirements</dd>
             <dt>Hands back</dt><dd>a recorded yes against "done", or a no that says what's missing</dd>
-            <dt>Done when</dt><dd>the answer is recorded with who gave it and when, and the request is closed</dd>
+            <dt>Done when</dt><dd>the answer is recorded with who and when, and the request closes</dd>
           </dl>
         </section>
         <h2 class="phase-head" id="phase-use">Use</h2>
         <section class="stage" id="docs">
-          <div class="head"><svg class="ico" viewBox="0 0 24 24" aria-hidden="true" focusable="false" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M5 4h9a3 3 0 0 1 3 3v13H8a3 3 0 0 0-3 3z"/><path d="M17 7h2v13"/><path d="M9 9h5"/></svg><h2>Docs</h2><span class="num">14</span><a class="agent-on" href="https://agentcatalog.com/a/documenter.system@agentmesh.ai">documenter</a><span class="role-tag">role: <a href="https://agentroles.ai/doc-writer.html">doc writer</a></span></div>
-          <p>The document a stranger reads before deciding to use the thing. In agentic work it's assembled from what the agent already declares rather than written fresh. A document that's authored can say anything; a document that's gathered can only say what its sources say. Where a source is silent, the silence is printed.</p>
-          <p>Two roles share this stage. The documenter assembles and signs every AgentDoc, in the format defined at <a href="https://agentdoc.net">agentdoc.net</a>. The doc writer writes the documentation people read to use or maintain the software, which has to be written rather than gathered, so it's a different job.</p>
+          <div class="head"><svg class="ico" viewBox="0 0 24 24" aria-hidden="true" focusable="false" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M5 4h9a3 3 0 0 1 3 3v13H8a3 3 0 0 0-3 3z"/><path d="M17 7h2v13"/><path d="M9 9h5"/></svg><h2>Docs</h2><span class="num">14</span><a class="agent-on" href="https://agentcatalog.com/a/documenter.system@agentmesh.ai">documenter</a><a class="src" href="https://github.com/jeffrschneider/adlc/tree/main/agents/documenter">source</a><span class="role-tag">role: <a href="https://agentroles.ai/doc-writer.html">doc writer</a></span></div>
+          <p class="why">Gathered from what the agent declares, not written, so it can only say what its sources say.</p>
           <dl>
-            <dt>Agent</dt><dd><a class="agent-on" href="https://agentcatalog.com/a/documenter.system@agentmesh.ai">documenter</a> for the AgentDoc</dd>
             <dt>Role</dt><dd><a href="https://agentroles.ai/documenter.html">documenter</a> for the AgentDoc; <a href="https://agentroles.ai/doc-writer.html">doc writer</a> for the documentation</dd>
-            <dt>Source code</dt><dd><a href="https://github.com/jeffrschneider/adlc/tree/main/agents/documenter">agents/documenter</a></dd>
-            <dt>Process</dt><dd><a href="processes.html#new-agent">Make a new agent, phase publish-the-agent</a>, where the AgentDoc is assembled from the deployed agent and its conformance record, and the owner reads it before the agent may be listed</dd>
-            <dt>Given</dt><dd>the declaration, the identity, and whatever records and verdicts exist</dd>
-            <dt>Hands back</dt><dd>a document a stranger can read, with each claim traceable to its source</dd>
-            <dt>Done when</dt><dd>nothing in it was authored, and every silence is shown rather than filled</dd>
+            <dt>Given</dt><dd>the declaration, the identity, and any records and verdicts</dd>
+            <dt>Hands back</dt><dd>the AgentDoc a stranger reads, each claim traced to its source, and documentation for people</dd>
+            <dt>Done when</dt><dd>nothing in the AgentDoc was authored, and every silence shows</dd>
           </dl>
         </section>
         <section class="stage" id="publish">
-          <div class="head"><svg class="ico" viewBox="0 0 24 24" aria-hidden="true" focusable="false" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="8.5"/><path d="M3.5 12h17"/><path d="M12 3.5c2.4 2.4 3.6 5.3 3.6 8.5S14.4 18.1 12 20.5c-2.4-2.4-3.6-5.3-3.6-8.5S9.6 5.9 12 3.5z"/></svg><h2>Publish</h2><span class="num">15</span><a class="agent-on" href="https://app.agentmesh.ai/a/publisher.platform%40agentmesh.ai/agentdoc">publisher</a></div>
-          <p>Putting the output where the person who asked can open it. It looks like plumbing and isn't: publishing is the one stage that makes work visible outside the system, so it's the one stage where a mistake is public. It needs an authority to write to an address, a record of what was written, and a digest.</p>
-          <p>The agent holding it writes under the one folder it was bound to and nowhere else, reads every byte before it goes, refuses anything that looks like a credential whatever the file is called, and reads back what's served to check it matches what it was handed. Nothing counts as published until the address has been read.</p>
+          <div class="head"><svg class="ico" viewBox="0 0 24 24" aria-hidden="true" focusable="false" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="8.5"/><path d="M3.5 12h17"/><path d="M12 3.5c2.4 2.4 3.6 5.3 3.6 8.5S14.4 18.1 12 20.5c-2.4-2.4-3.6-5.3-3.6-8.5S9.6 5.9 12 3.5z"/></svg><h2>Publish</h2><span class="num">15</span><a class="agent-on" href="https://app.agentmesh.ai/a/publisher.platform%40agentmesh.ai/agentdoc">publisher</a><a class="src" href="https://github.com/jeffrschneider/adlc/tree/main/agents/publisher">source</a></div>
+          <p class="why">The one stage where a mistake is public.</p>
           <dl>
-            <dt>Agent</dt><dd><a class="agent-on" href="https://app.agentmesh.ai/a/publisher.platform%40agentmesh.ai/agentdoc">publisher</a></dd>
             <dt>Role</dt><dd><a href="https://agentroles.ai/publisher.html">publisher</a></dd>
-            <dt>Source code</dt><dd><a href="https://github.com/jeffrschneider/adlc/tree/main/agents/publisher">agents/publisher</a></dd>
             <dt>Given</dt><dd>the deliverable, and where it may be written</dd>
             <dt>Hands back</dt><dd>an address a person can open, and the digest of what's there</dd>
-            <dt>Done when</dt><dd>the address resolves and what it serves matches the digest recorded</dd>
+            <dt>Done when</dt><dd>the address resolves and serves what the digest says</dd>
           </dl>
         </section>
         <section class="stage" id="retract">
           <div class="head"><svg class="ico" viewBox="0 0 24 24" aria-hidden="true" focusable="false" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="8.5"/><path d="M8 12h8"/></svg><h2>Retract</h2><span class="num">16</span><span class="role-tag">role: <a href="https://agentroles.ai/publisher.html">publisher</a></span></div>
-          <p>Taking down what was published, by the authority that put it there and no other. Publishing is the one stage whose output outlives the job that made it, so being able to publish without being able to undo it should be a deliberate choice. It's a stage of its own because the check is different: publishing is proven by reading the address and finding the bytes, retracting by reading it and finding nothing.</p>
-          <p>The record of every name the publisher placed is what tells it what it may take down. An address it never wrote isn't its to remove, however nicely it's asked.</p>
+          <p class="why">Only whoever published something may take it down.</p>
           <dl>
             <dt>Role</dt><dd><a href="https://agentroles.ai/publisher.html">publisher</a></dd>
-            <dt>Process</dt><dd><a href="processes.html#retire-an-agent">Retire an agent, phase retract-the-listing</a></dd>
-            <dt>Given</dt><dd>the address, or the name it was published under</dd>
+            <dt>Given</dt><dd>the address, or the name it went out under</dd>
             <dt>Hands back</dt><dd>a record of what was taken down, by whom, and when</dd>
-            <dt>Done when</dt><dd>the address is read back and nothing is there, and the record says who took it down and why</dd>
+            <dt>Done when</dt><dd>the address reads back empty, and the record says why</dd>
           </dl>
         </section>
         <h2 class="phase-head" id="phase-run">Run</h2>
         <section class="stage" id="monitor">
           <div class="head"><svg class="ico" viewBox="0 0 24 24" aria-hidden="true" focusable="false" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M3 12h4l2.5-6 4 13L16 12h5"/></svg><h2>Monitor</h2><span class="num">17</span><span class="role-tag">role: <a href="https://agentroles.ai/watcher.html">watcher</a></span></div>
-          <p>Knowing whether each agent is alive, answering, and inside its limits. The trap: a process being up says almost nothing. An agent whose inbox is served and whose model refuses every call looks perfectly healthy from outside. Liveness has to be measured by an answer, not by a process.</p>
+          <p class="why">A process being up says almost nothing; liveness is measured by an answer.</p>
           <dl>
             <dt>Role</dt><dd><a href="https://agentroles.ai/watcher.html">watcher</a></dd>
-            <dt>Given</dt><dd>the fleet, and what each agent declared it would do</dd>
-            <dt>Hands back</dt><dd>whether each one is alive, answering, and inside its limits</dd>
-            <dt>Done when</dt><dd>silence is treated as a failure rather than as no news</dd>
+            <dt>Given</dt><dd>the fleet, and what each agent declared</dd>
+            <dt>Hands back</dt><dd>whether each agent is alive, answering, and inside its limits</dd>
+            <dt>Done when</dt><dd>silence counts as a failure, not as no news</dd>
           </dl>
         </section>
         <section class="stage" id="eval">
           <div class="head"><svg class="ico" viewBox="0 0 24 24" aria-hidden="true" focusable="false" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M12 4 9.9 9.3 4 9.8l4.5 3.9L7.1 20 12 16.9 16.9 20l-1.4-6.3L20 9.8l-5.9-.5z"/></svg><h2>Eval</h2><span class="num">18</span><span class="role-tag">role: <a href="https://agentroles.ai/agent-critic.html">agent critic</a></span></div>
-          <p>Judging the work itself. Conformance says an agent answers; eval says whether the answer was any good. A mechanical check catches a fault but has no opinion about whether the work was worth doing. What eval needs is a written statement of what good looks like for this job, made before the work, by somebody other than the maker.</p>
-          <p>It sits in Run, not Prove, because it judges what an agent does on real jobs after it's installed, right beside the monitoring that says whether it answered at all.</p>
+          <p class="why">Conformance says it answers; eval says whether the answer was any good.</p>
           <dl>
             <dt>Role</dt><dd><a href="https://agentroles.ai/agent-critic.html">agent critic</a></dd>
-            <dt>Given</dt><dd>the work produced, and a standard set beforehand</dd>
-            <dt>Hands back</dt><dd>a graded judgment, with the reason on each grade</dd>
-            <dt>Done when</dt><dd>every piece is graded against the standard, and the standard predates the work</dd>
+            <dt>Given</dt><dd>the work, and a standard set beforehand</dd>
+            <dt>Hands back</dt><dd>a graded judgment, with a reason on each grade</dd>
+            <dt>Done when</dt><dd>every piece is graded, and the standard predates the work</dd>
           </dl>
         </section>
         <section class="stage" id="incident">
-          <div class="head"><svg class="ico" viewBox="0 0 24 24" aria-hidden="true" focusable="false" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3.5 21 19H3z"/><path d="M12 9.5v4M12 16.5h.01"/></svg><h2>Incident response</h2><span class="num">19</span><a class="agent-on" href="https://app.agentmesh.ai/a/incident-recorder.platform%40agentmesh.ai/agentdoc">incident-recorder</a></div>
-          <p>What happens after monitoring finds something and before anybody decides to roll back. Detection isn't response, and the gap between them is where most of the damage gets done. A misbehaving agent keeps working: it has an inbox, it answers, and it turns out steadily worse output until somebody stops it. Stopping it is its own act, separate from fixing it.</p>
-          <p>The agent holding this stage records the incident and does nothing else. It reads the platform's records and the failed agent's own records around the failure, and writes a timeline of what's known, with each gap marked as a gap. It never restarts anything, never guesses a cause, and never proposes a fix. Deciding what to do stays a person's call.</p>
+          <div class="head"><svg class="ico" viewBox="0 0 24 24" aria-hidden="true" focusable="false" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3.5 21 19H3z"/><path d="M12 9.5v4M12 16.5h.01"/></svg><h2>Incident response</h2><span class="num">19</span><a class="agent-on" href="https://app.agentmesh.ai/a/incident-recorder.platform%40agentmesh.ai/agentdoc">incident-recorder</a><a class="src" href="https://github.com/jeffrschneider/adlc/tree/main/agents/incident-recorder">source</a></div>
+          <p class="why">Record what happened, guess nothing, fix nothing; deciding stays with a person.</p>
           <dl>
-            <dt>Agent</dt><dd><a class="agent-on" href="https://app.agentmesh.ai/a/incident-recorder.platform%40agentmesh.ai/agentdoc">incident-recorder</a></dd>
             <dt>Role</dt><dd><a href="https://agentroles.ai/incident-recorder.html">incident recorder</a></dd>
-            <dt>Source code</dt><dd><a href="https://github.com/jeffrschneider/adlc/tree/main/agents/incident-recorder">agents/incident-recorder</a></dd>
-            <dt>Process</dt><dd><a href="processes.html#incident">Record an incident, phase record-the-incident</a></dd>
-            <dt>Given</dt><dd>whatever monitoring saw, and the records of what the agent was doing</dd>
-            <dt>Hands back</dt><dd>what happened, what was done about it, and what changes as a result</dd>
-            <dt>Done when</dt><dd>the thing is stopped or well, and the account of it outlives the people who were there</dd>
+            <dt>Given</dt><dd>what monitoring saw, and the agent's records</dd>
+            <dt>Hands back</dt><dd>a timeline of what's known, with every gap marked</dd>
+            <dt>Done when</dt><dd>the account outlives the people who were there</dd>
           </dl>
         </section>
         <section class="stage" id="cost">
           <div class="head"><svg class="ico" viewBox="0 0 24 24" aria-hidden="true" focusable="false" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="8.5"/><path d="M12 7v10"/><path d="M14.8 9.4A3 3 0 0 0 9.5 11c0 2.6 5 1.4 5 4a3 3 0 0 1-5.3 1.6"/></svg><h2>Cost</h2><span class="num">20</span><span class="role-tag">role: <a href="https://agentroles.ai/watcher.html">watcher</a></span></div>
-          <p>Accounting for what the work spent against what it was allowed. Individual ceilings are the easy half. The hard half is the view across everything, which is exactly the view you need when spending is made of many small automatic decisions rather than a few big deliberate ones.</p>
+          <p class="why">Ceilings are the easy half; the view across everything is the hard one.</p>
           <dl>
             <dt>Role</dt><dd><a href="https://agentroles.ai/watcher.html">watcher</a></dd>
-            <dt>Given</dt><dd>the ceilings, and the record of what each job spent</dd>
-            <dt>Hands back</dt><dd>the account: what was spent, by whom, against what was allowed</dd>
-            <dt>Done when</dt><dd>every spend is traced to a job, and the total is reconciled against the ceilings</dd>
+            <dt>Given</dt><dd>the ceilings, and what each job spent</dd>
+            <dt>Hands back</dt><dd>what was spent, by whom, against what was allowed</dd>
+            <dt>Done when</dt><dd>every spend traces to a job, and the total reconciles</dd>
           </dl>
         </section>
         <h2 class="phase-head" id="phase-change">Change</h2>
         <section class="stage" id="update">
-          <div class="head"><svg class="ico" viewBox="0 0 24 24" aria-hidden="true" focusable="false" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M20 12a8 8 0 1 1-2.6-5.9"/><path d="M20 4v5h-5"/></svg><h2>Update</h2><span class="num">21</span><a class="agent-on" href="https://app.agentmesh.ai/a/deploymgr.platform%40agentmesh.ai/agentdoc">deployment-manager</a></div>
-          <p>Moving a running agent to a new version of its package while it keeps its identity, its address and its history. The version changes; the subject doesn't. What changed has to be written down, because the agent's own document will be read by people who weren't there for the change.</p>
-          <p>The stage asks for three recorded steps. <b>Candidate</b>: the new version is installed beside the old one, under the same identity, and answers only the messages sent to test it. <b>Prove</b>: the conformance check runs against it, and so does what each dependent counts as done. <b>Promote</b>: the identity moves to the new version, and the old one stays installed but stopped for a while, in case it's needed back. Before the promote, the <a href="#ledger">ledger</a> is read, and an open debt that blocks the promote stops it.</p>
-          <p>The code is rarely the risky part. The records an agent already wrote are in the old version's shapes, and the new version has to keep reading them: the ordinary migration problem, turning up somewhere unfamiliar.</p>
+          <div class="head"><svg class="ico" viewBox="0 0 24 24" aria-hidden="true" focusable="false" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M20 12a8 8 0 1 1-2.6-5.9"/><path d="M20 4v5h-5"/></svg><h2>Update</h2><span class="num">21</span><a class="agent-on" href="https://app.agentmesh.ai/a/deploymgr.platform%40agentmesh.ai/agentdoc">deployment-manager</a><a class="src" href="https://github.com/jeffrschneider/adlc/tree/main/agents/deployment-manager">source</a></div>
+          <p class="why">New version, same identity: candidate first, then prove, then promote.</p>
           <dl>
-            <dt>Agent</dt><dd><a class="agent-on" href="https://app.agentmesh.ai/a/deploymgr.platform%40agentmesh.ai/agentdoc">deployment-manager</a></dd>
             <dt>Role</dt><dd><a href="https://agentroles.ai/deployment-manager.html">deployment manager</a></dd>
-            <dt>Source code</dt><dd><a href="https://github.com/jeffrschneider/adlc/tree/main/agents/deployment-manager">agents/deployment-manager</a></dd>
-            <dt>Process</dt><dd><a href="processes.html#new-agent">Make a new agent, run again with the running version attached as the prototype</a></dd>
-            <dt>Given</dt><dd>a new package, and the agent it's to replace</dd>
-            <dt>Hands back</dt><dd>the same agent on the new version, proven as a candidate before it was promoted, with what changed recorded</dd>
-            <dt>Done when</dt><dd>the candidate passed its checks before the promote, the identity and address are unchanged, and the difference is written down</dd>
+            <dt>Given</dt><dd>a new package, and the agent it replaces</dd>
+            <dt>Hands back</dt><dd>the same agent on the new version, with what changed recorded</dd>
+            <dt>Done when</dt><dd>the candidate passed before the promote, and the identity and address are unchanged</dd>
           </dl>
         </section>
         <section class="stage" id="reconfigure">
-          <div class="head"><svg class="ico" viewBox="0 0 24 24" aria-hidden="true" focusable="false" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M5 6h14M5 12h14M5 18h14"/><circle cx="9" cy="6" r="2"/><circle cx="15" cy="12" r="2"/><circle cx="8" cy="18" r="2"/></svg><h2>Reconfigure</h2><span class="num">22</span><a class="agent-on" href="https://app.agentmesh.ai/a/deploymgr.platform%40agentmesh.ai/agentdoc">deployment-manager</a></div>
-          <p>Changing a running agent's settings, credentials or ceilings without a new version. A rotated key, a lowered spending limit, a new value for a setting: the agent keeps its version, its identity and its address, and nothing about the package changes.</p>
-          <p>The same rule as Deploy holds: a secret is named, never carried. And every change leaves a signed record of what changed, who asked, and when, so there is no guessing later why the agent started behaving differently on a Tuesday.</p>
+          <div class="head"><svg class="ico" viewBox="0 0 24 24" aria-hidden="true" focusable="false" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M5 6h14M5 12h14M5 18h14"/><circle cx="9" cy="6" r="2"/><circle cx="15" cy="12" r="2"/><circle cx="8" cy="18" r="2"/></svg><h2>Reconfigure</h2><span class="num">22</span><a class="agent-on" href="https://app.agentmesh.ai/a/deploymgr.platform%40agentmesh.ai/agentdoc">deployment-manager</a><a class="src" href="https://github.com/jeffrschneider/adlc/tree/main/agents/deployment-manager">source</a></div>
+          <p class="why">New settings, credentials or ceilings, same version.</p>
           <dl>
-            <dt>Agent</dt><dd><a class="agent-on" href="https://app.agentmesh.ai/a/deploymgr.platform%40agentmesh.ai/agentdoc">deployment-manager</a></dd>
             <dt>Role</dt><dd><a href="https://agentroles.ai/deployment-manager.html">deployment manager</a></dd>
-            <dt>Source code</dt><dd><a href="https://github.com/jeffrschneider/adlc/tree/main/agents/deployment-manager">agents/deployment-manager</a></dd>
             <dt>Given</dt><dd>the running agent, and the change as names and numbers</dd>
-            <dt>Hands back</dt><dd>the same agent on the same version, with its new settings, credentials or ceilings, and a signed record of what changed</dd>
-            <dt>Done when</dt><dd>the change is in place, no secret value appeared in the instruction, the agent still answers, and the record says what changed, who asked and when</dd>
+            <dt>Hands back</dt><dd>the same agent on the same version, and a signed record of what changed</dd>
+            <dt>Done when</dt><dd>the change is in place, no secret appeared, and the agent still answers</dd>
           </dl>
         </section>
         <section class="stage" id="rollback">
           <div class="head"><svg class="ico" viewBox="0 0 24 24" aria-hidden="true" focusable="false" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12a8 8 0 1 0 2.6-5.9"/><path d="M4 4v5h5"/></svg><h2>Rollback</h2><span class="num">23</span><span class="role-tag">role: <a href="https://agentroles.ai/deployment-manager.html">deployment manager</a></span></div>
-          <p>Putting a running agent back on the version before, quickly, when the new one is wrong. Moving the code back is the easy part. The real question is authority: who may decide, on what evidence, how fast, and whether one agent may make that call about another without waiting for a person.</p>
-          <p>Moving the code back also isn't undoing the work. A version that ran for an hour has sent messages, spent money, written files and changed data somebody else now depends on, and none of that reverses when the version does. A rollback that only names the version leaves the mess behind.</p>
-          <p>When an update keeps the old version installed for a while after the promote, rolling back is the promote run in reverse, with the reason recorded.</p>
+          <p class="why">Moving the code back is easy; undoing what the bad version did is not.</p>
           <dl>
             <dt>Role</dt><dd><a href="https://agentroles.ai/deployment-manager.html">deployment manager</a></dd>
-            <dt>Given</dt><dd>the agent, and the version it was on before</dd>
-            <dt>Hands back</dt><dd>the same agent back on that version, the reason it was moved, and what the bad version did that can't be undone</dd>
-            <dt>Done when</dt><dd>the agent is answering on the old version, the reason is recorded, and the side effects are named</dd>
+            <dt>Given</dt><dd>the agent, and the version before</dd>
+            <dt>Hands back</dt><dd>the agent back on that version, why, and what can't be undone</dd>
+            <dt>Done when</dt><dd>it answers on the old version, and the side effects are named</dd>
           </dl>
         </section>
         <section class="stage" id="decommission">
-          <div class="head"><svg class="ico" viewBox="0 0 24 24" aria-hidden="true" focusable="false" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="4" rx="1"/><path d="M5 8v11a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1V8"/><path d="M10 12h4"/></svg><h2>Decommission</h2><span class="num">24</span><a class="agent-on" href="https://app.agentmesh.ai/a/deploymgr.platform%40agentmesh.ai/agentdoc">deployment-manager</a></div>
-          <p>Taking an agent away. An agent has an address other agents hold, and work in flight somebody is waiting on. Removing it cleanly means the address stops answering rather than answering wrongly, and the records outlive the agent that made them.</p>
+          <div class="head"><svg class="ico" viewBox="0 0 24 24" aria-hidden="true" focusable="false" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="4" rx="1"/><path d="M5 8v11a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1V8"/><path d="M10 12h4"/></svg><h2>Decommission</h2><span class="num">24</span><a class="agent-on" href="https://app.agentmesh.ai/a/deploymgr.platform%40agentmesh.ai/agentdoc">deployment-manager</a><a class="src" href="https://github.com/jeffrschneider/adlc/tree/main/agents/deployment-manager">source</a></div>
+          <p class="why">The address stops answering rather than answering wrongly.</p>
           <dl>
-            <dt>Agent</dt><dd><a class="agent-on" href="https://app.agentmesh.ai/a/deploymgr.platform%40agentmesh.ai/agentdoc">deployment-manager</a></dd>
             <dt>Role</dt><dd><a href="https://agentroles.ai/deployment-manager.html">deployment manager</a></dd>
-            <dt>Source code</dt><dd><a href="https://github.com/jeffrschneider/adlc/tree/main/agents/deployment-manager">agents/deployment-manager</a></dd>
-            <dt>Process</dt><dd><a href="processes.html#retire-an-agent">Retire an agent, phase remove-the-agent</a></dd>
             <dt>Given</dt><dd>the instruction, and the agent</dd>
             <dt>Hands back</dt><dd>nothing running, the records kept, and the address retired</dd>
-            <dt>Done when</dt><dd>no work is in flight or the stuck work is accounted for, the records are kept, and the address is never reused</dd>
+            <dt>Done when</dt><dd>no work is stranded, the records are kept, and the address is never reused</dd>
           </dl>
         </section>
         <h2 class="phase-head" id="phase-beside">Beside the stages</h2>
         <section class="stage record" id="ledger">
           <div class="head"><svg class="ico" viewBox="0 0 24 24" aria-hidden="true" focusable="false" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M5 5a2 2 0 0 1 2-2h12v15H7a2 2 0 0 0-2 2z"/><path d="M5 20a2 2 0 0 0 2 1h12v-3"/><path d="M9 7.5h6M9 11h6"/></svg><h2>The ledger</h2><span class="role-tag">kept by the platform</span></div>
-          <p>Some of what a stage finds is owed rather than handed on. A change that breaks something another person's work depends on leaves a debt to that person. A problem found and left unfixed is a debt too, owed to ourselves. Neither belongs to one stage, and both get lost when they live in somebody's notes.</p>
-          <p>The ledger holds both, under one numbering. <b>Change dependency debt</b> is owed to the owner of something that depends on what changed. It has a deadline, and until it's settled the changed agent can't be promoted, rolled back or retired. <b>Technical debt</b> is owed to ourselves, and it blocks nothing. Any stage can add an item, and the deployment manager reads the ledger before it acts. The ledger calls no model and judges nothing. It numbers what it's told, records who changed each item, when and why, and never deletes one.</p>
-          <dl>
-            <dt>Kind</dt><dd>a record the platform keeps, not an agent: agents and people call it, and it holds no role</dd>
-            <dt>Given</dt><dd>an item: what it's against, who it's owed to, what caused it, and what it blocks</dd>
-            <dt>Hands back</dt><dd>the item with its number and, when asked, the open items that block an act</dd>
-            <dt>Checked by</dt><dd>no number is ever given twice, every change to an item says who made it and when, and no item is ever deleted</dd>
-          </dl>
+          <p class="why">Debts a change leaves behind: owed to someone who depends on it, or to ourselves. An open dependency debt blocks promote, rollback and retire.</p>
         </section>
 
 

@@ -31,6 +31,7 @@
     <nav>
       <a class="on" href="./">Overview</a>
       <a href="stages.html">The stages</a>
+      <a href="assets.html">The assets</a>
       <a href="handoffs.html">The handoffs</a>
       <a href="processes.html">The processes</a>
     </nav>
@@ -170,8 +171,7 @@
         <div class="split">
           <div>
             <h2>Every stage says who holds it and how you know it's done.</h2>
-            <p>This is a reference Agent Development Lifecycle. It runs through twenty-four stages, from deciding what's wanted to retiring the agent.</p>
-            <p>Each stage names the role that holds it, what it's given, what it hands back, and the check that says it's finished. Here is one, with the reason this reference puts Test first.</p>
+            <p>This reference runs through twenty-four stages, from the first idea to the last day. Each names its role, what it's given, what it hands back, and how you know it's done. Here's one.</p>
           </div>
           <div class="stagecard">
             <h3><a href="stages.html#test">Test</a></h3>
@@ -180,7 +180,7 @@
               <dt>Given</dt><dd>the statement of the job</dd>
               <dt>Hands back</dt><dd>the suite, and what no test could be written for and why</dd>
               <dt>Done when</dt><dd>the suite fails against empty stand-ins for every program the statement names, and, once the programs exist, notices each one removed</dd>
-              <dt>Why here</dt><dd><b>Test sits before Code</b> in this reference, so a test can't pass by agreeing with a mistake in the program. Your teams can still argue about it.</dd>
+              <dt>Why here</dt><dd><b>Test sits before Code</b>, so a test can't pass by agreeing with a mistake. Your teams can still argue about it.</dd>
             </dl>
           </div>
         </div>
@@ -188,7 +188,7 @@
 
       <section class="band">
         <h2>Cut it to fit the way you work.</h2>
-        <p>Run the reference as written, or change it. Add the stages your work needs, like a legal review. Drop the ones you don't. Give any stage your own name. Put your own agent, a vendor's agent or a person in any role, and run the stages in your own order.</p>
+        <p>Add the stages you need, drop the ones you don't, and name them whatever you like. Put your own agent, a vendor's or a person in any role.</p>
         <ul class="strip" aria-label="A tailored lifecycle">
           <li><span class="chip renamed"><span class="nm"><span class="was">Requirements</span>Wishlist</span><small>new name</small></span></li>
           <li><span class="chip"><span class="nm">Test</span><small>as written</small></span></li>
@@ -200,13 +200,27 @@
         </ul>
       </section>
 
+      <section class="band" id="join">
+        <h2>Join the lifecycle where you are.</h2>
+        <p>Everybody starts from something: an idea, a prototype, working code, a package. Find the furthest one you have, and start at the stage right after it.</p>
+        <ol class="lookup">
+          <li><span class="lk-have">If you already have <b>an idea</b>,</span><span class="lk-start">start at <a class="stage-link" href="stages.html#requirements">Requirements</a></span></li>
+          <li><span class="lk-have">If you already have <b>a prototype</b>,</span><span class="lk-start">start at <a class="stage-link" href="stages.html#test">Test</a>, then <a class="stage-link" href="stages.html#code">Code</a></span></li>
+          <li><span class="lk-have">If you already have <b>working code</b>,</span><span class="lk-start">start at <a class="stage-link onramp" href="stages.html#package"><svg class="box-ico" viewBox="0 0 24 24" aria-hidden="true" focusable="false" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3 4 7v10l8 4 8-4V7z"/><path d="m4 7 8 4 8-4M12 11v10"/></svg>Package</a> <span class="onramp-tag">on-ramp</span></span></li>
+          <li><span class="lk-have">If you already have <b>a package or an image</b>,</span><span class="lk-start">start at <a class="stage-link onramp" href="stages.html#release"><svg class="box-ico" viewBox="0 0 24 24" aria-hidden="true" focusable="false" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3 4 7v10l8 4 8-4V7z"/><path d="m4 7 8 4 8-4M12 11v10"/></svg>Release</a> <span class="onramp-tag">on-ramp</span>, then <a class="stage-link golive" href="stages.html#deploy"><svg class="live-ico" viewBox="0 0 24 24" aria-hidden="true" focusable="false" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v8"/><path d="M6.3 6.8a8 8 0 1 0 11.4 0"/></svg>Deploy</a> <span class="golive-tag">goes live</span></span></li>
+          <li><span class="lk-have">If you already have <b>an agent running somewhere else</b>,</span><span class="lk-start">start with <a class="stage-link" href="https://commonagent.net/descriptor.html">a Descriptor</a>, and register it</span></li>
+          <li><span class="lk-have">If you already have <b>agents running on a platform</b>,</span><span class="lk-start">start at <a class="stage-link" href="stages.html#phase-run">Run</a> and <a class="stage-link" href="stages.html#phase-change">Change</a></span></li>
+        </ol>
+        <p class="more"><a href="assets.html">See every asset, and which ones are required</a></p>
+      </section>
+
       <section class="band">
         <div class="split">
           <div>
             <h2>Everyone agrees on the ending.</h2>
-            <p>However your lifecycle runs, what comes out of it is an <a href="https://commonagent.net/package.html">Agent Package</a>: the declaration of what the agent does and refuses, its parts, a manifest and a digest.</p>
-            <p>Our <a href="https://github.com/jeffrschneider/adlc/tree/main/agents/package-maker">package maker</a> is the easy on-ramp to the mesh: hand it your work and it hands back a valid package. Any other tool works too, as long as the package it makes is valid.</p>
-            <p>A platform checks the package before it installs anything, and every update goes through the same check. So every agent meets the same gate, however it was built and whoever built it.</p>
+            <p>However your lifecycle runs, it ends in an <a href="https://commonagent.net/package.html">Agent Package</a>: the declaration, the parts, a manifest and a digest.</p>
+            <p>Our <a href="https://github.com/jeffrschneider/adlc/tree/main/agents/package-maker">package maker</a> is the easy on-ramp to the mesh. Any other tool works, as long as the package is valid.</p>
+            <p>A platform checks every package before it installs or updates anything, so every agent it runs meets the same gate, whoever built it.</p>
           </div>
           <div class="routes">
             <svg viewBox="0 0 460 270" role="img" aria-label="Three very different routes, all ending in the same box labeled package">
@@ -230,7 +244,7 @@
 
       <section class="band">
         <h2>Any agent can hold a role, and so can you.</h2>
-        <p>Every stage names a role, not a product. The roles are written down at <a href="https://agentroles.ai">agentroles.ai</a>, so anyone can build an agent to one. A person can hold any role too, and one stage, Acceptance, belongs to a person by design.</p>
+        <p>Every stage names a role, not a product. The roles are written down at <a href="https://agentroles.ai">agentroles.ai</a>, so anyone can build an agent to one, and a person can hold any of them.</p>
         <ul class="roles">
           <li><a href="https://agentroles.ai/spec-writer.html">spec writer</a></li>
           <li><a href="https://agentroles.ai/test-writer.html">test writer</a></li>
@@ -246,8 +260,8 @@
         <div class="split">
           <div>
             <h2>Start from working code, not a blank page.</h2>
-            <p>Reference agents for eleven of the roles are open source under Apache-2.0, at <a href="https://github.com/jeffrschneider/adlc">github.com/jeffrschneider/adlc</a>.</p>
-            <p>Run them as they are, read them to see how a stage gets held, or swap any one for your own.</p>
+            <p>Reference agents for eleven roles are open source under Apache-2.0, at <a href="https://github.com/jeffrschneider/adlc">github.com/jeffrschneider/adlc</a>.</p>
+            <p>Run them, read them, or swap in your own.</p>
           </div>
           <div class="term">
             <div class="bar"><span class="lamp"></span>jeffrschneider/adlc</div>
@@ -265,7 +279,7 @@ solution-planner</span></pre>
 
       <section class="band">
         <h2>Copy a process instead of writing one.</h2>
-        <p>A lifecycle runs as process documents, in the open format at <a href="https://agentprocesses.ai/">agentprocesses.ai</a>. Each one names the phases in order, who holds each phase, the file passed at every handoff, and what sends the work backwards. Copy one, put your own holders in it, and run it.</p>
+        <p>Here are three examples, in the open format at <a href="https://agentprocesses.ai/">agentprocesses.ai</a>. Copy one, put your own holders in it, and run it.</p>
         <div class="procs">
           <a class="proc" href="https://agentprocesses.ai/make-a-new-agent.html">
             <h3>Make a new agent</h3>
@@ -274,12 +288,12 @@ solution-planner</span></pre>
           </a>
           <a class="proc" href="https://agentprocesses.ai/record-an-incident.html">
             <h3>Record an incident</h3>
-            <p>Notice it, gather the records, write the incident down with every gap named, then decide.</p>
+            <p>Notice it, gather the records, write it down with every gap named, then decide.</p>
             <span class="go">agentprocesses.ai/record-an-incident</span>
           </a>
           <a class="proc" href="https://agentprocesses.ai/retire-an-agent.html">
             <h3>Retire an agent</h3>
-            <p>Take the listing down, get the owner's yes, remove the agent and close its AgentDoc.</p>
+            <p>Take the listing down, get the owner's yes, remove it, close its AgentDoc.</p>
             <span class="go">agentprocesses.ai/retire-an-agent</span>
           </a>
         </div>
@@ -287,7 +301,7 @@ solution-planner</span></pre>
 
       <section class="band">
         <h2>Here is the whole map.</h2>
-        <p>The lifecycle runs in seven phases. Open any stage to see its role, its handoffs and its check.</p>
+        <p>Open any stage for its role, its handoffs and its check.</p>
         <div class="map">
           <div class="phase"><h3>Define</h3><ul>
             <li><a href="stages.html#requirements">Requirements</a></li>

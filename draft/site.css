@@ -413,3 +413,77 @@ section.band p a, .inline-links a{ color:var(--paper); text-decoration-color:var
 .phase li.golive-line{ border-left-color:var(--live); }
 .stage > span[id]{ display:block; scroll-margin-top:48px; }
 .stage{ scroll-margin-top:48px; }
+
+/* ---------- join where you are ---------- */
+.lookup{ list-style:none; margin:22px 0 10px; padding:0; display:grid; gap:10px; }
+.prose .lookup li{ max-width:none; margin:0; }
+.lookup li{ display:grid; grid-template-columns:minmax(0,1fr) minmax(0,1.1fr); gap:4px 22px; align-items:baseline;
+  background:var(--panel); border:1px solid var(--line); border-radius:12px; padding:14px 18px; }
+.lk-have{ color:var(--dim); }
+.lk-have b{ color:var(--paper); font-weight:600; }
+.lk-start{ font-family:var(--disp); font-weight:600; color:var(--paper); }
+.lk-why{ grid-column:2; color:var(--dim); font-size:.9rem; line-height:1.5; }
+.stage-link{ color:var(--paper); text-decoration-color:var(--accent-ink); text-underline-offset:3px; }
+.stage-link.onramp{ color:var(--recorded-ink); }
+.stage-link.golive{ color:var(--live-ink); }
+.lookup .onramp-tag, .lookup .golive-tag, .assets .onramp-tag, .assets .golive-tag{ margin-left:4px; vertical-align:2px; }
+
+/* the asset strip: dashed and light while optional, solid once every agent has it */
+.assetstrip{ list-style:none; margin:24px 0 14px; padding:0; display:grid; grid-template-columns:repeat(auto-fill,minmax(132px,1fr)); gap:12px; counter-reset:asset; }
+.prose .assetstrip li{ max-width:none; margin:0; }
+.tile{ position:relative; display:flex; flex-direction:column; gap:4px; min-height:112px; padding:12px 12px 10px; border-radius:10px; }
+.tile .t-name{ font-family:var(--hand); font-weight:700; font-size:1.05rem; line-height:1.15; color:var(--paper); }
+.tile .t-stage{ font-family:var(--wire); font-size:.66rem; color:var(--dim); margin-top:auto; }
+.tile .t-stage .box-ico, .tile .t-stage .live-ico{ width:12px; height:12px; margin-right:4px; vertical-align:-1px; }
+.tile .t-tier{ font-family:var(--wire); font-size:.58rem; letter-spacing:.1em; text-transform:uppercase; color:var(--faint); }
+.tile.opt{ border:2px dashed var(--faint); background:transparent; }
+.tile.opt .t-name{ color:var(--dim); }
+.tile.every, .tile.platform{ border:3px solid var(--outline); box-shadow:3px 4px 0 rgba(0,0,0,.18); }
+.tile.platform{ background:var(--board); }
+.tile.every{ background:var(--accent); }
+.tile.platform .t-name, .tile.every .t-name{ color:var(--board-ink); }
+.tile.platform .t-stage, .tile.every .t-stage{ color:#3B4435; }
+.tile.platform .t-tier, .tile.every .t-tier{ color:#3B4435; font-weight:600; }
+.tile:nth-child(3n){ transform:rotate(.6deg); }
+.tile:nth-child(3n+1){ transform:rotate(-.5deg); }
+.legend{ list-style:none; padding:0 !important; margin:8px 0 0; display:flex; flex-wrap:wrap; gap:8px 22px; }
+.prose .legend li{ font-family:var(--wire); font-size:.74rem; color:var(--dim); display:flex; align-items:center; gap:8px; margin:0; max-width:none; }
+.tile-key{ display:inline-block; width:22px; height:16px; border-radius:4px; flex:0 0 22px; }
+.tile-key.opt{ border:2px dashed var(--faint); }
+.tile-key.every{ border:2px solid var(--outline); background:var(--accent); }
+.tile-key.platform{ border:2px solid var(--outline); background:var(--board); }
+
+.tbl.assets td{ font-size:.9rem; }
+.tbl.assets tr.opt td:first-child b{ color:var(--dim); font-weight:600; }
+.parts{ margin:0; padding-left:1.1em !important; }
+.prose .parts li{ margin:0 0 2px; color:var(--dim); }
+.tier-tag{ font-family:var(--wire); font-size:.62rem; font-weight:600; letter-spacing:.08em; text-transform:uppercase; padding:2px 7px; border-radius:4px; white-space:nowrap; }
+.tier-tag.opt{ border:1px dashed var(--faint); color:var(--dim); }
+.tier-tag.every{ border:1px solid var(--outline); background:var(--accent); color:#1B2110; }
+.tier-tag.platform{ border:1px solid var(--outline); background:var(--board); color:var(--board-ink); white-space:normal; }
+.more{ font-family:var(--wire); font-size:.84rem; }
+@media (max-width: 760px){
+  .lookup li{ grid-template-columns:1fr; }
+  .lk-why{ grid-column:1; }
+  .assetstrip{ grid-template-columns:repeat(2,minmax(0,1fr)); }
+  .tbl.assets thead{ display:none; }
+  .tbl.assets, .tbl.assets tbody, .tbl.assets tr, .tbl.assets td{ display:block; width:100%; }
+  .tbl.assets tr{ border-bottom:1px solid var(--line); padding:10px 0; }
+  .tbl.assets td{ border:0; padding:3px 0; }
+}
+
+/* compact stage cards */
+.stage{ padding:24px 0 6px; }
+.stage .why{ color:var(--paper) !important; margin:4px 0 0; max-width:70ch; }
+.stage dl{ margin-top:12px; }
+.stage .src{ font-family:var(--wire); font-size:.62rem; letter-spacing:.06em; color:var(--faint); text-decoration:none;
+  border-bottom:1px dotted var(--faint); margin:0 6px 0 4px; }
+.stage .src:hover{ color:var(--paper); }
+.stage.record{ padding-bottom:24px; }
+.tier-tag{ display:inline-block; line-height:1.4; }
+.stage-link{ white-space:nowrap; }
+.tile .onramp-tag, .tile .golive-tag{ font-size:.54rem; padding:1px 5px; margin-left:4px; }
+.tile.platform .box-ico, .tile.every .box-ico{ color:#8A5200; }
+.tile.platform .live-ico, .tile.every .live-ico{ color:#0A6B4B; }
+.tile.platform .onramp-tag, .tile.every .onramp-tag{ color:#8A5200; background:#FFFFFF; }
+.tile.platform .golive-tag, .tile.every .golive-tag{ color:#0A6B4B; background:#FFFFFF; border-color:#178A63; }

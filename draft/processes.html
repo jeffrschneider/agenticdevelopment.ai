@@ -31,6 +31,7 @@
     <nav>
       <a href="./">Overview</a>
       <a href="stages.html">The stages</a>
+      <a href="assets.html">The assets</a>
       <a href="handoffs.html">The handoffs</a>
       <a class="on" href="processes.html">The processes</a>
     </nav>
@@ -49,15 +50,14 @@
 
       <header class="page-head">
         <h1>A process is a lifecycle you can actually run.</h1>
-        <p class="turn">A map of stages says what ought to happen. A process says who holds each step, what they're handed, what they give back, and what to do when a step goes wrong. Here are three examples to copy. Put your own holders in them and run them.</p>
+        <p class="turn">A map says what ought to happen. A process says who holds each step, what passes between them, and what happens when a step goes wrong. Copy one of these, put your own holders in it, and run it.</p>
       </header>
 
       <div class="prose">
-        <p>Each one is written in the open <a href="https://agentprocesses.ai/spec.html">Agent Processes</a> format, so an orchestrator can read it and run it. A process document names the phases in order, the agent or person who holds each one, the file that passes at every handoff, the ways a phase can send the work backwards, the rules that stay true whatever happens, and what's worth measuring afterwards.</p>
-        <p>Steps a person holds have a dashed edge. The package step is marked as the on-ramp, as it is everywhere on this site: it's where your work becomes an Agent Package, the easy way onto the mesh. The deploy step is marked as where the agent goes live, with its credentials placed and its limits set before it starts.</p>
+        <p>Each is written in the open <a href="https://agentprocesses.ai/spec.html">Agent Processes</a> format, so an orchestrator can run it. Steps a person holds have a dashed edge.</p>
 
         <h2 id="new-agent">Make a new agent</h2>
-        <p>A request in words becomes a running agent. Nine steps: the owner says yes at three gates, and agents of the lifecycle hold the rest. The spec step settles four things before any shape is drawn, and two of those can end the run before anything gets built. Five named deviations send the work backwards, because the spec you approve is rarely the spec you first read.</p>
+        <p>A request in words becomes a running agent. The owner says yes at three gates, and agents hold the rest. Five named deviations send the work backwards, because the spec you approve is rarely the spec you first read.</p>
         <ol class="steps">
           <li><span class="sn">Write the spec</span><span class="sw">the four answers settled and the spec drafted</span><span class="sh"><a href="https://agentroles.ai/spec-writer.html">spec writer</a>, with the owner</span></li>
           <li class="person"><span class="sn">Approve the spec</span><span class="sw">the owner answers what is open and says yes</span><span class="sh">the owner</span></li>
@@ -69,11 +69,11 @@
           <li><span class="sn">Check conformance</span><span class="sw">the package's own declarations tested on the agent</span><span class="sh"><a href="https://agentroles.ai/conformance-checker.html">conformance checker</a></span></li>
           <li class="person"><span class="sn">Publish the agent</span><span class="sw">the owner reads the AgentDoc and says it may be listed</span><span class="sh">the owner</span></li>
         </ol>
-        <p>There's no separate process for changing an agent. A change is this process run again, with the change in words and the running version attached as the prototype.</p>
+        <p>To change an agent, run this again with the running version attached as the prototype.</p>
         <p><a href="https://agentprocesses.ai/make-a-new-agent.html">Read Make a new agent at agentprocesses.ai</a></p>
 
         <h2 id="incident">Record an incident</h2>
-        <p>An agent goes quiet, or a job fails. The process builds a timeline of what's known from the platform's records and the agent's own, says where every fact came from, and marks the gaps as gaps. It never guesses a cause and never proposes a fix. Deciding what to do stays with a person.</p>
+        <p>An agent goes quiet, or a job fails. The process builds a timeline from the records, marks the gaps, and never guesses a cause. Deciding what to do stays with a person.</p>
         <ol class="steps">
           <li><span class="sn">Notice the failure</span><span class="sw">the quiet agent or failed job, and the time</span><span class="sh"><a href="https://agentroles.ai/watcher.html">watcher</a>, or a person</span></li>
           <li class="person"><span class="sn">Gather the records</span><span class="sw">the platform's and the agent's records, attached</span><span class="sh">the incident owner</span></li>
@@ -83,7 +83,7 @@
         <p><a href="https://agentprocesses.ai/record-an-incident.html">Read Record an incident at agentprocesses.ai</a></p>
 
         <h2 id="retire-an-agent">Retire an agent</h2>
-        <p>Stopping an agent is easy. Retiring one takes more care: the address has to stop answering without breaking whatever pointed at it, the records have to outlive the thing they describe, and somebody has to decide whether the name is released or held. This process says who decides each of those, and in what order.</p>
+        <p>Stopping an agent is easy. Retiring one means the address stops answering cleanly, the records outlive the agent, and someone decides what happens to the name.</p>
         <ol class="steps">
           <li class="person"><span class="sn">Say what goes</span><span class="sw">the agent, the reason, and who must be told first</span><span class="sh">the owner</span></li>
           <li class="person"><span class="sn">Retract the listing</span><span class="sw">the agent's listing taken out of the catalog</span><span class="sh">the owner</span></li>
@@ -93,8 +93,6 @@
         </ol>
         <p><a href="https://agentprocesses.ai/retire-an-agent.html">Read Retire an agent at agentprocesses.ai</a></p>
 
-        <h2>You can write a process for any stage.</h2>
-        <p>A stage is ready for a process when what it's given and what it hands back are both artifacts. The <a href="handoffs.html">handoffs page</a> shows what passes at each one, and the <a href="stages.html">stages page</a> names the role that holds it.</p>
       </div>
 
       <footer class="footer">
