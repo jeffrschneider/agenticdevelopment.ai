@@ -74,12 +74,12 @@
           </dl>
         </section>
         <section class="stage" id="architecture"><span id="design" aria-hidden="true"></span>
-          <div class="head"><svg class="ico" viewBox="0 0 24 24" aria-hidden="true" focusable="false" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M4 20 20 4"/><path d="M4 14v6h6"/><path d="M14 4h6v6"/><circle cx="12" cy="12" r="2.4"/></svg><h2>Architecture and Design</h2><span class="num">02</span><span class="role-tag">role: solution architect</span><a class="agent-on" href="https://github.com/jeffrschneider/adlc/tree/main/agents/spec-writer">spec-writer</a><a class="agent-on" href="https://github.com/jeffrschneider/adlc/tree/main/agents/solution-planner">solution-planner</a></div>
+          <div class="head"><svg class="ico" viewBox="0 0 24 24" aria-hidden="true" focusable="false" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M4 20 20 4"/><path d="M4 14v6h6"/><path d="M14 4h6v6"/><circle cx="12" cy="12" r="2.4"/></svg><h2>Architecture and Design</h2><span class="num">02</span><span class="role-tag">role: <a href="https://agentroles.ai/solution-architect.html">solution architect</a></span><a class="agent-on" href="https://github.com/jeffrschneider/adlc/tree/main/agents/spec-writer">spec-writer</a><a class="agent-on" href="https://github.com/jeffrschneider/adlc/tree/main/agents/solution-planner">solution-planner</a></div>
           <p class="why">The systems named here become the package's runtime requirements, and the bindings are what Deploy places.</p>
           <div class="part">
             <h3>Architecture</h3>
             <dl>
-              <dt>Role</dt><dd>solution architect, or a person</dd>
+              <dt>Role</dt><dd><a href="https://agentroles.ai/solution-architect.html">solution architect</a>, or a person</dd>
               <dt>Given</dt><dd>the statement of the job, and the organization's stack</dd>
               <dt>Hands back</dt><dd>an architecture record:<ul class="handlist"><li>the systems the agent reaches, in plain words (database, files, text reasoning, mail sender)</li><li>the product bound to each in dev, test and prod: the organization's stack first, a platform default for the rest</li><li>dependencies on other agents and services</li><li>the agent's kind: a harness reading skills, code that speaks the network itself, or a container</li><li>limits on cost, speed, data and trust</li><li>each decision, with its reason</li></ul></dd>
             </dl>
