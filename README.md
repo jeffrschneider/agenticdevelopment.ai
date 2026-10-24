@@ -29,4 +29,9 @@ and fails on any that does not answer with a page (node 22, no dependencies):
 Published by GitHub Pages from `main`, at agenticdevelopment.ai (see `CNAME`).
 A push to `main` publishes.
 
+`draft/` holds a preview under review, published at
+agenticdevelopment.ai/draft/ with `noindex`. When it is approved, its pages
+replace the ones at the root (without the `noindex` line) and `draft/` is
+emptied.
+
 A working draft, v0.3.0-draft, developed alongside AgentMesh.
