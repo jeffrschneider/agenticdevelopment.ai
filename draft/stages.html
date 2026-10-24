@@ -73,14 +73,27 @@
             <dt>Done when</dt><dd>a package could be built from it, and nothing unsettled was invented</dd>
           </dl>
         </section>
-        <section class="stage" id="design">
-          <div class="head"><svg class="ico" viewBox="0 0 24 24" aria-hidden="true" focusable="false" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M4 20 20 4"/><path d="M4 14v6h6"/><path d="M14 4h6v6"/><circle cx="12" cy="12" r="2.4"/></svg><h2>Design</h2><span class="num">02</span><a class="agent-on" href="https://github.com/jeffrschneider/adlc/tree/main/agents/spec-writer">spec-writer</a><a class="agent-on" href="https://github.com/jeffrschneider/adlc/tree/main/agents/solution-planner">solution-planner</a></div>
-          <p class="why">The decision that matters most: is each step a program or a judgment?</p>
-          <dl>
-            <dt>Role</dt><dd><a href="https://agentroles.ai/spec-writer.html">spec writer</a> for an agent; <a href="https://agentroles.ai/solution-planner.html">solution planner</a> for a solution</dd>
-            <dt>Given</dt><dd>the statement of the job</dd>
-            <dt>Hands back</dt><dd>the steps, what each is given and hands back, and whether each is a program or a judgment</dd>
-            <dt>Done when</dt><dd>no step is both fully written down and left to a model, and the person made every choice</dd>
+        <section class="stage" id="architecture"><span id="design" aria-hidden="true"></span>
+          <div class="head"><svg class="ico" viewBox="0 0 24 24" aria-hidden="true" focusable="false" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M4 20 20 4"/><path d="M4 14v6h6"/><path d="M14 4h6v6"/><circle cx="12" cy="12" r="2.4"/></svg><h2>Architecture and Design</h2><span class="num">02</span><span class="role-tag">role: solution architect</span><a class="agent-on" href="https://github.com/jeffrschneider/adlc/tree/main/agents/spec-writer">spec-writer</a><a class="agent-on" href="https://github.com/jeffrschneider/adlc/tree/main/agents/solution-planner">solution-planner</a></div>
+          <p class="why">The systems named here become the package's runtime requirements, and the bindings are what Deploy places.</p>
+          <div class="part">
+            <h3>Architecture</h3>
+            <dl>
+              <dt>Role</dt><dd>solution architect, or a person</dd>
+              <dt>Given</dt><dd>the statement of the job, and the organization's stack</dd>
+              <dt>Hands back</dt><dd>an architecture record: the systems the agent reaches, in plain words (database, files, text reasoning, mail sender); the product bound to each in dev, test and prod, the organization's stack first and a platform default for the rest; dependencies on other agents and services; the agent's kind (a harness reading skills, code that speaks the network itself, or a container); limits on cost, speed, data and trust; and each decision with its reason</dd>
+            </dl>
+          </div>
+          <div class="part">
+            <h3>Design</h3>
+            <dl>
+              <dt>Role</dt><dd><a href="https://agentroles.ai/spec-writer.html">spec writer</a> for an agent; <a href="https://agentroles.ai/solution-planner.html">solution planner</a> for a solution</dd>
+              <dt>Given</dt><dd>the statement, and the architecture record</dd>
+              <dt>Hands back</dt><dd>the steps, what each is given and hands back, and whether each is a program or a judgment</dd>
+            </dl>
+          </div>
+          <dl class="done">
+            <dt>Done when</dt><dd>every system is named and bound in each environment it will run in, every decision has a reason, and every design step uses only systems the architecture named</dd>
           </dl>
         </section>
         <section class="stage" id="impact">

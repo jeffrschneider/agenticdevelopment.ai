@@ -490,3 +490,7 @@ section.band p a, .inline-links a{ color:var(--paper); text-decoration-color:var
 .page-head .links-line{ font-family:var(--wire); font-size:.86rem; color:var(--dim); margin:6px 0 0; }
 .page-head .turn + .links-line{ margin-top:18px; }
 .page-head .links-line a{ color:var(--paper); text-decoration-color:var(--accent-ink); text-underline-offset:3px; }
+.stage .part{ margin-top:14px; }
+.stage .part h3{ font-family:var(--wire); font-size:.7rem; font-weight:600; letter-spacing:.18em; text-transform:uppercase; color:var(--accent-ink); margin:0; }
+.stage .part dl{ margin-top:6px; }
+.stage dl.done{ margin-top:14px; }
