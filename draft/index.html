@@ -1,0 +1,365 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="robots" content="noindex">
+  <title>Agentic Development</title>
+  <meta name="description" content="A reference Agent Development Lifecycle you tailor: every stage, the role that holds it, what it is given and hands back, and how you can tell it is done. Every agent ends with a signed Descriptor and a registration; an agent a platform runs also arrives as an Agent Package.">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="Agentic Development">
+  <meta property="og:title" content="No two teams have ever agreed on a development lifecycle">
+  <meta property="og:description" content="So this one is built to be tailored. Change the stages and who holds them, and every agent still ends the same way: with a signed Descriptor and a registration, and, when a platform runs it, an Agent Package.">
+  <meta property="og:url" content="https://agenticdevelopment.ai/">
+  <meta property="og:image" content="https://agenticdevelopment.ai/brand/png/og-image-v2.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="A cartoon tug of war: two people pull a lifecycle banner in half, one side reading Design, Test, Code and the other Design, Code, Test, while a box labeled package sits ignored on the floor between them. Headline: No two teams have ever agreed on a development lifecycle.">
+  <meta name="twitter:card" content="summary_large_image">
+  <link rel="icon" type="image/svg+xml" href="../favicon.svg">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500;600&family=Kalam:wght@400;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="site.css">
+</head>
+<body>
+<div class="layout">
+
+  <aside class="rail">
+    <a class="brand" href="./"><span class="dot"></span>agentic development</a>
+    <div class="grp">The lifecycle</div>
+    <nav>
+      <a class="on" href="./">Overview</a>
+      <a href="stages.html">The stages</a>
+      <a href="assets.html">The assets</a>
+      <a href="handoffs.html">The handoffs</a>
+      <a href="processes.html">The processes</a>
+    </nav>
+    <div class="grp">In practice</div>
+    <nav>
+      <a href="implementations.html">Implementations</a>
+      <a href="https://github.com/CommonAgent/adlc">The code</a>
+    </nav>
+    <div class="foot">
+      <a href="https://agentmesh.ai/standards.html">The family of standards</a>
+    </div>
+  </aside>
+
+  <main class="main">
+    <div class="wrap">
+
+      <section class="hero">
+        <figure class="scene">
+          <p class="bubble a">Tests come first. That's the whole point!</p>
+          <p class="bubble b">Code first. Otherwise what are you even testing?</p>
+
+          <svg viewBox="0 130 960 345" role="img" aria-labelledby="cartoon-title cartoon-desc">
+            <title id="cartoon-title">Two people in a tug of war over a lifecycle</title>
+            <desc id="cartoon-desc">Two people lean back and pull on a paper banner of lifecycle stages until it tears in the middle. The left half reads Design, Test, Code. The right half reads Design, Code, Test. On the floor between them, ignored by both, sits a cardboard box labeled package.</desc>
+
+            <!-- floor and shadows -->
+            <path d="M30,462 Q480,455 930,462" fill="none" stroke="var(--floor)" stroke-width="3" stroke-linecap="round"/>
+            <ellipse cx="150" cy="462" rx="86" ry="7" fill="#000" opacity=".16"/>
+            <ellipse cx="810" cy="462" rx="86" ry="7" fill="#000" opacity=".16"/>
+            <ellipse cx="482" cy="462" rx="58" ry="6" fill="#000" opacity=".16"/>
+
+            <!-- the package, which both of them ignore -->
+            <g stroke="var(--outline)" stroke-width="3" stroke-linejoin="round">
+              <polygon points="436,400 456,384 538,384 518,400" fill="#E9BD80"/>
+              <polygon points="518,400 538,384 538,444 518,460" fill="var(--box-side)"/>
+              <rect x="436" y="400" width="82" height="60" fill="var(--box)"/>
+              <polygon points="472,400 492,384 504,384 484,400" fill="#F1DDB0" stroke-width="2"/>
+              <rect x="446" y="418" width="62" height="24" rx="3" fill="#F7F2E3" stroke-width="2"/>
+            </g>
+            <text x="477" y="435" text-anchor="middle" font-family="IBM Plex Mono, monospace" font-size="11.5" font-weight="600" fill="#2A1E0E">package</text>
+
+            <!-- the left one: Test before Code -->
+            <g class="tug-a">
+              <g fill="none" stroke="var(--dim)" stroke-width="3" stroke-linecap="round" opacity=".7">
+                <path d="M58,272 L28,270"/><path d="M62,300 L22,300"/><path d="M56,328 L32,330"/>
+              </g>
+              <!-- legs -->
+              <g fill="none" stroke-linecap="round">
+                <path d="M158,346 L100,448" stroke="var(--outline)" stroke-width="30"/>
+                <path d="M166,346 L196,448" stroke="var(--outline)" stroke-width="30"/>
+                <path d="M158,346 L100,448" stroke="var(--pants)" stroke-width="23"/>
+                <path d="M166,346 L196,448" stroke="var(--pants)" stroke-width="23"/>
+              </g>
+              <g fill="#6B4A33" stroke="var(--outline)" stroke-width="3">
+                <ellipse cx="90" cy="454" rx="25" ry="10"/>
+                <ellipse cx="206" cy="454" rx="25" ry="10"/>
+              </g>
+              <!-- body -->
+              <path d="M110,250 Q134,224 166,236 L190,352 Q160,374 126,357 Z" fill="var(--top-a)" stroke="var(--outline)" stroke-width="4" stroke-linejoin="round"/>
+              <!-- head -->
+              <circle cx="88" cy="160" r="19" fill="var(--hair-a)" stroke="var(--outline)" stroke-width="3"/>
+              <circle cx="122" cy="190" r="40" fill="var(--skin-a)" stroke="var(--outline)" stroke-width="4"/>
+              <path d="M84,204 Q76,146 126,147 Q164,149 161,178 Q140,166 113,176 Q100,186 96,208 Z" fill="var(--hair-a)" stroke="var(--outline)" stroke-width="3" stroke-linejoin="round"/>
+              <circle cx="138" cy="203" r="6" fill="#E0806B" opacity=".45"/>
+              <circle cx="143" cy="186" r="4" fill="var(--outline)"/>
+              <path d="M132,172 L153,180" stroke="var(--outline)" stroke-width="4" stroke-linecap="round"/>
+              <path d="M139,207 Q150,218 160,205 Z" fill="#6E2B26" stroke="var(--outline)" stroke-width="3" stroke-linejoin="round"/>
+              <!-- the banner, left half -->
+              <path d="M222,262 Q350,252 470,266 L474,274 L464,282 L476,290 L465,298 L477,306 L466,314 L472,322 Q350,332 222,320 Z" fill="var(--board)" stroke="var(--outline)" stroke-width="3" stroke-linejoin="round"/>
+              <text class="wide" x="244" y="299" font-family="Kalam, cursive" font-size="18" font-weight="700" fill="var(--board-ink)">Design → <tspan fill="#3F6E12">Test</tspan> → Code</text>
+              <text class="narrow" x="262" y="303" font-family="Kalam, cursive" font-size="30" font-weight="700" fill="var(--board-ink)"><tspan fill="#3F6E12">Test</tspan> → Code</text>
+              <!-- arms and hands -->
+              <g fill="none" stroke-linecap="round">
+                <path d="M146,252 Q188,268 228,280" stroke="var(--outline)" stroke-width="22"/>
+                <path d="M138,264 Q184,292 226,298" stroke="var(--outline)" stroke-width="22"/>
+                <path d="M146,252 Q188,268 228,280" stroke="var(--top-a)" stroke-width="15"/>
+                <path d="M138,264 Q184,292 226,298" stroke="var(--top-a)" stroke-width="15"/>
+              </g>
+              <g fill="var(--skin-a)" stroke="var(--outline)" stroke-width="3">
+                <circle cx="233" cy="279" r="12"/><circle cx="231" cy="299" r="12"/>
+              </g>
+            </g>
+
+            <!-- the right one: Code before Test -->
+            <g class="tug-b">
+              <g fill="none" stroke="var(--dim)" stroke-width="3" stroke-linecap="round" opacity=".7">
+                <path d="M902,272 L932,270"/><path d="M898,300 L938,300"/><path d="M904,328 L928,330"/>
+              </g>
+              <g fill="none" stroke-linecap="round">
+                <path d="M802,346 L860,448" stroke="var(--outline)" stroke-width="30"/>
+                <path d="M794,346 L764,448" stroke="var(--outline)" stroke-width="30"/>
+                <path d="M802,346 L860,448" stroke="var(--pants)" stroke-width="23"/>
+                <path d="M794,346 L764,448" stroke="var(--pants)" stroke-width="23"/>
+              </g>
+              <g fill="#3B3F48" stroke="var(--outline)" stroke-width="3">
+                <ellipse cx="870" cy="454" rx="25" ry="10"/>
+                <ellipse cx="754" cy="454" rx="25" ry="10"/>
+              </g>
+              <path d="M850,250 Q826,224 794,236 L770,352 Q800,374 834,357 Z" fill="var(--top-b)" stroke="var(--outline)" stroke-width="4" stroke-linejoin="round"/>
+              <circle cx="838" cy="190" r="40" fill="var(--skin-b)" stroke="var(--outline)" stroke-width="4"/>
+              <path d="M800,180 Q798,147 840,147 Q882,149 878,198 Q870,172 846,169 Q820,166 800,180 Z" fill="var(--hair-b)" stroke="var(--outline)" stroke-width="3" stroke-linejoin="round"/>
+              <path d="M808,214 Q812,234 836,232 Q858,229 866,210 Q852,220 836,219 Q820,218 808,214 Z" fill="var(--hair-b)" stroke="var(--outline)" stroke-width="3" stroke-linejoin="round"/>
+              <ellipse cx="813" cy="210" rx="7" ry="6" fill="#6E2B26" stroke="var(--outline)" stroke-width="2.5"/>
+              <circle cx="817" cy="186" r="4" fill="var(--outline)"/>
+              <circle cx="815" cy="186" r="12" fill="#FFFFFF" fill-opacity=".22" stroke="var(--outline)" stroke-width="3"/>
+              <path d="M827,184 L852,181" stroke="var(--outline)" stroke-width="3" stroke-linecap="round"/>
+              <path d="M829,170 L806,178" stroke="var(--outline)" stroke-width="4" stroke-linecap="round"/>
+              <path class="sweat" d="M862,148 Q871,161 862,166 Q853,161 862,148 Z" fill="var(--evidence)" stroke="var(--outline)" stroke-width="2"/>
+              <!-- the banner, right half -->
+              <path d="M738,262 Q610,252 490,266 L486,274 L496,282 L484,290 L495,298 L483,306 L494,314 L488,322 Q610,332 738,320 Z" fill="var(--board)" stroke="var(--outline)" stroke-width="3" stroke-linejoin="round"/>
+              <text class="wide" x="500" y="299" font-family="Kalam, cursive" font-size="18" font-weight="700" fill="var(--board-ink)">Design → <tspan fill="#1F4E9E">Code</tspan> → Test</text>
+              <text class="narrow" x="512" y="303" font-family="Kalam, cursive" font-size="30" font-weight="700" fill="var(--board-ink)"><tspan fill="#1F4E9E">Code</tspan> → Test</text>
+              <g fill="none" stroke-linecap="round">
+                <path d="M814,252 Q772,268 732,280" stroke="var(--outline)" stroke-width="22"/>
+                <path d="M822,264 Q776,292 734,298" stroke="var(--outline)" stroke-width="22"/>
+                <path d="M814,252 Q772,268 732,280" stroke="var(--top-b)" stroke-width="15"/>
+                <path d="M822,264 Q776,292 734,298" stroke="var(--top-b)" stroke-width="15"/>
+              </g>
+              <g fill="var(--skin-b)" stroke="var(--outline)" stroke-width="3">
+                <circle cx="727" cy="279" r="12"/><circle cx="729" cy="299" r="12"/>
+              </g>
+            </g>
+          </svg>
+        </figure>
+
+        <div class="caption">
+          <h1>No two teams have <span class="ever">ever</span> agreed on a development lifecycle.</h1>
+          <p class="turn">So this one is <b>built to be tailored</b>. Change the stages, change who holds them, and every agent still ends the same way: with a signed Descriptor and a registration, and, when a platform runs it, an Agent Package.</p>
+          <div class="cta">
+            <a class="btn btn-signal" href="stages.html">Read the stages</a>
+            <a class="btn btn-ghost" href="https://github.com/CommonAgent/adlc">Get the code</a>
+          </div>
+        </div>
+      </section>
+
+      <section class="band">
+        <div class="split">
+          <div>
+            <h2>Every stage says who holds it and how you know it's done.</h2>
+            <p>This reference runs through twenty-four stages, from the first idea to the last day. Each names its role, what it's given, what it hands back, and how you know it's done. Here's one.</p>
+          </div>
+          <div class="stagecard">
+            <h3><a href="stages.html#test">Test</a></h3>
+            <dl>
+              <dt>Role</dt><dd><a href="https://agentroles.ai/test-writer.html">test writer</a></dd>
+              <dt>Given</dt><dd>the statement of the job</dd>
+              <dt>Hands back</dt><dd>the suite, and what no test could be written for</dd>
+              <dt>Done when</dt><dd>the suite fails against empty stand-ins, and notices each program removed</dd>
+              <dt>Why here</dt><dd>Tests come before the program, from the statement, so a test can't pass by agreeing with a mistake. (Yes, people argue about this.)</dd>
+            </dl>
+          </div>
+        </div>
+      </section>
+
+      <section class="band" id="customize">
+        <h2>Cut it to fit the way you work.</h2>
+        <p>Add the stages you need, drop the ones you don't, and name them whatever you like. Put your own agent, a vendor's or a person in any role.</p>
+        <ul class="strip" aria-label="A tailored lifecycle">
+          <li><span class="chip renamed"><span class="nm"><span class="was">Requirements</span>Wishlist</span><small>new name</small></span></li>
+          <li><span class="chip"><span class="nm">Test</span><small>as written</small></span></li>
+          <li><span class="chip held"><span class="nm">Code</span><small>your own agent</small></span></li>
+          <li><span class="chip added"><span class="nm">Legal review</span><small>added</small></span></li>
+          <li><span class="chip pkg"><svg class="box-ico" viewBox="0 0 24 24" aria-hidden="true" focusable="false" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3 4 7v10l8 4 8-4V7z"/><path d="m4 7 8 4 8-4M12 11v10"/></svg><span class="nm">Package</span><small>on-ramp</small></span></li>
+          <li><span class="chip pkg"><svg class="box-ico" viewBox="0 0 24 24" aria-hidden="true" focusable="false" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3 4 7v10l8 4 8-4V7z"/><path d="m4 7 8 4 8-4M12 11v10"/></svg><span class="nm">Release</span><small>on-ramp</small></span></li>
+          <li><span class="chip dropped"><span class="nm">Eval</span><small>dropped</small></span></li>
+        </ul>
+      </section>
+
+      <section class="band" id="join">
+        <h2>Join the lifecycle where you are.</h2>
+        <p>Everybody starts from something: an idea, a prototype, working code, a package. Find the furthest one you have, and start at the stage right after it.</p>
+        <ol class="lookup">
+          <li><span class="lk-have">If you already have <b>an idea</b>,</span><span class="lk-start">start at <a class="stage-link" href="stages.html#requirements">Requirements</a></span></li>
+          <li><span class="lk-have">If you already have <b>a prototype</b>,</span><span class="lk-start">start at <a class="stage-link" href="stages.html#test">Test</a>, then <a class="stage-link" href="stages.html#code">Code</a></span></li>
+          <li><span class="lk-have">If you already have <b>working code</b>,</span><span class="lk-start">start at <a class="stage-link onramp" href="stages.html#package"><svg class="box-ico" viewBox="0 0 24 24" aria-hidden="true" focusable="false" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3 4 7v10l8 4 8-4V7z"/><path d="m4 7 8 4 8-4M12 11v10"/></svg>Package</a> <span class="onramp-tag">on-ramp</span></span></li>
+          <li><span class="lk-have">If you already have <b>a package or an image</b>,</span><span class="lk-start">start at <a class="stage-link onramp" href="stages.html#release"><svg class="box-ico" viewBox="0 0 24 24" aria-hidden="true" focusable="false" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3 4 7v10l8 4 8-4V7z"/><path d="m4 7 8 4 8-4M12 11v10"/></svg>Release</a> <span class="onramp-tag">on-ramp</span>, then <a class="stage-link golive" href="stages.html#deploy"><svg class="live-ico" viewBox="0 0 24 24" aria-hidden="true" focusable="false" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v8"/><path d="M6.3 6.8a8 8 0 1 0 11.4 0"/></svg>Deploy</a> <span class="golive-tag">goes live</span></span></li>
+          <li><span class="lk-have">If you already have <b>a remote agent with an A2A endpoint</b>,</span><span class="lk-start">register it; add what it refuses and records</span></li>
+          <li><span class="lk-have">If you already have <b>an agent connected to a network through a node</b>,</span><span class="lk-start">it's already on; finish its <a class="stage-link" href="https://commonagent.net/descriptor.html">Descriptor</a></span></li>
+          <li><span class="lk-have">If you already have <b>agents running on a platform</b>,</span><span class="lk-start">start at <a class="stage-link" href="stages.html#phase-run">Run</a> and <a class="stage-link" href="stages.html#phase-change">Change</a></span></li>
+        </ol>
+        <p class="more"><a href="assets.html">See every asset, and which ones are required</a></p>
+      </section>
+
+      <section class="band">
+        <div class="split">
+          <div>
+            <h2>Everyone agrees on the ending.</h2>
+            <p>However your lifecycle runs, every agent ends with a signed <a href="https://commonagent.net/descriptor.html">Descriptor</a> and a registration. An agent a platform runs also arrives as an <a href="https://commonagent.net/package.html">Agent Package</a>: the declaration, the parts, a manifest and a digest.</p>
+            <p>Our <a href="https://github.com/CommonAgent/adlc/tree/main/agents/package-maker">package maker</a> is the easy on-ramp to the mesh. Any other tool works, as long as the package is valid.</p>
+            <p>A platform checks every package before it installs or updates anything, so every agent it runs meets the same gate, whoever built it.</p>
+          </div>
+          <div class="routes">
+            <svg viewBox="0 0 460 270" role="img" aria-label="Three very different routes, all ending in the same box labeled package">
+              <text x="16" y="34">seven stages</text>
+              <path d="M18,50 C110,50 130,18 196,42 S300,118 352,128" fill="none" stroke="var(--accent-ink)" stroke-width="4" stroke-linecap="round"/>
+              <text x="16" y="120">twenty-four stages</text>
+              <path d="M18,138 C78,98 118,180 178,140 S258,98 300,138 L352,134" fill="none" stroke="var(--evidence-ink)" stroke-width="4" stroke-linecap="round"/>
+              <path d="M18,212 C88,212 98,160 158,186 S238,240 270,196 Q290,160 316,176 Q336,190 322,206 Q300,214 304,186 Q312,150 352,140" fill="none" stroke="var(--recorded-ink)" stroke-width="4" stroke-linecap="round"/>
+              <text x="16" y="252">two stages and a lot of hope</text>
+              <g stroke="var(--outline)" stroke-width="3" stroke-linejoin="round">
+                <polygon points="356,112 374,98 448,98 430,112" fill="#E9BD80"/>
+                <polygon points="430,112 448,98 448,152 430,166" fill="var(--box-side)"/>
+                <rect x="356" y="112" width="74" height="54" fill="var(--box)"/>
+                <rect x="361" y="128" width="64" height="22" rx="3" fill="#F7F2E3" stroke-width="2"/>
+              </g>
+              <text class="pkg-label" x="393" y="143" text-anchor="middle">package</text>
+            </svg>
+          </div>
+        </div>
+      </section>
+
+      <section class="band">
+        <h2>Any agent can hold a role, and so can you.</h2>
+        <p>Every stage names a role, not a product. The roles are written down at <a href="https://agentroles.ai">agentroles.ai</a>, so anyone can build an agent to one, and a person can hold any of them.</p>
+        <ul class="roles">
+          <li><a href="https://agentroles.ai/spec-writer.html">spec writer</a></li>
+          <li><a href="https://agentroles.ai/test-writer.html">test writer</a></li>
+          <li><a href="https://agentroles.ai/code-writer.html">code writer</a></li>
+          <li><a href="https://agentroles.ai/package-maker.html">package maker</a></li>
+          <li><a href="https://agentroles.ai/deployment-manager.html">deployment manager</a></li>
+          <li><a href="https://agentroles.ai/incident-recorder.html">incident recorder</a></li>
+          <li><span class="you">or a person</span></li>
+        </ul>
+      </section>
+
+      <section class="band">
+        <div class="split">
+          <div>
+            <h2>Start from working code, not a blank page.</h2>
+            <p>Reference agents for eleven roles are open source under Apache-2.0, at <a href="https://github.com/CommonAgent/adlc">github.com/CommonAgent/adlc</a>.</p>
+            <p>Run them, read them, or swap in your own.</p>
+          </div>
+          <div class="term">
+            <div class="bar"><span class="lamp"></span>CommonAgent/adlc</div>
+<pre><span class="k">$</span> git clone https://github.com/CommonAgent/adlc
+<span class="k">$</span> cd adlc/agents/test-writer
+<span class="k"># eleven agents, one folder each:</span>
+<span class="g">spec-writer  test-writer  code-writer
+package-maker  deployment-manager
+conformance-checker  publisher  catalog
+documenter  incident-recorder
+solution-planner</span></pre>
+          </div>
+        </div>
+      </section>
+
+      <section class="band" id="processes">
+        <h2>Copy a process instead of writing one.</h2>
+        <p>Here are three examples, in the open format at <a href="https://agentprocesses.ai/">agentprocesses.ai</a>. Copy one, put your own holders in it, and run it.</p>
+        <div class="procs">
+          <a class="proc" href="https://agentprocesses.ai/make-a-new-agent.html">
+            <h3>Make a new agent</h3>
+            <p>A request in words becomes a deployed agent, with the owner's yes at three gates.</p>
+            <span class="go">agentprocesses.ai/make-a-new-agent</span>
+          </a>
+          <a class="proc" href="https://agentprocesses.ai/record-an-incident.html">
+            <h3>Record an incident</h3>
+            <p>Notice it, gather the records, write it down with every gap named, then decide.</p>
+            <span class="go">agentprocesses.ai/record-an-incident</span>
+          </a>
+          <a class="proc" href="https://agentprocesses.ai/retire-an-agent.html">
+            <h3>Retire an agent</h3>
+            <p>Take the listing down, get the owner's yes, remove it, close its AgentDoc.</p>
+            <span class="go">agentprocesses.ai/retire-an-agent</span>
+          </a>
+        </div>
+      </section>
+
+      <section class="band">
+        <h2>Here is the whole map.</h2>
+        <p>Open any stage for its role, its handoffs and its check.</p>
+        <div class="map">
+          <div class="phase"><h3>Define</h3><ul>
+            <li><a href="stages.html#requirements">Requirements</a></li>
+            <li><a href="stages.html#architecture">Architecture and Design</a></li>
+            <li><a href="stages.html#impact">Impact</a></li>
+            <li><a href="stages.html#source">Source</a></li>
+          </ul></div>
+          <div class="phase"><h3>Make</h3><ul>
+            <li><a href="stages.html#test">Test</a></li>
+            <li><a href="stages.html#code">Code</a></li>
+            <li><a href="stages.html#review">Review</a></li>
+            <li><a href="stages.html#security">Security review</a></li>
+          </ul></div>
+          <div class="phase"><h3>Ship</h3><ul>
+            <li class="onramp"><a href="stages.html#package"><svg class="box-ico" viewBox="0 0 24 24" aria-hidden="true" focusable="false" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3 4 7v10l8 4 8-4V7z"/><path d="m4 7 8 4 8-4M12 11v10"/></svg>Package <span class="onramp-tag">on-ramp</span></a></li>
+            <li class="onramp"><a href="stages.html#release"><svg class="box-ico" viewBox="0 0 24 24" aria-hidden="true" focusable="false" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3 4 7v10l8 4 8-4V7z"/><path d="m4 7 8 4 8-4M12 11v10"/></svg>Release <span class="onramp-tag">on-ramp</span></a></li>
+            <li class="onramp-note">The on-ramp: your work becomes an Agent Package.</li>
+            <li class="golive"><a href="stages.html#deploy"><svg class="live-ico" viewBox="0 0 24 24" aria-hidden="true" focusable="false" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v8"/><path d="M6.3 6.8a8 8 0 1 0 11.4 0"/></svg>Deploy <span class="golive-tag">goes live</span></a></li>
+            <li class="onramp-note golive-line">Goes live: credentials and limits in place before it starts.</li>
+          </ul></div>
+          <div class="phase"><h3>Prove</h3><ul>
+            <li><a href="stages.html#conformance">Conformance</a></li>
+            <li><a href="stages.html#acceptance">Acceptance</a></li>
+          </ul></div>
+          <div class="phase"><h3>Use</h3><ul>
+            <li><a href="stages.html#docs">Docs</a></li>
+            <li><a href="stages.html#publish">Publish</a></li>
+            <li><a href="stages.html#retract">Retract</a></li>
+          </ul></div>
+          <div class="phase"><h3>Run</h3><ul>
+            <li><a href="stages.html#monitor">Monitor</a></li>
+            <li><a href="stages.html#eval">Eval</a></li>
+            <li><a href="stages.html#incident">Incident response</a></li>
+            <li><a href="stages.html#cost">Cost</a></li>
+          </ul></div>
+          <div class="phase"><h3>Change</h3><ul>
+            <li><a href="stages.html#update">Update</a></li>
+            <li><a href="stages.html#reconfigure">Reconfigure</a></li>
+            <li><a href="stages.html#rollback">Rollback</a></li>
+            <li><a href="stages.html#decommission">Decommission</a></li>
+          </ul></div>
+        </div>
+        <p id="ledger">Beside the stages sits the <a href="stages.html#ledger">ledger</a>, where the debts a change leaves behind are written down.</p>
+        <div class="cta">
+          <a class="btn btn-signal" href="stages.html">Read the stages</a>
+          <a class="btn btn-ghost" href="handoffs.html">See the handoffs</a>
+        </div>
+      </section>
+
+      <footer class="footer">
+        <span>Agentic Development</span>
+        <span>Sponsored by <a href="https://agentmesh.ai">AgentMesh</a></span>
+        <span>Reference agents under Apache-2.0 on <a href="https://github.com/CommonAgent/adlc">GitHub</a></span>
+      </footer>
+
+    </div>
+  </main>
+</div>
+</body>
+</html>
