@@ -219,10 +219,10 @@
       <section class="band">
         <div class="split">
           <div>
-            <h2>Everyone agrees on the ending.</h2>
-            <p>However your lifecycle runs, every agent ends with a signed <a href="https://commonagent.net/descriptor.html">Descriptor</a> and a registration. An agent a platform runs also arrives as an <a href="https://commonagent.net/package.html">Agent Package</a>: the declaration, the parts, a manifest and a digest.</p>
-            <p>Our <a href="https://github.com/CommonAgent/adlc/tree/main/agents/package-maker">package maker</a> is the easy on-ramp to the mesh. Any other tool works, as long as the package is valid.</p>
-            <p>You can build your agent any way you like. Before it reaches production or the catalog, it must pass <a href="gates.html">a few gates</a>, and each gate checks the agent and its records, not how it was built.</p>
+            <h2>However you build it, every agent must pass the same gates.</h2>
+            <p>Every agent needs a signed <a href="https://commonagent.net/descriptor.html">Descriptor</a> and a registration. An agent a platform runs also needs an <a href="https://commonagent.net/package.html">Agent Package</a>. The package holds the declaration, the parts, a manifest and a digest.</p>
+            <p>Our <a href="https://github.com/CommonAgent/adlc/tree/main/agents/package-maker">package maker</a> is the easy on-ramp. Any other tool works if the package is valid.</p>
+            <p>Before an agent reaches production or the catalog, it must pass <a href="gates.html">a few gates</a>. Each gate checks the agent and its records. No gate checks how the agent was built.</p>
           </div>
           <div class="routes">
             <svg viewBox="0 0 460 270" role="img" aria-label="Three very different routes, all ending in the same box labeled package">
