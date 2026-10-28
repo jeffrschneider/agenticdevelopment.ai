@@ -135,12 +135,12 @@
         <p>Everything before the package is yours to shape. Every agent, wherever it runs, ends with a signed <a href="https://commonagent.net/descriptor.html">Descriptor</a> and a registration that points at it. An agent a platform runs also has its <a href="https://commonagent.net/package.html">Agent Package</a> and the records each later stage leaves.</p>
 
         <h2 id="standing">Standing assets belong to the organization, not to one agent.</h2>
-        <p>Every asset above is made for one agent. A standing asset is a document that many agents read, such as a brand profile or a glossary. An organization, a team or a person keeps it. Its schema says what kind of document it is. Each version has its own digest. A person approves each version before any job uses it. It never holds a secret.</p>
+        <p>Every asset above is made for one agent. A standing asset is a document that many agents read, such as a brand profile or a glossary. An organization, a team or a person keeps it. Its schema says what kind of document it is. Each version has its own digest. A person approves each version before any job uses it. It never contains a secret.</p>
 
         <h2>Every agent draws on three things.</h2>
         <ul class="qs">
           <li><b>Setup</b><span>Setup is what the agent is connected to, and with which keys. The operator does it once, at install. Secrets live here and nowhere else. A person preparing a job is never asked for any of it.</span></li>
-          <li><b>Library</b><span>The library holds the organization's shared material and defaults, such as its brand and its templates. Standing assets live here.</span></li>
+          <li><b>Library</b><span>The library contains the organization's shared material and defaults, such as its brand and its templates. Standing assets live here.</span></li>
           <li><b>This job</b><span>This job is what you give the agent, and your options for this run.</span></li>
         </ul>
         <p><a class="stage-link" href="stages.html#architecture">Architecture</a> decides which standing assets an agent reads, with a reason for each. Design declares those same assets as <code>can_use</code> entries. <a class="stage-link" href="stages.html#package">Package</a> checks that each entry names a known schema. Every run record names the version of each standing asset the run used.</p>
