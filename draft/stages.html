@@ -5,11 +5,11 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="robots" content="noindex">
   <title>The stages: Agentic Development</title>
-  <meta name="description" content="All twenty-four stages of the reference Agent Development Lifecycle: the role that holds each, what it is given, what it hands back, and how you can tell it is done.">
+  <meta name="description" content="All twenty-five stages of the reference Agent Development Lifecycle: the role that holds each, what it is given, what it hands back, and how you can tell it is done.">
   <meta property="og:type" content="website">
   <meta property="og:site_name" content="Agentic Development">
   <meta property="og:title" content="The stages | Agentic Development">
-  <meta property="og:description" content="All twenty-four stages of the reference Agent Development Lifecycle: the role that holds each, what it is given, what it hands back, and how you can tell it is done.">
+  <meta property="og:description" content="All twenty-five stages of the reference Agent Development Lifecycle: the role that holds each, what it is given, what it hands back, and how you can tell it is done.">
   <meta property="og:url" content="https://agenticdevelopment.ai/stages.html">
   <meta property="og:image" content="https://agenticdevelopment.ai/brand/png/og-image-v2.png">
   <meta property="og:image:width" content="1200">
@@ -49,7 +49,7 @@
     <div class="wrap">
 
       <header class="page-head">
-        <h1>Here are all twenty-four stages.</h1>
+        <h1>Here are all twenty-five stages.</h1>
         <p class="turn">They run in seven phases, from the first idea to the last day. Each card says who holds the stage, what it's given, what it hands back, and how you know it's done. Keep what you need.</p>
         <ul class="jump" aria-label="Jump to a phase">
           <li><a href="#phase-define">Define</a></li>
@@ -60,12 +60,12 @@
           <li><a href="#phase-run">Run</a></li>
           <li><a href="#phase-change">Change</a></li>
         </ul>
-        <p class="note">Retract and Rollback name their roles; the reference publisher and deployment-manager agents don't hold them.</p>
+        <p class="note">Each card names the family of reference agents that holds the stage, or says open when no reference agent holds it yet. Retract and Rollback name their roles; the reference publisher and deployment-manager agents don't hold them.</p>
       </header>
 
         <h2 class="phase-head" id="phase-define">Define</h2>
         <section class="stage" id="requirements">
-          <div class="head"><svg class="ico" viewBox="0 0 24 24" aria-hidden="true" focusable="false" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M6 3h8l4 4v14H6z"/><path d="M14 3v4h4"/><path d="M9 12h6M9 16h6"/></svg><h2>Requirements</h2><span class="num">01</span><a class="agent-on" href="https://github.com/CommonAgent/adlc/tree/main/agents/spec-writer">spec-writer</a><a class="agent-on" href="https://github.com/CommonAgent/adlc/tree/main/agents/solution-planner">solution-planner</a></div>
+          <div class="head"><svg class="ico" viewBox="0 0 24 24" aria-hidden="true" focusable="false" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M6 3h8l4 4v14H6z"/><path d="M14 3v4h4"/><path d="M9 12h6M9 16h6"/></svg><h2>Requirements</h2><span class="num">01</span><a class="agent-on" href="https://github.com/CommonAgent/adlc/tree/main/agents/spec-writer">spec-writer</a><a class="agent-on" href="https://github.com/CommonAgent/adlc/tree/main/agents/solution-planner">solution-planner</a><span class="family-tag">family: Builders</span></div>
           <p class="why">Whoever builds from it can't ask what you meant, so it says everything, and never invents a name, a price or a permission.</p>
           <dl>
             <dt>Role</dt><dd><a href="https://agentroles.ai/spec-writer.html">spec writer</a> for an agent; <a href="https://agentroles.ai/solution-planner.html">solution planner</a> for a solution</dd>
@@ -75,14 +75,14 @@
           </dl>
         </section>
         <section class="stage" id="architecture"><span id="design" aria-hidden="true"></span>
-          <div class="head"><svg class="ico" viewBox="0 0 24 24" aria-hidden="true" focusable="false" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M4 20 20 4"/><path d="M4 14v6h6"/><path d="M14 4h6v6"/><circle cx="12" cy="12" r="2.4"/></svg><h2>Architecture and Design</h2><span class="num">02</span><span class="role-tag">role: <a href="https://agentroles.ai/solution-architect.html">solution architect</a></span><a class="agent-on" href="https://github.com/CommonAgent/adlc/tree/main/agents/spec-writer">spec-writer</a><a class="agent-on" href="https://github.com/CommonAgent/adlc/tree/main/agents/solution-planner">solution-planner</a></div>
+          <div class="head"><svg class="ico" viewBox="0 0 24 24" aria-hidden="true" focusable="false" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M4 20 20 4"/><path d="M4 14v6h6"/><path d="M14 4h6v6"/><circle cx="12" cy="12" r="2.4"/></svg><h2>Architecture and Design</h2><span class="num">02</span><a class="agent-on" href="https://github.com/CommonAgent/adlc/tree/main/agents/solution-architect">solution-architect</a><a class="agent-on" href="https://github.com/CommonAgent/adlc/tree/main/agents/spec-writer">spec-writer</a><a class="agent-on" href="https://github.com/CommonAgent/adlc/tree/main/agents/solution-planner">solution-planner</a><span class="family-tag">family: Builders</span></div>
           <p class="why">The systems named here become the package's runtime requirements, and the bindings are what Deploy places.</p>
           <div class="part">
             <h3>Architecture</h3>
             <dl>
               <dt>Role</dt><dd><a href="https://agentroles.ai/solution-architect.html">solution architect</a>, or a person</dd>
-              <dt>Given</dt><dd>the statement of the job, and the organization's stack</dd>
-              <dt>Hands back</dt><dd>an architecture record:<ul class="handlist"><li>the systems the agent reaches, in plain words (database, files, text reasoning, mail sender)</li><li>the product bound to each in dev, test and production: the organization's stack first, a platform default for the rest</li><li>dependencies on other agents and services</li><li>the agent's kind: a harness reading skills, code that speaks the network itself, or a container</li><li>limits on cost, speed, data and trust</li><li>each decision, with its reason</li></ul></dd>
+              <dt>Given</dt><dd>the statement of the job, the organization's stack, and the other standing assets in its library</dd>
+              <dt>Hands back</dt><dd>an architecture record:<ul class="handlist"><li>the systems the agent reaches, in plain words (database, files, text reasoning, mail sender)</li><li>the product bound to each in dev, test and production: the organization's stack first, a platform default for the rest</li><li>dependencies on other agents and services</li><li>the agent's kind: a harness reading skills, code that speaks the network itself, or a container</li><li>limits on cost, speed, data and trust</li><li>the <a href="assets.html#standing">standing assets</a> the agent reads, such as the brand profile or the glossary, each with the reason it reads it</li><li>each decision, with its reason</li></ul></dd>
             </dl>
           </div>
           <div class="part">
@@ -90,15 +90,15 @@
             <dl>
               <dt>Role</dt><dd><a href="https://agentroles.ai/spec-writer.html">spec writer</a> for an agent; <a href="https://agentroles.ai/solution-planner.html">solution planner</a> for a solution</dd>
               <dt>Given</dt><dd>the statement, and the architecture record</dd>
-              <dt>Hands back</dt><dd>the steps, what each is given and hands back, and whether each is a program or a judgment</dd>
+              <dt>Hands back</dt><dd>the steps, what each is given and hands back, and whether each is a program or a judgment; and the standing assets the architecture chose, declared as <code>can_use</code>, each saying what the agent reads, what it does with it, and what it does without it</dd>
             </dl>
           </div>
           <dl class="done">
-            <dt>Done when</dt><dd>every system is named and bound in each environment it will run in, every decision has a reason, and every design step uses only systems the architecture named</dd>
+            <dt>Done when</dt><dd>every system is named and bound in each environment it will run in, every decision has a reason, every design step uses only systems the architecture named, and the design's <code>can_use</code> lists exactly the standing assets the architecture chose</dd>
           </dl>
         </section>
         <section class="stage" id="impact">
-          <div class="head"><svg class="ico" viewBox="0 0 24 24" aria-hidden="true" focusable="false" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="2"/><path d="M8.2 7.8a6 6 0 0 0 0 8.4M15.8 7.8a6 6 0 0 1 0 8.4"/><path d="M5.1 4.9a10 10 0 0 0 0 14.2M18.9 4.9a10 10 0 0 1 0 14.2"/></svg><h2>Impact</h2><span class="num">03</span><span class="role-tag">role: <a href="https://agentroles.ai/impact-analyst.html">impact analyst</a></span></div>
+          <div class="head"><svg class="ico" viewBox="0 0 24 24" aria-hidden="true" focusable="false" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="2"/><path d="M8.2 7.8a6 6 0 0 0 0 8.4M15.8 7.8a6 6 0 0 1 0 8.4"/><path d="M5.1 4.9a10 10 0 0 0 0 14.2M18.9 4.9a10 10 0 0 1 0 14.2"/></svg><h2>Impact</h2><span class="num">03</span><a class="agent-on" href="https://github.com/CommonAgent/adlc/tree/main/agents/impact-analyst">impact-analyst</a><span class="family-tag">family: Builders</span></div>
           <p class="why">A change that's safe for its owner can break everyone who depends on it.</p>
           <dl>
             <dt>Role</dt><dd><a href="https://agentroles.ai/impact-analyst.html">impact analyst</a></dd>
@@ -108,18 +108,19 @@
           </dl>
         </section>
         <section class="stage" id="source">
-          <div class="head"><svg class="ico" viewBox="0 0 24 24" aria-hidden="true" focusable="false" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="4" width="6.5" height="6.5" rx="1.2"/><rect x="13.5" y="4" width="6.5" height="6.5" rx="1.2"/><rect x="4" y="13.5" width="6.5" height="6.5" rx="1.2"/><path d="M16.75 14v6M13.75 17h6"/></svg><h2>Source</h2><span class="num">04</span><a class="agent-on" href="https://github.com/CommonAgent/adlc/tree/main/agents/catalog">catalog</a></div>
+          <div class="head"><svg class="ico" viewBox="0 0 24 24" aria-hidden="true" focusable="false" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="4" width="6.5" height="6.5" rx="1.2"/><rect x="13.5" y="4" width="6.5" height="6.5" rx="1.2"/><rect x="4" y="13.5" width="6.5" height="6.5" rx="1.2"/><path d="M16.75 14v6M13.75 17h6"/></svg><h2>Source</h2><span class="num">04</span><a class="agent-on" href="https://github.com/CommonAgent/adlc/tree/main/agents/catalog">catalog</a><span class="family-tag">family: Builders</span></div>
           <p class="why">The cheapest step is one somebody already built and checked.</p>
           <dl>
             <dt>Role</dt><dd><a href="https://agentroles.ai/catalog.html">catalog</a></dd>
             <dt>Given</dt><dd>the steps, each with what it takes and hands back</dd>
             <dt>Hands back</dt><dd>for each step, an agent or solution that fits, or "build one" with the reason</dd>
-            <dt>Done when</dt><dd>every step has an answer, and every "build one" says why</dd>
+            <dt>Done when</dt><dd>every step has an answer, every "build one" says why, and every agent offered has a current audit pass</dd>
           </dl>
+          <p class="gate-note"><b>The listing gate.</b> The catalog lists an agent only while an <a href="#audit">audit report</a> for its package digest says pass, or pass with findings, and hasn't expired.</p>
         </section>
         <h2 class="phase-head" id="phase-make">Make</h2>
         <section class="stage" id="test">
-          <div class="head"><svg class="ico" viewBox="0 0 24 24" aria-hidden="true" focusable="false" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M10 3v6l-5 9a2 2 0 0 0 1.8 3h10.4a2 2 0 0 0 1.8-3l-5-9V3"/><path d="M9 3h6"/></svg><h2>Test</h2><span class="num">05</span><a class="agent-on" href="https://github.com/CommonAgent/adlc/tree/main/agents/test-writer">test-writer</a></div>
+          <div class="head"><svg class="ico" viewBox="0 0 24 24" aria-hidden="true" focusable="false" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M10 3v6l-5 9a2 2 0 0 0 1.8 3h10.4a2 2 0 0 0 1.8-3l-5-9V3"/><path d="M9 3h6"/></svg><h2>Test</h2><span class="num">05</span><a class="agent-on" href="https://github.com/CommonAgent/adlc/tree/main/agents/test-writer">test-writer</a><span class="family-tag">family: Builders</span></div>
           <p class="why">Tests come before the program, from the statement, so a test can't pass by agreeing with a mistake. (Yes, people argue about this.)</p>
           <dl>
             <dt>Role</dt><dd><a href="https://agentroles.ai/test-writer.html">test writer</a></dd>
@@ -129,7 +130,7 @@
           </dl>
         </section>
         <section class="stage" id="code">
-          <div class="head"><svg class="ico" viewBox="0 0 24 24" aria-hidden="true" focusable="false" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="m8 7-5 5 5 5"/><path d="m16 7 5 5-5 5"/></svg><h2>Code</h2><span class="num">06</span><a class="agent-on" href="https://github.com/CommonAgent/adlc/tree/main/agents/code-writer">code-writer</a></div>
+          <div class="head"><svg class="ico" viewBox="0 0 24 24" aria-hidden="true" focusable="false" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="m8 7-5 5 5 5"/><path d="m16 7 5 5-5 5"/></svg><h2>Code</h2><span class="num">06</span><a class="agent-on" href="https://github.com/CommonAgent/adlc/tree/main/agents/code-writer">code-writer</a><span class="family-tag">family: Builders</span></div>
           <p class="why">Any code writer can hold it; your prototype is read as the spec and written again against the suite.</p>
           <dl>
             <dt>Role</dt><dd><a href="https://agentroles.ai/code-writer.html">code writer</a></dd>
@@ -139,7 +140,7 @@
           </dl>
         </section>
         <section class="stage" id="review">
-          <div class="head"><svg class="ico" viewBox="0 0 24 24" aria-hidden="true" focusable="false" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="6.5"/><path d="m16 16 5 5"/></svg><h2>Review</h2><span class="num">07</span><span class="role-tag">role: <a href="https://agentroles.ai/code-critic.html">code critic</a></span></div>
+          <div class="head"><svg class="ico" viewBox="0 0 24 24" aria-hidden="true" focusable="false" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="6.5"/><path d="m16 16 5 5"/></svg><h2>Review</h2><span class="num">07</span><a class="agent-on" href="https://github.com/CommonAgent/adlc/tree/main/agents/code-critic">code-critic</a><span class="family-tag">family: Builders</span></div>
           <p class="why">A review is already an artifact everywhere else: findings you can answer.</p>
           <dl>
             <dt>Role</dt><dd><a href="https://agentroles.ai/code-critic.html">code critic</a></dd>
@@ -149,7 +150,7 @@
           </dl>
         </section>
         <section class="stage" id="security">
-          <div class="head"><svg class="ico" viewBox="0 0 24 24" aria-hidden="true" focusable="false" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3 5 6v6c0 4.4 3 8 7 9 4-1 7-4.6 7-9V6z"/><path d="m9 12 2 2 4-4"/></svg><h2>Security review</h2><span class="num">08</span><span class="role-tag">role: <a href="https://agentroles.ai/security-reviewer.html">security reviewer</a></span></div>
+          <div class="head"><svg class="ico" viewBox="0 0 24 24" aria-hidden="true" focusable="false" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3 5 6v6c0 4.4 3 8 7 9 4-1 7-4.6 7-9V6z"/><path d="m9 12 2 2 4-4"/></svg><h2>Security review</h2><span class="num">08</span><a class="agent-on" href="https://github.com/CommonAgent/adlc/tree/main/agents/security-reviewer">security-reviewer</a><span class="family-tag">family: Builders</span></div>
           <p class="why">The blast radius is set before the credentials are given, not after.</p>
           <dl>
             <dt>Role</dt><dd><a href="https://agentroles.ai/security-reviewer.html">security reviewer</a></dd>
@@ -160,17 +161,17 @@
         </section>
         <h2 class="phase-head" id="phase-ship">Ship</h2>
         <section class="stage onramp" id="package"><span id="build" aria-hidden="true"></span>
-          <div class="head"><svg class="ico" viewBox="0 0 24 24" aria-hidden="true" focusable="false" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3 4 7v10l8 4 8-4V7z"/><path d="m4 7 8 4 8-4M12 11v10"/></svg><h2>Package</h2><span class="num">09</span><span class="onramp-tag"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3 4 7v10l8 4 8-4V7z"/><path d="m4 7 8 4 8-4M12 11v10"/></svg>on-ramp</span><a class="agent-on" href="https://github.com/CommonAgent/adlc/tree/main/agents/package-maker">package-maker</a></div>
+          <div class="head"><svg class="ico" viewBox="0 0 24 24" aria-hidden="true" focusable="false" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3 4 7v10l8 4 8-4V7z"/><path d="m4 7 8 4 8-4M12 11v10"/></svg><h2>Package</h2><span class="num">09</span><span class="onramp-tag"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3 4 7v10l8 4 8-4V7z"/><path d="m4 7 8 4 8-4M12 11v10"/></svg>on-ramp</span><a class="agent-on" href="https://github.com/CommonAgent/adlc/tree/main/agents/package-maker">package-maker</a><span class="family-tag">family: Builders</span></div>
           <p class="why">Your work becomes an Agent Package, the easy way onto the mesh. Any tool works if the package is valid.</p>
           <dl>
             <dt>Role</dt><dd><a href="https://agentroles.ai/package-maker.html">package maker</a></dd>
             <dt>Given</dt><dd>the architecture record, the design and the programs</dd>
             <dt>Hands back</dt><dd>the package: the declaration (agent-descriptor.json and agent-runtime-requirements.json), the parts, a manifest and a digest</dd>
-            <dt>Done when</dt><dd>the declaration validates and matches the runtime requirements, and every program in the package is listed in its manifest</dd>
+            <dt>Done when</dt><dd>the declaration validates and matches the runtime requirements, every program in the package is listed in its manifest, and every <code>can_use</code> names a known schema</dd>
           </dl>
         </section>
         <section class="stage onramp" id="release">
-          <div class="head"><svg class="ico" viewBox="0 0 24 24" aria-hidden="true" focusable="false" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M12 16V4"/><path d="m7 9 5-5 5 5"/><path d="M4 16v3a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-3"/></svg><h2>Release</h2><span class="num">10</span><span class="onramp-tag"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3 4 7v10l8 4 8-4V7z"/><path d="m4 7 8 4 8-4M12 11v10"/></svg>on-ramp</span><a class="agent-on" href="https://github.com/CommonAgent/adlc/tree/main/agents/package-maker">package-maker</a></div>
+          <div class="head"><svg class="ico" viewBox="0 0 24 24" aria-hidden="true" focusable="false" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M12 16V4"/><path d="m7 9 5-5 5 5"/><path d="M4 16v3a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-3"/></svg><h2>Release</h2><span class="num">10</span><span class="onramp-tag"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3 4 7v10l8 4 8-4V7z"/><path d="m4 7 8 4 8-4M12 11v10"/></svg>on-ramp</span><a class="agent-on" href="https://github.com/CommonAgent/adlc/tree/main/agents/package-maker">package-maker</a><span class="family-tag">family: Builders</span></div>
           <p class="why">The signed record is why anyone downstream can trust the bytes.</p>
           <dl>
             <dt>Role</dt><dd><a href="https://agentroles.ai/package-maker.html">package maker</a></dd>
@@ -180,18 +181,19 @@
           </dl>
         </section>
         <section class="stage golive" id="deploy"><span id="configure" aria-hidden="true"></span>
-          <div class="head"><svg class="ico" viewBox="0 0 24 24" aria-hidden="true" focusable="false" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v8"/><path d="M6.3 6.8a8 8 0 1 0 11.4 0"/></svg><h2>Deploy</h2><span class="num">11</span><span class="golive-tag"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v8"/><path d="M6.3 6.8a8 8 0 1 0 11.4 0"/></svg>goes live</span><a class="agent-on" href="https://github.com/CommonAgent/adlc/tree/main/agents/deployment-manager">deployment-manager</a></div>
+          <div class="head"><svg class="ico" viewBox="0 0 24 24" aria-hidden="true" focusable="false" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v8"/><path d="M6.3 6.8a8 8 0 1 0 11.4 0"/></svg><h2>Deploy</h2><span class="num">11</span><span class="golive-tag"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v8"/><path d="M6.3 6.8a8 8 0 1 0 11.4 0"/></svg>goes live</span><a class="agent-on" href="https://github.com/CommonAgent/adlc/tree/main/agents/deployment-manager">deployment-manager</a><span class="family-tag">family: Builders</span></div>
           <p class="why">There's never a moment when the agent is live without its credentials and limits; secrets are named, never carried.</p>
           <dl>
             <dt>Role</dt><dd><a href="https://agentroles.ai/deployment-manager.html">deployment manager</a></dd>
-            <dt>Given</dt><dd>the package, where it goes, and the owner's answers as names and numbers</dd>
+            <dt>Given</dt><dd>the package, where it goes, and the owner's answers as names and numbers; for production, a current audit pass for the package's digest</dd>
             <dt>Hands back</dt><dd>a running agent with an identity, an address and an inbox; its Descriptor signed and registered; settings, credentials (placed by name) and ceilings in place before it starts; a signed deployment record</dd>
             <dt>Done when</dt><dd>nothing asked for is missing, no secret appeared, a message gets an answer, and the record is signed</dd>
           </dl>
+          <p class="gate-note"><b>The production gate.</b> The deployment manager refuses a production deploy unless an <a href="#audit">audit report</a> for this exact package digest says pass, or pass with findings, and hasn't expired. A deploy to dev or test doesn't need one.</p>
         </section>
         <h2 class="phase-head" id="phase-prove">Prove</h2>
         <section class="stage" id="conformance">
-          <div class="head"><svg class="ico" viewBox="0 0 24 24" aria-hidden="true" focusable="false" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="4" width="14" height="17" rx="2"/><path d="M9 4h6v3H9z"/><path d="m9 13 2 2 4-4"/></svg><h2>Conformance</h2><span class="num">12</span><a class="agent-on" href="https://github.com/CommonAgent/adlc/tree/main/agents/conformance-checker">conformance-checker</a></div>
+          <div class="head"><svg class="ico" viewBox="0 0 24 24" aria-hidden="true" focusable="false" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="4" width="14" height="17" rx="2"/><path d="M9 4h6v3H9z"/><path d="m9 13 2 2 4-4"/></svg><h2>Conformance</h2><span class="num">12</span><a class="agent-on" href="https://github.com/CommonAgent/adlc/tree/main/agents/conformance-checker">conformance-checker</a><span class="family-tag">family: Builders</span></div>
           <p class="why">It checks the agent keeps its promises, not that the promises were right; that's Eval.</p>
           <dl>
             <dt>Role</dt><dd><a href="https://agentroles.ai/conformance-checker.html">conformance checker</a></dd>
@@ -200,8 +202,18 @@
             <dt>Done when</dt><dd>every case from the declaration ran, and the verdict is signed</dd>
           </dl>
         </section>
+        <section class="stage" id="audit">
+          <div class="head"><svg class="ico" viewBox="0 0 24 24" aria-hidden="true" focusable="false" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2.8l2.3 1.7 2.8-.1.9 2.7 2.3 1.6-.9 2.7.9 2.7-2.3 1.6-.9 2.7-2.8-.1L12 21.2l-2.3-1.7-2.8.1-.9-2.7L3.7 15.3l.9-2.7-.9-2.7 2.3-1.6.9-2.7 2.8.1z"/><path d="m8.8 12.2 2.2 2.2 4.2-4.4"/></svg><h2>Audit</h2><span class="num">13</span><span class="role-tag">role: auditor</span><span class="family-tag open">family: open</span></div>
+          <p class="why">Skipping a stage gains nothing, because production and the catalog both refuse an agent until an audit has checked every stage's record.</p>
+          <dl>
+            <dt>Role</dt><dd>auditor</dd>
+            <dt>Given</dt><dd>a built agent version, by its package digest, and the agent's address; the <a href="assets.html#standing">audit checklist</a> comes from the operator's library</dd>
+            <dt>Hands back</dt><dd>a signed <a href="assets.html#audit-report">audit report</a> for that version:<ul class="handlist"><li>a header the gates read, with the package digest, the verdict (pass, pass with findings, or fail), when it expires, and the signature</li><li>one line per stage record: present, signed and bound to the digest, or missing or stale</li><li>each checklist rule, passed or failed, with its evidence</li><li>findings, each routed to the stage that fixes it</li><li>what wasn't checked, and why</li></ul></dd>
+            <dt>Done when</dt><dd>every stage record is checked present, signed and bound to the digest; every checklist rule is checked; and every finding names the stage that fixes it</dd>
+          </dl>
+        </section>
         <section class="stage" id="acceptance">
-          <div class="head"><svg class="ico" viewBox="0 0 24 24" aria-hidden="true" focusable="false" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="8" r="3.2"/><path d="M3.5 20c0-3.3 2.5-5.5 5.5-5.5s5.5 2.2 5.5 5.5"/><path d="m15 11 2 2 4-4"/></svg><h2>Acceptance</h2><span class="num">13</span><span class="person-tag">a person</span></div>
+          <div class="head"><svg class="ico" viewBox="0 0 24 24" aria-hidden="true" focusable="false" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="8" r="3.2"/><path d="M3.5 20c0-3.3 2.5-5.5 5.5-5.5s5.5 2.2 5.5 5.5"/><path d="m15 11 2 2 4-4"/></svg><h2>Acceptance</h2><span class="num">14</span><span class="person-tag">a person</span><span class="family-tag open">family: none</span></div>
           <p class="why">Only the person who asked can say it's what they wanted.</p>
           <dl>
             <dt>Role</dt><dd>the requester, the person who asked</dd>
@@ -212,7 +224,7 @@
         </section>
         <h2 class="phase-head" id="phase-use">Use</h2>
         <section class="stage" id="docs">
-          <div class="head"><svg class="ico" viewBox="0 0 24 24" aria-hidden="true" focusable="false" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M5 4h9a3 3 0 0 1 3 3v13H8a3 3 0 0 0-3 3z"/><path d="M17 7h2v13"/><path d="M9 9h5"/></svg><h2>Docs</h2><span class="num">14</span><a class="agent-on" href="https://github.com/CommonAgent/adlc/tree/main/agents/documenter">documenter</a><span class="role-tag">role: <a href="https://agentroles.ai/doc-writer.html">doc writer</a></span></div>
+          <div class="head"><svg class="ico" viewBox="0 0 24 24" aria-hidden="true" focusable="false" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M5 4h9a3 3 0 0 1 3 3v13H8a3 3 0 0 0-3 3z"/><path d="M17 7h2v13"/><path d="M9 9h5"/></svg><h2>Docs</h2><span class="num">15</span><a class="agent-on" href="https://github.com/CommonAgent/adlc/tree/main/agents/documenter">documenter</a><a class="agent-on" href="https://github.com/CommonAgent/adlc/tree/main/agents/doc-writer">doc-writer</a><span class="family-tag">family: Builders</span></div>
           <p class="why">The AgentDoc is gathered from what the agent declares, not written, so it can only say what its sources say.</p>
           <dl>
             <dt>Role</dt><dd><a href="https://agentroles.ai/documenter.html">documenter</a> for the AgentDoc; <a href="https://agentroles.ai/doc-writer.html">doc writer</a> for the documentation</dd>
@@ -222,7 +234,7 @@
           </dl>
         </section>
         <section class="stage" id="publish">
-          <div class="head"><svg class="ico" viewBox="0 0 24 24" aria-hidden="true" focusable="false" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="8.5"/><path d="M3.5 12h17"/><path d="M12 3.5c2.4 2.4 3.6 5.3 3.6 8.5S14.4 18.1 12 20.5c-2.4-2.4-3.6-5.3-3.6-8.5S9.6 5.9 12 3.5z"/></svg><h2>Publish</h2><span class="num">15</span><a class="agent-on" href="https://github.com/CommonAgent/adlc/tree/main/agents/publisher">publisher</a></div>
+          <div class="head"><svg class="ico" viewBox="0 0 24 24" aria-hidden="true" focusable="false" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="8.5"/><path d="M3.5 12h17"/><path d="M12 3.5c2.4 2.4 3.6 5.3 3.6 8.5S14.4 18.1 12 20.5c-2.4-2.4-3.6-5.3-3.6-8.5S9.6 5.9 12 3.5z"/></svg><h2>Publish</h2><span class="num">16</span><a class="agent-on" href="https://github.com/CommonAgent/adlc/tree/main/agents/publisher">publisher</a><span class="family-tag">family: Builders</span></div>
           <p class="why">The stage where a deliverable becomes public.</p>
           <dl>
             <dt>Role</dt><dd><a href="https://agentroles.ai/publisher.html">publisher</a></dd>
@@ -232,7 +244,7 @@
           </dl>
         </section>
         <section class="stage" id="retract">
-          <div class="head"><svg class="ico" viewBox="0 0 24 24" aria-hidden="true" focusable="false" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="8.5"/><path d="M8 12h8"/></svg><h2>Retract</h2><span class="num">16</span><span class="role-tag">role: <a href="https://agentroles.ai/publisher.html">publisher</a></span></div>
+          <div class="head"><svg class="ico" viewBox="0 0 24 24" aria-hidden="true" focusable="false" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="8.5"/><path d="M8 12h8"/></svg><h2>Retract</h2><span class="num">17</span><span class="role-tag">role: <a href="https://agentroles.ai/publisher.html">publisher</a></span><span class="family-tag open">family: open</span></div>
           <p class="why">Only whoever published something may take it down.</p>
           <dl>
             <dt>Role</dt><dd><a href="https://agentroles.ai/publisher.html">publisher</a></dd>
@@ -243,7 +255,7 @@
         </section>
         <h2 class="phase-head" id="phase-run">Run</h2>
         <section class="stage" id="monitor">
-          <div class="head"><svg class="ico" viewBox="0 0 24 24" aria-hidden="true" focusable="false" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M3 12h4l2.5-6 4 13L16 12h5"/></svg><h2>Monitor</h2><span class="num">17</span><span class="role-tag">role: <a href="https://agentroles.ai/watcher.html">watcher</a></span></div>
+          <div class="head"><svg class="ico" viewBox="0 0 24 24" aria-hidden="true" focusable="false" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M3 12h4l2.5-6 4 13L16 12h5"/></svg><h2>Monitor</h2><span class="num">18</span><a class="agent-on" href="https://github.com/CommonAgent/adlc/tree/main/agents/watcher">watcher</a><span class="family-tag">family: Lifeguards</span></div>
           <p class="why">A process being up says almost nothing; liveness is measured by an answer.</p>
           <dl>
             <dt>Role</dt><dd><a href="https://agentroles.ai/watcher.html">watcher</a></dd>
@@ -253,7 +265,7 @@
           </dl>
         </section>
         <section class="stage" id="eval">
-          <div class="head"><svg class="ico" viewBox="0 0 24 24" aria-hidden="true" focusable="false" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M12 4 9.9 9.3 4 9.8l4.5 3.9L7.1 20 12 16.9 16.9 20l-1.4-6.3L20 9.8l-5.9-.5z"/></svg><h2>Eval</h2><span class="num">18</span><span class="role-tag">role: <a href="https://agentroles.ai/agent-critic.html">agent critic</a></span></div>
+          <div class="head"><svg class="ico" viewBox="0 0 24 24" aria-hidden="true" focusable="false" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M12 4 9.9 9.3 4 9.8l4.5 3.9L7.1 20 12 16.9 16.9 20l-1.4-6.3L20 9.8l-5.9-.5z"/></svg><h2>Eval</h2><span class="num">19</span><span class="role-tag">role: <a href="https://agentroles.ai/agent-critic.html">agent critic</a></span><span class="family-tag open">family: open</span></div>
           <p class="why">Conformance says it answers; eval says whether the answer was any good.</p>
           <dl>
             <dt>Role</dt><dd><a href="https://agentroles.ai/agent-critic.html">agent critic</a></dd>
@@ -263,7 +275,7 @@
           </dl>
         </section>
         <section class="stage" id="incident">
-          <div class="head"><svg class="ico" viewBox="0 0 24 24" aria-hidden="true" focusable="false" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3.5 21 19H3z"/><path d="M12 9.5v4M12 16.5h.01"/></svg><h2>Incident response</h2><span class="num">19</span><a class="agent-on" href="https://github.com/CommonAgent/adlc/tree/main/agents/incident-recorder">incident-recorder</a></div>
+          <div class="head"><svg class="ico" viewBox="0 0 24 24" aria-hidden="true" focusable="false" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3.5 21 19H3z"/><path d="M12 9.5v4M12 16.5h.01"/></svg><h2>Incident response</h2><span class="num">20</span><a class="agent-on" href="https://github.com/CommonAgent/adlc/tree/main/agents/incident-recorder">incident-recorder</a><span class="family-tag">family: Lifeguards</span></div>
           <p class="why">Record what happened, guess nothing, fix nothing; deciding stays with a person.</p>
           <dl>
             <dt>Role</dt><dd><a href="https://agentroles.ai/incident-recorder.html">incident recorder</a></dd>
@@ -273,7 +285,7 @@
           </dl>
         </section>
         <section class="stage" id="cost">
-          <div class="head"><svg class="ico" viewBox="0 0 24 24" aria-hidden="true" focusable="false" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="8.5"/><path d="M12 7v10"/><path d="M14.8 9.4A3 3 0 0 0 9.5 11c0 2.6 5 1.4 5 4a3 3 0 0 1-5.3 1.6"/></svg><h2>Cost</h2><span class="num">20</span><span class="role-tag">role: <a href="https://agentroles.ai/watcher.html">watcher</a></span></div>
+          <div class="head"><svg class="ico" viewBox="0 0 24 24" aria-hidden="true" focusable="false" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="8.5"/><path d="M12 7v10"/><path d="M14.8 9.4A3 3 0 0 0 9.5 11c0 2.6 5 1.4 5 4a3 3 0 0 1-5.3 1.6"/></svg><h2>Cost</h2><span class="num">21</span><a class="agent-on" href="https://github.com/CommonAgent/adlc/tree/main/agents/watcher">watcher</a><span class="family-tag">family: Lifeguards</span></div>
           <p class="why">Ceilings are the easy half; the view across everything is the hard one.</p>
           <dl>
             <dt>Role</dt><dd><a href="https://agentroles.ai/watcher.html">watcher</a></dd>
@@ -284,7 +296,7 @@
         </section>
         <h2 class="phase-head" id="phase-change">Change</h2>
         <section class="stage" id="update">
-          <div class="head"><svg class="ico" viewBox="0 0 24 24" aria-hidden="true" focusable="false" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M20 12a8 8 0 1 1-2.6-5.9"/><path d="M20 4v5h-5"/></svg><h2>Update</h2><span class="num">21</span><a class="agent-on" href="https://github.com/CommonAgent/adlc/tree/main/agents/deployment-manager">deployment-manager</a></div>
+          <div class="head"><svg class="ico" viewBox="0 0 24 24" aria-hidden="true" focusable="false" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M20 12a8 8 0 1 1-2.6-5.9"/><path d="M20 4v5h-5"/></svg><h2>Update</h2><span class="num">22</span><a class="agent-on" href="https://github.com/CommonAgent/adlc/tree/main/agents/deployment-manager">deployment-manager</a><span class="family-tag">family: Builders</span></div>
           <p class="why">New version, same identity: candidate first, then prove, then promote.</p>
           <dl>
             <dt>Role</dt><dd><a href="https://agentroles.ai/deployment-manager.html">deployment manager</a></dd>
@@ -294,7 +306,7 @@
           </dl>
         </section>
         <section class="stage" id="reconfigure">
-          <div class="head"><svg class="ico" viewBox="0 0 24 24" aria-hidden="true" focusable="false" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M5 6h14M5 12h14M5 18h14"/><circle cx="9" cy="6" r="2"/><circle cx="15" cy="12" r="2"/><circle cx="8" cy="18" r="2"/></svg><h2>Reconfigure</h2><span class="num">22</span><a class="agent-on" href="https://github.com/CommonAgent/adlc/tree/main/agents/deployment-manager">deployment-manager</a></div>
+          <div class="head"><svg class="ico" viewBox="0 0 24 24" aria-hidden="true" focusable="false" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M5 6h14M5 12h14M5 18h14"/><circle cx="9" cy="6" r="2"/><circle cx="15" cy="12" r="2"/><circle cx="8" cy="18" r="2"/></svg><h2>Reconfigure</h2><span class="num">23</span><a class="agent-on" href="https://github.com/CommonAgent/adlc/tree/main/agents/deployment-manager">deployment-manager</a><span class="family-tag">family: Builders</span></div>
           <p class="why">New settings, credentials or ceilings, same version.</p>
           <dl>
             <dt>Role</dt><dd><a href="https://agentroles.ai/deployment-manager.html">deployment manager</a></dd>
@@ -304,7 +316,7 @@
           </dl>
         </section>
         <section class="stage" id="rollback">
-          <div class="head"><svg class="ico" viewBox="0 0 24 24" aria-hidden="true" focusable="false" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12a8 8 0 1 0 2.6-5.9"/><path d="M4 4v5h5"/></svg><h2>Rollback</h2><span class="num">23</span><span class="role-tag">role: <a href="https://agentroles.ai/deployment-manager.html">deployment manager</a></span></div>
+          <div class="head"><svg class="ico" viewBox="0 0 24 24" aria-hidden="true" focusable="false" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12a8 8 0 1 0 2.6-5.9"/><path d="M4 4v5h5"/></svg><h2>Rollback</h2><span class="num">24</span><span class="role-tag">role: <a href="https://agentroles.ai/deployment-manager.html">deployment manager</a></span><span class="family-tag open">family: open</span></div>
           <p class="why">Moving the code back is easy; undoing what the bad version did is not.</p>
           <dl>
             <dt>Role</dt><dd><a href="https://agentroles.ai/deployment-manager.html">deployment manager</a></dd>
@@ -314,7 +326,7 @@
           </dl>
         </section>
         <section class="stage" id="decommission">
-          <div class="head"><svg class="ico" viewBox="0 0 24 24" aria-hidden="true" focusable="false" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="4" rx="1"/><path d="M5 8v11a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1V8"/><path d="M10 12h4"/></svg><h2>Decommission</h2><span class="num">24</span><a class="agent-on" href="https://github.com/CommonAgent/adlc/tree/main/agents/deployment-manager">deployment-manager</a></div>
+          <div class="head"><svg class="ico" viewBox="0 0 24 24" aria-hidden="true" focusable="false" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="4" rx="1"/><path d="M5 8v11a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1V8"/><path d="M10 12h4"/></svg><h2>Decommission</h2><span class="num">25</span><a class="agent-on" href="https://github.com/CommonAgent/adlc/tree/main/agents/deployment-manager">deployment-manager</a><span class="family-tag">family: Builders</span></div>
           <p class="why">This is retiring an agent: the address stops answering rather than answering wrongly.</p>
           <dl>
             <dt>Role</dt><dd><a href="https://agentroles.ai/deployment-manager.html">deployment manager</a></dd>
