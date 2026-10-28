@@ -517,3 +517,4 @@ section.band p a, .inline-links a{ color:var(--paper); text-decoration-color:var
   .tbl.standing tr{ border-bottom:1px solid var(--line); padding:10px 0; }
   .tbl.standing td{ border:0; padding:3px 0; }
 }
+.page-head .turn + .turn{ margin-top:14px; }

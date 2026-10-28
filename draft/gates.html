@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="robots" content="noindex">
+  <title>The gates: Agentic Development</title>
+  <meta name="description" content="The gates of the Agent Development Lifecycle: the few points where work stops until a condition is met, and how an organization adds its own.">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="Agentic Development">
+  <meta property="og:title" content="The gates | Agentic Development">
+  <meta property="og:description" content="The gates of the Agent Development Lifecycle: the few points where work stops until a condition is met, and how an organization adds its own.">
+  <meta property="og:url" content="https://agenticdevelopment.ai/gates.html">
+  <meta property="og:image" content="https://agenticdevelopment.ai/brand/png/og-image-v2.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="A cartoon tug of war: two people pull a lifecycle banner in half, one side reading Design, Test, Code and the other Design, Code, Test, while a box labeled package sits ignored on the floor between them. Headline: No two teams have ever agreed on a development lifecycle.">
+  <meta name="twitter:card" content="summary_large_image">
+  <link rel="icon" type="image/svg+xml" href="../favicon.svg">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500;600&family=Kalam:wght@400;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="site.css">
+</head>
+<body>
+<div class="layout">
+
+  <aside class="rail">
+    <a class="brand" href="./"><span class="dot"></span>agentic development</a>
+    <div class="grp">The lifecycle</div>
+    <nav>
+      <a href="./">Overview</a>
+      <a href="stages.html">The stages</a>
+      <a href="assets.html">The assets</a>
+      <a href="handoffs.html">The handoffs</a>
+      <a class="on" href="gates.html">The gates</a>
+      <a href="processes.html">The processes</a>
+    </nav>
+    <div class="grp">In practice</div>
+    <nav>
+      <a href="implementations.html">Implementations</a>
+      <a href="https://github.com/CommonAgent/adlc">The code</a>
+    </nav>
+    <div class="foot">
+      <a href="https://agentmesh.ai/standards.html">The family of standards</a>
+    </div>
+  </aside>
+
+    <main class="main">
+    <div class="wrap">
+
+      <header class="page-head">
+        <h1>Only the gates are fixed.</h1>
+        <p class="turn">You don't have to follow our stages. You don't have to use our tools or our reference agents. You can start anywhere and build any way you like.</p>
+        <p class="turn">We insist on one thing: a small set of gates. A gate is a point where work stops until a condition is met. A gate checks the agent and its records. It doesn't check how the agent was built. Skipping a step costs nothing. Shipping an agent that fails a check does. An organization can add gates of its own.</p>
+      </header>
+
+        <h2 class="phase-head" id="six">The six gates</h2>
+        <section class="stage" id="release">
+          <div class="head"><svg class="ico" viewBox="0 0 24 24" aria-hidden="true" focusable="false" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M5 20V5M19 20V5"/><path d="M5 9h14M5 14h14"/><path d="M3 20h4M17 20h4"/></svg><h2>Release</h2></div>
+          <dl>
+            <dt>Sits</dt><dd>between <a href="stages.html#package">Package</a> and <a href="stages.html#release">Release</a></dd>
+            <dt>Requires</dt><dd>a valid package and a valid declaration</dd>
+            <dt>Enforced by</dt><dd><a href="https://agentroles.ai/package-maker.html">the package maker</a></dd>
+            <dt>If refused</dt><dd>Nothing is released. The package maker names each problem.</dd>
+            <dt>Status</dt><dd>required</dd>
+          </dl>
+        </section>
+        <section class="stage" id="production">
+          <div class="head"><svg class="ico" viewBox="0 0 24 24" aria-hidden="true" focusable="false" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M5 20V5M19 20V5"/><path d="M5 9h14M5 14h14"/><path d="M3 20h4M17 20h4"/></svg><h2>Production deploy</h2></div>
+          <dl>
+            <dt>Sits</dt><dd>between <a href="stages.html#release">Release</a> and a <a href="stages.html#deploy">deploy</a> to production</dd>
+            <dt>Requires</dt><dd><a href="stages.html#current-pass">a current audit pass</a> for the package digest</dd>
+            <dt>Enforced by</dt><dd><a href="https://agentroles.ai/deployment-manager.html">the deployment manager</a></dd>
+            <dt>If refused</dt><dd>The agent doesn't reach production. It can still run in dev or test, which need no audit pass.</dd>
+            <dt>Status</dt><dd>required</dd>
+          </dl>
+        </section>
+        <section class="stage" id="listing">
+          <div class="head"><svg class="ico" viewBox="0 0 24 24" aria-hidden="true" focusable="false" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M5 20V5M19 20V5"/><path d="M5 9h14M5 14h14"/><path d="M3 20h4M17 20h4"/></svg><h2>Listing</h2></div>
+          <dl>
+            <dt>Sits</dt><dd>before the catalog lists an agent, at <a href="stages.html#source">Source</a></dd>
+            <dt>Requires</dt><dd><a href="stages.html#current-pass">a current audit pass</a></dd>
+            <dt>Enforced by</dt><dd><a href="https://agentroles.ai/catalog.html">the catalog</a></dd>
+            <dt>If refused</dt><dd>The catalog doesn't list the agent. Nobody finds it there until it passes.</dd>
+            <dt>Status</dt><dd>required</dd>
+          </dl>
+        </section>
+        <section class="stage" id="acceptance">
+          <div class="head"><svg class="ico" viewBox="0 0 24 24" aria-hidden="true" focusable="false" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M5 20V5M19 20V5"/><path d="M5 9h14M5 14h14"/><path d="M3 20h4M17 20h4"/></svg><h2>Acceptance</h2></div>
+          <dl>
+            <dt>Sits</dt><dd>between delivered and accepted, at <a href="stages.html#acceptance">Acceptance</a></dd>
+            <dt>Requires</dt><dd>a person's recorded yes against "done"</dd>
+            <dt>Enforced by</dt><dd>the person who asked</dd>
+            <dt>If refused</dt><dd>The request stays open. The person's no says what's missing.</dd>
+            <dt>Status</dt><dd>required</dd>
+          </dl>
+        </section>
+        <section class="stage" id="promote">
+          <div class="head"><svg class="ico" viewBox="0 0 24 24" aria-hidden="true" focusable="false" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M5 20V5M19 20V5"/><path d="M5 9h14M5 14h14"/><path d="M3 20h4M17 20h4"/></svg><h2>Promote</h2></div>
+          <dl>
+            <dt>Sits</dt><dd>inside <a href="stages.html#update">Update</a>, between the candidate and the live version</dd>
+            <dt>Requires</dt><dd>a candidate that passed, and no open dependency debt in the <a href="stages.html#ledger">ledger</a></dd>
+            <dt>Enforced by</dt><dd><a href="https://agentroles.ai/deployment-manager.html">the deployment manager</a></dd>
+            <dt>If refused</dt><dd>The live version keeps running. The candidate waits. A rollback is never blocked, and it's recorded.</dd>
+            <dt>Status</dt><dd>required</dd>
+          </dl>
+        </section>
+        <section class="stage" id="decommission">
+          <div class="head"><svg class="ico" viewBox="0 0 24 24" aria-hidden="true" focusable="false" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M5 20V5M19 20V5"/><path d="M5 9h14M5 14h14"/><path d="M3 20h4M17 20h4"/></svg><h2>Decommission</h2></div>
+          <dl>
+            <dt>Sits</dt><dd>before an agent is retired, at <a href="stages.html#decommission">Decommission</a></dd>
+            <dt>Requires</dt><dd>no stranded work, and no open dependency debt in the <a href="stages.html#ledger">ledger</a></dd>
+            <dt>Enforced by</dt><dd><a href="https://agentroles.ai/deployment-manager.html">the deployment manager</a></dd>
+            <dt>If refused</dt><dd>The agent keeps running. It retires once its work is done and its debts are closed.</dd>
+            <dt>Status</dt><dd>required</dd>
+          </dl>
+        </section>
+
+      <div class="prose">
+        <h2 id="add">An organization can add gates of its own.</h2>
+        <p>An organization adds a gate through its own audit checklist. The checklist is a <a href="assets.html#standing">standing asset</a>. A person approves each version. Each check has a level: info, warn or refuse. A check set to refuse stops an agent at the production deploy and listing gates.</p>
+        <p>For example, an organization can require a security statement before production. It raises the security statement check from info to refuse. The auditor then fails any agent that has no signed security statement. Without <a href="stages.html#current-pass">a current audit pass</a>, the deployment manager refuses to deploy that agent to production.</p>
+      </div>
+
+      <footer class="footer">
+        <span>Agentic Development</span>
+        <span>Sponsored by <a href="https://agentmesh.ai">AgentMesh</a></span>
+        <span>Reference agents under Apache-2.0 on <a href="https://github.com/CommonAgent/adlc">GitHub</a></span>
+      </footer>
+
+    </div>
+  </main>
+</div>
+</body>
+</html>
