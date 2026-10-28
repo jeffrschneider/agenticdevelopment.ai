@@ -5,11 +5,11 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="robots" content="noindex">
   <title>The stages: Agentic Development</title>
-  <meta name="description" content="All twenty-five stages of the reference Agent Development Lifecycle: who does each, what it is given, what it hands back, and how you can tell it is done.">
+  <meta name="description" content="All twenty-six stages of the reference Agent Development Lifecycle: who does each, what it is given, what it hands back, and how you can tell it is done.">
   <meta property="og:type" content="website">
   <meta property="og:site_name" content="Agentic Development">
   <meta property="og:title" content="The stages | Agentic Development">
-  <meta property="og:description" content="All twenty-five stages of the reference Agent Development Lifecycle: who does each, what it is given, what it hands back, and how you can tell it is done.">
+  <meta property="og:description" content="All twenty-six stages of the reference Agent Development Lifecycle: who does each, what it is given, what it hands back, and how you can tell it is done.">
   <meta property="og:url" content="https://agenticdevelopment.ai/stages.html">
   <meta property="og:image" content="https://agenticdevelopment.ai/brand/png/og-image-v2.png">
   <meta property="og:image:width" content="1200">
@@ -50,7 +50,7 @@
     <div class="wrap">
 
       <header class="page-head">
-        <h1>Here are all twenty-five stages.</h1>
+        <h1>Here are all twenty-six stages.</h1>
         <p class="turn">They run in seven phases, from the first idea to the last day. Each card says who does the work, what it's given, what it hands back, and how you know it's done. Keep what you need.</p>
         <ul class="jump" aria-label="Jump to a phase">
           <li><a href="#phase-define">Define</a></li>
@@ -204,8 +204,20 @@
             <dt>Done when</dt><dd>every case from the declaration ran, and the verdict is signed</dd>
           </dl>
         </section>
-        <section class="stage" id="audit">
-          <div class="head"><svg class="ico" viewBox="0 0 24 24" aria-hidden="true" focusable="false" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2.8l2.3 1.7 2.8-.1.9 2.7 2.3 1.6-.9 2.7.9 2.7-2.3 1.6-.9 2.7-2.8-.1L12 21.2l-2.3-1.7-2.8.1-.9-2.7L3.7 15.3l.9-2.7-.9-2.7 2.3-1.6.9-2.7 2.8.1z"/><path d="m8.8 12.2 2.2 2.2 4.2-4.4"/></svg><h2>Audit</h2><span class="num">13</span><span class="role-tag">role: auditor</span><span class="family-tag open">family: open</span></div>
+                <section class="stage" id="usability">
+          <div class="head"><svg class="ico" viewBox="0 0 24 24" aria-hidden="true" focusable="false" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="8" cy="7" r="3"/><path d="M2.8 20c0-3.3 2.3-5.6 5.2-5.6 1.1 0 2.1.3 2.9.9"/><path d="m13 11 8 3.2-3.4 1.2-1.3 3.4z"/></svg><h2>Usability</h2><span class="num">13</span><span class="role-tag">role: usability tester</span><a class="agent-on" href="https://github.com/CommonAgent/adlc/tree/main/agents/usability-tester">usability-tester</a><span class="family-tag open">family: open</span><span class="tier-tag opt">optional</span></div>
+          <p class="why">Conformance shows the agent keeps its promises. Usability shows a person can use it.</p>
+          <dl>
+            <dt>Done by</dt><dd>usability tester, which can be a person or an agent</dd>
+            <dt>Given</dt><dd>the agent's Descriptor, the agent's address, and the examples the Descriptor declares</dd>
+            <dt>Hands back</dt><dd>a <a href="assets.html#usability-report">usability report</a>, with these four answers for each offering a person starts:<ul class="handlist"><li>whether the form can be filled from the Descriptor</li><li>whether a real run delivers in its declared form</li><li>whether the result is readable</li><li>whether a change request returns a new version</li></ul>Each finding is labeled descriptor or agent. A person who tests may add their own judgment. They say whether they understood the agent, whether they could use the result, and whether it did the job.</dd>
+            <dt>Done when</dt><dd>every offering a person starts has been run from its example by someone other than its builders, and the verdict is recorded</dd>
+          </dl>
+          <p class="gate-note">A finding labeled descriptor means the Descriptor has to change. A finding labeled agent means the agent's work has to change.</p>
+          <p class="gate-note">This stage is optional. An organization may also test the agent in its own user interface. An organization may make the stage required in its own audit checklist. The default checklist shows a usability report as evidence and doesn't require one.</p>
+        </section>
+<section class="stage" id="audit">
+          <div class="head"><svg class="ico" viewBox="0 0 24 24" aria-hidden="true" focusable="false" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2.8l2.3 1.7 2.8-.1.9 2.7 2.3 1.6-.9 2.7.9 2.7-2.3 1.6-.9 2.7-2.8-.1L12 21.2l-2.3-1.7-2.8.1-.9-2.7L3.7 15.3l.9-2.7-.9-2.7 2.3-1.6.9-2.7 2.8.1z"/><path d="m8.8 12.2 2.2 2.2 4.2-4.4"/></svg><h2>Audit</h2><span class="num">14</span><span class="role-tag">role: auditor</span><span class="family-tag open">family: open</span></div>
           <p class="why">The audit looks at the agent itself: its Descriptor, its package and its records. It does not ask how the agent was built.</p>
           <dl>
             <dt>Done by</dt><dd>auditor</dd>
@@ -217,7 +229,7 @@
           <p class="gate-note" id="current-pass">The verdict is pass, pass with findings, or fail. A pass is current while it names this package digest and hasn't expired. A pass with findings counts as a pass.</p>
         </section>
         <section class="stage" id="acceptance">
-          <div class="head"><svg class="ico" viewBox="0 0 24 24" aria-hidden="true" focusable="false" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="8" r="3.2"/><path d="M3.5 20c0-3.3 2.5-5.5 5.5-5.5s5.5 2.2 5.5 5.5"/><path d="m15 11 2 2 4-4"/></svg><h2>Acceptance</h2><span class="num">14</span><span class="person-tag">a person</span><span class="family-tag open">family: none</span></div>
+          <div class="head"><svg class="ico" viewBox="0 0 24 24" aria-hidden="true" focusable="false" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="8" r="3.2"/><path d="M3.5 20c0-3.3 2.5-5.5 5.5-5.5s5.5 2.2 5.5 5.5"/><path d="m15 11 2 2 4-4"/></svg><h2>Acceptance</h2><span class="num">15</span><span class="person-tag">a person</span><span class="family-tag open">family: none</span></div>
           <p class="why">Only the person who asked can say it's what they wanted.</p>
           <dl>
             <dt>Done by</dt><dd>the requester, the person who asked</dd>
@@ -229,7 +241,7 @@
         </section>
         <h2 class="phase-head" id="phase-use">Use</h2>
         <section class="stage" id="docs">
-          <div class="head"><svg class="ico" viewBox="0 0 24 24" aria-hidden="true" focusable="false" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M5 4h9a3 3 0 0 1 3 3v13H8a3 3 0 0 0-3 3z"/><path d="M17 7h2v13"/><path d="M9 9h5"/></svg><h2>Docs</h2><span class="num">15</span><a class="agent-on" href="https://github.com/CommonAgent/adlc/tree/main/agents/documenter">documenter</a><a class="agent-on" href="https://github.com/CommonAgent/adlc/tree/main/agents/doc-writer">doc-writer</a><span class="family-tag">family: Builders</span></div>
+          <div class="head"><svg class="ico" viewBox="0 0 24 24" aria-hidden="true" focusable="false" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M5 4h9a3 3 0 0 1 3 3v13H8a3 3 0 0 0-3 3z"/><path d="M17 7h2v13"/><path d="M9 9h5"/></svg><h2>Docs</h2><span class="num">16</span><a class="agent-on" href="https://github.com/CommonAgent/adlc/tree/main/agents/documenter">documenter</a><a class="agent-on" href="https://github.com/CommonAgent/adlc/tree/main/agents/doc-writer">doc-writer</a><span class="family-tag">family: Builders</span></div>
           <p class="why">The AgentDoc is gathered from what the agent declares, not written, so it can only say what its sources say.</p>
           <dl>
             <dt>Done by</dt><dd><a href="https://agentroles.ai/documenter.html">documenter</a> for the AgentDoc; <a href="https://agentroles.ai/doc-writer.html">doc writer</a> for the documentation</dd>
@@ -239,7 +251,7 @@
           </dl>
         </section>
         <section class="stage" id="publish">
-          <div class="head"><svg class="ico" viewBox="0 0 24 24" aria-hidden="true" focusable="false" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="8.5"/><path d="M3.5 12h17"/><path d="M12 3.5c2.4 2.4 3.6 5.3 3.6 8.5S14.4 18.1 12 20.5c-2.4-2.4-3.6-5.3-3.6-8.5S9.6 5.9 12 3.5z"/></svg><h2>Publish</h2><span class="num">16</span><a class="agent-on" href="https://github.com/CommonAgent/adlc/tree/main/agents/publisher">publisher</a><span class="family-tag">family: Builders</span></div>
+          <div class="head"><svg class="ico" viewBox="0 0 24 24" aria-hidden="true" focusable="false" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="8.5"/><path d="M3.5 12h17"/><path d="M12 3.5c2.4 2.4 3.6 5.3 3.6 8.5S14.4 18.1 12 20.5c-2.4-2.4-3.6-5.3-3.6-8.5S9.6 5.9 12 3.5z"/></svg><h2>Publish</h2><span class="num">17</span><a class="agent-on" href="https://github.com/CommonAgent/adlc/tree/main/agents/publisher">publisher</a><span class="family-tag">family: Builders</span></div>
           <p class="why">The stage where a deliverable becomes public.</p>
           <dl>
             <dt>Done by</dt><dd><a href="https://agentroles.ai/publisher.html">publisher</a></dd>
@@ -249,7 +261,7 @@
           </dl>
         </section>
         <section class="stage" id="retract">
-          <div class="head"><svg class="ico" viewBox="0 0 24 24" aria-hidden="true" focusable="false" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="8.5"/><path d="M8 12h8"/></svg><h2>Retract</h2><span class="num">17</span><span class="role-tag">role: <a href="https://agentroles.ai/publisher.html">publisher</a></span><span class="family-tag open">family: open</span></div>
+          <div class="head"><svg class="ico" viewBox="0 0 24 24" aria-hidden="true" focusable="false" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="8.5"/><path d="M8 12h8"/></svg><h2>Retract</h2><span class="num">18</span><span class="role-tag">role: <a href="https://agentroles.ai/publisher.html">publisher</a></span><span class="family-tag open">family: open</span></div>
           <p class="why">Only whoever published something may take it down.</p>
           <dl>
             <dt>Done by</dt><dd><a href="https://agentroles.ai/publisher.html">publisher</a></dd>
@@ -260,7 +272,7 @@
         </section>
         <h2 class="phase-head" id="phase-run">Run</h2>
         <section class="stage" id="monitor">
-          <div class="head"><svg class="ico" viewBox="0 0 24 24" aria-hidden="true" focusable="false" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M3 12h4l2.5-6 4 13L16 12h5"/></svg><h2>Monitor</h2><span class="num">18</span><a class="agent-on" href="https://github.com/CommonAgent/adlc/tree/main/agents/watcher">watcher</a><span class="family-tag">family: Lifeguards</span></div>
+          <div class="head"><svg class="ico" viewBox="0 0 24 24" aria-hidden="true" focusable="false" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M3 12h4l2.5-6 4 13L16 12h5"/></svg><h2>Monitor</h2><span class="num">19</span><a class="agent-on" href="https://github.com/CommonAgent/adlc/tree/main/agents/watcher">watcher</a><span class="family-tag">family: Lifeguards</span></div>
           <p class="why">A process being up says almost nothing; liveness is measured by an answer.</p>
           <dl>
             <dt>Done by</dt><dd><a href="https://agentroles.ai/watcher.html">watcher</a></dd>
@@ -270,7 +282,7 @@
           </dl>
         </section>
         <section class="stage" id="eval">
-          <div class="head"><svg class="ico" viewBox="0 0 24 24" aria-hidden="true" focusable="false" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M12 4 9.9 9.3 4 9.8l4.5 3.9L7.1 20 12 16.9 16.9 20l-1.4-6.3L20 9.8l-5.9-.5z"/></svg><h2>Eval</h2><span class="num">19</span><span class="role-tag">role: <a href="https://agentroles.ai/agent-critic.html">agent critic</a></span><span class="family-tag open">family: open</span></div>
+          <div class="head"><svg class="ico" viewBox="0 0 24 24" aria-hidden="true" focusable="false" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M12 4 9.9 9.3 4 9.8l4.5 3.9L7.1 20 12 16.9 16.9 20l-1.4-6.3L20 9.8l-5.9-.5z"/></svg><h2>Eval</h2><span class="num">20</span><span class="role-tag">role: <a href="https://agentroles.ai/agent-critic.html">agent critic</a></span><span class="family-tag open">family: open</span></div>
           <p class="why">Conformance says it answers; eval says whether the answer was any good.</p>
           <dl>
             <dt>Done by</dt><dd><a href="https://agentroles.ai/agent-critic.html">agent critic</a></dd>
@@ -280,7 +292,7 @@
           </dl>
         </section>
         <section class="stage" id="incident">
-          <div class="head"><svg class="ico" viewBox="0 0 24 24" aria-hidden="true" focusable="false" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3.5 21 19H3z"/><path d="M12 9.5v4M12 16.5h.01"/></svg><h2>Incident response</h2><span class="num">20</span><a class="agent-on" href="https://github.com/CommonAgent/adlc/tree/main/agents/incident-recorder">incident-recorder</a><span class="family-tag">family: Lifeguards</span></div>
+          <div class="head"><svg class="ico" viewBox="0 0 24 24" aria-hidden="true" focusable="false" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3.5 21 19H3z"/><path d="M12 9.5v4M12 16.5h.01"/></svg><h2>Incident response</h2><span class="num">21</span><a class="agent-on" href="https://github.com/CommonAgent/adlc/tree/main/agents/incident-recorder">incident-recorder</a><span class="family-tag">family: Lifeguards</span></div>
           <p class="why">Record what happened, guess nothing, fix nothing; deciding stays with a person.</p>
           <dl>
             <dt>Done by</dt><dd><a href="https://agentroles.ai/incident-recorder.html">incident recorder</a></dd>
@@ -290,7 +302,7 @@
           </dl>
         </section>
         <section class="stage" id="cost">
-          <div class="head"><svg class="ico" viewBox="0 0 24 24" aria-hidden="true" focusable="false" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="8.5"/><path d="M12 7v10"/><path d="M14.8 9.4A3 3 0 0 0 9.5 11c0 2.6 5 1.4 5 4a3 3 0 0 1-5.3 1.6"/></svg><h2>Cost</h2><span class="num">21</span><a class="agent-on" href="https://github.com/CommonAgent/adlc/tree/main/agents/watcher">watcher</a><span class="family-tag">family: Lifeguards</span></div>
+          <div class="head"><svg class="ico" viewBox="0 0 24 24" aria-hidden="true" focusable="false" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="8.5"/><path d="M12 7v10"/><path d="M14.8 9.4A3 3 0 0 0 9.5 11c0 2.6 5 1.4 5 4a3 3 0 0 1-5.3 1.6"/></svg><h2>Cost</h2><span class="num">22</span><a class="agent-on" href="https://github.com/CommonAgent/adlc/tree/main/agents/watcher">watcher</a><span class="family-tag">family: Lifeguards</span></div>
           <p class="why">Ceilings are the easy half; the view across everything is the hard one.</p>
           <dl>
             <dt>Done by</dt><dd><a href="https://agentroles.ai/watcher.html">watcher</a></dd>
@@ -301,7 +313,7 @@
         </section>
         <h2 class="phase-head" id="phase-change">Change</h2>
         <section class="stage" id="update">
-          <div class="head"><svg class="ico" viewBox="0 0 24 24" aria-hidden="true" focusable="false" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M20 12a8 8 0 1 1-2.6-5.9"/><path d="M20 4v5h-5"/></svg><h2>Update</h2><span class="num">22</span><a class="agent-on" href="https://github.com/CommonAgent/adlc/tree/main/agents/deployment-manager">deployment-manager</a><span class="family-tag">family: Builders</span></div>
+          <div class="head"><svg class="ico" viewBox="0 0 24 24" aria-hidden="true" focusable="false" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M20 12a8 8 0 1 1-2.6-5.9"/><path d="M20 4v5h-5"/></svg><h2>Update</h2><span class="num">23</span><a class="agent-on" href="https://github.com/CommonAgent/adlc/tree/main/agents/deployment-manager">deployment-manager</a><span class="family-tag">family: Builders</span></div>
           <p class="why">New version, same identity: candidate first, then prove, then promote.</p>
           <dl>
             <dt>Done by</dt><dd><a href="https://agentroles.ai/deployment-manager.html">deployment manager</a></dd>
@@ -312,7 +324,7 @@
           <p class="gate-note">The <a href="gates.html#promote">promote gate</a> sits at this stage.</p>
         </section>
         <section class="stage" id="reconfigure">
-          <div class="head"><svg class="ico" viewBox="0 0 24 24" aria-hidden="true" focusable="false" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M5 6h14M5 12h14M5 18h14"/><circle cx="9" cy="6" r="2"/><circle cx="15" cy="12" r="2"/><circle cx="8" cy="18" r="2"/></svg><h2>Reconfigure</h2><span class="num">23</span><a class="agent-on" href="https://github.com/CommonAgent/adlc/tree/main/agents/deployment-manager">deployment-manager</a><span class="family-tag">family: Builders</span></div>
+          <div class="head"><svg class="ico" viewBox="0 0 24 24" aria-hidden="true" focusable="false" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M5 6h14M5 12h14M5 18h14"/><circle cx="9" cy="6" r="2"/><circle cx="15" cy="12" r="2"/><circle cx="8" cy="18" r="2"/></svg><h2>Reconfigure</h2><span class="num">24</span><a class="agent-on" href="https://github.com/CommonAgent/adlc/tree/main/agents/deployment-manager">deployment-manager</a><span class="family-tag">family: Builders</span></div>
           <p class="why">New settings, credentials or ceilings, same version.</p>
           <dl>
             <dt>Done by</dt><dd><a href="https://agentroles.ai/deployment-manager.html">deployment manager</a></dd>
@@ -322,7 +334,7 @@
           </dl>
         </section>
         <section class="stage" id="rollback">
-          <div class="head"><svg class="ico" viewBox="0 0 24 24" aria-hidden="true" focusable="false" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12a8 8 0 1 0 2.6-5.9"/><path d="M4 4v5h5"/></svg><h2>Rollback</h2><span class="num">24</span><span class="role-tag">role: <a href="https://agentroles.ai/deployment-manager.html">deployment manager</a></span><span class="family-tag open">family: open</span></div>
+          <div class="head"><svg class="ico" viewBox="0 0 24 24" aria-hidden="true" focusable="false" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12a8 8 0 1 0 2.6-5.9"/><path d="M4 4v5h5"/></svg><h2>Rollback</h2><span class="num">25</span><span class="role-tag">role: <a href="https://agentroles.ai/deployment-manager.html">deployment manager</a></span><span class="family-tag open">family: open</span></div>
           <p class="why">Moving the code back is easy; undoing what the bad version did is not.</p>
           <dl>
             <dt>Done by</dt><dd><a href="https://agentroles.ai/deployment-manager.html">deployment manager</a></dd>
@@ -332,7 +344,7 @@
           </dl>
         </section>
         <section class="stage" id="decommission">
-          <div class="head"><svg class="ico" viewBox="0 0 24 24" aria-hidden="true" focusable="false" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="4" rx="1"/><path d="M5 8v11a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1V8"/><path d="M10 12h4"/></svg><h2>Decommission</h2><span class="num">25</span><a class="agent-on" href="https://github.com/CommonAgent/adlc/tree/main/agents/deployment-manager">deployment-manager</a><span class="family-tag">family: Builders</span></div>
+          <div class="head"><svg class="ico" viewBox="0 0 24 24" aria-hidden="true" focusable="false" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="4" rx="1"/><path d="M5 8v11a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1V8"/><path d="M10 12h4"/></svg><h2>Decommission</h2><span class="num">26</span><a class="agent-on" href="https://github.com/CommonAgent/adlc/tree/main/agents/deployment-manager">deployment-manager</a><span class="family-tag">family: Builders</span></div>
           <p class="why">This is retiring an agent: the address stops answering rather than answering wrongly.</p>
           <dl>
             <dt>Done by</dt><dd><a href="https://agentroles.ai/deployment-manager.html">deployment manager</a></dd>
