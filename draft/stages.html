@@ -60,7 +60,7 @@
           <li><a href="#phase-run">Run</a></li>
           <li><a href="#phase-change">Change</a></li>
         </ul>
-        <p class="note">Each card names the family of reference agents that holds the stage, or says open when no reference agent holds it yet. Retract and Rollback name their roles; the reference publisher and deployment-manager agents don't hold them.</p>
+        <p class="note">Each card names the family of reference agents that holds the stage. A card that says open has no reference agent yet. Retract and Rollback name their roles; the reference publisher and deployment-manager agents don't hold them.</p>
       </header>
 
         <h2 class="phase-head" id="phase-define">Define</h2>
@@ -82,7 +82,7 @@
             <dl>
               <dt>Role</dt><dd><a href="https://agentroles.ai/solution-architect.html">solution architect</a>, or a person</dd>
               <dt>Given</dt><dd>the statement of the job, the organization's stack, and the other standing assets in its library</dd>
-              <dt>Hands back</dt><dd>an architecture record:<ul class="handlist"><li>the systems the agent reaches, in plain words (database, files, text reasoning, mail sender)</li><li>the product bound to each in dev, test and production: the organization's stack first, a platform default for the rest</li><li>dependencies on other agents and services</li><li>the agent's kind: a harness reading skills, code that speaks the network itself, or a container</li><li>limits on cost, speed, data and trust</li><li>the <a href="assets.html#standing">standing assets</a> the agent reads, such as the brand profile or the glossary, each with the reason it reads it</li><li>each decision, with its reason</li></ul></dd>
+              <dt>Hands back</dt><dd>an architecture record:<ul class="handlist"><li>the systems the agent reaches, in plain words (database, files, text reasoning, mail sender)</li><li>the product bound to each in dev, test and production: the organization's stack first, a platform default for the rest</li><li>dependencies on other agents and services</li><li>the agent's kind: a harness reading skills, code that speaks the network itself, or a container</li><li>limits on cost, speed, data and trust</li><li>the <a href="assets.html#standing">standing assets</a> the agent reads, such as the brand profile, and why it reads each one</li><li>each decision, with its reason</li></ul></dd>
             </dl>
           </div>
           <div class="part">
@@ -90,11 +90,11 @@
             <dl>
               <dt>Role</dt><dd><a href="https://agentroles.ai/spec-writer.html">spec writer</a> for an agent; <a href="https://agentroles.ai/solution-planner.html">solution planner</a> for a solution</dd>
               <dt>Given</dt><dd>the statement, and the architecture record</dd>
-              <dt>Hands back</dt><dd>the steps, what each is given and hands back, and whether each is a program or a judgment; and the standing assets the architecture chose, declared as <code>can_use</code>, each saying what the agent reads, what it does with it, and what it does without it</dd>
+              <dt>Hands back</dt><dd>the design:<ul class="handlist"><li>the steps, what each is given and hands back, and whether each is a program or a judgment</li><li>a <code>can_use</code> entry for each standing asset the architecture chose</li><li>in each entry, what the agent does with the asset, and what it does without it</li></ul></dd>
             </dl>
           </div>
           <dl class="done">
-            <dt>Done when</dt><dd>every system is named and bound in each environment it will run in, every decision has a reason, every design step uses only systems the architecture named, and the design's <code>can_use</code> lists exactly the standing assets the architecture chose</dd>
+            <dt>Done when</dt><dd>every system is named and bound in each environment it will run in, every decision has a reason, every design step uses only systems the architecture named, and the design declares the same standing assets the architecture chose</dd>
           </dl>
         </section>
         <section class="stage" id="impact">
@@ -116,7 +116,7 @@
             <dt>Hands back</dt><dd>for each step, an agent or solution that fits, or "build one" with the reason</dd>
             <dt>Done when</dt><dd>every step has an answer, every "build one" says why, and every agent offered has a current audit pass</dd>
           </dl>
-          <p class="gate-note"><b>The listing gate.</b> The catalog lists an agent only while an <a href="#audit">audit report</a> for its package digest says pass, or pass with findings, and hasn't expired.</p>
+          <p class="gate-note">The catalog lists an agent only if it has a current <a href="#audit">audit pass</a>.</p>
         </section>
         <h2 class="phase-head" id="phase-make">Make</h2>
         <section class="stage" id="test">
@@ -185,11 +185,11 @@
           <p class="why">There's never a moment when the agent is live without its credentials and limits; secrets are named, never carried.</p>
           <dl>
             <dt>Role</dt><dd><a href="https://agentroles.ai/deployment-manager.html">deployment manager</a></dd>
-            <dt>Given</dt><dd>the package, where it goes, and the owner's answers as names and numbers; for production, a current audit pass for the package's digest</dd>
+            <dt>Given</dt><dd>the package, where it goes, and the owner's answers as names and numbers; for production, also a current audit pass</dd>
             <dt>Hands back</dt><dd>a running agent with an identity, an address and an inbox; its Descriptor signed and registered; settings, credentials (placed by name) and ceilings in place before it starts; a signed deployment record</dd>
             <dt>Done when</dt><dd>nothing asked for is missing, no secret appeared, a message gets an answer, and the record is signed</dd>
           </dl>
-          <p class="gate-note"><b>The production gate.</b> The deployment manager refuses a production deploy unless an <a href="#audit">audit report</a> for this exact package digest says pass, or pass with findings, and hasn't expired. A deploy to dev or test doesn't need one.</p>
+          <p class="gate-note">The deployment manager refuses a production deploy without a current <a href="#audit">audit pass</a>. A deploy to dev or test doesn't need one.</p>
         </section>
         <h2 class="phase-head" id="phase-prove">Prove</h2>
         <section class="stage" id="conformance">
@@ -204,14 +204,15 @@
         </section>
         <section class="stage" id="audit">
           <div class="head"><svg class="ico" viewBox="0 0 24 24" aria-hidden="true" focusable="false" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2.8l2.3 1.7 2.8-.1.9 2.7 2.3 1.6-.9 2.7.9 2.7-2.3 1.6-.9 2.7-2.8-.1L12 21.2l-2.3-1.7-2.8.1-.9-2.7L3.7 15.3l.9-2.7-.9-2.7 2.3-1.6.9-2.7 2.8.1z"/><path d="m8.8 12.2 2.2 2.2 4.2-4.4"/></svg><h2>Audit</h2><span class="num">13</span><span class="role-tag">role: auditor</span><span class="family-tag open">family: open</span></div>
-          <p class="why">The audit checks outcomes and required artifacts, not the path, so it judges every agent the same way whoever built it, and skipping a stage gains nothing.</p>
+          <p class="why">The audit looks at the agent itself: its Descriptor, its package and its records. It does not ask how the agent was built.</p>
           <dl>
             <dt>Role</dt><dd>auditor</dd>
-            <dt>Given</dt><dd>a built agent version, by its package digest, and the agent's address; the <a href="assets.html#standing">audit checklist</a> comes from the operator's library</dd>
-            <dt>Hands back</dt><dd>a signed <a href="assets.html#audit-report">audit report</a> for that version:<ul class="handlist"><li>a header the gates read, with the package digest, the verdict (pass, pass with findings, or fail), when it expires, and the signature</li><li>one line per artifact: each required one present, signed and bound to the digest, or missing; each optional one shown as evidence</li><li>each checklist rule, passed or failed, with its evidence</li><li>findings, each routed to the stage that fixes it</li><li>what wasn't checked, and why</li></ul></dd>
-            <dt>Done when</dt><dd>every required artifact is checked present, signed and bound to the digest (for every agent, the signed Descriptor and registration; for an agent a platform runs, also the package, the signed build record, the deployment record and the conformance verdict); every outcome on the checklist is checked by the auditor itself; and every finding names the stage that fixes it</dd>
+            <dt>Given</dt><dd>the agent's package digest, the agent's address, and the operator's <a href="assets.html#standing">audit checklist</a></dd>
+            <dt>Hands back</dt><dd>a signed <a href="assets.html#audit-report">audit report</a> for that version:<ul class="handlist"><li>a header for the gates: the package digest, the verdict, the expiry date and the signature</li><li>one line per required artifact, saying whether it's there and signed for this package</li><li>the other artifacts it read as evidence</li><li>each checklist rule, passed or failed, with its evidence</li><li>findings, each sent to the stage that fixes it</li><li>what wasn't checked, and why</li></ul></dd>
+            <dt>Done when</dt><dd>every required artifact is checked, every check on the checklist has run, and every finding names the stage that fixes it</dd>
           </dl>
-          <p class="gate-note"><b>Evidence, not a path.</b> The statement, architecture record, design, tests, review findings and security statement are accepted as evidence from whoever made them, when signed and bound to the digest. The default checklist never requires them, and an organization's own checklist may require more.</p>
+          <p class="gate-note">Every agent needs a signed Descriptor and registration. An agent a platform runs also needs its package, signed build record, deployment record and conformance verdict. The auditor runs every other check itself. Other artifacts, such as a design or a security statement, count as evidence if they are signed for this package. The default checklist never requires them. An organization's own checklist may require more.</p>
+          <p class="gate-note">The verdict is pass, pass with findings, or fail. A pass is current while it names this package digest and hasn't expired. A pass with findings counts as a pass.</p>
         </section>
         <section class="stage" id="acceptance">
           <div class="head"><svg class="ico" viewBox="0 0 24 24" aria-hidden="true" focusable="false" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="8" r="3.2"/><path d="M3.5 20c0-3.3 2.5-5.5 5.5-5.5s5.5 2.2 5.5 5.5"/><path d="m15 11 2 2 4-4"/></svg><h2>Acceptance</h2><span class="num">14</span><span class="person-tag">a person</span><span class="family-tag open">family: none</span></div>
