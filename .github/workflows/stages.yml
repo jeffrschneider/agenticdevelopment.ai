@@ -1,0 +1,26 @@
+name: stages
+
+# stages.html must say what CommonAgent/adlc standards/stages.json says.
+# Runs on every push and pull request, and once a day to catch a change
+# made on the stages.json side.
+on:
+  push:
+    branches: [main]
+  pull_request:
+  schedule:
+    - cron: "17 13 * * *"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "22"
+      - name: stages.html matches stages.json
+        run: node tools/check-stages.mjs
