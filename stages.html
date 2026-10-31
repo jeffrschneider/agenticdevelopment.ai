@@ -26,6 +26,10 @@
 
   <aside class="rail">
     <a class="brand" href="./"><span class="dot"></span>agentic development</a>
+    <div class="grp">Start here</div>
+    <nav>
+      <a href="your-coding-agent.html">Your coding agent</a>
+    </nav>
     <div class="grp">The lifecycle</div>
     <nav>
       <a href="./">Overview</a>
@@ -131,11 +135,12 @@
           <div class="head"><svg class="ico" viewBox="0 0 24 24" aria-hidden="true" focusable="false" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="m8 7-5 5 5 5"/><path d="m16 7 5 5-5 5"/></svg><h2>Code</h2><span class="num">06</span><a class="agent-on" href="https://github.com/CommonAgent/adlc/tree/main/agents/code-writer">code-writer</a></div>
           <p class="why">Any code writer can hold it; your prototype is read as the spec and written again against the suite.</p>
           <dl>
-            <dt>Role</dt><dd><a href="https://agentroles.ai/code-writer.html">code writer</a></dd>
-            <dt>Given</dt><dd>the statement, the suite, and a prototype if there is one</dd>
+            <dt>Role</dt><dd><a href="https://agentroles.ai/code-writer.html">code writer</a>: the reference agent, your own coding agent, or a person</dd>
+            <dt>Given</dt><dd>the statement, the suite, and a prototype if there is one, as a build folder on a branch with a "Write the scripts" pull request</dd>
             <dt>Hands back</dt><dd>the programs, an account of what was written, and a record of every round</dd>
-            <dt>Done when</dt><dd>the suite passes, and the tests and statement are unchanged</dd>
+            <dt>Done when</dt><dd>the suite passes, each program removed is noticed, and the tests and statement are unchanged</dd>
           </dl>
+          <p class="handoff-callout"><b>The hand-off.</b> The folder carries its rules in AGENTS.md and a fence in build.lock.json, so the coding agent you already use can hold this stage. Its work comes back through the gate as the pull request's checks, then the owner's OK. <a href="your-coding-agent.html">Start here with your own coding agent.</a></p>
         </section>
         <section class="stage" id="review">
           <div class="head"><svg class="ico" viewBox="0 0 24 24" aria-hidden="true" focusable="false" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="6.5"/><path d="m16 16 5 5"/></svg><h2>Review</h2><span class="num">07</span><span class="role-tag">role: <a href="https://agentroles.ai/code-critic.html">code critic</a></span></div>
