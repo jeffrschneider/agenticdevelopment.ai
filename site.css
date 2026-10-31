@@ -506,3 +506,13 @@ section.band p a, .inline-links a{ color:var(--paper); text-decoration-color:var
 .steps .person-tag{ margin-left:8px; vertical-align:1px; }
 .phase li.onramp a, .phase li.golive a{ flex-wrap:wrap; row-gap:3px; }
 .phase .onramp-tag, .phase .golive-tag{ font-size:.54rem; padding:1px 5px; margin-left:5px; font-weight:600; }
+
+/* the API page: calls and fields wrap, and the tables stack on a phone */
+.tbl.api td:first-child{ white-space:nowrap; padding-right:18px; }
+.tbl.api code, .prose p code, .prose li code{ overflow-wrap:anywhere; }
+@media (max-width: 760px){
+  .tbl.api thead{ display:none; }
+  .tbl.api, .tbl.api tbody, .tbl.api tr, .tbl.api td{ display:block; width:100%; }
+  .tbl.api tr{ border-bottom:1px solid var(--line); padding:10px 0; }
+  .tbl.api td{ border:0; padding:3px 0; white-space:normal !important; }
+}

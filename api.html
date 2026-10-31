@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>The API: Agentic Development</title>
+  <meta name="description" content="What any service that runs the lifecycle answers, so one client can follow a build through all twenty-four stages: the endpoints, the shapes, the key, the actions, and how the contract grows.">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="Agentic Development">
+  <meta property="og:title" content="The API | Agentic Development">
+  <meta property="og:description" content="What any service that runs the lifecycle answers, so one client can follow a build through all twenty-four stages: the endpoints, the shapes, the key, the actions, and how the contract grows.">
+  <meta property="og:url" content="https://agenticdevelopment.ai/api.html">
+  <meta property="og:image" content="https://agenticdevelopment.ai/brand/png/og-image-v2.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="A cartoon tug of war: two people pull a lifecycle banner in half, one side reading Design, Test, Code and the other Design, Code, Test, while a box labeled package sits ignored on the floor between them. Headline: No two teams have ever agreed on a development lifecycle.">
+  <meta name="twitter:card" content="summary_large_image">
+  <link rel="icon" type="image/svg+xml" href="favicon.svg">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500;600&family=Kalam:wght@400;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="site.css">
+</head>
+<body>
+<div class="layout">
+
+  <aside class="rail">
+    <a class="brand" href="./"><span class="dot"></span>agentic development</a>
+    <div class="grp">Start here</div>
+    <nav>
+      <a href="your-coding-agent.html">Your coding agent</a>
+    </nav>
+    <div class="grp">The lifecycle</div>
+    <nav>
+      <a href="./">Overview</a>
+      <a href="stages.html">The stages</a>
+      <a href="assets.html">The assets</a>
+      <a href="handoffs.html">The handoffs</a>
+      <a href="processes.html">The processes</a>
+    </nav>
+    <div class="grp">In practice</div>
+    <nav>
+      <a href="implementations.html">Implementations</a>
+      <a class="on" href="api.html">The API</a>
+      <a href="https://github.com/CommonAgent/adlc">The code</a>
+    </nav>
+    <div class="foot">
+      <a href="https://agentmesh.ai/standards.html">The family of standards</a>
+    </div>
+  </aside>
+
+  <main class="main">
+    <div class="wrap">
+
+      <header class="page-head">
+        <h1>Any service that runs the lifecycle answers the same API.</h1>
+        <p class="turn">A person may build agents on more than one service, and should be able to follow every build in one place. So a service that implements the lifecycle reports each build stage by stage, in one shape, and says what the person may do next. A client shows what the service says and holds no lifecycle logic of its own.</p>
+        <p class="links-line">The schema: <a href="https://github.com/CommonAgent/adlc/blob/main/standards/lifecycle-api.schema.json">lifecycle-api.schema.json</a> · The check: <a href="https://github.com/CommonAgent/adlc/blob/main/standards/lifecycle-api-check.mjs">lifecycle-api-check.mjs</a> · Version 0.1</p>
+        <ul class="jump" aria-label="Jump to a section">
+          <li><a href="#paths">The paths</a></li>
+          <li><a href="#key">The key</a></li>
+          <li><a href="#build">A build</a></li>
+          <li><a href="#actions">Actions</a></li>
+          <li><a href="#tries">Try, keep, wrong</a></li>
+          <li><a href="#errors">Errors</a></li>
+          <li><a href="#versions">Versions</a></li>
+          <li><a href="#check">The check</a></li>
+          <li><a href="#first">Implementations</a></li>
+        </ul>
+      </header>
+
+      <div class="prose">
+
+        <h2 id="paths">Every service answers these paths.</h2>
+        <p>They sit under <code>/v1/lifecycle</code> on the service. Every request and answer is JSON, and every time is ISO 8601 with a zone.</p>
+        <table class="tbl api">
+          <thead><tr><th>Call</th><th>What it answers</th></tr></thead>
+          <tbody>
+            <tr><td><code>GET /me</code></td><td>who the key belongs to, <code>{ account: { email, name } }</code>, and the service's name, <code>{ service: { name } }</code></td></tr>
+            <tr><td><code>GET /builds</code></td><td>the person's builds, each with its id, name, what it does, its version, the stage it is at and its state there, and when it last changed</td></tr>
+            <tr><td><code>POST /builds</code></td><td>a new build, started from the person's words: <code>does</code>, and if they like <code>refuses</code>, <code>more</code>, <code>name</code> and a <code>prototype</code> repository</td></tr>
+            <tr><td><code>GET /builds/{id}</code></td><td>one build, stage by stage, with its log and the actions it offers now</td></tr>
+            <tr><td><code>GET /builds/{id}/files?path=</code></td><td>the bytes of a file a stage handed back, at the link the build gives</td></tr>
+            <tr><td><code>POST /builds/{id}/actions/{name}</code></td><td>the build after the person takes one of the actions it offered</td></tr>
+            <tr><td><code>POST /builds/{id}/try</code></td><td>the answer to one input, sent to the pull request or to the installed agent</td></tr>
+            <tr><td><code>GET /builds/{id}/tries</code></td><td>the tries made on the build, newest first</td></tr>
+            <tr><td><code>POST /builds/{id}/tries/{tid}/keep</code></td><td>the try, now kept as a new test in the agent's suite</td></tr>
+            <tr><td><code>POST /builds/{id}/tries/{tid}/wrong</code></td><td>the try, now sent back to whoever holds the code</td></tr>
+          </tbody>
+        </table>
+
+        <h2 id="key">The person's own key signs every call.</h2>
+        <p>Each call carries <code>Authorization: Bearer &lt;key&gt;</code>. The key is one the person makes for their own account, and the service says how to make one and what it must allow. A client asks for the key once and never sees a password. It sends the key only to the service, and asks for a new one when the service answers 401 or 403.</p>
+
+        <h2 id="build">A build lists all twenty-four stages.</h2>
+        <p>The answer to <code>GET /builds/{id}</code> lists every stage of <a href="stages.html">the lifecycle</a> once, by the ids in <a href="https://github.com/CommonAgent/adlc/blob/main/standards/stages.json">stages.json</a>. A stage the service does not run is listed as <code>not_offered</code>, so a client always draws the whole lifecycle and the person can see what this service leaves to someone else.</p>
+        <div class="term">
+          <div class="bar"><span class="lamp"></span>one stage of a build</div>
+<pre>{
+  "stage": "code",
+  "state": "waiting_on_you",
+  "holder": {
+    "kind": "your_agent",
+    "name": "your coding agent, on you/word-tally"
+  },
+  "runs": 2,
+  "rounds": [
+    { "n": 2, "at": "2026-10-31T09:15:00Z",
+      "label": "Push 2", "verdict": "passed",
+      "back": false, "words": "Every test passed." },
+    { "n": 1, "at": "2026-10-31T08:52:00Z",
+      "label": "Push 1", "verdict": "failed",
+      "back": true, "words": "Two tests failed." }
+  ],
+  "given": "the build folder, with the suite and AGENTS.md",
+  "handed_back": {
+    "words": ["the scripts"],
+    "files": [
+      { "path": "scripts/count.mjs", "size": 3500,
+        "link": "/v1/lifecycle/builds/b1/files?path=scripts%2Fcount.mjs" }
+    ]
+  },
+  "done_when_met": null,
+  "log": [
+    { "at": "2026-10-31T09:15:00Z", "said": "The gate passed on 772a7e4." }
+  ],
+  "where": {
+    "kind": "pull_request",
+    "url": "https://github.com/you/word-tally/pull/1",
+    "head": "772a7e4",
+    "check": {
+      "title": "The gate passed", "words": "Every test passed.",
+      "items": ["fence", "suite"], "passed": true
+    }
+  }
+}</pre>
+        </div>
+        <table class="tbl api">
+          <thead><tr><th>Field</th><th>What it says</th></tr></thead>
+          <tbody>
+            <tr><td><code>state</code></td><td><code>not_started</code>, <code>working</code>, <code>waiting_on_you</code> (the person's act is next), <code>done</code>, <code>refused</code>, <code>stopped</code> or <code>not_offered</code></td></tr>
+            <tr><td><code>holder</code></td><td>who holds the stage: a <code>reference_agent</code>, <code>your_agent</code> (one the person brought) or a <code>person</code>, with a name; null for a stage that is not offered</td></tr>
+            <tr><td><code>rounds</code></td><td>each time the stage ran, newest first; <code>back</code> is true when that round sent the work back</td></tr>
+            <tr><td><code>handed_back</code></td><td>what the stage handed back, in words and as files, each with its size in bytes and a link read with the same key</td></tr>
+            <tr><td><code>done_when_met</code></td><td>whether the stage's "done when" was met: true, false, or null while it is not known</td></tr>
+            <tr><td><code>where</code></td><td>where the work is when the person can open it, such as a pull request with its newest commit and its check; otherwise null</td></tr>
+          </tbody>
+        </table>
+        <p>Beside the stages, a build carries its id, name, what it does, its version, the <code>handle</code> it answers at once installed, its own <code>log</code>, its <code>actions</code>, and <code>can_try</code>, which says whether a try may be sent now to the pull request and to the installed agent.</p>
+
+        <h2 id="actions">A client draws one button for each action, and nothing else.</h2>
+        <p>Every build carries the actions the person may take now. A client shows each one as a button with its label, asks for the inputs it needs, and posts them to <code>/builds/{id}/actions/{name}</code>. It never adds a button the service did not offer and never decides on its own what comes next, so every judgment stays with the service and its agents. When the service offers nothing, the person has nothing to do.</p>
+        <div class="term">
+          <div class="bar"><span class="lamp"></span>an action, as the build offers it</div>
+<pre>{
+  "stage": "requirements",
+  "name": "approve",
+  "label": "Approve the spec",
+  "needs": [
+    { "name": "repository",
+      "label": "Your coding agent's repository, as owner/name",
+      "kind": "repository",
+      "optional": true }
+  ]
+}</pre>
+        </div>
+        <p>A need's <code>kind</code> is <code>text</code> for a line, <code>words</code> for a paragraph, or <code>repository</code> for owner/name. A need marked <code>optional</code> may be left empty, and is then not sent. An action names the stage it acts at, and that is always a stage the build offers. The answer is the build as it now stands.</p>
+
+        <h2 id="tries">Try it, keep what it got right, and send back what it got wrong.</h2>
+        <p>Before the person accepts the code, and after the agent is installed, they can send it one input and read the answer.</p>
+        <ul>
+          <li><b>Try.</b> <code>POST /builds/{id}/try</code> with <code>{ say, against }</code>, where <code>against</code> is <code>pull_request</code> or <code>installed</code>. The answer is <code>{ try: { id, say, against, answer, ms, at } }</code>. Against the pull request, the service runs the newest commit on that one input, through the same checks its gate uses. Against the installed agent, it sends the agent a message as the person and waits for the reply.</li>
+          <li><b>Keep.</b> <code>POST /builds/{id}/tries/{tid}/keep</code> adds the try to the agent's suite as a new test file, so the answer it gave becomes one it must keep giving.</li>
+          <li><b>Wrong.</b> <code>POST /builds/{id}/tries/{tid}/wrong</code> with an optional <code>{ why }</code> sends the try back to whoever holds the code, as a comment on the pull request.</li>
+        </ul>
+        <p><code>GET /builds/{id}/tries</code> lists every try, newest first, each saying whether it was <code>kept</code> and whether it was <code>sent_back</code>. A service may cap how many tries a build has in a day.</p>
+
+        <h2 id="errors">An error is words a person can read.</h2>
+        <p>Any refusal is a 4xx or 5xx status with <code>{ error }</code> in words, which a client shows as they are. A refused action also carries the <code>build</code> as it now stands. A 401 or 403 means the key is missing, wrong, or does not allow the call. A 429 means the service was asked too often, and a client waits before asking again.</p>
+
+        <h2 id="versions">Version 0.1 grows only by adding fields.</h2>
+        <p>This is version 0.1, served on the <code>/v1/lifecycle</code> path. It changes only by adding fields. A service never removes a field or changes what one means, and a client ignores any field it does not know. That way an older client keeps working against a newer service, and a service can say more than this page does without breaking anyone.</p>
+
+        <h2 id="check">The schema and a check are open, beside the stages.</h2>
+        <p>The schema, <a href="https://github.com/CommonAgent/adlc/blob/main/standards/lifecycle-api.schema.json">lifecycle-api.schema.json</a>, holds every request and answer above as JSON Schema. It sits in <a href="https://github.com/CommonAgent/adlc/tree/main/standards">CommonAgent/adlc</a> beside stages.json, under Apache-2.0.</p>
+        <p>The check, <a href="https://github.com/CommonAgent/adlc/blob/main/standards/lifecycle-api-check.mjs">lifecycle-api-check.mjs</a>, reads a running service with a key and says whether its answers keep the contract. It only reads. It checks every answer against the schema, and the rules a schema cannot say: every stage listed once, actions only at stages the build offers, and rounds newest first.</p>
+        <div class="term">
+          <div class="bar"><span class="lamp"></span>against your own service</div>
+<pre><span class="k">$</span> node standards/lifecycle-api-check.mjs https://your-service.example/v1/lifecycle/ --key-file ./key</pre>
+        </div>
+        <p>It needs Node 22 and nothing else. It takes the key from a file or from <code>ADLC_API_KEY</code>, never from the command line, and never prints it. <b>Exit 0 means the service keeps the contract.</b></p>
+
+        <h2 id="first">AgentMesh is the first implementation.</h2>
+        <p><a href="https://agentmesh.ai">AgentMesh</a> answers this API for the agents a person builds there. A person makes a key for their own account on its Keys page and gives it to the client. Any other service that runs the lifecycle can answer the same paths, and the same client will follow its builds too. See <a href="implementations.html">Implementations</a> for what holds each stage today.</p>
+
+      </div>
+
+      <footer class="footer">
+        <span>Agentic Development</span>
+        <span>Sponsored by <a href="https://agentmesh.ai">AgentMesh</a></span>
+        <span>Reference agents under Apache-2.0 on <a href="https://github.com/CommonAgent/adlc">GitHub</a></span>
+      </footer>
+
+    </div>
+  </main>
+</div>
+</body>
+</html>
