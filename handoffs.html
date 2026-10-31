@@ -26,6 +26,10 @@
 
   <aside class="rail">
     <a class="brand" href="./"><span class="dot"></span>agentic development</a>
+    <div class="grp">Start here</div>
+    <nav>
+      <a href="your-coding-agent.html">Your coding agent</a>
+    </nav>
     <div class="grp">The lifecycle</div>
     <nav>
       <a href="./">Overview</a>
@@ -136,7 +140,8 @@
           <li><span class="st"><a href="stages.html#source">Source</a></span><span class="hb">for each step, an agent or solution that fits, or "build one"</span></li>
           <li class="ph">Make</li>
           <li><span class="st"><a href="stages.html#test">Test</a></span><span class="hb">the suite, written from the statement before any program</span></li>
-          <li><span class="st"><a href="stages.html#code">Code</a></span><span class="hb">the programs, passing the suite, and a record of every round</span></li>
+          <li><span class="st"><a href="your-coding-agent.html">The hand-off</a></span><span class="hb">a build folder on a branch, with a "Write the scripts" pull request: the declarations, the suite, the rules in AGENTS.md and a fence in build.lock.json</span></li>
+          <li><span class="st"><a href="stages.html#code">Code</a></span><span class="hb">the programs, passing the suite, and a record of every round, as commits on that branch</span></li>
           <li><span class="st"><a href="stages.html#review">Review</a></span><span class="hb">findings, each naming a place, a claim and a consequence</span></li>
           <li><span class="st"><a href="stages.html#security">Security review</a></span><span class="hb">what it may reach, what it may spend, and what it must never do</span></li>
           <li class="ph">Ship</li>
@@ -162,6 +167,7 @@
           <li><span class="st"><a href="stages.html#decommission">Decommission</a></span><span class="hb">nothing running, records kept, address retired</span></li>
         </ol>
         <p>Real work loops back, after a failed test or a finding, but what passes between two stages is the same artifact every time.</p>
+        <p>The hand-off before Code is what lets the coding agent you already use hold that stage. It is given the folder, not a conversation, and the pull request's checks decide whether its work moves on. <a href="your-coding-agent.html">Here is the contract to give your own coding agent.</a></p>
       </div>
 
       <footer class="footer">

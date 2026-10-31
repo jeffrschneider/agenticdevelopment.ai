@@ -316,6 +316,12 @@ section.band p a, .inline-links a{ color:var(--paper); text-decoration-color:var
 .stage .onramp-note, .onramp-callout{ margin:14px 0; padding:10px 14px; border:1px solid rgba(242,169,59,.4); border-radius:8px;
   background:var(--panel); color:var(--paper); max-width:68ch; }
 .onramp-callout a{ color:var(--paper); }
+.handoff-callout{ margin:14px 0; padding:10px 14px; border:1px solid var(--line); border-left:3px solid var(--accent); border-radius:8px;
+  background:var(--panel); color:var(--paper); max-width:68ch; }
+.handoff-callout a{ color:var(--paper); text-decoration-color:var(--accent-ink); text-underline-offset:3px; }
+.handoff-callout b{ font-weight:600; }
+.phase li.onramp-note.handoff-line{ border-left-color:var(--accent); }
+.phase li.onramp-note.handoff-line a{ display:inline; font-weight:500; color:var(--paper); }
 
 /* tables */
 .tbl{ width:100%; border-collapse:collapse; margin:18px 0 8px; font-size:.92rem; }

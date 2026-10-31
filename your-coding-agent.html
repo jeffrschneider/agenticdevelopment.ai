@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Your coding agent: Agentic Development</title>
+  <meta name="description" content="Bring the coding agent you already use to the Code stage. The lifecycle hands it a build folder with the rules written in AGENTS.md, and its work comes back through checks it does not control.">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="Agentic Development">
+  <meta property="og:title" content="Your coding agent | Agentic Development">
+  <meta property="og:description" content="Bring the coding agent you already use to the Code stage. The lifecycle hands it a build folder with the rules written in AGENTS.md, and its work comes back through checks it does not control.">
+  <meta property="og:url" content="https://agenticdevelopment.ai/your-coding-agent.html">
+  <meta property="og:image" content="https://agenticdevelopment.ai/brand/png/og-image-v2.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="A cartoon tug of war: two people pull a lifecycle banner in half, one side reading Design, Test, Code and the other Design, Code, Test, while a box labeled package sits ignored on the floor between them. Headline: No two teams have ever agreed on a development lifecycle.">
+  <meta name="twitter:card" content="summary_large_image">
+  <link rel="icon" type="image/svg+xml" href="favicon.svg">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500;600&family=Kalam:wght@400;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="site.css">
+</head>
+<body>
+<div class="layout">
+
+  <aside class="rail">
+    <a class="brand" href="./"><span class="dot"></span>agentic development</a>
+    <div class="grp">Start here</div>
+    <nav>
+      <a class="on" href="your-coding-agent.html">Your coding agent</a>
+    </nav>
+    <div class="grp">The lifecycle</div>
+    <nav>
+      <a href="./">Overview</a>
+      <a href="stages.html">The stages</a>
+      <a href="assets.html">The assets</a>
+      <a href="handoffs.html">The handoffs</a>
+      <a href="processes.html">The processes</a>
+    </nav>
+    <div class="grp">In practice</div>
+    <nav>
+      <a href="implementations.html">Implementations</a>
+      <a href="https://github.com/CommonAgent/adlc">The code</a>
+    </nav>
+    <div class="foot">
+      <a href="https://agentmesh.ai/standards.html">The family of standards</a>
+    </div>
+  </aside>
+
+  <main class="main">
+    <div class="wrap">
+
+      <header class="page-head">
+        <h1>Bring your own coding agent to the Code stage.</h1>
+        <p class="turn">The lifecycle does the steps before the code and the steps after it. The code in between can be written by the coding agent you already use, such as Claude Code, Codex or Cursor, or by a person. It is handed a folder with the rules written inside, and its work comes back through checks it does not control.</p>
+        <ul class="jump" aria-label="Jump to a section">
+          <li><a href="#flow">How the work moves</a></li>
+          <li><a href="#folder">What is in the folder</a></li>
+          <li><a href="#contract">The contract</a></li>
+          <li><a href="#check">The local check</a></li>
+          <li><a href="#gate">What the gate checks</a></li>
+          <li><a href="#back">How work comes back</a></li>
+        </ul>
+      </header>
+
+      <div class="prose">
+
+        <h2 id="flow">Here is how the work moves.</h2>
+        <p>Your coding agent holds one step, the scripts. Everything before it makes the contract, and everything after it checks the work against that contract.</p>
+        <ol class="steps">
+          <li><span class="sn">Write the spec</span><span class="sw">the statement of the job, in the Common Agent shape, with its open questions</span><span class="sh"><a href="https://agentroles.ai/spec-writer.html">spec writer</a>, with the owner</span></li>
+          <li><span class="sn">Approve the spec <span class="person-tag">a person</span></span><span class="sw">the owner answers the open questions and says yes</span><span class="sh">the owner</span></li>
+          <li><span class="sn">Write the suite</span><span class="sw">tests from the statement alone, shown to fail against nothing</span><span class="sh"><a href="https://agentroles.ai/test-writer.html">test writer</a></span></li>
+          <li><span class="sn">Hand off the code</span><span class="sw">the build folder written to a branch, with a pull request titled "Write the scripts"</span><span class="sh">the lifecycle</span></li>
+          <li><span class="sn">Write the scripts</span><span class="sw">the scripts the statement names, until <code>node .adlc/check.mjs</code> exits 0</span><span class="sh">your coding agent, or a person</span></li>
+          <li><span class="sn">Run the gate</span><span class="sw">the fence, a static review, and the suite with each script blanked, posted as the pull request's checks</span><span class="sh">the lifecycle</span></li>
+          <li><span class="sn">Approve the scripts <span class="person-tag">a person</span></span><span class="sw">the owner says OK on the commit the gate passed, and the pull request is merged</span><span class="sh">the owner</span></li>
+          <li class="onramp"><span class="sn"><svg class="box-ico" viewBox="0 0 24 24" aria-hidden="true" focusable="false" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3 4 7v10l8 4 8-4V7z"/><path d="m4 7 8 4 8-4M12 11v10"/></svg>Make the package <span class="onramp-tag">on-ramp</span></span><span class="sw">the package made from the merged commit, then the docs and the deploy request</span><span class="sh"><a href="https://agentroles.ai/package-maker.html">package maker</a></span></li>
+        </ol>
+        <p>The folder arrives in your own repository when you have connected one, or otherwise in a repository kept for the agent. Hosted coding agents already start from a repository and end in a pull request, so the repository is the whole interface. Nothing needs to be installed in your coding agent.</p>
+
+        <h2 id="folder">Here is what is in the folder.</h2>
+        <p>Only scripts/ is yours to change. Everything else is pinned by its digest.</p>
+        <table class="tbl">
+          <thead><tr><th>Path</th><th>What it is</th><th>May you change it</th></tr></thead>
+          <tbody>
+            <tr><td>AGENTS.md</td><td>the house rules, written for whoever does the work; CLAUDE.md points to it</td><td>no</td></tr>
+            <tr><td>agent-descriptor.json, agent-runtime-requirements.json, plugin.json, skills/&lt;slug&gt;/SKILL.md</td><td>the agent's declarations, in the <a href="https://commonagent.net/">Common Agent</a> shape</td><td>no</td></tr>
+            <tr><td>test/</td><td>the suite, byte for byte, which is the contract</td><td>no, but you may add a new test file</td></tr>
+            <tr><td>scripts/</td><td>every script the statement names: the released script where there is one, otherwise a stub that exports what the suite imports</td><td>yes: this is the work</td></tr>
+            <tr><td>other files</td><td>every other file the released package carries, at its own path</td><td>no</td></tr>
+            <tr><td>.adlc/</td><td>the local check, the same one the gate runs</td><td>no</td></tr>
+            <tr><td>build.lock.json</td><td>the digest of every pinned file: the fence</td><td>no</td></tr>
+          </tbody>
+        </table>
+
+        <h2 id="contract">Here is the contract your coding agent reads.</h2>
+        <p>Every build folder carries an AGENTS.md like this one, filled in for its agent. Coding agents read AGENTS.md on their own, so you can point yours at the pull request and say "write the scripts".</p>
+        <div class="term">
+          <div class="bar"><span class="lamp"></span>AGENTS.md</div>
+<pre><span class="g"># Writing the scripts for word-tally 0.1.0</span>
+
+This folder is a build folder from an Agent Development Lifecycle. The steps
+before the code are done: the agent is declared (agent-descriptor.json,
+agent-runtime-requirements.json, plugin.json and each skills/&lt;slug&gt;/SKILL.md)
+and its test suite is written (test/). Your job, whoever you are (a coding
+agent or a person), is to write the scripts under scripts/ so that the suite
+passes. The steps after the code (review, security review, packing and
+deploy) take your work back through the same checks you can run here.
+
+<span class="g">## The scripts to write</span>
+
+- scripts/count.mjs (a stub)
+- scripts/went-without.mjs (a stub)
+
+Each one is already there: the released script where there is one, otherwise
+a stub that exports what the suite imports and throws until it is written.
+Keep the file names and the exported names.
+
+<span class="g">## The rules</span>
+
+1. Write only under scripts/. Everything else here is pinned by digest in
+   build.lock.json.
+2. Never change a test, the agent's files, or any other pinned file. You may
+   add a new test file under test/; it is run with the rest. Changing or
+   removing an existing test, or the agent's files, sends the work back to the
+   spec and test steps, so say what you think is wrong instead of changing it.
+3. If a test cannot pass without breaking what the agent's files say, stop
+   and say which test and which line. Which of the two is wrong is a
+   person's call.
+4. Node 22 or later, ES modules (.mjs), nothing outside node: no npm
+   packages, no other language.
+5. A model is reached only through the shared caller (scripts/model-caller.mjs,
+   where the agent has one) and its four settings, read from the environment
+   on every run: MODEL_NAME, MODEL_ENDPOINT, MODEL_KEY (may be empty) and
+   MODEL_PROTOCOL (anthropic-messages, openai-chat or gemini). Never sign in
+   any other way: no metadata server, no credential file, no variable the
+   agent's files do not declare.
+6. Write no address into a script. A system's address is one of its declared
+   settings, read from the environment; an address a caller hands in is used
+   as given.
+7. No credential values anywhere, and nothing that looks like one.
+8. Never reach a network or a real system from a test run: the suite hands
+   in every function that would.
+
+<span class="g">## The check</span>
+
+Run `node .adlc/check.mjs` from this folder as often as you like. It says,
+in order:
+- whether anything pinned changed (and names it);
+- each failing test by name;
+- on a pass, whether the suite notices each script going missing, and
+  whether the package builds where the builder is installed.
+
+Exit 0 is done. When it is, hand the work back: open the pull request, or
+send the folder back, as you were asked.</pre>
+        </div>
+        <p>The template every folder is written from is open, at <a href="https://github.com/CommonAgent/adlc/blob/main/agents/code-writer/references/agents-md-template.md">CommonAgent/adlc</a>. The role it describes is the <a href="https://agentroles.ai/code-writer.html#handoff">code writer</a>, and Agent Roles says how any coding agent holds it through this hand-off.</p>
+
+        <h2 id="check">Run the check yourself, as often as you like.</h2>
+        <div class="term">
+          <div class="bar"><span class="lamp"></span>in the build folder</div>
+<pre><span class="k">$</span> node .adlc/check.mjs</pre>
+        </div>
+        <p>It runs the same check the gate runs, with nothing to install beyond Node 22. It first says whether anything pinned changed, and names it. Then it names each failing test. On a pass, it blanks each script in turn to see that the suite notices, and builds the package where the builder is installed. <b>Exit 0 means the work is ready to hand back.</b></p>
+
+        <h2 id="gate">Here is what the gate checks.</h2>
+        <p>When the pull request is marked ready, the gate runs on its newest commit. Each part is posted as a check on the pull request, with its findings in a comment, so your coding agent can read them, fix the scripts and push again.</p>
+        <ol>
+          <li><b>The fence.</b> The pinned files must match the digests recorded when the hand-off was issued. The gate keeps its own record and never trusts the copy of build.lock.json in your repository. Only scripts/ may change, plus any new test file.</li>
+          <li><b>A static review.</b> The files you may change are read for credential values, hidden characters, and addresses the statement does not declare. A folder that fails the fence or this review is refused by name and never run.</li>
+          <li><b>The suite, and each script blanked.</b> The suite runs in your own account's sandbox, never where the platform keeps credentials, because this is the first time code nobody has reviewed is executed. Then it runs once per script with that script blanked, and the suite has to notice each one.</li>
+        </ol>
+        <p>The <a href="stages.html#review">Review</a> and <a href="stages.html#security">Security review</a> stages then read the change, as they read any code writer's work.</p>
+
+        <h2 id="back">Here is how the work comes back.</h2>
+        <ul>
+          <li><b>Push and mark the pull request ready.</b> The gate runs on the newest commit. Every push is a round, and the commits on the branch are the record of every round.</li>
+          <li><b>If a test looks wrong, say so.</b> Name the test and the line in the pull request, and leave the test as it is. Changing or removing a test, or the agent's files, sends the work back to the <a href="stages.html#requirements">Requirements</a> and <a href="stages.html#test">Test</a> stages.</li>
+          <li><b>A green gate merges nothing.</b> The owner says OK, and only on the commit the gate passed. Then the pull request is merged.</li>
+          <li><b>The package is made from the merged commit.</b> The package maker packs deterministically from that commit, never from an archive anyone uploaded. The docs are written, the deploy request is filed, and the build record names your coding agent as the holder of the Code stage.</li>
+        </ul>
+
+        <h2>No coding agent of your own? The reference one takes the same folder.</h2>
+        <p>The <a href="https://github.com/CommonAgent/adlc/tree/main/agents/code-writer">reference code writer</a> is open source under Apache-2.0. It is handed the same build folder, follows the same AGENTS.md, and goes through the same gate.</p>
+
+      </div>
+
+      <footer class="footer">
+        <span>Agentic Development</span>
+        <span>Sponsored by <a href="https://agentmesh.ai">AgentMesh</a></span>
+        <span>Reference agents under Apache-2.0 on <a href="https://github.com/CommonAgent/adlc">GitHub</a></span>
+      </footer>
+
+    </div>
+  </main>
+</div>
+</body>
+</html>
