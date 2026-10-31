@@ -28,6 +28,15 @@ marked with a word as well as a color.
 and fails on any that does not answer with a page (node 22, no dependencies):
 `node tools/check-links.mjs`. Run it before pushing.
 
+The stages are written once as data, in `standards/stages.json` in
+[CommonAgent/adlc](https://github.com/CommonAgent/adlc); the auditor and the
+console read the same file. `tools/check-stages.mjs` compares every stage card
+on `stages.html` (and the assets on `assets.html`) with it and fails on any
+difference: `node tools/check-stages.mjs`, or give it a local copy as
+`node tools/check-stages.mjs <stages.json>`. A GitHub Actions check runs it on
+every push and pull request and once a day. To change a stage, change
+`stages.json` and the page together.
+
 Published by GitHub Pages from `main`, at agenticdevelopment.ai (see `CNAME`).
 A push to `main` publishes.
 
