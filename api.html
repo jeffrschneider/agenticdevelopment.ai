@@ -33,6 +33,7 @@
     <div class="grp">The lifecycle</div>
     <nav>
       <a href="./">Overview</a>
+      <a href="builds.html">What it builds</a>
       <a href="stages.html">The stages</a>
       <a href="assets.html">The assets</a>
       <a href="handoffs.html">The handoffs</a>
@@ -77,8 +78,8 @@
           <thead><tr><th>Call</th><th>What it answers</th></tr></thead>
           <tbody>
             <tr><td><code>GET /me</code></td><td>who the key belongs to, <code>{ account: { email, name } }</code>, and the service's name, <code>{ service: { name } }</code></td></tr>
-            <tr><td><code>GET /builds</code></td><td>the person's builds, each with its id, name, what it does, its version, the stage it is at and its state there, where it ended in words, and when it last changed; archived builds only when the request adds <code>?archived=1</code></td></tr>
-            <tr><td><code>POST /builds</code></td><td>a new build, started from the person's words: <code>does</code>, and if they like <code>refuses</code>, <code>more</code>, <code>name</code> and a <code>prototype</code> repository</td></tr>
+            <tr><td><code>GET /builds</code></td><td>the person's builds, each with its id, name, what it does, its version, what it makes (<code>kind</code>: <code>agent</code> or <code>process</code>), the stage it is at and its state there, where it ended in words, and when it last changed; archived builds only when the request adds <code>?archived=1</code></td></tr>
+            <tr><td><code>POST /builds</code></td><td>a new build, started from the person's words: <code>does</code>, and <code>kind</code> when it is a process, and if they like <code>refuses</code>, <code>more</code>, <code>name</code> and a <code>prototype</code> repository</td></tr>
             <tr><td><code>GET /builds/{id}</code></td><td>one build, stage by stage, with its log and the actions it offers now</td></tr>
             <tr><td><code>GET /builds/{id}/timeline</code></td><td>how long each step took: one bar per step per round, with who held it, whether an agent was working or it waited on a person or on something outside, its start, end and duration, and the totals</td></tr>
             <tr><td><code>GET /builds/{id}/files?path=</code></td><td>the bytes of a file a stage handed back, at the link the build gives</td></tr>
@@ -147,7 +148,7 @@
             <tr><td><code>where</code></td><td>where the work is when the person can open it, such as a pull request with its newest commit and its check; otherwise null</td></tr>
           </tbody>
         </table>
-        <p>Beside the stages, a build carries its id, name, what it does, its version, the <code>handle</code> it answers at once installed, its own <code>log</code>, its <code>actions</code>, and <code>can_try</code>, which says whether a try may be sent now to the pull request and to the installed agent. It also carries <code>summary</code>, where it ended or where it is in the words a person reads first, such as "Installed · conforms" or "Stopped at Requirements"; <code>paused</code>, since when and why the installed agent is paused, for example after a conformance check it failed, or null; <code>archived</code>, true once the person archived it; and <code>timeline</code>, the same bars the timeline call answers.</p>
+        <p>Beside the stages, a build carries its id, name, what it does, its version, the <code>handle</code> it answers at once installed, its own <code>log</code>, its <code>actions</code>, and <code>can_try</code>, which says whether a try may be sent now to the pull request and to the installed agent. It also carries <code>kind</code>, <code>agent</code> or <code>process</code>, absent meaning agent, and a service that does not build the kind asked for refuses the request and says so; <code>summary</code>, where it ended or where it is in the words a person reads first, such as "Installed · conforms" or "Stopped at Requirements"; <code>paused</code>, since when and why the installed agent is paused, for example after a conformance check it failed, or null; <code>archived</code>, true once the person archived it; and <code>timeline</code>, the same bars the timeline call answers.</p>
 
         <h2 id="actions">A client draws one button for each action, and nothing else.</h2>
         <p>Every build carries the actions the person may take now. A client shows each one as a button with its label, asks for the inputs it needs, and posts them to <code>/builds/{id}/actions/{name}</code>. It never adds a button the service did not offer and never decides on its own what comes next, so every judgment stays with the service and its agents. When the service offers nothing, the person has nothing to do.</p>
