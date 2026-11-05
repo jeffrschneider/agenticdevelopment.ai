@@ -29,6 +29,7 @@
     <div class="grp">Start here</div>
     <nav>
       <a href="your-coding-agent.html">Your coding agent</a>
+      <a href="your-checking-tool.html">Your checking tool</a>
     </nav>
     <div class="grp">The lifecycle</div>
     <nav>
@@ -204,8 +205,8 @@
           <dl>
             <dt>Role</dt><dd><a href="https://agentroles.ai/conformance-checker.html">conformance checker</a></dd>
             <dt>Given</dt><dd>the package, the agent's address, and its records</dd>
-            <dt>Hands back</dt><dd>a signed verdict, case by case</dd>
-            <dt>Done when</dt><dd>every case from the declaration ran, and the verdict is signed</dd>
+            <dt>Hands back</dt><dd>a signed verdict, case by case, and an <a href="https://agentdoc.net/attestation.html">attestation</a>: one signed statement, for this version, of which checks on a <a href="https://commonagent.net/attestation/checks-0.2.json">published check list</a> it passed</dd>
+            <dt>Done when</dt><dd>every case from the declaration ran, the verdict is signed, and the attestation names the version, the check list and who attested</dd>
           </dl>
         </section>
         <section class="stage" id="acceptance">
@@ -224,8 +225,8 @@
           <p class="why">The AgentDoc is gathered from what the agent declares, not written, so it can only say what its sources say.</p>
           <dl>
             <dt>Role</dt><dd><a href="https://agentroles.ai/documenter.html">documenter</a> for the AgentDoc; <a href="https://agentroles.ai/doc-writer.html">doc writer</a> for the documentation</dd>
-            <dt>Given</dt><dd>the declaration, the identity, and any records and verdicts</dd>
-            <dt>Hands back</dt><dd>the AgentDoc a stranger reads, each claim traced to its source, and documentation for people</dd>
+            <dt>Given</dt><dd>the declaration, the identity, and any records, verdicts and attestations</dd>
+            <dt>Hands back</dt><dd>the AgentDoc a stranger reads, each claim traced to its source, with the attestations others signed shown as checked by others, and documentation for people</dd>
             <dt>Done when</dt><dd>nothing in the AgentDoc was authored, and every silence shows</dd>
           </dl>
         </section>
@@ -298,7 +299,7 @@
             <dt>Role</dt><dd><a href="https://agentroles.ai/deployment-manager.html">deployment manager</a></dd>
             <dt>Given</dt><dd>a new package, and the agent it replaces</dd>
             <dt>Hands back</dt><dd>the same agent on the new version, with what changed recorded</dd>
-            <dt>Done when</dt><dd>the candidate passed before the promote, and the identity and address are unchanged</dd>
+            <dt>Done when</dt><dd>the candidate passed before the promote, the identity and address are unchanged, and the old version's attestations are marked stale until the new version is attested</dd>
           </dl>
         </section>
         <section class="stage" id="reconfigure">
