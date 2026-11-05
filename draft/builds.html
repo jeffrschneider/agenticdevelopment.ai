@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta name="robots" content="noindex">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>What it builds: Agentic Development</title>
+  <meta name="description" content="The lifecycle builds anything with a standard shape. Its first two kinds: agents, shaped as a Common Agent, and processes, shaped as an Agent Processes document.">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="Agentic Development">
+  <meta property="og:title" content="What it builds | Agentic Development">
+  <meta property="og:description" content="The lifecycle builds anything with a standard shape. Its first two kinds: agents, shaped as a Common Agent, and processes, shaped as an Agent Processes document.">
+  <meta property="og:url" content="https://agenticdevelopment.ai/builds.html">
+  <meta property="og:image" content="https://agenticdevelopment.ai/brand/png/og-image-v2.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="A cartoon tug of war: two people pull a lifecycle banner in half, one side reading Design, Test, Code and the other Design, Code, Test, while a box labeled package sits ignored on the floor between them. Headline: No two teams have ever agreed on a development lifecycle.">
+  <meta name="twitter:card" content="summary_large_image">
+  <link rel="icon" type="image/svg+xml" href="favicon.svg">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500;600&family=Kalam:wght@400;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="site.css">
+</head>
+<body>
+<div class="layout">
+
+  <aside class="rail">
+    <a class="brand" href="./"><span class="dot"></span>agentic development</a>
+    <div class="grp">Start here</div>
+    <nav>
+      <a href="your-coding-agent.html">Your coding agent</a>
+    </nav>
+    <div class="grp">The lifecycle</div>
+    <nav>
+      <a href="./">Overview</a>
+      <a class="on" href="builds.html">What it builds</a>
+      <a href="stages.html">The stages</a>
+      <a href="assets.html">The assets</a>
+      <a href="handoffs.html">The handoffs</a>
+      <a href="processes.html">The processes</a>
+    </nav>
+    <div class="grp">In practice</div>
+    <nav>
+      <a href="implementations.html">Implementations</a>
+      <a href="api.html">The API</a>
+      <a href="https://github.com/CommonAgent/adlc">The code</a>
+    </nav>
+    <div class="foot">
+      <a href="https://agentmesh.ai/standards.html">The family of standards</a>
+    </div>
+  </aside>
+
+  <main class="main">
+    <div class="wrap">
+
+      <header class="page-head">
+        <h1>It builds agents and processes.</h1>
+        <p class="turn">The lifecycle builds anything that has a standard shape. Requirements writes that standard's own document from the first draft, and every stage after it reads the same document.</p>
+      </header>
+
+      <div class="prose">
+        <h2 id="one-shape">One shape from the first stage</h2>
+        <p>What a build makes is never kept in a private format and converted at the end. The statement of the job is already written in the standard the finished thing will follow, so it is the statement and the design at once. The test writer tests what it declares, the next stage builds what it names, Conformance checks the finished thing against it, and the listing is copied from it.</p>
+        <p>The stages stay the same for every kind. What each stage hands back changes with the kind.</p>
+
+        <h2 id="kinds">The two kinds</h2>
+        <table class="tbl">
+          <thead><tr><th></th><th>An agent</th><th>A process</th></tr></thead>
+          <tbody>
+            <tr><td>Shaped as</td><td>a Common Agent (<a href="https://commonagent.net/spec.html">the Common Agent Specification</a>)</td><td>an Agent Processes document (<a href="https://agentprocesses.ai/spec.html">the Agent Processes Specification</a>)</td></tr>
+            <tr><td>Requirements writes</td><td>the Descriptor: what the agent offers, takes, hands back and refuses</td><td>the process document: its steps, who holds each, what a run is handed, what passes between steps and where a person signs</td></tr>
+            <tr><td>Tested by</td><td>a suite of tests, written before the scripts</td><td>a suite of test cases, written before the wiring and run as <a href="https://agentprocesses.ai/spec.html#s21">test runs</a></td></tr>
+            <tr><td>Ships as</td><td>an Agent Package, signed</td><td>the process document and its test cases, pinned by digest and signed</td></tr>
+            <tr><td>Proven by</td><td>Conformance: the running agent keeps the promises its Descriptor makes</td><td>Conformance: the document meets the specification, and every test case passes</td></tr>
+            <tr><td>Listed as</td><td>its AgentDoc and a catalog entry</td><td>a <a href="https://commonagent.net/catalog.html#14-a-process-entry">process entry</a> in a catalog, copied from the document's header</td></tr>
+          </tbody>
+        </table>
+
+        <h2 id="stage-by-stage">Stage by stage</h2>
+        <table class="tbl">
+          <thead><tr><th>Stage</th><th>For an agent</th><th>For a process</th></tr></thead>
+          <tbody>
+            <tr><td><a href="stages.html#requirements">Requirements</a></td><td>the Descriptor, with the questions only the person can answer</td><td>the process document, with the questions only the person can answer</td></tr>
+            <tr><td><a href="stages.html#architecture">Architecture and Design</a></td><td>how the agent is built</td><td>who holds each step, and what each step hands the next</td></tr>
+            <tr><td><a href="stages.html#impact">Impact</a></td><td>who depends on the agent</td><td>who depends on the process: other processes that run it, and agreements pinned to its digest</td></tr>
+            <tr><td><a href="stages.html#source">Source</a></td><td>an agent or a part that already exists</td><td>an agent that already holds the step, or a new one made by Make a new agent</td></tr>
+            <tr><td><a href="stages.html#test">Test</a></td><td>the suite, shown to fail against nothing</td><td>the test cases: what each run is handed, how each approval is answered, what must be true at the end</td></tr>
+            <tr><td><a href="stages.html#code">Code</a></td><td>the scripts, passing the suite</td><td>the wiring: the holders bound, and each handoff fitted to the step that receives it</td></tr>
+            <tr><td><a href="stages.html#review">Review</a> and <a href="stages.html#security">Security</a></td><td>findings on the code, and what it may reach</td><td>findings on the document, and what its steps may reach outside</td></tr>
+            <tr><td><a href="stages.html#package">Package</a> and <a href="stages.html#release">Release</a></td><td>the Agent Package and its signed build record</td><td>the document and its test cases, pinned by digest, with a signed record</td></tr>
+            <tr><td><a href="stages.html#deploy">Deploy</a></td><td>the agent installed with its credentials and limits</td><td>the process filed with the organization's processes and bound to its trigger</td></tr>
+            <tr><td><a href="stages.html#conformance">Conformance</a></td><td>the agent checked against its declarations</td><td>the document checked against the specification, and the suite passed</td></tr>
+            <tr><td><a href="stages.html#acceptance">Acceptance</a></td><td>the person tries it and says yes</td><td>the person runs it for real and says yes</td></tr>
+            <tr><td><a href="stages.html#docs">Docs</a> and <a href="stages.html#publish">Publish</a></td><td>the AgentDoc, and the catalog entry</td><td>the catalog's process entry</td></tr>
+            <tr><td><a href="stages.html#update">Update</a></td><td>a new version, proven before it is promoted</td><td>an amendment, a new version whose suite passes before it runs real work</td></tr>
+            <tr><td><a href="stages.html#decommission">Decommission</a></td><td>the agent's address stops answering</td><td>the process stops starting runs, and its listing comes down</td></tr>
+          </tbody>
+        </table>
+
+        <h2 id="nesting">A process can need an agent</h2>
+        <p>When Source finds no agent that can hold a step, the process build runs <a href="processes.html#new-agent">Make a new agent</a> for that step and waits for it. The new agent goes through every stage of its own lifecycle, and the process build carries on once it is installed and proven. One request can therefore make a process and the agents it needs, each checked by its own standard.</p>
+
+        <h2 id="adding-a-kind">Adding a kind</h2>
+        <p>Any other kind of work can go through the same stages if it has three things:</p>
+        <ul>
+          <li>a standard document that says what the finished thing is, which Requirements writes from the first draft;</li>
+          <li>a way to test it that a program can run, written before the thing is built;</li>
+          <li>a way to pin it, sign it and list it, so anyone downstream can check that what they were given is what was approved.</li>
+        </ul>
+        <p>The stages, the handoffs and the way a person says yes stay as they are.</p>
+      </div>
+
+      <footer class="footer">
+        <span>Agentic Development</span>
+        <span>Sponsored by <a href="https://agentmesh.ai">AgentMesh</a></span>
+        <span>Reference agents under Apache-2.0 on <a href="https://github.com/CommonAgent/adlc">GitHub</a></span>
+      </footer>
+
+    </div>
+  </main>
+</div>
+</body>
+</html>
