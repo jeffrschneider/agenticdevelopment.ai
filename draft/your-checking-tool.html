@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta name="robots" content="noindex">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Your checking tool: Agentic Development</title>
+  <meta name="description" content="A tool that already checks software can hold a lifecycle role for agents. What it checked goes out as signed evidence, or as an attestation it signs itself.">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="Agentic Development">
+  <meta property="og:title" content="Your checking tool | Agentic Development">
+  <meta property="og:description" content="A tool that already checks software can hold a lifecycle role for agents. What it checked goes out as signed evidence, or as an attestation it signs itself.">
+  <meta property="og:url" content="https://agenticdevelopment.ai/your-checking-tool.html">
+  <meta property="og:image" content="https://agenticdevelopment.ai/brand/png/og-image-v2.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="A cartoon tug of war: two people pull a lifecycle banner in half, one side reading Design, Test, Code and the other Design, Code, Test, while a box labeled package sits ignored on the floor between them. Headline: No two teams have ever agreed on a development lifecycle.">
+  <meta name="twitter:card" content="summary_large_image">
+  <link rel="icon" type="image/svg+xml" href="favicon.svg">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500;600&family=Kalam:wght@400;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="site.css">
+</head>
+<body>
+<body>
+<div class="layout">
+
+  <aside class="rail">
+    <a class="brand" href="./"><span class="dot"></span>agentic development</a>
+    <div class="grp">Start here</div>
+    <nav>
+      <a href="your-coding-agent.html">Your coding agent</a>
+      <a class="on" href="your-checking-tool.html">Your checking tool</a>
+    </nav>
+    <div class="grp">The lifecycle</div>
+    <nav>
+      <a href="./">Overview</a>
+      <a href="builds.html">What it builds</a>
+      <a href="stages.html">The stages</a>
+      <a href="assets.html">The assets</a>
+      <a href="handoffs.html">The handoffs</a>
+      <a href="processes.html">The processes</a>
+    </nav>
+    <div class="grp">In practice</div>
+    <nav>
+      <a href="implementations.html">Implementations</a>
+      <a href="api.html">The API</a>
+      <a href="https://github.com/CommonAgent/adlc">The code</a>
+    </nav>
+    <div class="foot">
+      <a href="https://agentmesh.ai/standards.html">The family of standards</a>
+    </div>
+  </aside>
+
+  <main class="main">
+    <div class="wrap">
+
+      <header class="page-head">
+        <h1>Bring the tool you already use to check software.</h1>
+        <p class="turn">Every stage names a role, not a product. A code scanner, a red-team suite, a build provenance service or a monitoring platform can hold the role that checks the same thing for agents. What it checked leaves as signed evidence that anyone can verify, and the tool can also sign an attestation of its own.</p>
+        <ul class="jump" aria-label="Jump to a section">
+          <li><a href="#roles">The roles a tool can hold</a></li>
+          <li><a href="#two-ways">Two ways in</a></li>
+          <li><a href="#document">What you sign</a></li>
+          <li><a href="#rules">The rules a reader applies</a></li>
+          <li><a href="#start">How to start</a></li>
+        </ul>
+      </header>
+
+      <div class="prose">
+
+        <h2 id="roles">Here are the roles a checking tool can hold.</h2>
+        <p>Each role makes evidence at its stage. The right-hand column names the areas of the <a href="https://commonagent.net/attestation/checks-0.1.json">published check list</a> that evidence can speak to. The list has eleven areas, from who the agent is to how it ends.</p>
+        <table class="tbl">
+          <thead><tr><th>Role, at its stage</th><th>The evidence it makes</th><th>Areas it speaks to</th></tr></thead>
+          <tbody>
+            <tr><td><a href="https://agentroles.ai/security-reviewer.html">security reviewer</a>, at <a class="stage-link" href="stages.html#security">Security review</a></td><td>findings from a code, dependency or secrets scan, for example as SARIF</td><td>Reach, Authority, Inside the agent</td></tr>
+            <tr><td><a href="https://agentroles.ai/code-critic.html">code critic</a>, at <a class="stage-link" href="stages.html#review">Review</a></td><td>review findings, each naming a place, a claim and a consequence</td><td>Provenance</td></tr>
+            <tr><td><a href="https://agentroles.ai/test-writer.html">test writer</a>, at <a class="stage-link" href="stages.html#test">Test</a></td><td>the suite and its results, including refusal tests</td><td>Provenance</td></tr>
+            <tr><td><a href="https://agentroles.ai/package-maker.html">package maker</a>, at <a class="stage-link" href="stages.html#package">Package</a> and <a class="stage-link" href="stages.html#release">Release</a></td><td>a signed build record: who built it, from what, under which digest</td><td>Provenance</td></tr>
+            <tr><td><a href="https://agentroles.ai/conformance-checker.html">conformance checker</a>, at <a class="stage-link" href="stages.html#conformance">Conformance</a></td><td>a signed verdict, case by case, against the agent's declaration</td><td>Identity, Authority, Provenance</td></tr>
+            <tr><td><a href="https://agentroles.ai/agent-critic.html">agent critic</a>, at <a class="stage-link" href="stages.html#eval">Eval</a></td><td>graded judgments and red-team results, against a standard set beforehand</td><td>Inside the agent, People in the loop</td></tr>
+            <tr><td><a href="https://agentroles.ai/watcher.html">watcher</a>, at <a class="stage-link" href="stages.html#monitor">Monitor</a> and <a class="stage-link" href="stages.html#cost">Cost</a></td><td>whether it is alive and answering, alerts with an owner, and what it spent against its ceilings</td><td>Watching, Spend, Records</td></tr>
+            <tr><td><a href="https://agentroles.ai/incident-recorder.html">incident recorder</a>, at <a class="stage-link" href="stages.html#incident">Incident response</a></td><td>a timeline of each incident, every fact with its source</td><td>Watching, Records</td></tr>
+            <tr><td><a href="https://agentroles.ai/deployment-manager.html">deployment manager</a>, at <a class="stage-link" href="stages.html#deploy">Deploy</a> through <a class="stage-link" href="stages.html#decommission">Decommission</a></td><td>signed deployment and change records: credentials placed by name, ceilings set, what changed and why</td><td>Identity, Reach, Spend, Change, Stopping</td></tr>
+          </tbody>
+        </table>
+        <p>The network that carries the agent's messages makes evidence too, such as delivery receipts and the messages it stopped. It can speak to Reach, Records and Stopping.</p>
+
+        <h2 id="two-ways">There are two ways in, and a tool can take both.</h2>
+        <ul>
+          <li><b>Make evidence.</b> Hold a role and hand back what your tool already produces, signed with your key. An attestation names each piece of evidence by its digest and names you as its producer, so a reader can follow it back to your report.</li>
+          <li><b>Be the attester.</b> Read the evidence others made, hold it against the published check list, and sign one summary for one version of the agent. Anyone can be an attester. The further you are from the people who built and run the agent, the more your attestation is worth, and the document shows that distance because it names every producer.</li>
+        </ul>
+
+        <h2 id="document">Here is what you sign.</h2>
+        <p>An attestation follows the shape of SLSA's Verification Summary Attestation. It is an in-toto Statement v1 in a DSSE envelope, so the tools that already store and verify those can handle it. It holds:</p>
+        <ul>
+          <li>the agent's name and the digest of the version checked</li>
+          <li>who attested, whose key signs the envelope</li>
+          <li>when it was checked, and when it goes stale at the latest</li>
+          <li>the check list it was held to, by address and version, so what "passed" meant cannot change afterwards</li>
+          <li>each of the eleven areas as passed, failed or not attested, with the result of every check inside it</li>
+          <li>the evidence it relied on, each piece by digest with its producer</li>
+          <li>a short summary in words</li>
+        </ul>
+        <p>It replaces nothing. The build record, the deployment record, the verdict and your scan report keep their own signatures, and the attestation sits over them. The full format, with a worked example, is the <a href="https://agentdoc.net/attestation.html">agent attestation standard</a>.</p>
+
+        <h2 id="rules">Here are the rules a reader applies.</h2>
+        <ul>
+          <li><b>Not attested is not failed.</b> Attest only the checks your tool has evidence for, and mark the rest not attested. A narrow attestation that is right is worth more than a wide one that guesses.</li>
+          <li><b>One per version.</b> A new version of the agent makes every earlier attestation stale, and so does the date it names.</li>
+          <li><b>The reader chooses whom to trust.</b> Nothing ranks attesters. A reader decides which names they accept, which is why your name is on every one.</li>
+          <li><b>Self-attested says so.</b> When the attester also built or runs the agent, the document shows it.</li>
+        </ul>
+        <p>Attestations are carried in the agent's <a href="https://agentdoc.net/">AgentDoc</a>, under "checked by others", beside the claims they speak to. A lifecycle that runs these stages can call your tool at its stage through <a href="api.html">the API</a>.</p>
+
+        <h2 id="start">Here is how to start.</h2>
+        <ol>
+          <li>Read the <a href="https://agentdoc.net/attestation.html">attestation standard</a> and the <a href="https://agentroles.ai">role</a> your tool fits.</li>
+          <li>Take the <a href="https://commonagent.net/attestation/checks-0.1.json">check list</a> and mark the checks your tool already answers.</li>
+          <li>Sign your report as evidence, an attestation over those checks, or both, and publish your public key so readers can verify it.</li>
+        </ol>
+
+      </div>
+
+      <footer class="footer">
+        <span>Agentic Development</span>
+        <span>Sponsored by <a href="https://agentmesh.ai">AgentMesh</a></span>
+        <span>Reference agents under Apache-2.0 on <a href="https://github.com/CommonAgent/adlc">GitHub</a></span>
+      </footer>
+
+    </div>
+  </main>
+</div>
+</body>
+</html>
