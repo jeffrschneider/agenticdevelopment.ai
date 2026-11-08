@@ -6,7 +6,7 @@ The stages are the ordinary ones. What changes when an agent holds a stage is
 that the handoff has to become an artifact rather than a conversation, and that
 a stage held without approval needs a check the agent does not control.
 
-The site is eight pages:
+The site is these pages:
 
 - `your-coding-agent.html`: start here: the hand-off contract (AGENTS.md) to give your own coding agent for the Code stage
 - `index.html`: the argument, the map of twenty-four stages, and the ledger beside them
@@ -14,6 +14,7 @@ The site is eight pages:
 - `stages.html`: each stage: role, given, hands back, done when
 - `handoffs.html`: the artifact chain, and why it breaks where it does
 - `processes.html`: the processes that run the lifecycle, kept at agentprocesses.ai
+- `terms.html`: the words the lifecycle uses (stage, phase, role, holder, step, build) and what each one means
 - `implementations.html`: what holds each stage today
 - `api.html`: the lifecycle API, what any service that runs the lifecycle answers (schema and check in CommonAgent/adlc `standards/`)
 

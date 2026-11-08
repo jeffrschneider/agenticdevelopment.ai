@@ -516,3 +516,14 @@ section.band p a, .inline-links a{ color:var(--paper); text-decoration-color:var
   .tbl.api tr{ border-bottom:1px solid var(--line); padding:10px 0; }
   .tbl.api td{ border:0; padding:3px 0; white-space:normal !important; }
 }
+
+/* the terms */
+.terms dl{ margin:14px 0 0; display:grid; grid-template-columns:170px minmax(0,1fr); max-width:860px; }
+.terms dt{ font-family:var(--disp); font-weight:600; font-size:1.02rem; color:var(--paper); padding:12px 16px 12px 0; border-top:1px solid var(--line); scroll-margin-top:16px; }
+.terms dd{ margin:0; padding:12px 0; border-top:1px solid var(--line); color:var(--dim); max-width:66ch; }
+.terms dd code{ font-family:var(--wire); font-size:.86em; color:var(--paper); }
+@media (max-width: 600px){
+  .terms dl{ grid-template-columns:1fr; }
+  .terms dt{ padding-bottom:0; }
+  .terms dd{ border-top:0; padding-top:4px; }
+}
