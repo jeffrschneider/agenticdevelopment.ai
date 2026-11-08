@@ -58,11 +58,13 @@
       <header class="page-head">
         <h1>Any service that runs the lifecycle answers the same API.</h1>
         <p class="turn">A person may build agents on more than one service, and should be able to follow every build in one place. So a service that implements the lifecycle reports each build stage by stage, in one shape, and says what the person may do next. A client shows what the service says and holds no lifecycle logic of its own.</p>
-        <p class="links-line">The schema: <a href="https://github.com/CommonAgent/adlc/blob/main/standards/lifecycle-api.schema.json">lifecycle-api.schema.json</a> · The check: <a href="https://github.com/CommonAgent/adlc/blob/main/standards/lifecycle-api-check.mjs">lifecycle-api-check.mjs</a> · Version 0.1</p>
+        <p class="links-line">The schema: <a href="https://github.com/CommonAgent/adlc/blob/main/standards/lifecycle-api.schema.json">lifecycle-api.schema.json</a> · The check: <a href="https://github.com/CommonAgent/adlc/blob/main/standards/lifecycle-api-check.mjs">lifecycle-api-check.mjs</a> · Version 0.3</p>
         <ul class="jump" aria-label="Jump to a section">
           <li><a href="#paths">The paths</a></li>
           <li><a href="#key">The key</a></li>
           <li><a href="#build">A build</a></li>
+          <li><a href="#stages">Which stages</a></li>
+          <li><a href="#roles">Who holds each role</a></li>
           <li><a href="#actions">Actions</a></li>
           <li><a href="#tries">Try, keep, wrong</a></li>
           <li><a href="#errors">Errors</a></li>
@@ -81,7 +83,7 @@
           <tbody>
             <tr><td><code>GET /me</code></td><td>who the key belongs to, <code>{ account: { email, name } }</code>, and the service's name, <code>{ service: { name } }</code></td></tr>
             <tr><td><code>GET /builds</code></td><td>the person's builds, each with its id, name, what it does, its version, what it makes (<code>kind</code>: <code>agent</code> or <code>process</code>), the stage it is at and its state there, where it ended in words, and when it last changed; archived builds only when the request adds <code>?archived=1</code></td></tr>
-            <tr><td><code>POST /builds</code></td><td>a new build, started from the person's words: <code>does</code>, and <code>kind</code> when it is a process, and if they like <code>refuses</code>, <code>more</code>, <code>name</code> and a <code>prototype</code> repository</td></tr>
+            <tr><td><code>POST /builds</code></td><td>a new build, started from the person's words: <code>does</code>, and <code>kind</code> when it is a process, and if they like <code>refuses</code>, <code>more</code>, <code>name</code>, a <code>prototype</code> repository and the <code>project</code> it is for</td></tr>
             <tr><td><code>GET /builds/{id}</code></td><td>one build, stage by stage, with its log and the actions it offers now</td></tr>
             <tr><td><code>GET /builds/{id}/timeline</code></td><td>how long each step took: one bar per step per round, with who held it, whether an agent was working or it waited on a person or on something outside, its start, end and duration, and the totals</td></tr>
             <tr><td><code>GET /builds/{id}/files?path=</code></td><td>the bytes of a file a stage handed back, at the link the build gives</td></tr>
@@ -90,6 +92,13 @@
             <tr><td><code>GET /builds/{id}/tries</code></td><td>the tries made on the build, newest first</td></tr>
             <tr><td><code>POST /builds/{id}/tries/{tid}/keep</code></td><td>the try, now kept as a new test in the agent's suite</td></tr>
             <tr><td><code>POST /builds/{id}/tries/{tid}/wrong</code></td><td>the try, now sent back to whoever holds the code</td></tr>
+            <tr><td><code>POST /builds/{id}/evidence</code></td><td>the build, after a holder outside the service hands back evidence for a stage in one of the open formats</td></tr>
+            <tr><td><code>GET /stages</code></td><td>every stage, in order, and whether the organization's lifecycle uses it; with <code>?project=</code>, as a build for that project would see it</td></tr>
+            <tr><td><code>PUT /stages/{stage}</code></td><td>the stages, after the organization (or one project) chooses to use a stage or leave it out</td></tr>
+            <tr><td><code>DELETE /stages/{stage}</code></td><td>the stages, after a choice is removed, so the stage falls back to the organization's choice, then to used</td></tr>
+            <tr><td><code>GET /roles</code></td><td>every role, and who holds it now; with <code>?project=</code>, as a build for that project would see it</td></tr>
+            <tr><td><code>PUT /roles/{role}</code></td><td>the roles, after the organization (or one project) binds a role to a holder</td></tr>
+            <tr><td><code>DELETE /roles/{role}</code></td><td>the roles, after a binding is removed, so the role falls back to the organization's binding, then to the service's own agent, then to nobody</td></tr>
           </tbody>
         </table>
 
@@ -142,15 +151,55 @@
         <table class="tbl api">
           <thead><tr><th>Field</th><th>What it says</th></tr></thead>
           <tbody>
-            <tr><td><code>state</code></td><td><code>not_started</code>, <code>working</code>, <code>waiting_on_you</code> (the person's act is next), <code>done</code>, <code>refused</code>, <code>stopped</code> or <code>not_offered</code></td></tr>
-            <tr><td><code>holder</code></td><td>who holds the stage: a <code>reference_agent</code>, <code>your_agent</code> (one the person brought) or a <code>person</code>, with a name; null for a stage that is not offered</td></tr>
+            <tr><td><code>state</code></td><td><code>not_started</code>, <code>working</code>, <code>waiting_on_you</code> (the person's act is next), <code>done</code>, <code>refused</code>, <code>stopped</code>, <code>not_offered</code> (this service cannot hand the stage to anyone), <code>not_bound</code> (nobody holds its role), <code>not_applicable</code> (it does not apply to this kind of build, such as Review on a process) or <code>not_used</code> (the build's lifecycle leaves it out)</td></tr>
+            <tr><td><code>holder</code></td><td>who holds the stage: a <code>reference_agent</code> (the service's own), <code>your_agent</code> (one the organization brought), a <code>contracted</code> supplier's agent, a <code>person</code> or an <code>outside_tool</code>, with a name, and a <code>handle</code> when it is an agent on the mesh; null for a stage that is not offered, not bound, not applicable or not used</td></tr>
             <tr><td><code>rounds</code></td><td>each time the stage ran, newest first; <code>back</code> is true when that round sent the work back</td></tr>
             <tr><td><code>handed_back</code></td><td>what the stage handed back, in words and as files, each with its size in bytes and a link read with the same key</td></tr>
             <tr><td><code>done_when_met</code></td><td>whether the stage's "done when" was met: true, false, or null while it is not known</td></tr>
             <tr><td><code>where</code></td><td>where the work is when the person can open it, such as a pull request with its newest commit and its check; otherwise null</td></tr>
+            <tr><td><code>evidence</code></td><td>what a holder outside the service handed back for the stage, each piece with its format, name, when it arrived, and what the service read in it, in words</td></tr>
           </tbody>
         </table>
-        <p>Beside the stages, a build carries its id, name, what it does, its version, the <code>handle</code> it answers at once installed, its own <code>log</code>, its <code>actions</code>, and <code>can_try</code>, which says whether a try may be sent now to the pull request and to the installed agent. It also carries <code>kind</code>, <code>agent</code> or <code>process</code>, absent meaning agent, and a service that does not build the kind asked for refuses the request and says so; <code>summary</code>, where it ended or where it is in the words a person reads first, such as "Installed · conforms" or "Stopped at Requirements"; <code>paused</code>, since when and why the installed agent is paused, for example after a conformance check it failed, or null; <code>archived</code>, true once the person archived it; and <code>timeline</code>, the same bars the timeline call answers.</p>
+        <p>Beside the stages, a build carries its id, name, what it does, its version, the <code>handle</code> it answers at once installed, its own <code>log</code>, its <code>actions</code>, and <code>can_try</code>, which says whether a try may be sent now to the pull request and to the installed agent. It also carries <code>kind</code>, <code>agent</code> or <code>process</code>, absent meaning agent, and a service that does not build the kind asked for refuses the request and says so; <code>summary</code>, where it ended or where it is in the words a person reads first, such as "Installed · conforms" or "Stopped at Requirements"; <code>paused</code>, since when and why the installed agent is paused, for example after a conformance check it failed, or null; <code>archived</code>, true once the person archived it; <code>timeline</code>, the same bars the timeline call answers; <code>project</code>, the project it was started under, when one was named; and <code>lifecycle</code>, whose choice of stages it started under and when, <code>{ project, at }</code>, with <code>project</code> null when the build named none.</p>
+
+        <h2 id="stages">An organization chooses which stages its lifecycle uses.</h2>
+        <p>Not every organization runs all twenty-four stages. It can leave a stage out for the whole organization, or for one project, and a project's choice wins for builds started under that project. When nothing is chosen, every stage is used. <code>GET /stages</code> lists every stage in the order of <a href="https://github.com/CommonAgent/adlc/blob/main/standards/stages.json">stages.json</a>, each saying whether it is used, where that choice comes from, and whether this service can run its builds without it.</p>
+        <div class="term">
+          <div class="bar"><span class="lamp"></span>two stages, as GET /stages?project=billing answers them</div>
+<pre>{
+  "project": "billing",
+  "stages": [
+    { "stage": "impact", "name": "Impact", "phase": "define",
+      "roles": ["impact-analyst"],
+      "used": false, "from": "org",
+      "can_leave_out": true },
+    { "stage": "code", "name": "Code", "phase": "make",
+      "roles": ["code-writer"],
+      "used": true, "from": "default",
+      "can_leave_out": false,
+      "why_not": "Code is written to Test's suite; this service cannot build without it." }
+  ],
+  "updated_at": "2026-11-08T16:40:00Z"
+}</pre>
+        </div>
+        <table class="tbl api">
+          <thead><tr><th>Field</th><th>What it says</th></tr></thead>
+          <tbody>
+            <tr><td><code>project</code></td><td>the project asked about, or null for the organization</td></tr>
+            <tr><td><code>used</code></td><td>whether the lifecycle uses the stage</td></tr>
+            <tr><td><code>from</code></td><td>where the choice comes from: <code>project</code>, <code>org</code>, or <code>default</code>, which uses every stage</td></tr>
+            <tr><td><code>can_leave_out</code></td><td>whether this service can run its builds without the stage; a fact about the service, not a rule of the organization's</td></tr>
+            <tr><td><code>why_not</code></td><td>when the stage cannot be left out, what needs it, in words a person reads</td></tr>
+            <tr><td><code>roles</code></td><td>the roles that hold the stage; who holds each one is in the roles answer</td></tr>
+            <tr><td><code>updated_at</code></td><td>when a choice this answer reads was last changed; absent when nobody has chosen</td></tr>
+          </tbody>
+        </table>
+        <p><code>PUT /stages/{stage}</code> with <code>{ used }</code> makes the choice, and <code>DELETE /stages/{stage}</code> removes it; either takes <code>?project=</code> for one project, and both answer with the stages as they now stand. The service answers 400 for a stage stages.json does not name, or for <code>used: false</code> on a stage it cannot build without; 403 for a member who is not an admin of the organization; and 409 when the choice could not be saved.</p>
+        <p>A build keeps the choice in effect when it started. Leaving a stage out later changes the builds started later, never one already running. Each stage the build leaves out is listed as <code>not_used</code>, with no holder, no runs and no actions, and its <code>given</code> says whose choice it was. When a stage both does not apply to the kind of build and is left out, it reads <code>not_applicable</code>; otherwise <code>not_used</code> comes before every other state.</p>
+
+        <h2 id="roles">An organization chooses who holds each role.</h2>
+        <p>Each stage is held by one or more roles, the ones written down at <a href="https://agentroles.ai">agentroles.ai</a>. <code>GET /roles</code> lists every role in stages.json with its contract, the offering an agent holding it answers (<code>role-&lt;id&gt;</code>), its stages, the binding in effect, and where that comes from: <code>project</code>, <code>org</code>, <code>default</code> (the service's own agent) or <code>unbound</code>. <code>PUT /roles/{role}</code> with <code>{ holder }</code> binds a role, and <code>DELETE /roles/{role}</code> removes the binding; either takes <code>?project=</code>. The requester, who holds Acceptance, is always the person who asked.</p>
+        <p>An agent bound to a role is sent the stage's input under the role's offering, and its answer is the stage's asset, as the service's own agent's would be. The service never calls a vendor's API. A holder outside the mesh hands its evidence back with <code>POST /builds/{id}/evidence</code> in an open format stages.json lists: SARIF, CycloneDX, SPDX, SLSA provenance, in-toto, OpenTelemetry traces with <code>gen_ai</code> attributes, or Pact. The service reads it and shows it on the stage.</p>
 
         <h2 id="actions">A client draws one button for each action, and nothing else.</h2>
         <p>Every build carries the actions the person may take now. A client shows each one as a button with its label, asks for the inputs it needs, and posts them to <code>/builds/{id}/actions/{name}</code>. It never adds a button the service did not offer and never decides on its own what comes next, so every judgment stays with the service and its agents. When the service offers nothing, the person has nothing to do.</p>
@@ -182,12 +231,13 @@
         <h2 id="errors">An error is words a person can read.</h2>
         <p>Any refusal is a 4xx or 5xx status with <code>{ error }</code> in words, which a client shows as they are. A refused action also carries the <code>build</code> as it now stands. A 401 or 403 means the key is missing, wrong, or does not allow the call. A 429 means the service was asked too often, and a client waits before asking again.</p>
 
-        <h2 id="versions">Version 0.1 grows only by adding fields.</h2>
-        <p>This is version 0.1, served on the <code>/v1/lifecycle</code> path. It changes only by adding fields. A service never removes a field or changes what one means, and a client ignores any field it does not know. That way an older client keeps working against a newer service, and a service can say more than this page does without breaking anyone.</p>
+        <h2 id="versions">Version 0.3 grows only by adding.</h2>
+        <p>This is version 0.3, served on the <code>/v1/lifecycle</code> path. It changes only by adding. A service never removes a field or changes what one means, and a client ignores any field it does not know. That way an older client keeps working against a newer service, and a service can say more than this page does without breaking anyone.</p>
+        <p>A version may also add a value to a list. A client that does not know a stage's state draws it as <code>not_offered</code>, and one that does not know a holder's kind shows the holder's name. Version 0.2 added the roles, evidence, and the states <code>not_bound</code> and <code>not_applicable</code>. Version 0.3 added the stages calls, the build's <code>lifecycle</code>, and the state <code>not_used</code>, which a 0.2 client draws as <code>not_offered</code>.</p>
 
         <h2 id="check">The schema and a check are open, beside the stages.</h2>
         <p>The schema, <a href="https://github.com/CommonAgent/adlc/blob/main/standards/lifecycle-api.schema.json">lifecycle-api.schema.json</a>, holds every request and answer above as JSON Schema. It sits in <a href="https://github.com/CommonAgent/adlc/tree/main/standards">CommonAgent/adlc</a> beside stages.json, under Apache-2.0.</p>
-        <p>The check, <a href="https://github.com/CommonAgent/adlc/blob/main/standards/lifecycle-api-check.mjs">lifecycle-api-check.mjs</a>, reads a running service with a key and says whether its answers keep the contract. It only reads. It checks every answer against the schema, and the rules a schema cannot say: every stage listed once, actions only at stages the build offers, and rounds newest first.</p>
+        <p>The check, <a href="https://github.com/CommonAgent/adlc/blob/main/standards/lifecycle-api-check.mjs">lifecycle-api-check.mjs</a>, reads a running service with a key and says whether its answers keep the contract. It only reads. It checks every answer against the schema, and the rules a schema cannot say: every stage listed once, actions only at stages the build offers, rounds newest first, every role listed once with the requester held by a person, every stage in the stages answer once and in order, a stage the service cannot leave out saying why and kept in use, and a <code>not_used</code> stage with no holder and no runs.</p>
         <div class="term">
           <div class="bar"><span class="lamp"></span>against your own service</div>
 <pre><span class="k">$</span> node standards/lifecycle-api-check.mjs https://your-service.example/v1/lifecycle/ --key-file ./key</pre>
