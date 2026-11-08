@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>The terms: Agentic Development</title>
+  <meta name="description" content="The words the Agent Development Lifecycle uses, and what each one means: stage, phase, role, holder, step, build and the rest.">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="Agentic Development">
+  <meta property="og:title" content="The terms | Agentic Development">
+  <meta property="og:description" content="The words the Agent Development Lifecycle uses, and what each one means: stage, phase, role, holder, step, build and the rest.">
+  <meta property="og:url" content="https://agenticdevelopment.ai/terms.html">
+  <meta property="og:image" content="https://agenticdevelopment.ai/brand/png/og-image-v2.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="A cartoon tug of war: two people pull a lifecycle banner in half, one side reading Design, Test, Code and the other Design, Code, Test, while a box labeled package sits ignored on the floor between them. Headline: No two teams have ever agreed on a development lifecycle.">
+  <meta name="twitter:card" content="summary_large_image">
+  <link rel="icon" type="image/svg+xml" href="favicon.svg">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500;600&family=Kalam:wght@400;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="site.css">
+</head>
+<body>
+<div class="layout">
+
+  <aside class="rail">
+    <a class="brand" href="./"><span class="dot"></span>agentic development</a>
+    <div class="grp">Start here</div>
+    <nav>
+      <a href="your-coding-agent.html">Your coding agent</a>
+      <a href="your-checking-tool.html">Your checking tool</a>
+    </nav>
+    <div class="grp">The lifecycle</div>
+    <nav>
+      <a href="./">Overview</a>
+      <a href="builds.html">What it builds</a>
+      <a href="stages.html">The stages</a>
+      <a href="assets.html">The assets</a>
+      <a href="handoffs.html">The handoffs</a>
+      <a href="processes.html">The processes</a>
+      <a class="on" href="terms.html">The terms</a>
+    </nav>
+    <div class="grp">In practice</div>
+    <nav>
+      <a href="implementations.html">Implementations</a>
+      <a href="api.html">The API</a>
+      <a href="https://github.com/CommonAgent/adlc">The code</a>
+    </nav>
+    <div class="foot">
+      <a href="https://agentmesh.ai/standards.html">The family of standards</a>
+    </div>
+  </aside>
+
+  <main class="main">
+    <div class="wrap">
+
+      <header class="page-head">
+        <h1>The words this lifecycle uses, and what each one means.</h1>
+        <p class="turn">Every page here, the reference agents and the lifecycle API use these words the same way. When two pages seem to disagree, this page settles it.</p>
+        <ul class="jump" aria-label="Jump to a group of terms">
+          <li><a href="#the-lifecycle">The lifecycle</a></li>
+          <li><a href="#who-does-the-work">Who does the work</a></li>
+          <li><a href="#what-passes-between-stages">What passes between stages</a></li>
+          <li><a href="#running-it">Running it</a></li>
+        </ul>
+      </header>
+
+      <div class="prose terms">
+
+        <h2 id="the-lifecycle">The lifecycle</h2>
+        <dl>
+          <dt id="adlc">Lifecycle</dt>
+          <dd>The Agent Development Lifecycle (ADLC): the ordinary software lifecycle, written for work that agents do. The reference has twenty-four <a href="#stage">stages</a>. An organization's own lifecycle is the reference <a href="#tailoring">tailored</a> to its work.</dd>
+
+          <dt id="stage">Stage</dt>
+          <dd>One of the steps of the lifecycle, such as Requirements, Test, Code, Deploy or Monitor. Each stage names the <a href="#role">role</a> that carries it out, what it is given, what it <a href="#hands-back">hands back</a>, and when it is <a href="#done-when">done</a>. All twenty-four are on <a href="stages.html">The stages</a>.</dd>
+
+          <dt id="phase">Phase</dt>
+          <dd>A group of stages that belong together: Define, Make, Ship, Prove, Use, Run and Change. Define holds Requirements, Architecture and Design, Impact and Source. A phase lays the stages out on the map; it does no work of its own.</dd>
+
+          <dt id="tailoring">Tailoring</dt>
+          <dd>Shaping the reference to an organization: choosing which stages its lifecycle uses, adding stages of its own, and choosing who <a href="#holder">holds</a> each role. A stage an organization adds, such as a legal review, is written the same way as the reference stages: its role, what it is given, what it hands back and when it is done. An organization has one lifecycle, and a project can differ from it.</dd>
+        </dl>
+
+        <h2 id="who-does-the-work">Who does the work</h2>
+        <dl>
+          <dt id="role">Role</dt>
+          <dd>The job that carries out a stage: what anyone holding it must take in, hand back and never do. Roles are written down at <a href="https://agentroles.ai">agentroles.ai</a>. One role can carry out several stages: the deployment manager carries out Deploy, Update, Reconfigure, Rollback and Decommission.</dd>
+
+          <dt id="holder">Holder</dt>
+          <dd>Whoever fills a role for an organization: a <a href="#reference-agent">reference agent</a>, the organization's own agent, a supplier's agent, a person, or an outside tool whose evidence is read. The stage stays the same whoever holds it.</dd>
+
+          <dt id="reference-agent">Reference agent</dt>
+          <dd>An open source agent that holds a role, published under Apache-2.0 at <a href="https://github.com/CommonAgent/adlc">github.com/CommonAgent/adlc</a>. Run it, read it, or replace it with any agent that holds the same role.</dd>
+
+          <dt id="gate">Gate</dt>
+          <dd>A point where the lifecycle waits for a person's yes: approving the spec, giving the OK on the code, approving the install, accepting the result. <a href="stages.html">The stages</a> marks each stage that has one.</dd>
+        </dl>
+
+        <h2 id="what-passes-between-stages">What passes between stages</h2>
+        <dl>
+          <dt id="hands-back">Hands back</dt>
+          <dd>What a stage gives the next one: always a written artifact, such as a spec, a suite or a signed record, never a conversation. The next stage can start the moment it arrives. The chain is on <a href="handoffs.html">The handoffs</a>.</dd>
+
+          <dt id="done-when">Done when</dt>
+          <dd>The test that says a stage is finished, written so that someone who did not do the work can check it.</dd>
+
+          <dt id="asset">Asset</dt>
+          <dd>A record a stage leaves behind that outlives the build: the spec, the suite, the signed build record, the attestations. Which are required is on <a href="assets.html">The assets</a>.</dd>
+
+          <dt id="package">Agent Package</dt>
+          <dd>The one thing every lifecycle must end in: the agent's declaration of what it does and refuses, its parts, a manifest and a digest, in the open format at <a href="https://commonagent.net/package.html">commonagent.net</a>. A platform that installs agents checks the package, not the path that made it.</dd>
+        </dl>
+
+        <h2 id="running-it">Running it</h2>
+        <dl>
+          <dt id="build">Build</dt>
+          <dd>One pass through the lifecycle that makes one version of an agent or a process. A build keeps the lifecycle and the holders that were in effect when it started, so a later change to the lifecycle does not change a build already under way.</dd>
+
+          <dt id="process">Process</dt>
+          <dd>A lifecycle written so it can be run: who holds each <a href="#step">step</a>, what passes between them, and what happens when a step goes wrong. Processes are written in the open <a href="https://agentprocesses.ai/spec.html">Agent Processes</a> format. Examples are on <a href="processes.html">The processes</a>.</dd>
+
+          <dt id="step">Step</dt>
+          <dd>One piece of work in a process, held by one holder. A stage can take more than one step: Requirements is writing the spec, then approving it. The Agent Processes format lists a process's steps under the heading <code>phases</code>; on this site a phase is always a group of stages.</dd>
+
+          <dt id="orchestrator">Orchestrator</dt>
+          <dd>Software that runs a process: it sends each step to its holder, waits at each gate, and records what came back.</dd>
+
+          <dt id="lifecycle-api">Lifecycle API</dt>
+          <dd>What any service that runs the lifecycle answers, so a console or another tool can read a build and act at its gates. It is on <a href="api.html">The API</a>.</dd>
+        </dl>
+
+      </div>
+
+      <footer class="footer">
+        <span>Agentic Development</span>
+        <span>Sponsored by <a href="https://agentmesh.ai">AgentMesh</a></span>
+        <span>Reference agents under Apache-2.0 on <a href="https://github.com/CommonAgent/adlc">GitHub</a></span>
+      </footer>
+
+    </div>
+  </main>
+</div>
+</body>
+</html>
