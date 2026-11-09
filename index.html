@@ -184,10 +184,10 @@
             <h3><a href="stages.html#test">Test</a></h3>
             <dl>
               <dt>Role</dt><dd><a href="https://agentroles.ai/test-writer.html">test writer</a></dd>
-              <dt>Given</dt><dd>the statement of the job; where code already exists, the behaviors and the existing tests and gaps (parts 1 and 5 of the as-built record), from which it writes characterization tests that pin today's behavior until Requirements says otherwise</dd>
-              <dt>Hands back</dt><dd>the suite, and what no test could be written for</dd>
-              <dt>Done when</dt><dd>the suite fails against empty stand-ins, and notices each program removed</dd>
-              <dt>Why here</dt><dd>Tests come before the program, from the statement, so a test can't pass by agreeing with a mistake. (Yes, people argue about this.)</dd>
+              <dt>Given</dt><dd>the spec, and the agent's own files from Design; where code already exists, the behaviors and the existing tests and gaps (parts 1 and 5 of the as-built record), from which it writes characterization tests that pin today's behavior until Requirements says otherwise; where a build starts from the as-built record of code kept elsewhere, the same parts and the interfaces (part 3), from which it writes tests that pin each behavior the person approved, for code written fresh</dd>
+              <dt>Hands back</dt><dd>the suite, with at least one test for each acceptance scenario of the spec, named by its id, and what no test could be written for</dd>
+              <dt>Done when</dt><dd>every acceptance scenario has a test, every exact word, pattern and number a requirement verified by test fixes is checked by a test, the suite fails against empty stand-ins, and notices each program removed</dd>
+              <dt>Why here</dt><dd>Tests come before the program, from the spec, so a test can't pass by agreeing with a mistake. (Yes, people argue about this.)</dd>
             </dl>
           </div>
         </div>

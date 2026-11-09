@@ -62,7 +62,7 @@
 
       <div class="prose">
         <h2 id="one-shape">One shape from the first stage</h2>
-        <p>What a build makes is never kept in a private format and converted at the end. The statement of the job is already written in the standard the finished thing will follow, so it is the statement and the design at once. The test writer tests what it declares, the next stage builds what it names, Conformance checks the finished thing against it, and the listing is copied from it.</p>
+        <p>What a build makes is never kept in a private format and converted at the end. Requirements writes the spec in an open format, <a href="https://github.com/CommonAgent/adlc/blob/main/standards/spec.schema.json">spec-v1</a>: what the product must do, and how anyone can tell that it does. For an agent, Design then makes the agent's own files from the spec, already in the standard the finished thing will follow. The test writer writes a test for each acceptance scenario of the spec, the next stage builds what the agent's files name, Conformance checks the finished thing against them, and the listing is copied from them.</p>
         <p>The stages stay the same for every kind. What each stage hands back changes with the kind.</p>
 
         <h2 id="kinds">The two kinds</h2>
@@ -70,7 +70,7 @@
           <thead><tr><th></th><th>An agent</th><th>A process</th></tr></thead>
           <tbody>
             <tr><td>Shaped as</td><td>a Common Agent (<a href="https://commonagent.net/spec.html">the Common Agent Specification</a>)</td><td>an Agent Processes document (<a href="https://agentprocesses.ai/spec.html">the Agent Processes Specification</a>)</td></tr>
-            <tr><td>Requirements writes</td><td>the Descriptor: what the agent offers, takes, hands back and refuses</td><td>the process document: its steps, who holds each, what a run is handed, what passes between steps and where a person signs</td></tr>
+            <tr><td>Requirements writes</td><td>the spec, from which Design makes the Descriptor: what the agent offers, takes, hands back and refuses</td><td>the process document: its steps, who holds each, what a run is handed, what passes between steps and where a person signs</td></tr>
             <tr><td>Tested by</td><td>a suite of tests, written before the scripts</td><td>a suite of test cases, written before the wiring and run as <a href="https://agentprocesses.ai/spec.html#s21">test runs</a></td></tr>
             <tr><td>Ships as</td><td>an Agent Package, signed</td><td>the process document and its test cases, pinned by digest and signed</td></tr>
             <tr><td>Proven by</td><td>Conformance: the running agent keeps the promises its Descriptor makes</td><td>Conformance: the document meets the specification, and every test case passes</td></tr>
@@ -82,11 +82,11 @@
         <table class="tbl">
           <thead><tr><th>Stage</th><th>For an agent</th><th>For a process</th></tr></thead>
           <tbody>
-            <tr><td><a href="stages.html#requirements">Requirements</a></td><td>the Descriptor, with the questions only the person can answer</td><td>the process document, with the questions only the person can answer</td></tr>
-            <tr><td><a href="stages.html#architecture">Architecture and Design</a></td><td>how the agent is built</td><td>who holds each step, and what each step hands the next</td></tr>
+            <tr><td><a href="stages.html#requirements">Requirements</a></td><td>the spec, with the questions only the person can answer</td><td>the process document, with the questions only the person can answer</td></tr>
+            <tr><td><a href="stages.html#architecture">Architecture and Design</a></td><td>how the agent is built, and the agent's own files made from the spec</td><td>who holds each step, and what each step hands the next</td></tr>
             <tr><td><a href="stages.html#impact">Impact</a></td><td>who depends on the agent</td><td>who depends on the process: other processes that run it, and agreements pinned to its digest</td></tr>
             <tr><td><a href="stages.html#source">Source</a></td><td>an agent or a part that already exists</td><td>an agent that already holds the step, or a new one made by Make a new agent</td></tr>
-            <tr><td><a href="stages.html#test">Test</a></td><td>the suite, shown to fail against nothing</td><td>the test cases: what each run is handed, how each approval is answered, what must be true at the end</td></tr>
+            <tr><td><a href="stages.html#test">Test</a></td><td>the suite, a test for each acceptance scenario of the spec, shown to fail against nothing</td><td>the test cases: what each run is handed, how each approval is answered, what must be true at the end</td></tr>
             <tr><td><a href="stages.html#code">Code</a></td><td>the scripts, passing the suite</td><td>the wiring: the holders bound, and each handoff fitted to the step that receives it</td></tr>
             <tr><td><a href="stages.html#review">Review</a> and <a href="stages.html#security">Security</a></td><td>findings on the code, and what it may reach</td><td>findings on the document, and what its steps may reach outside</td></tr>
             <tr><td><a href="stages.html#package">Package</a> and <a href="stages.html#release">Release</a></td><td>the Agent Package and its signed build record</td><td>the document and its test cases, pinned by digest, with a signed record</td></tr>
