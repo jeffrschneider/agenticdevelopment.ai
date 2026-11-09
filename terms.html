@@ -71,16 +71,19 @@
         <h2 id="the-lifecycle">The lifecycle</h2>
         <dl>
           <dt id="adlc">Lifecycle</dt>
-          <dd>The Agent Development Lifecycle (ADLC): the ordinary software lifecycle, written for work that agents do. The reference has twenty-four <a href="#stage">stages</a>. An organization's own lifecycle is the reference <a href="#tailoring">tailored</a> to its work.</dd>
+          <dd>The Agent Development Lifecycle (ADLC): the ordinary software lifecycle, written for work that agents do. The reference has twenty-five <a href="#stage">stages</a>. An organization's own lifecycle is the reference <a href="#tailoring">tailored</a> to its work.</dd>
 
           <dt id="stage">Stage</dt>
-          <dd>One of the steps of the lifecycle, such as Requirements, Test, Code, Deploy or Monitor. Each stage names the <a href="#role">role</a> that carries it out, what it is given, what it <a href="#hands-back">hands back</a>, and when it is <a href="#done-when">done</a>. All twenty-four are on <a href="stages.html">The stages</a>.</dd>
+          <dd>One of the steps of the lifecycle, such as Requirements, Test, Code, Deploy or Monitor. Each stage names the <a href="#role">role</a> that carries it out, what it is given, what it <a href="#hands-back">hands back</a>, and when it is <a href="#done-when">done</a>. All twenty-five are on <a href="stages.html">The stages</a>.</dd>
 
           <dt id="phase">Phase</dt>
-          <dd>A group of stages that belong together: Define, Make, Ship, Prove, Use, Run and Change. Define holds Requirements, Architecture and Design, Impact and Source. A phase lays the stages out on the map; it does no work of its own.</dd>
+          <dd>A group of stages that belong together: Define, Make, Ship, Prove, Use, Run and Change. Define holds Reverse engineering, Requirements, Architecture and Design, Impact and Source. A phase lays the stages out on the map; it does no work of its own.</dd>
 
           <dt id="tailoring">Tailoring</dt>
           <dd>Shaping the reference to an organization: choosing which stages its lifecycle uses, adding stages of its own, and choosing who <a href="#holder">holds</a> each role. A stage an organization adds, such as a legal review, is written the same way as the reference stages: its role, what it is given, what it hands back and when it is done. An organization has one lifecycle, and a project can differ from it.</dd>
+
+          <dt id="starting-point">Starting point</dt>
+          <dd>What someone brings to the lifecycle, and the stage where it enters. An idea enters at Requirements, an existing codebase at Reverse engineering, a skill at Security review, a written business process at Source. Every starting point that gets credentials passes Security review first, and wherever a build starts, it ends in a valid <a href="#package">package</a>. The starting points are on <a href="index.html#join">the home page</a>.</dd>
         </dl>
 
         <h2 id="who-does-the-work">Who does the work</h2>
@@ -108,6 +111,9 @@
 
           <dt id="asset">Asset</dt>
           <dd>A record a stage leaves behind that outlives the build: the spec, the suite, the signed build record, the attestations. Which are required is on <a href="assets.html">The assets</a>.</dd>
+
+          <dt id="as-built-record">As-built record</dt>
+          <dd>What Reverse engineering hands back about code that already exists: what it does, how it is built, its interfaces, its dependencies and what its tests cover, tied to the commit it was read at. It is made when an existing codebase is taken on, and again only if the code changes outside the lifecycle, when it covers just what changed. Code that lives fully inside the lifecycle never needs another, because its statement, tests and records are already the truth. Every claim names its evidence and every gap is marked. It says what the code is, never whether it's right: at Requirements a person approves each behavior, flags it as a bug, or drops it. Its parts are on <a href="assets.html#as-built-record">The assets</a>.</dd>
 
           <dt id="package">Agent Package</dt>
           <dd>The one thing every lifecycle must end in: the agent's declaration of what it does and refuses, its parts, a manifest and a digest, in the open format at <a href="https://commonagent.net/package.html">commonagent.net</a>. A platform that installs agents checks the package, not the path that made it.</dd>
