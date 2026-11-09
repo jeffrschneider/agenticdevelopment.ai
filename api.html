@@ -4,11 +4,11 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>The API: Agentic Development</title>
-  <meta name="description" content="What any service that runs the lifecycle answers, so one client can follow a build through all twenty-four stages: the endpoints, the shapes, the key, the actions, and how the contract grows.">
+  <meta name="description" content="What any service that runs the lifecycle answers, so one client can follow a build through all twenty-five stages: the endpoints, the shapes, the key, the actions, products, chats, features, and how the contract grows.">
   <meta property="og:type" content="website">
   <meta property="og:site_name" content="Agentic Development">
   <meta property="og:title" content="The API | Agentic Development">
-  <meta property="og:description" content="What any service that runs the lifecycle answers, so one client can follow a build through all twenty-four stages: the endpoints, the shapes, the key, the actions, and how the contract grows.">
+  <meta property="og:description" content="What any service that runs the lifecycle answers, so one client can follow a build through all twenty-five stages: the endpoints, the shapes, the key, the actions, products, chats, features, and how the contract grows.">
   <meta property="og:url" content="https://agenticdevelopment.ai/api.html">
   <meta property="og:image" content="https://agenticdevelopment.ai/brand/png/og-image-v2.png">
   <meta property="og:image:width" content="1200">
@@ -58,7 +58,7 @@
       <header class="page-head">
         <h1>Any service that runs the lifecycle answers the same API.</h1>
         <p class="turn">A person may build agents on more than one service, and should be able to follow every build in one place. So a service that implements the lifecycle reports each build stage by stage, in one shape, and says what the person may do next. A client shows what the service says and holds no lifecycle logic of its own.</p>
-        <p class="links-line">The schema: <a href="https://github.com/CommonAgent/adlc/blob/main/standards/lifecycle-api.schema.json">lifecycle-api.schema.json</a> · The check: <a href="https://github.com/CommonAgent/adlc/blob/main/standards/lifecycle-api-check.mjs">lifecycle-api-check.mjs</a> · Version 0.3</p>
+        <p class="links-line">The schema: <a href="https://github.com/CommonAgent/adlc/blob/main/standards/lifecycle-api.schema.json">lifecycle-api.schema.json</a> · The check: <a href="https://github.com/CommonAgent/adlc/blob/main/standards/lifecycle-api-check.mjs">lifecycle-api-check.mjs</a> · Version 0.4.5</p>
         <ul class="jump" aria-label="Jump to a section">
           <li><a href="#paths">The paths</a></li>
           <li><a href="#key">The key</a></li>
@@ -67,6 +67,12 @@
           <li><a href="#roles">Who holds each role</a></li>
           <li><a href="#actions">Actions</a></li>
           <li><a href="#tries">Try, keep, wrong</a></li>
+          <li><a href="#products">Products</a></li>
+          <li><a href="#workspace">A stage's workspace</a></li>
+          <li><a href="#chat">A stage's chat</a></li>
+          <li><a href="#boss">The boss</a></li>
+          <li><a href="#cadence">Setup and when needed</a></li>
+          <li><a href="#features">Features</a></li>
           <li><a href="#errors">Errors</a></li>
           <li><a href="#versions">Versions</a></li>
           <li><a href="#check">The check</a></li>
@@ -87,7 +93,7 @@
             <tr><td><code>GET /builds/{id}</code></td><td>one build, stage by stage, with its log and the actions it offers now</td></tr>
             <tr><td><code>GET /builds/{id}/timeline</code></td><td>how long each step took: one bar per step per round, with who held it, whether an agent was working or it waited on a person or on something outside, its start, end and duration, and the totals</td></tr>
             <tr><td><code>GET /builds/{id}/files?path=</code></td><td>the bytes of a file a stage handed back, at the link the build gives</td></tr>
-            <tr><td><code>POST /builds/{id}/actions/{name}</code></td><td>the build after the person takes one of the actions it offered</td></tr>
+            <tr><td><code>POST /builds/{id}/actions/{name}</code></td><td>the build after the person takes one of the actions it offered; from 0.4.4 it also takes a product's when-needed action, and the answer then adds its <code>result</code></td></tr>
             <tr><td><code>POST /builds/{id}/try</code></td><td>the answer to one input, sent to the pull request or to the installed agent</td></tr>
             <tr><td><code>GET /builds/{id}/tries</code></td><td>the tries made on the build, newest first</td></tr>
             <tr><td><code>POST /builds/{id}/tries/{tid}/keep</code></td><td>the try, now kept as a new test in the agent's suite</td></tr>
@@ -99,14 +105,30 @@
             <tr><td><code>GET /roles</code></td><td>every role, and who holds it now; with <code>?project=</code>, as a build for that project would see it</td></tr>
             <tr><td><code>PUT /roles/{role}</code></td><td>the roles, after the organization (or one project) binds a role to a holder</td></tr>
             <tr><td><code>DELETE /roles/{role}</code></td><td>the roles, after a binding is removed, so the role falls back to the organization's binding, then to the service's own agent, then to nobody</td></tr>
+            <tr><td><code>GET /products</code></td><td>every product, each with its newest build and its versions; a product whose builds are all archived only when the request adds <code>?archived=1</code></td></tr>
+            <tr><td><code>GET /products/{name}</code></td><td>one product: its builds, newest first, the run plan of its newest build that has one, a short activity feed, its setup and when-needed lists, the version that runs, and whether it is retired</td></tr>
+            <tr><td><code>GET /builds/{id}/stages/{stage}</code></td><td>one stage of a build as a workspace: what it was given, what it handed back, what done means for it, its gate, and its features</td></tr>
+            <tr><td><code>GET /products/{name}/stages/{stage}/messages</code></td><td>the chat with the agent holding a stage, across the product's builds, oldest first</td></tr>
+            <tr><td><code>POST /products/{name}/stages/{stage}/messages</code></td><td>the person's message as kept, and the agent's reply</td></tr>
+            <tr><td><code>GET /products/{name}/boss/messages</code></td><td>the conversation with the product's boss, oldest first</td></tr>
+            <tr><td><code>POST /products/{name}/boss/messages</code></td><td>the person's message as kept, and the boss's reply; the message may confirm or decline one of the boss's proposals</td></tr>
+            <tr><td><code>GET /products/{name}/boss/commitments</code></td><td>everything the boss committed on the person's behalf, oldest first, in full</td></tr>
+            <tr><td><code>GET /builds/{id}/features</code></td><td>the build's features as a matrix, one row per feature and one cell each for the spec, the tests, the code, the review and the docs</td></tr>
+            <tr><td><code>POST /builds/{id}/features/{feature}/approve</code></td><td>the feature and its proposal, after the person approves it</td></tr>
+            <tr><td><code>POST /builds/{id}/features/{feature}/not_now</code></td><td>the feature and its proposal, after the person leaves it for later</td></tr>
+            <tr><td><code>POST /builds/{id}/features/{feature}/ask</code></td><td>the feature and its proposal, after the person asks someone who may approve it</td></tr>
+            <tr><td><code>GET /products/{name}/features</code></td><td>the product's features as a matrix, for its newest build, or with <code>?version=</code> for the build of that version</td></tr>
+            <tr><td><code>GET /products/{name}/features/{feature}</code></td><td>one feature of the product and its history across the stages and the versions, oldest first</td></tr>
+            <tr><td><code>POST /builds/{id}/features/backfill</code></td><td>the spec writer's reply, listing the features of a product made before features existed</td></tr>
+            <tr><td><code>POST /builds/{id}/features/approve_all</code></td><td>several proposed features, approved at once, and the statement of the job's new version</td></tr>
           </tbody>
         </table>
 
         <h2 id="key">The person's own key signs every call.</h2>
         <p>Each call carries <code>Authorization: Bearer &lt;key&gt;</code>. The key is one the person makes for their own account, and the service says how to make one and what it must allow. A client asks for the key once and never sees a password. It sends the key only to the service, and asks for a new one when the service answers 401 or 403.</p>
 
-        <h2 id="build">A build lists all twenty-four stages.</h2>
-        <p>The answer to <code>GET /builds/{id}</code> lists every stage of <a href="stages.html">the lifecycle</a> once, by the ids in <a href="https://github.com/CommonAgent/adlc/blob/main/standards/stages.json">stages.json</a>. A stage the service does not run is listed as <code>not_offered</code>, so a client always draws the whole lifecycle and the person can see what this service leaves to someone else.</p>
+        <h2 id="build">A build lists all twenty-five stages.</h2>
+        <p>The answer to <code>GET /builds/{id}</code> lists every stage of <a href="stages.html">the lifecycle</a> once, from Reverse engineering, numbered 00, to Decommission, by the ids in <a href="https://github.com/CommonAgent/adlc/blob/main/standards/stages.json">stages.json</a>. A stage the service does not run is listed as <code>not_offered</code>, so a client always draws the whole lifecycle and the person can see what this service leaves to someone else.</p>
         <div class="term">
           <div class="bar"><span class="lamp"></span>one stage of a build</div>
 <pre>{
@@ -120,7 +142,11 @@
   "rounds": [
     { "n": 2, "at": "2026-10-31T09:15:00Z",
       "label": "Push 2", "verdict": "passed",
-      "back": false, "words": "Every test passed." },
+      "back": false, "words": "Every test passed.",
+      "by_feature": [
+        { "feature": "F1", "passed": 2, "total": 2 },
+        { "feature": "F2", "passed": 1, "total": 1 }
+      ] },
     { "n": 1, "at": "2026-10-31T08:52:00Z",
       "label": "Push 1", "verdict": "failed",
       "back": true, "words": "Two tests failed." }
@@ -145,7 +171,9 @@
       "title": "The gate passed", "words": "Every test passed.",
       "items": ["fence", "suite"], "passed": true
     }
-  }
+  },
+  "cadence": "every_build",
+  "features": { "covered": 2, "total": 2, "words": "2 of 2 features pass" }
 }</pre>
         </div>
         <table class="tbl api">
@@ -153,17 +181,20 @@
           <tbody>
             <tr><td><code>state</code></td><td><code>not_started</code>, <code>working</code>, <code>waiting_on_you</code> (the person's act is next), <code>done</code>, <code>refused</code>, <code>stopped</code>, <code>not_offered</code> (this service cannot hand the stage to anyone), <code>not_bound</code> (nobody holds its role), <code>not_applicable</code> (it does not apply to this kind of build, such as Review on a process) or <code>not_used</code> (the build's lifecycle leaves it out)</td></tr>
             <tr><td><code>holder</code></td><td>who holds the stage: a <code>reference_agent</code> (the service's own), <code>your_agent</code> (one the organization brought), a <code>contracted</code> supplier's agent, a <code>person</code> or an <code>outside_tool</code>, with a name, and a <code>handle</code> when it is an agent on the mesh; null for a stage that is not offered, not bound, not applicable or not used</td></tr>
-            <tr><td><code>rounds</code></td><td>each time the stage ran, newest first; <code>back</code> is true when that round sent the work back</td></tr>
+            <tr><td><code>rounds</code></td><td>each time the stage ran, newest first; <code>back</code> is true when that round sent the work back; a round that ran the suite may add <code>by_feature</code>, how many of each feature's tests passed</td></tr>
             <tr><td><code>handed_back</code></td><td>what the stage handed back, in words and as files, each with its size in bytes and a link read with the same key</td></tr>
             <tr><td><code>done_when_met</code></td><td>whether the stage's "done when" was met: true, false, or null while it is not known</td></tr>
             <tr><td><code>where</code></td><td>where the work is when the person can open it, such as a pull request with its newest commit and its check; otherwise null</td></tr>
             <tr><td><code>evidence</code></td><td>what a holder outside the service handed back for the stage, each piece with its format, name, when it arrived, and what the service read in it, in words</td></tr>
+            <tr><td><code>cadence</code></td><td>the stage's cadence in stages.json: <code>every_build</code>, <code>setup</code> or <code>when_needed</code> (see <a href="#cadence">setup and when needed</a>)</td></tr>
+            <tr><td><code>carried</code></td><td>on a setup stage whose holder and settings are the same as an earlier version's: the version it has held since, that build's id, and words such as "Unchanged since 0.1.0"</td></tr>
+            <tr><td><code>features</code></td><td>how many of the product's features the stage covers on this build, <code>{ covered, total, words }</code>; present on an every-build stage that has made its artifact, when the build carries features (see <a href="#features">features</a>)</td></tr>
           </tbody>
         </table>
-        <p>Beside the stages, a build carries its id, name, what it does, its version, the <code>handle</code> it answers at once installed, its own <code>log</code>, its <code>actions</code>, and <code>can_try</code>, which says whether a try may be sent now to the pull request and to the installed agent. It also carries <code>kind</code>, <code>agent</code> or <code>process</code>, absent meaning agent, and a service that does not build the kind asked for refuses the request and says so; <code>summary</code>, where it ended or where it is in the words a person reads first, such as "Installed · conforms" or "Stopped at Requirements"; <code>paused</code>, since when and why the installed agent is paused, for example after a conformance check it failed, or null; <code>archived</code>, true once the person archived it; <code>timeline</code>, the same bars the timeline call answers; <code>project</code>, the project it was started under, when one was named; and <code>lifecycle</code>, whose choice of stages it started under and when, <code>{ project, at }</code>, with <code>project</code> null when the build named none.</p>
+        <p>Beside the stages, a build carries its id, name, what it does, its version, the <code>handle</code> it answers at once installed, its own <code>log</code>, its <code>actions</code>, and <code>can_try</code>, which says whether a try may be sent now to the pull request and to the installed agent. It also carries <code>kind</code>, <code>agent</code> or <code>process</code>, absent meaning agent, and a service that does not build the kind asked for refuses the request and says so; <code>summary</code>, where it ended or where it is in the words a person reads first, such as "Installed · conforms" or "Stopped at Requirements"; <code>paused</code>, since when and why the installed agent is paused, for example after a conformance check it failed, or null; <code>archived</code>, true once the person archived it; <code>timeline</code>, the same bars the timeline call answers; <code>project</code>, the project it was started under, when one was named; <code>lifecycle</code>, whose choice of stages it started under and when, <code>{ project, at }</code>, with <code>project</code> null when the build named none; and <code>artifacts</code>, what the build has made and will make, in stage order, only for the stages its lifecycle uses (see <a href="#workspace">a stage's workspace</a>).</p>
 
         <h2 id="stages">An organization chooses which stages its lifecycle uses.</h2>
-        <p>Not every organization runs all twenty-four stages. It can leave a stage out for the whole organization, or for one project, and a project's choice wins for builds started under that project. When nothing is chosen, every stage is used. <code>GET /stages</code> lists every stage in the order of <a href="https://github.com/CommonAgent/adlc/blob/main/standards/stages.json">stages.json</a>, each saying whether it is used, where that choice comes from, and whether this service can run its builds without it.</p>
+        <p>Not every organization runs all twenty-five stages. It can leave a stage out for the whole organization, or for one project, and a project's choice wins for builds started under that project. When nothing is chosen, every stage is used. <code>GET /stages</code> lists every stage in the order of <a href="https://github.com/CommonAgent/adlc/blob/main/standards/stages.json">stages.json</a>, each saying whether it is used, where that choice comes from, and whether this service can run its builds without it.</p>
         <div class="term">
           <div class="bar"><span class="lamp"></span>two stages, as GET /stages?project=billing answers them</div>
 <pre>{
@@ -199,7 +230,8 @@
 
         <h2 id="roles">An organization chooses who holds each role.</h2>
         <p>Each stage is held by one or more roles, the ones written down at <a href="https://agentroles.ai">agentroles.ai</a>. <code>GET /roles</code> lists every role in stages.json with its contract, the offering an agent holding it answers (<code>role-&lt;id&gt;</code>), its stages, the binding in effect, and where that comes from: <code>project</code>, <code>org</code>, <code>default</code> (the service's own agent) or <code>unbound</code>. <code>PUT /roles/{role}</code> with <code>{ holder }</code> binds a role, and <code>DELETE /roles/{role}</code> removes the binding; either takes <code>?project=</code>. The requester, who holds Acceptance, is always the person who asked.</p>
-        <p>An agent bound to a role is sent the stage's input under the role's offering, and its answer is the stage's asset, as the service's own agent's would be. The service never calls a vendor's API. A holder outside the mesh hands its evidence back with <code>POST /builds/{id}/evidence</code> in an open format stages.json lists: SARIF, CycloneDX, SPDX, SLSA provenance, in-toto, OpenTelemetry traces with <code>gen_ai</code> attributes, or Pact. The service reads it and shows it on the stage.</p>
+        <p><code>PUT /roles/{role}</code> answers 400 for a role stages.json does not name, a <code>your_agent</code> or <code>contracted</code> holder with no handle, the requester bound to anyone but a person, or an evidence format stages.json does not list. A binding carries the holder and, unless it is the default, its <code>scope</code> (<code>{ "org": true }</code> or <code>{ "project": name }</code>), <code>since</code> and <code>by</code>.</p>
+        <p>An agent bound to a role is sent the stage's input under the role's offering, and its answer is the stage's asset, as the service's own agent's would be. The service never calls a vendor's API. A holder outside the mesh hands its evidence back with <code>POST /builds/{id}/evidence</code> in an open format stages.json lists: SARIF, CycloneDX, SPDX, SLSA provenance, in-toto, OpenTelemetry traces with <code>gen_ai</code> attributes, or Pact. The service reads it and shows it on the stage, and answers 400 when the content does not read as the format named.</p>
 
         <h2 id="actions">A client draws one button for each action, and nothing else.</h2>
         <p>Every build carries the actions the person may take now. A client shows each one as a button with its label, asks for the inputs it needs, and posts them to <code>/builds/{id}/actions/{name}</code>. It never adds a button the service did not offer and never decides on its own what comes next, so every judgment stays with the service and its agents. When the service offers nothing, the person has nothing to do.</p>
@@ -217,7 +249,7 @@
   ]
 }</pre>
         </div>
-        <p>A need's <code>kind</code> is <code>text</code> for a line, <code>words</code> for a paragraph, or <code>repository</code> for owner/name. A need marked <code>optional</code> may be left empty, and is then not sent. An action names the stage it acts at, and that is always a stage the build offers. The answer is the build as it now stands.</p>
+        <p>A need's <code>kind</code> is <code>text</code> for a line, <code>words</code> for a paragraph, <code>repository</code> for owner/name, or, from 0.4.4, <code>choice</code>, one of its <code>options</code>. A need may carry a <code>default</code>, filled in before the person changes it. A need marked <code>optional</code> may be left empty, and is then not sent. An action names the stage it acts at, and that is always a stage the build offers. The answer is the build as it now stands.</p>
 
         <h2 id="tries">Try it, keep what it got right, and send back what it got wrong.</h2>
         <p>Before the person accepts the code, and after the agent is installed, they can send it one input and read the answer.</p>
@@ -228,16 +260,345 @@
         </ul>
         <p><code>GET /builds/{id}/tries</code> lists every try, newest first, each saying whether it was <code>kept</code> and whether it was <code>sent_back</code>. A service may cap how many tries a build has in a day.</p>
 
-        <h2 id="errors">An error is words a person can read.</h2>
-        <p>Any refusal is a 4xx or 5xx status with <code>{ error }</code> in words, which a client shows as they are. A refused action also carries the <code>build</code> as it now stands. A 401 or 403 means the key is missing, wrong, or does not allow the call. A 429 means the service was asked too often, and a client waits before asking again.</p>
+        <h2 id="products">Every build of one name is a product.</h2>
+        <p>A product is every build of one name, one build per version. It is not a project, which is the lifecycle's team scope. <code>GET /products</code> lists each product once, with its newest build (its id, its version, how the build stands as a whole, and the stage it is at) and its versions, newest first. How a build stands as a whole is <code>working</code>, <code>waiting_on_you</code>, <code>refused</code>, <code>stopped</code> or <code>done</code>. <code>GET /products/{name}</code> answers one product, and 404 for a name no build has.</p>
+        <div class="term">
+          <div class="bar"><span class="lamp"></span>a product, as GET /products/word-tally answers it, before its setup and when-needed lists</div>
+<pre>{
+  "name": "word-tally",
+  "builds": [
+    { "id": "b2", "version": "0.2.0", "state": "done",
+      "at": { "stage": "docs", "state": "done",
+              "summary": "Installed · conforms" },
+      "created": "2026-11-06T14:02:00Z" },
+    { "id": "b1", "version": "0.1.0", "state": "done",
+      "at": { "stage": "docs", "state": "done",
+              "summary": "Installed · conforms" },
+      "created": "2026-10-31T08:30:00Z" }
+  ],
+  "run_plan": {
+    "build": "b2", "version": "0.2.0", "at": "2026-11-06T16:05:00Z",
+    "summary": { "stages": [
+      { "stage": "monitor", "name": "Monitor", "holder": "Our watcher",
+        "settings": "every 5 minutes", "reads": "chosen" },
+      { "stage": "eval", "name": "Eval", "holder": null,
+        "settings": "no settings", "reads": "not chosen" }
+    ] }
+  },
+  "activity": [
+    { "at": "2026-11-06T16:40:00Z", "build": "b2", "version": "0.2.0",
+      "stage": "docs", "words": "The docs are written." },
+    { "at": "2026-11-06T16:20:00Z", "build": "b2", "version": "0.2.0",
+      "stage": "conformance", "words": "It conforms." }
+  ],
+  "running": { "build": "b2", "version": "0.2.0", "words": "0.2.0 runs" }
+}</pre>
+        </div>
+        <table class="tbl api">
+          <thead><tr><th>Field</th><th>What it says</th></tr></thead>
+          <tbody>
+            <tr><td><code>builds</code></td><td>the product's builds, newest first, each with its id, version, how it stands, the stage it is at, and when it was created</td></tr>
+            <tr><td><code>run_plan</code></td><td>the run plan of the newest build that has one: for each stage after Package, who holds it, the holder's settings in words, and whether it reads <code>chosen</code>, <code>not chosen</code> or <code>not used</code></td></tr>
+            <tr><td><code>activity</code></td><td>one line per stage event, newest first: a short feed, not the chat</td></tr>
+            <tr><td><code>setup</code></td><td>every setup stage, once each, in stages.json's order: who holds it for the product now, with what settings, since which version, and the form it is set up with (see <a href="#cadence">setup and when needed</a>)</td></tr>
+            <tr><td><code>when_needed</code></td><td>every when-needed stage, once each, in order: whether the service can run it on the product now, and why not when it cannot</td></tr>
+            <tr><td><code>running</code></td><td>the version that runs now, as far as the service knows: the newest one installed that was not rolled back or retired; null when none is</td></tr>
+            <tr><td><code>retired</code></td><td>present once the product is decommissioned: when, by whom, the version that ran then, and why; nothing of it runs, its records are kept, and its when-needed actions cannot run</td></tr>
+          </tbody>
+        </table>
 
-        <h2 id="versions">Version 0.3 grows only by adding.</h2>
-        <p>This is version 0.3, served on the <code>/v1/lifecycle</code> path. It changes only by adding. A service never removes a field or changes what one means, and a client ignores any field it does not know. That way an older client keeps working against a newer service, and a service can say more than this page does without breaking anyone.</p>
-        <p>A version may also add a value to a list. A client that does not know a stage's state draws it as <code>not_offered</code>, and one that does not know a holder's kind shows the holder's name. Version 0.2 added the roles, evidence, and the states <code>not_bound</code> and <code>not_applicable</code>. Version 0.3 added the stages calls, the build's <code>lifecycle</code>, and the state <code>not_used</code>, which a 0.2 client draws as <code>not_offered</code>.</p>
+        <h2 id="workspace">Each stage of a build is a workspace.</h2>
+        <p><code>GET /builds/{id}/stages/{stage}</code> answers one stage as a workspace: what it was given, as the ids of the earlier stages' artifacts the build made; what it handed back, as its own artifacts; what done means for it, its <code>done_when</code> in stages.json; and its gate. Its state, holder, cadence, <code>carried</code> and features are the same as the build's stage. It answers 404 for a stage stages.json does not name.</p>
+        <div class="term">
+          <div class="bar"><span class="lamp"></span>the Code stage of a build, as a workspace</div>
+<pre>{
+  "stage": "code",
+  "name": "Code",
+  "state": "waiting_on_you",
+  "holder": { "kind": "your_agent", "name": "your coding agent",
+              "handle": "coder.you@example.com" },
+  "cadence": "every_build",
+  "given": ["statement", "suite"],
+  "outputs": [
+    { "id": "programs", "stage": "code", "name": "The programs",
+      "by": "your coding agent", "state": "made", "kind": "programs",
+      "version": "772a7e4", "at": "2026-10-31T09:15:00Z",
+      "summary": {
+        "scripts": [
+          { "path": "scripts/count.mjs", "lines": 40,
+            "does": "counts the words" }
+        ],
+        "commit": "772a7e4",
+        "pr": { "number": 1,
+                "url": "https://github.com/you/word-tally/pull/1" }
+      } }
+  ],
+  "done_when": "the suite passes, each program removed is noticed, and the tests and statement are unchanged",
+  "gate": { "actions": ["accept", "stop"], "state": "open",
+            "who_may": "Anyone may answer this gate." },
+  "features": {
+    "stage": "code", "covered": 2, "total": 2,
+    "words": "2 of 2 features pass",
+    "items": [
+      { "id": "F1", "name": "Count words", "state": "done",
+        "words": "2 of 2 passing", "passed": 2, "of": 2 },
+      { "id": "F2", "name": "Empty passage", "state": "done",
+        "words": "1 of 1 passing", "passed": 1, "of": 1 }
+    ]
+  }
+}</pre>
+        </div>
+        <table class="tbl api">
+          <thead><tr><th>Field</th><th>What it says</th></tr></thead>
+          <tbody>
+            <tr><td><code>given</code></td><td>the artifacts of earlier stages the stage was given, as ids in the build's <code>artifacts</code>, only those made</td></tr>
+            <tr><td><code>outputs</code></td><td>the build's artifacts this stage makes</td></tr>
+            <tr><td><code>done_when</code></td><td>what done means for the stage, as stages.json says it</td></tr>
+            <tr><td><code>gate</code></td><td>the last time the stage waited on a person, or waits now; absent when it never has. <code>state</code> is <code>open</code> or <code>answered</code>; <code>actions</code> are, while it is open, the names of the build's actions at this stage that this person may take now, so its buttons are the build's; <code>answered</code> says who answered it, when, and with which action; <code>closed</code> says why it closed without an answer, such as a newer push to the pull request; <code>who_may</code> says who may answer it. At Requirements it also carries <code>open</code>, what the statement still leaves open for the person, and <code>features</code> (see <a href="#features">features</a>)</td></tr>
+            <tr><td><code>features</code></td><td>the stage's features on this build, one short line each (see <a href="#features">features</a>)</td></tr>
+          </tbody>
+        </table>
+        <p>An artifact is something the build has made or will make, one per stage output. Each has an <code>id</code> unique within its build, such as <code>statement</code> or <code>suite</code>; the <code>stage</code> that makes it; its <code>name</code> as a person reads it; <code>by</code>, the holder's name; and, once made, its <code>version</code> (such as "v4" or a short commit), its <code>digest</code> as <code>sha256:&lt;hex&gt;</code> when it has one, when it was made, and its <code>files</code>, at links read with the same key. Its <code>state</code> is <code>made</code>; <code>next</code>, the next one the build will make; <code>later</code>; <code>not_made</code>, when its stage ran or the build ended without it; or <code>not_run</code>, when its stage is in the lifecycle and the service does not run it. Its <code>summary</code> says what it says, readable and never raw file content, in the shape its <code>kind</code> names:</p>
+        <table class="tbl api">
+          <thead><tr><th>Kind</th><th>Its summary</th></tr></thead>
+          <tbody>
+            <tr><td><code>statement</code></td><td>the agent's name and version, its <code>offerings</code> (each with a name and what it does), what it <code>refuses</code>, what it <code>records</code>, its <code>price</code>, the questions the spec writer left <code>open</code>, and from 0.4.3 its <code>features</code></td></tr>
+            <tr><td><code>suite</code></td><td>the <code>count</code> of tests and each test's name, as written</td></tr>
+            <tr><td><code>programs</code></td><td>the <code>scripts</code> Code wrote, each with its path, lines and what it says it does; the <code>commit</code>; and the pull request they were written on</td></tr>
+            <tr><td><code>findings</code></td><td>the code critic's findings still <code>open</code>, each with its place, claim and consequence; its <code>verdict</code>; and notes <code>outside</code> the change, which hold nothing up</td></tr>
+            <tr><td><code>security</code></td><td>what the agent may <code>reach</code>, what it may <code>spend</code>, what it must <code>never</code> do, and the <code>verdict</code></td></tr>
+            <tr><td><code>package</code></td><td>the package <code>file</code>, its <code>digest</code>, and whether it <code>validated</code></td></tr>
+            <tr><td><code>run_plan</code></td><td>for each stage after Package, who holds it, the holder's settings in words, and how it reads</td></tr>
+            <tr><td><code>architecture</code>, <code>build_record</code>, <code>attestation</code>, <code>agentdoc</code>, <code>other</code>, or any artifact not made</td><td><code>{ words }</code>: what it is, or why it is not there. A client that does not know a kind reads <code>summary.words</code>, or the name</td></tr>
+          </tbody>
+        </table>
+
+        <h2 id="chat">Each stage has a chat with the agent that holds it.</h2>
+        <p><code>GET /products/{name}/stages/{stage}/messages</code> answers the chat, oldest first. It is kept per product per stage, across the product's builds, and each message names the build and the version it was said in. A gate is not a message: it is on the stage's workspace. <code>POST</code> to the same path with <code>{ text }</code>, and if they like the <code>build</code> it is about (the product's newest when absent), says something to the agent. The agent answers in words from the stage's outputs, what it was given and the build's record, and the person's message and the reply are both kept. Anyone who may read the build may post.</p>
+        <p>Answering changes nothing. When the person asks for a change, the reply proposes the build's existing action for it with its needs filled, and only when the person may take that action now. The person takes it with the actions operation, so a change always goes back through its gate.</p>
+        <div class="term">
+          <div class="bar"><span class="lamp"></span>a message and its reply, in the Test stage's chat</div>
+<pre>{
+  "message": {
+    "id": "m1", "at": "2026-10-31T09:15:00Z",
+    "build": "b1", "version": "0.1.0",
+    "from": { "kind": "person", "name": "You", "stage": "test" },
+    "to": { "role": "test-writer" },
+    "text": "What about an empty passage?"
+  },
+  "reply": {
+    "id": "m2", "at": "2026-10-31T09:16:00Z",
+    "build": "b1", "version": "0.1.0",
+    "from": { "kind": "agent", "name": "Test writer",
+              "role": "test-writer", "stage": "test" },
+    "text": "No test covers it. I would say an empty passage has no words.",
+    "proposes": {
+      "action": "back_to_test",
+      "needs": { "changes": "Say an empty passage has no words." }
+    }
+  }
+}</pre>
+        </div>
+        <table class="tbl api">
+          <thead><tr><th>Field</th><th>What it says</th></tr></thead>
+          <tbody>
+            <tr><td><code>from</code></td><td>who said it: a <code>person</code>, an <code>agent</code> with the <code>role</code> it answers as, or the <code>system</code>, the service itself, such as when the agent could not answer; and the stage. A role of <code>boss</code> marks a directive the product's boss posted into this chat on the person's behalf</td></tr>
+            <tr><td><code>to</code></td><td>the role a person addressed</td></tr>
+            <tr><td><code>attachments</code></td><td>artifacts the message points at, by id</td></tr>
+            <tr><td><code>proposes</code></td><td>a change the agent proposes: one of the build's existing actions, with its needs filled, which the person takes with the actions operation</td></tr>
+            <tr><td><code>features</code></td><td>the new or changed features the agent proposes in this reply, each with its own answer (see <a href="#features">features</a>)</td></tr>
+          </tbody>
+        </table>
+        <p>Posting answers 400 in words for a stage the build's lifecycle leaves out, or one held by a person, an outside tool or anyone the service cannot send messages to; and 409 when no agent can answer now, such as when the model is not set.</p>
+
+        <h2 id="boss">The product's boss answers for the whole product.</h2>
+        <p>The boss holds the <a href="https://agentroles.ai/boss.html">boss role</a>: a conversation at the product level with an agent that answers from the product's record. It routes a directive into the chat of the stage that owns it and says where it went; breaks a larger request into a plan, naming each stage in order and the gate the person meets at each; and proposes the first stage's existing action, or first the start of the next version when the request changes the agent's statement. It never answers a gate, never changes an artifact, and takes no action itself. A stage's action is taken with the actions operation, and the next version starts only when the person confirms that proposal to the boss.</p>
+        <p><code>GET /products/{name}/boss/messages</code> answers the conversation, oldest first, each message naming the product's newest build and its version when it was said. <code>POST</code> to the same path with <code>{ text }</code>, and with <code>confirms</code> or <code>declines</code> naming an open proposal when the person answers one, says something to the boss. Anyone who may read the product may post, and a proposal of a gate's action is made only to a person who may answer that gate.</p>
+        <div class="term">
+          <div class="bar"><span class="lamp"></span>a reply from the boss</div>
+<pre>{
+  "id": "s2", "at": "2026-10-31T09:21:00Z",
+  "build": "b1", "version": "0.1.0",
+  "from": { "kind": "agent", "name": "The boss", "role": "boss" },
+  "text": "That changes the statement, so it is a new version. Here is the plan.",
+  "plan": [
+    { "stage": "requirements",
+      "words": "The spec writer revises the statement.",
+      "gate": "You approve the spec. Anyone may answer this gate." },
+    { "stage": "test", "words": "The test writer writes the suite." },
+    { "stage": "code", "words": "Your coding agent writes the scripts.",
+      "gate": "You OK the code." }
+  ],
+  "proposes": {
+    "id": "x1", "build": "b1", "action": "start_version",
+    "needs": { "version": "0.2.0" },
+    "words": "Start version 0.2.0?", "state": "open"
+  }
+}</pre>
+        </div>
+        <table class="tbl api">
+          <thead><tr><th>Field</th><th>What it says</th></tr></thead>
+          <tbody>
+            <tr><td><code>routed</code></td><td>where the boss posted a directive: the stage's chat, the message it posted there, and the build</td></tr>
+            <tr><td><code>plan</code></td><td>the stages a larger request touches, in the order the lifecycle runs them, each with what it must do and the gate the person meets there, when it has one</td></tr>
+            <tr><td><code>proposes</code></td><td>what the boss proposes: one of the build's existing actions with its needs, or <code>start_version</code>, which asks to start the product's next version with that build as its prototype; <code>when</code> says when the build will offer an action it does not offer yet; <code>state</code> is <code>open</code>, <code>taken</code>, <code>declined</code> or <code>closed</code></td></tr>
+            <tr><td><code>started</code></td><td>the build the boss started, only on the person's confirmation of a <code>start_version</code> proposal</td></tr>
+            <tr><td><code>dropped</code></td><td>each stage the boss told that withdrawn work is no longer wanted, with the message it posted there</td></tr>
+            <tr><td><code>confirms</code>, <code>declines</code></td><td>on a person's message: the proposal it answered</td></tr>
+            <tr><td><code>features</code></td><td>the new or changed features the boss proposes in this reply</td></tr>
+          </tbody>
+        </table>
+        <p><code>GET /products/{name}/boss/commitments</code> lists everything the boss committed on the person's behalf, oldest first, in full and never a selection. Each commitment says its <code>kind</code> (<code>routed</code>, a directive posted into a stage's chat; <code>proposed</code>, a proposal made to the person; <code>started</code>, a build started on the person's confirmation; or <code>dropped</code>, a stage told that work is no longer wanted), whom it was <code>to</code>, <code>what</code>, the build and version, and the boss's <code>reply</code> it was made in. A route or a drop names the message posted in the stage's chat, a drop names the commitment it <code>withdraws</code>, a proposal carries the person's <code>answer</code>, and a started build carries the <code>confirmation</code> it was started on.</p>
+        <p>Posting answers 400 in words for an empty message or a proposal that is not open, and 409 when the boss cannot answer now, such as when the model is not set. A service that does not offer the boss answers its calls 404.</p>
+
+        <h2 id="cadence">Some stages run on every build, some are set up once, and some run when needed.</h2>
+        <p>Each stage has a cadence in stages.json, and the build's stages and the stage workspace carry it. <code>every_build</code> is the routine, run on every build: Requirements, Test, Code, Review, Security review, Package, Release, Deploy, Conformance, Acceptance and Docs. <code>setup</code> is set up once per product and carried forward to each later version until someone changes it: Architecture and Design, Source, Publish, Monitor, Eval, Incident response, Cost and Update. <code>when_needed</code> is an action on the product, run when something happens, not as part of a build: Reverse engineering, Impact, Retract, Reconfigure, Rollback and Decommission. A client shows a build's steps from its every-build stages, and the others on the product.</p>
+        <p>A product's <code>setup</code> list holds each setup stage once, as the product's lifecycle has it now: the lifecycle of the project its newest build was started under, or the organization's. Each item names the stage, the <code>role</code> whose holder holds it, the <code>project</code> (null for the organization's), its <code>state</code> (<code>chosen</code>, <code>not_chosen</code>, so the stage is for the person to set up, or <code>not_used</code>), the <code>holder</code>, its <code>settings</code>, <code>since</code>, the version it has held since (null when no build has used this choice yet, so it holds from the next version), and <code>words</code> a person reads. From 0.4.4 it also carries a <code>form</code>: the question "Ask the boss" sends for the stage, the role's reference agent when it has one (a client offers it as a holder only then), a few <code>fields</code>, each a <code>number</code>, <code>text</code> or <code>choice</code> with a label, a default and, as it fits, a unit, options, a least and a most, and <code>shares</code>, words saying one holder holds two stages, each with its own settings.</p>
+        <div class="term">
+          <div class="bar"><span class="lamp"></span>one item of a product's setup list</div>
+<pre>{
+  "stage": "monitor",
+  "name": "Monitor",
+  "role": "watcher",
+  "project": null,
+  "state": "chosen",
+  "holder": { "kind": "your_agent", "name": "Our watcher",
+              "handle": "watcher.you@example.com" },
+  "settings": { "every_minutes": 5, "alert_where": "the console" },
+  "since": "0.1.0",
+  "words": "Unchanged since 0.1.0",
+  "form": {
+    "ask": "Who should monitor word-tally?",
+    "reference_agent": "watcher",
+    "fields": [
+      { "name": "every_minutes", "label": "Check every",
+        "kind": "number", "unit": "minutes", "default": 5, "min": 1 },
+      { "name": "alert_where", "label": "Alert where",
+        "kind": "text", "default": "the console" }
+    ],
+    "shares": "The watcher holds Monitor and Cost: one holder for both, each with its own settings."
+  }
+}</pre>
+        </div>
+        <p>A form is saved with <code>PUT /roles/{role}</code>: the holder chosen, with each stage's values under that stage's id in the holder's settings, such as <code>{ "monitor": { "every_minutes": 5 }, "cost": { "monthly_ceiling": 50 } }</code>, beside any other stage the same role holds. Settings never hold a key or any other secret. When the holder keeps settings under a stage's id, the setup item's <code>settings</code> are that entry.</p>
+        <p>A product's <code>when_needed</code> list holds each when-needed stage once, in order. <code>can_run</code> says whether the service can run it on the product now; when it cannot, <code>why_not</code> says why, and a client draws the button disabled with those words. When it can, the item names the <code>action</code> that runs it (the build, the action's name and label, and from 0.4.4 its <code>needs</code>) and a <code>confirm</code> card. Its <code>last</code> is the last time it ran on the product, done or refused: when, by whom, whether it was ok, in words, on which build and version, and the files it handed back, such as the impact report.</p>
+        <div class="term">
+          <div class="bar"><span class="lamp"></span>one item of a product's when-needed list</div>
+<pre>{
+  "stage": "rollback",
+  "name": "Rollback",
+  "can_run": true,
+  "action": {
+    "build": "b2", "name": "rollback", "label": "Roll back",
+    "needs": [
+      { "name": "to_version", "label": "Go back to",
+        "kind": "choice", "options": ["0.1.0"], "default": "0.1.0" },
+      { "name": "why", "label": "Why", "kind": "words" }
+    ]
+  },
+  "confirm": {
+    "title": "Roll back word-tally to 0.1.0?",
+    "will": "the agent back on that version, why, and what can't be undone",
+    "done_when": "it answers on the old version, and the side effects are named",
+    "steps": ["Your runtime puts word-tally back on 0.1.0."],
+    "who_may": "Only Ana Lee (ana@example.com) may roll back word-tally.",
+    "you_may": true,
+    "from_version": "0.2.0",
+    "to_version": "0.1.0",
+    "cannot_undo": ["What word-tally 0.2.0 did while it ran stays done."]
+  }
+}</pre>
+        </div>
+        <p>The confirm card is what a person reads before the action runs. <code>title</code> asks the question; <code>will</code> and <code>done_when</code> are the stage's own words in stages.json; <code>steps</code> say what the service will do for this product now; <code>who_may</code> says who may take it, read as for a gate; <code>you_may</code> says whether the person asking may; <code>from_version</code> is the version it acts on; <code>to_version</code> is, for Rollback, the version it goes back to, and for Impact, the changed version it compares; <code>cannot_undo</code> names what cannot be undone; and for Reconfigure, <code>changes</code> lists each stage whose holder or settings differ from the run plan the running version has. A client shows the card when the button is pressed and takes the action only on the person's confirm. When <code>you_may</code> is false, it shows <code>who_may</code> and does not offer the confirm.</p>
+        <p>The action is taken with <code>POST /builds/{build}/actions/{name}</code> on the build the item names, where the name is the stage's id: <code>impact</code>, <code>retract</code>, <code>reconfigure</code>, <code>rollback</code> or <code>decommission</code>. The build need not list it among its own actions. The answer is the build with a <code>result</code>: the stage, whether it was <code>ok</code>, what it did in words, and as it fits <code>cannot_undo</code> (for Rollback), the <code>files</code> it handed back, and the <code>report</code> (for Impact, the impact analyst's report as Markdown). The product keeps the result as the item's <code>last</code>. The service answers 403 in words to a person the lifecycle does not let take it, 400 for a need left empty, and 409 when it is not offered on that build now, or when the holder it runs through, such as the runtime, refuses, with the holder's words; a refusal is kept on the build like a result. How a service hands rollback, reconfigure and retire to the runtime it is given is in <a href="https://github.com/CommonAgent/adlc/blob/main/standards/runtime-verbs.md">runtime-verbs.md</a>.</p>
+
+        <h2 id="features">Every feature is approved one at a time and followed across the lifecycle.</h2>
+        <p>The statement of the job carries a feature list. Each feature has an <code>id</code>, such as <code>F3</code>, that stays the same across the product's versions and is never given to another feature; a <code>name</code> of a few words; what it <code>does</code>, in one sentence; and the <code>offering</code> of the statement it belongs to. A stage's agent or the boss proposes a new or changed feature in a reply, under <code>features</code>, and the person answers each proposal there, one at a time.</p>
+        <div class="term">
+          <div class="bar"><span class="lamp"></span>a feature proposal, on a reply</div>
+<pre>{
+  "proposal": "fp1",
+  "feature": "F2",
+  "name": "Empty passage",
+  "does": "Answers 0 for an empty passage.",
+  "offering": "Count",
+  "change": "new",
+  "state": "open",
+  "you_may_approve": true,
+  "approvers": []
+}</pre>
+        </div>
+        <p>A proposal's <code>change</code> is <code>new</code> or <code>changed</code>, and a changed one says what the feature <code>was</code>. Its <code>state</code> is <code>open</code>; <code>asked</code>, waiting on the approvers; <code>approved</code>; <code>not_now</code>, a backlog item; or <code>replaced</code>, when a newer proposal of the same feature came after it. <code>you_may_approve</code> says whether the person reading it may answer the Requirements gate, and <code>approvers</code> who may, empty when anyone may. An answered proposal says who answered it, when and how; an asked one says who asked whom, and when.</p>
+        <ul>
+          <li><b>Approve.</b> <code>POST /builds/{id}/features/{feature}/approve</code> with <code>{ proposal }</code>, and the <code>message</code> it was answered on when it was in a chat. It is a gate decision of Requirements for that feature alone, recorded with who gave it and when, and the statement of the job gets a new version with the feature in it. Only a person who may answer the Requirements gate may approve; anyone else gets 403 in words, and asks instead. It answers 400 in words for a proposal that is not open.</li>
+          <li><b>Not now.</b> <code>POST /builds/{id}/features/{feature}/not_now</code> leaves it for later: it stays proposed, as a backlog item linked to the conversation it came from. Anyone who may read the build may say not now.</li>
+          <li><b>Ask.</b> <code>POST /builds/{id}/features/{feature}/ask</code> asks the people who may answer the Requirements gate. Each is told through the service's notices and sees the same proposal, with its approve button.</li>
+        </ul>
+        <p>Each answers with the <code>feature</code> as the product now holds it (approved or proposed, whether it is in the backlog, its newest approval, and the proposal still waiting, when one is), the <code>proposal</code> as the person now sees it, the <code>statement</code>'s new version after an approval, and who was <code>told</code> after an ask.</p>
+        <p>A test names the feature it checks by starting with the feature's id in square brackets, such as "[F3] counts an empty passage as none". A round of the gate that ran the suite reports its results per feature, <code>by_feature</code>. The Requirements gate carries <code>features</code>: those already <code>approved</code> in a chat, which are not asked about again; those <code>to_approve</code>, which approving the gate approves; and the <code>backlog</code>, which stays proposed.</p>
+        <p><code>GET /builds/{id}/features</code> answers the build's features as a matrix, and <code>GET /products/{name}/features</code> the product's, for its newest build or with <code>?version=</code> for another. The answer names the product, the build and its version, the product's <code>versions</code> for a version filter, the <code>columns</code> in the order <code>spec</code>, <code>tests</code>, <code>code</code>, <code>review</code>, <code>docs</code>, and one row per feature.</p>
+        <div class="term">
+          <div class="bar"><span class="lamp"></span>one row of the features matrix</div>
+<pre>{
+  "id": "F1",
+  "name": "Count words",
+  "does": "Counts the words in a passage.",
+  "offering": "Count",
+  "state": "approved",
+  "backlog": false,
+  "badge": "unchanged",
+  "cells": {
+    "spec": { "state": "done", "words": "Spec v3",
+      "link": { "build": "b2", "stage": "requirements",
+                "artifact": "statement", "feature": "F1" } },
+    "tests": { "state": "done", "words": "Tests 2/2",
+      "tests": { "passed": 2, "total": 2 } },
+    "code": { "state": "done", "words": "Passes 2/2",
+      "tests": { "passed": 2, "total": 2 } },
+    "review": { "state": "done", "words": "No findings" },
+    "docs": { "state": "missing", "words": "No docs yet" }
+  },
+  "tests": ["[F1] counts the words", "[F1] counts a hyphenated word once"],
+  "from": { "build": "b1", "stage": "requirements", "message": "t2" }
+}</pre>
+        </div>
+        <table class="tbl api">
+          <thead><tr><th>Field</th><th>What it says</th></tr></thead>
+          <tbody>
+            <tr><td><code>state</code></td><td><code>approved</code>, approved at least once, or <code>proposed</code>, never approved yet; <code>backlog</code> is true when its newest proposal was left for later</td></tr>
+            <tr><td><code>badge</code></td><td>against the product's version before this one: <code>new</code> when it was not approved there, <code>changed</code> when its name, what it does or its offering differ, <code>unchanged</code> otherwise</td></tr>
+            <tr><td><code>cells</code></td><td>one per column, each <code>done</code> (the artifact covers the feature as approved), <code>stale</code> (it covers an older version of the feature, or was made before an artifact it depends on changed), <code>missing</code> or <code>failing</code> (tests naming the feature fail), with short words, the tests and how many passed for tests and code, and a <code>link</code> that opens the artifact at this feature</td></tr>
+            <tr><td><code>pending</code></td><td>the proposal waiting for an answer, as the person reading it sees it, so a client can answer it beside the list</td></tr>
+            <tr><td><code>from</code></td><td>where its newest proposal was said: the message, in the chat of the stage named, or the boss's when none is</td></tr>
+            <tr><td><code>tests</code></td><td>the tests in this build's suite that check it: those whose names start with its id, and those mapped to it when the features were listed after the build</td></tr>
+          </tbody>
+        </table>
+        <p>Beside the rows, the matrix carries <code>words</code> saying how features are added when there are none, <code>unmapped</code>, the tests in the suite that check no feature, and <code>backfill</code>, whether the product's features can be listed from its statement of the job now and, in words, what that does or why not. <code>GET /products/{name}/features/{feature}</code> answers one feature and its history, oldest first: <code>proposed</code>, <code>approved</code>, <code>not_now</code> and <code>asked</code> for its proposals and their answers, and <code>spec</code>, <code>tests</code>, <code>code</code>, <code>review</code> and <code>docs</code> when an artifact that covers it was made or changed, each entry linked to the message or the artifact. It answers 404 for a feature the product does not have.</p>
+        <p>Since 0.4.5, each every-build stage shows its features. On the build, the stage's <code>features</code> is a short count. <code>covered</code> is, at Requirements, the features approved; at Test, the approved features with a test; at Code, those whose tests all pass; at Review, those with no open finding tied to them; and at Docs, those the docs name. <code>total</code> is, at Requirements, the features proposed or approved, leaving out those only in the backlog, and at every other stage the approved features. On the stage's workspace, <code>features</code> lists them one line each: every feature at Requirements, each approved feature elsewhere. A line's <code>state</code> is <code>done</code>, <code>to_do</code> (such as a feature with no test), <code>failing</code>, <code>stale</code> or <code>findings</code> (Review has open findings tied to it), with short words; at Test, the <code>tests</code> that check it; at Code, how many <code>passed</code> <code>of</code> its tests; at Review, the <code>findings</code> tied to it through its tests. At Test and Review, <code>untied</code> lists the tests that check no feature, or the findings tied to none. They are shown as not tied to a feature, never guessed.</p>
+        <p>A product made before features existed can have them listed. <code>POST /builds/{id}/features/backfill</code> with <code>{}</code> sends the person's message to the spec writer, in the Requirements chat, and answers with the message and the reply, as a chat does. The reply proposes every feature of the statement of the job, each with the <code>tests</code> already in the build that clearly check it; a test whose name or content does not make that clear is left out, never guessed. It answers 409 in words when it is not offered, and the matrix's <code>backfill</code> says why. <code>POST /builds/{id}/features/approve_all</code> with <code>{ proposals }</code>, at least one, and the <code>message</code> when it was in a chat, approves several at once: each a recorded gate decision of Requirements, together one new version of the statement of the job. It answers with the proposals <code>approved</code>, each feature after the answer, and the <code>statement</code>'s new version. Only a person who may answer the Requirements gate may; anyone else gets 403 in words. It answers 400 in words, approving none, when any proposal is not open.</p>
+        <p>A service that does not offer features answers their calls 404.</p>
+
+        <h2 id="errors">An error is words a person can read.</h2>
+        <p>Any refusal is a 4xx or 5xx status with <code>{ error }</code> in words, which a client shows as they are. A refused action also carries the <code>build</code> as it now stands. A 401 or 403 means the key is missing, wrong, or does not allow the call. A 429 means the service was asked too often, and a client waits before asking again; a 429 from a try also says <code>tries_today</code> and <code>tries_cap</code>.</p>
+
+        <h2 id="versions">Version 0.4.5 grows only by adding.</h2>
+        <p>This is version 0.4.5, served on the <code>/v1/lifecycle</code> path. It changes only by adding. A service never removes a field or changes what one means, and a client ignores any field it does not know. That way an older client keeps working against a newer service, and a service can say more than this page does without breaking anyone.</p>
+        <p>A version may also add a value to a list. A client that does not know a stage's state draws it as <code>not_offered</code>, and one that does not know a holder's kind shows the holder's name. Each version added these, as the <a href="https://github.com/CommonAgent/adlc/blob/main/standards/CHANGELOG.md">changelog</a> records:</p>
+        <ul>
+          <li><b>0.2</b>: the roles, evidence, and the states <code>not_bound</code> and <code>not_applicable</code>.</li>
+          <li><b>0.3</b>: the stages calls, the build's <code>lifecycle</code>, and the state <code>not_used</code>, which a 0.2 client draws as <code>not_offered</code>.</li>
+          <li><b>0.4</b>: products, stage workspaces, each stage's chat, and the build's artifacts. A 0.3 client ignores <code>artifacts</code>, and a service that does not offer these calls answers them 404.</li>
+          <li><b>0.4.1</b>: the product's boss. A service that does not offer it answers its calls 404.</li>
+          <li><b>0.4.2</b>: each stage's <code>cadence</code> and <code>carried</code> on the build and the stage workspace, and a product's <code>setup</code> and <code>when_needed</code> lists.</li>
+          <li><b>0.4.3</b>: features: the statement's feature list, feature proposals on a stage's or the boss's reply, answered with approve, not now or ask, a round's <code>by_feature</code>, the Requirements gate's <code>open</code> and <code>features</code>, the features matrix per build and per product version, and each feature's history.</li>
+          <li><b>0.4.4</b>: the guided setup and the when-needed actions: a setup item's <code>form</code>, a when-needed item's <code>needs</code>, <code>confirm</code> card and <code>last</code> run, a <code>choice</code> need with <code>options</code> and <code>default</code>, the actions call's <code>result</code>, and the product's <code>running</code> and <code>retired</code>.</li>
+          <li><b>0.4.5</b>: features at every stage: each every-build stage's count on the build and its list on the workspace, a matrix row's <code>pending</code>, <code>from</code> and <code>tests</code>, the matrix's <code>unmapped</code> tests and <code>backfill</code>, a proposal's <code>tests</code>, and the backfill and approve-all calls.</li>
+        </ul>
 
         <h2 id="check">The schema and a check are open, beside the stages.</h2>
         <p>The schema, <a href="https://github.com/CommonAgent/adlc/blob/main/standards/lifecycle-api.schema.json">lifecycle-api.schema.json</a>, holds every request and answer above as JSON Schema. It sits in <a href="https://github.com/CommonAgent/adlc/tree/main/standards">CommonAgent/adlc</a> beside stages.json, under Apache-2.0.</p>
-        <p>The check, <a href="https://github.com/CommonAgent/adlc/blob/main/standards/lifecycle-api-check.mjs">lifecycle-api-check.mjs</a>, reads a running service with a key and says whether its answers keep the contract. It only reads. It checks every answer against the schema, and the rules a schema cannot say: every stage listed once, actions only at stages the build offers, rounds newest first, every role listed once with the requester held by a person, every stage in the stages answer once and in order, a stage the service cannot leave out saying why and kept in use, and a <code>not_used</code> stage with no holder and no runs.</p>
+        <p>The check, <a href="https://github.com/CommonAgent/adlc/blob/main/standards/lifecycle-api-check.mjs">lifecycle-api-check.mjs</a>, reads a running service with a key and says whether its answers keep the contract. It only reads. It checks every answer against the schema, and the rules a schema cannot say: every stage listed once, actions only at stages the build offers, rounds newest first, every role listed once with the requester held by a person, every stage in the stages answer once and in order, a stage the service cannot leave out saying why and kept in use, a <code>not_used</code> stage with no holder and no runs, and a stage's cadence the one stages.json gives it, with <code>carried</code> only on a setup stage.</p>
+        <p>Against a running service it reads the calls up to 0.3, so a service that does not offer 0.4 still passes. The answers added since are checked by functions it exports, which a service's own tests and a client call: <code>checkProducts</code>, <code>checkProduct</code>, <code>checkStageWorkspace</code>, <code>checkMessages</code>, <code>checkMessageReply</code>, <code>checkBossMessages</code>, <code>checkBossReply</code>, <code>checkBossCommitments</code>, <code>checkFeatures</code>, <code>checkFeature</code>, <code>checkFeatureDecision</code> and <code>checkFeatureApproveAll</code>. Their rules include: an artifact's summary has its kind's shape; a workspace's outputs are its own stage's, and what it was given was made; an open gate's buttons are the build's; a chat is oldest first and a proposal names an action the build offers now; a boss's plan is in the lifecycle's order, and a build is started only on a confirmation; setup and when_needed list every such stage once, in order; only an item that can run has a confirm card, and a rollback's card names the version it goes back to and what cannot be undone; a retired product runs nothing; a matrix's columns are in order, with each feature once; a stage never covers more features than it has; and approve_all lists every proposal it was asked to approve.</p>
         <div class="term">
           <div class="bar"><span class="lamp"></span>against your own service</div>
 <pre><span class="k">$</span> node standards/lifecycle-api-check.mjs https://your-service.example/v1/lifecycle/ --key-file ./key</pre>
