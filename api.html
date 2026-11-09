@@ -58,7 +58,7 @@
       <header class="page-head">
         <h1>Any service that runs the lifecycle answers the same API.</h1>
         <p class="turn">A person may build agents on more than one service, and should be able to follow every build in one place. So a service that implements the lifecycle reports each build stage by stage, in one shape, and says what the person may do next. A client shows what the service says and holds no lifecycle logic of its own.</p>
-        <p class="links-line">The schema: <a href="https://github.com/CommonAgent/adlc/blob/main/standards/lifecycle-api.schema.json">lifecycle-api.schema.json</a> · The check: <a href="https://github.com/CommonAgent/adlc/blob/main/standards/lifecycle-api-check.mjs">lifecycle-api-check.mjs</a> · Version 0.4.7</p>
+        <p class="links-line">The schema: <a href="https://github.com/CommonAgent/adlc/blob/main/standards/lifecycle-api.schema.json">lifecycle-api.schema.json</a> · The check: <a href="https://github.com/CommonAgent/adlc/blob/main/standards/lifecycle-api-check.mjs">lifecycle-api-check.mjs</a> · Version 0.4.8</p>
         <ul class="jump" aria-label="Jump to a section">
           <li><a href="#paths">The paths</a></li>
           <li><a href="#key">The key</a></li>
@@ -74,6 +74,7 @@
           <li><a href="#cadence">Setup and when needed</a></li>
           <li><a href="#features">Features</a></li>
           <li><a href="#starting">Starting from code</a></li>
+          <li><a href="#spec">The spec</a></li>
           <li><a href="#errors">Errors</a></li>
           <li><a href="#versions">Versions</a></li>
           <li><a href="#check">The check</a></li>
@@ -121,7 +122,7 @@
             <tr><td><code>GET /products/{name}/features</code></td><td>the product's features as a matrix, for its newest build, or with <code>?version=</code> for the build of that version</td></tr>
             <tr><td><code>GET /products/{name}/features/{feature}</code></td><td>one feature of the product and its history across the stages and the versions, oldest first</td></tr>
             <tr><td><code>POST /builds/{id}/features/backfill</code></td><td>the spec writer's reply, listing the features of a product made before features existed</td></tr>
-            <tr><td><code>POST /builds/{id}/features/approve_all</code></td><td>several proposed features, approved at once, and the statement of the job's new version</td></tr>
+            <tr><td><code>POST /builds/{id}/features/approve_all</code></td><td>several proposed features, approved at once, and the spec's new version</td></tr>
           </tbody>
         </table>
 
@@ -319,7 +320,7 @@
   "holder": { "kind": "your_agent", "name": "your coding agent",
               "handle": "coder.you@example.com" },
   "cadence": "every_build",
-  "given": ["statement", "suite"],
+  "given": ["spec", "statement", "suite"],
   "outputs": [
     { "id": "programs", "stage": "code", "name": "The programs",
       "by": "your coding agent", "state": "made", "kind": "programs",
@@ -334,7 +335,7 @@
                 "url": "https://github.com/you/word-tally/pull/1" }
       } }
   ],
-  "done_when": "the suite passes, each program removed is noticed, and the tests and statement are unchanged",
+  "done_when": "the suite passes, each program removed is noticed, and the tests, the spec and the agent's own files are unchanged",
   "gate": { "actions": ["accept", "stop"], "state": "open",
             "who_may": "Anyone may answer this gate." },
   "features": {
@@ -359,11 +360,12 @@
             <tr><td><code>features</code></td><td>the stage's features on this build, one short line each (see <a href="#features">features</a>)</td></tr>
           </tbody>
         </table>
-        <p>An artifact is something the build has made or will make, one per stage output. Each has an <code>id</code> unique within its build, such as <code>statement</code> or <code>suite</code>; the <code>stage</code> that makes it; its <code>name</code> as a person reads it; <code>by</code>, the holder's name; and, once made, its <code>version</code> (such as "v4" or a short commit), its <code>digest</code> as <code>sha256:&lt;hex&gt;</code> when it has one, when it was made, and its <code>files</code>, at links read with the same key. Its <code>state</code> is <code>made</code>; <code>next</code>, the next one the build will make; <code>later</code>; <code>not_made</code>, when its stage ran or the build ended without it; or <code>not_run</code>, when its stage is in the lifecycle and the service does not run it. Its <code>summary</code> says what it says, readable and never raw file content, in the shape its <code>kind</code> names:</p>
+        <p>An artifact is something the build has made or will make, one per stage output. Each has an <code>id</code> unique within its build, such as <code>spec</code> or <code>suite</code>; the <code>stage</code> that makes it; its <code>name</code> as a person reads it; <code>by</code>, the holder's name; and, once made, its <code>version</code> (such as "v4" or a short commit), its <code>digest</code> as <code>sha256:&lt;hex&gt;</code> when it has one, when it was made, and its <code>files</code>, at links read with the same key. Its <code>state</code> is <code>made</code>; <code>next</code>, the next one the build will make; <code>later</code>; <code>not_made</code>, when its stage ran or the build ended without it; or <code>not_run</code>, when its stage is in the lifecycle and the service does not run it. Its <code>summary</code> says what it says, readable and never raw file content, in the shape its <code>kind</code> names:</p>
         <table class="tbl api">
           <thead><tr><th>Kind</th><th>Its summary</th></tr></thead>
           <tbody>
-            <tr><td><code>statement</code></td><td>the agent's name and version, its <code>offerings</code> (each with a name and what it does), what it <code>refuses</code>, what it <code>records</code>, its <code>price</code>, the questions the spec writer left <code>open</code>, and from 0.4.3 its <code>features</code></td></tr>
+            <tr><td><code>spec</code></td><td>since 0.4.8, what Requirements hands back (<a href="#spec">the spec</a>): the <code>product</code> and its <code>purpose</code>; each of its <code>features</code> with its <code>requirements</code> (each an <code>id</code>, its <code>shall</code> line, its <code>kind</code> and the <code>exact</code> words it fixes) and its <code>acceptance</code> scenarios (each an <code>id</code> and its <code>gherkin</code>); the <code>interfaces</code>, each saying whether to <code>keep</code> it exactly; the <code>constraints</code>; and what is still <code>open</code></td></tr>
+            <tr><td><code>statement</code></td><td>since 0.4.8, the agent's own files, made at Design from the spec: the agent's name and version, its <code>offerings</code> (each with a name and what it does), what it <code>refuses</code>, what it <code>records</code>, its <code>price</code>, the questions the spec writer left <code>open</code>, and from 0.4.3 its <code>features</code></td></tr>
             <tr><td><code>suite</code></td><td>the <code>count</code> of tests and each test's name, as written</td></tr>
             <tr><td><code>programs</code></td><td>the <code>scripts</code> Code wrote, each with its path, lines and what it says it does; the <code>commit</code>; and the pull request they were written on</td></tr>
             <tr><td><code>findings</code></td><td>the code critic's findings still <code>open</code>, each with its place, claim and consequence; its <code>verdict</code>; and notes <code>outside</code> the change, which hold nothing up</td></tr>
@@ -514,7 +516,7 @@
         <p>The action is taken with <code>POST /builds/{build}/actions/{name}</code> on the build the item names, where the name is the stage's id: <code>impact</code>, <code>retract</code>, <code>reconfigure</code>, <code>rollback</code> or <code>decommission</code>. The build need not list it among its own actions. The answer is the build with a <code>result</code>: the stage, whether it was <code>ok</code>, what it did in words, and as it fits <code>cannot_undo</code> (for Rollback), the <code>files</code> it handed back, and the <code>report</code> (for Impact, the impact analyst's report as Markdown). The product keeps the result as the item's <code>last</code>. The service answers 403 in words to a person the lifecycle does not let take it, 400 for a need left empty, and 409 when it is not offered on that build now, or when the holder it runs through, such as the runtime, refuses, with the holder's words; a refusal is kept on the build like a result. How a service hands rollback, reconfigure and retire to the runtime it is given is in <a href="https://github.com/CommonAgent/adlc/blob/main/standards/runtime-verbs.md">runtime-verbs.md</a>.</p>
 
         <h2 id="features">Every feature is approved one at a time and followed across the lifecycle.</h2>
-        <p>The statement of the job carries a feature list. Each feature has an <code>id</code>, such as <code>F3</code>, that stays the same across the product's versions and is never given to another feature; a <code>name</code> of a few words; what it <code>does</code>, in one sentence; and the <code>offering</code> of the statement it belongs to. A stage's agent or the boss proposes a new or changed feature in a reply, under <code>features</code>, and the person answers each proposal there, one at a time.</p>
+        <p>The spec carries a feature list (until 0.4.8 the statement of the job did). Each feature has an <code>id</code>, such as <code>F3</code>, that stays the same across the product's versions and is never given to another feature; a <code>name</code> of a few words; what it <code>does</code>, in one sentence; and the <code>offering</code> it belongs to. A stage's agent or the boss proposes a new or changed feature in a reply, under <code>features</code>, and the person answers each proposal there, one at a time.</p>
         <div class="term">
           <div class="bar"><span class="lamp"></span>a feature proposal, on a reply</div>
 <pre>{
@@ -531,11 +533,11 @@
         </div>
         <p>A proposal's <code>change</code> is <code>new</code> or <code>changed</code>, and a changed one says what the feature <code>was</code>. Its <code>state</code> is <code>open</code>; <code>asked</code>, waiting on the approvers; <code>approved</code>; <code>not_now</code>, a backlog item; or <code>replaced</code>, when a newer proposal of the same feature came after it. <code>you_may_approve</code> says whether the person reading it may answer the Requirements gate, and <code>approvers</code> who may, empty when anyone may. An answered proposal says who answered it, when and how; an asked one says who asked whom, and when.</p>
         <ul>
-          <li><b>Approve.</b> <code>POST /builds/{id}/features/{feature}/approve</code> with <code>{ proposal }</code>, and the <code>message</code> it was answered on when it was in a chat. It is a gate decision of Requirements for that feature alone, recorded with who gave it and when, and the statement of the job gets a new version with the feature in it. Only a person who may answer the Requirements gate may approve; anyone else gets 403 in words, and asks instead. It answers 400 in words for a proposal that is not open.</li>
+          <li><b>Approve.</b> <code>POST /builds/{id}/features/{feature}/approve</code> with <code>{ proposal }</code>, and the <code>message</code> it was answered on when it was in a chat. It is a gate decision of Requirements for that feature alone, recorded with who gave it and when, and the spec gets a new version with the feature in it. Only a person who may answer the Requirements gate may approve; anyone else gets 403 in words, and asks instead. It answers 400 in words for a proposal that is not open.</li>
           <li><b>Not now.</b> <code>POST /builds/{id}/features/{feature}/not_now</code> leaves it for later: it stays proposed, as a backlog item linked to the conversation it came from. Anyone who may read the build may say not now.</li>
           <li><b>Ask.</b> <code>POST /builds/{id}/features/{feature}/ask</code> asks the people who may answer the Requirements gate. Each is told through the service's notices and sees the same proposal, with its approve button.</li>
         </ul>
-        <p>Each answers with the <code>feature</code> as the product now holds it (approved or proposed, whether it is in the backlog, its newest approval, and the proposal still waiting, when one is), the <code>proposal</code> as the person now sees it, the <code>statement</code>'s new version after an approval, and who was <code>told</code> after an ask.</p>
+        <p>Each answers with the <code>feature</code> as the product now holds it (approved or proposed, whether it is in the backlog, its newest approval, and the proposal still waiting, when one is), the <code>proposal</code> as the person now sees it, the <code>statement</code> field with the spec's new version after an approval, and who was <code>told</code> after an ask.</p>
         <p>A test names the feature it checks by starting with the feature's id in square brackets, such as "[F3] counts an empty passage as none". A round of the gate that ran the suite reports its results per feature, <code>by_feature</code>. The Requirements gate carries <code>features</code>: those already <code>approved</code> in a chat, which are not asked about again; those <code>to_approve</code>, which approving the gate approves; and the <code>backlog</code>, which stays proposed.</p>
         <p><code>GET /builds/{id}/features</code> answers the build's features as a matrix, and <code>GET /products/{name}/features</code> the product's, for its newest build or with <code>?version=</code> for another. The answer names the product, the build and its version, the product's <code>versions</code> for a version filter, the <code>columns</code> in the order <code>spec</code>, <code>tests</code>, <code>code</code>, <code>review</code>, <code>docs</code>, and one row per feature.</p>
         <div class="term">
@@ -574,9 +576,9 @@
             <tr><td><code>tests</code></td><td>the tests in this build's suite that check it: those whose names start with its id, and those mapped to it when the features were listed after the build</td></tr>
           </tbody>
         </table>
-        <p>Beside the rows, the matrix carries <code>words</code> saying how features are added when there are none, <code>unmapped</code>, the tests in the suite that check no feature, and <code>backfill</code>, whether the product's features can be listed from its statement of the job now and, in words, what that does or why not. <code>GET /products/{name}/features/{feature}</code> answers one feature and its history, oldest first: <code>proposed</code>, <code>approved</code>, <code>not_now</code> and <code>asked</code> for its proposals and their answers, and <code>spec</code>, <code>tests</code>, <code>code</code>, <code>review</code> and <code>docs</code> when an artifact that covers it was made or changed, each entry linked to the message or the artifact. It answers 404 for a feature the product does not have.</p>
+        <p>Beside the rows, the matrix carries <code>words</code> saying how features are added when there are none, <code>unmapped</code>, the tests in the suite that check no feature, and <code>backfill</code>, whether the product's features can be listed from its spec now and, in words, what that does or why not. <code>GET /products/{name}/features/{feature}</code> answers one feature and its history, oldest first: <code>proposed</code>, <code>approved</code>, <code>not_now</code> and <code>asked</code> for its proposals and their answers, and <code>spec</code>, <code>tests</code>, <code>code</code>, <code>review</code> and <code>docs</code> when an artifact that covers it was made or changed, each entry linked to the message or the artifact. It answers 404 for a feature the product does not have.</p>
         <p>Since 0.4.5, each every-build stage shows its features. On the build, the stage's <code>features</code> is a short count. <code>covered</code> is, at Requirements, the features approved; at Test, the approved features with a test; at Code, those whose tests all pass; at Review, those with no open finding tied to them; and at Docs, those the docs name. <code>total</code> is, at Requirements, the features proposed or approved, leaving out those only in the backlog, and at every other stage the approved features. On the stage's workspace, <code>features</code> lists them one line each: every feature at Requirements, each approved feature elsewhere. A line's <code>state</code> is <code>done</code>, <code>to_do</code> (such as a feature with no test), <code>failing</code>, <code>stale</code> or <code>findings</code> (Review has open findings tied to it), with short words; at Test, the <code>tests</code> that check it; at Code, how many <code>passed</code> <code>of</code> its tests; at Review, the <code>findings</code> tied to it through its tests. At Test and Review, <code>untied</code> lists the tests that check no feature, or the findings tied to none. They are shown as not tied to a feature, never guessed.</p>
-        <p>A product made before features existed can have them listed. <code>POST /builds/{id}/features/backfill</code> with <code>{}</code> sends the person's message to the spec writer, in the Requirements chat, and answers with the message and the reply, as a chat does. The reply proposes every feature of the statement of the job, each with the <code>tests</code> already in the build that clearly check it; a test whose name or content does not make that clear is left out, never guessed. It answers 409 in words when it is not offered, and the matrix's <code>backfill</code> says why. <code>POST /builds/{id}/features/approve_all</code> with <code>{ proposals }</code>, at least one, and the <code>message</code> when it was in a chat, approves several at once: each a recorded gate decision of Requirements, together one new version of the statement of the job. It answers with the proposals <code>approved</code>, each feature after the answer, and the <code>statement</code>'s new version. Only a person who may answer the Requirements gate may; anyone else gets 403 in words. It answers 400 in words, approving none, when any proposal is not open.</p>
+        <p>A product made before features existed can have them listed. <code>POST /builds/{id}/features/backfill</code> with <code>{}</code> sends the person's message to the spec writer, in the Requirements chat, and answers with the message and the reply, as a chat does. The reply proposes every feature of the spec, each with the <code>tests</code> already in the build that clearly check it; a test whose name or content does not make that clear is left out, never guessed. It answers 409 in words when it is not offered, and the matrix's <code>backfill</code> says why. <code>POST /builds/{id}/features/approve_all</code> with <code>{ proposals }</code>, at least one, and the <code>message</code> when it was in a chat, approves several at once: each a recorded gate decision of Requirements, together one new version of the spec. It answers with the proposals <code>approved</code>, each feature after the answer, and the spec's new version, in the field <code>statement</code>. Only a person who may answer the Requirements gate may; anyone else gets 403 in words. It answers 400 in words, approving none, when any proposal is not open.</p>
         <p>A service that does not offer features answers their calls 404.</p>
 
         <h2 id="starting">A build can start from code that exists, or from its as-built record.</h2>
@@ -593,11 +595,35 @@
         </div>
         <p>Also since 0.4.7, a build at Code may be sent back to Requirements. The action <code>back_to_requirements</code> is offered wherever <code>back_to_test</code> is, and also when Code was refused, and it needs the person's words. Requirements opens again with them as an ask for changes. Once the person approves the revised spec, Test revises the suite against it and Code goes on: on a pull request, on the same branch, with the revised spec and suite as one forward commit. The service records it as a deviation, as it records <code>back_to_test</code>.</p>
 
+        <h2 id="spec">Requirements hands back the spec, not the agent's descriptor.</h2>
+        <p>Since 0.4.8 (stages.json 1.6.0), what <a class="stage-link" href="stages.html#requirements">Requirements</a> hands back is the <a href="assets.html#spec">spec</a>: the analysis of what the product must do and how anyone can tell that it does, in the open format <a href="https://github.com/CommonAgent/adlc/blob/main/standards/spec.schema.json">spec-v1</a>. It is an artifact of kind <code>spec</code>, at <code>requirements</code>, with a readable summary. The agent's own files a package is built from (its descriptor, runtime requirements, plugin manifest and skills) are the <code>statement</code> artifact, made at Design from the spec. Tests are named by the acceptance scenario they check, such as <code>[F1.A1]</code>, which counts for feature <code>F1</code>. A client that knows only 0.4.7 reads a spec's <code>summary.words</code>, or its name.</p>
+        <div class="term">
+          <div class="bar"><span class="lamp"></span>a spec artifact's summary</div>
+<pre>{
+  "product": "word-tally 0.2.0",
+  "purpose": "Counts the words in a passage.",
+  "features": [
+    { "id": "F1", "name": "Count words", "does": "Counts the words in a passage.",
+      "requirements": [
+        { "id": "F1.R1", "shall": "The agent shall split words on whitespace.",
+          "kind": "behavior", "exact": ["\\s+"] }
+      ],
+      "acceptance": [
+        { "id": "F1.A1",
+          "gherkin": "Scenario: two words\n  Given the passage \"one two\"\n  When it is counted\n  Then the count is 2" }
+      ] }
+  ],
+  "interfaces": [ { "id": "I1", "kind": "function", "name": "count", "keep": true } ],
+  "constraints": ["C1 (runtime): The agent shall run on Node 22 or later."],
+  "open": []
+}</pre>
+        </div>
+
         <h2 id="errors">An error is words a person can read.</h2>
         <p>Any refusal is a 4xx or 5xx status with <code>{ error }</code> in words, which a client shows as they are. A refused action also carries the <code>build</code> as it now stands. A 401 or 403 means the key is missing, wrong, or does not allow the call. A 429 means the service was asked too often, and a client waits before asking again; a 429 from a try also says <code>tries_today</code> and <code>tries_cap</code>.</p>
 
-        <h2 id="versions">Version 0.4.7 grows only by adding.</h2>
-        <p>This is version 0.4.7, served on the <code>/v1/lifecycle</code> path. It changes only by adding. A service never removes a field or changes what one means, and a client ignores any field it does not know. That way an older client keeps working against a newer service, and a service can say more than this page does without breaking anyone.</p>
+        <h2 id="versions">Version 0.4.8 grows only by adding.</h2>
+        <p>This is version 0.4.8, served on the <code>/v1/lifecycle</code> path. It changes only by adding. A service never removes a field or changes what one means, and a client ignores any field it does not know. That way an older client keeps working against a newer service, and a service can say more than this page does without breaking anyone.</p>
         <p>A version may also add a value to a list. A client that does not know a stage's state draws it as <code>not_offered</code>, and one that does not know a holder's kind shows the holder's name. Each version added these, as the <a href="https://github.com/CommonAgent/adlc/blob/main/standards/CHANGELOG.md">changelog</a> records:</p>
         <ul>
           <li><b>0.2</b>: the roles, evidence, and the states <code>not_bound</code> and <code>not_applicable</code>.</li>
@@ -610,6 +636,7 @@
           <li><b>0.4.5</b>: features at every stage: each every-build stage's count on the build and its list on the workspace, a matrix row's <code>pending</code>, <code>from</code> and <code>tests</code>, the matrix's <code>unmapped</code> tests and <code>backfill</code>, a proposal's <code>tests</code>, and the backfill and approve-all calls.</li>
           <li><b>0.4.6</b>: starting from existing code: the start request's <code>starting_point</code> and <code>source</code>, the artifact kind <code>as_built</code>, behaviors marked as built answered with bug or drop and the fix item, and the commit each build and product knew.</li>
           <li><b>0.4.7</b>: starting from an as-built record, with the record's <code>path</code>, the summary's <code>brought</code> and the build source's <code>record</code>, and the action <code>back_to_requirements</code>.</li>
+          <li><b>0.4.8</b>: the spec, an artifact of kind <code>spec</code> with its summary; the <code>statement</code> artifact is now the agent's own files, made at Design.</li>
         </ul>
 
         <h2 id="check">The schema and a check are open, beside the stages.</h2>
