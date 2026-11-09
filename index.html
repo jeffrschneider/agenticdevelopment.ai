@@ -178,13 +178,13 @@
         <div class="split">
           <div>
             <h2>Every stage says who holds it and how you know it's done.</h2>
-            <p>This reference runs through twenty-four stages, from the first idea to the last day. Each names its role, what it's given, what it hands back, and how you know it's done. Here's one.</p>
+            <p>This reference runs through twenty-five stages, from the first idea to the last day. Each names its role, what it's given, what it hands back, and how you know it's done. Here's one.</p>
           </div>
           <div class="stagecard">
             <h3><a href="stages.html#test">Test</a></h3>
             <dl>
               <dt>Role</dt><dd><a href="https://agentroles.ai/test-writer.html">test writer</a></dd>
-              <dt>Given</dt><dd>the statement of the job</dd>
+              <dt>Given</dt><dd>the statement of the job; where code already exists, the behaviors and the existing tests and gaps (parts 1 and 5 of the as-built record), from which it writes characterization tests that pin today's behavior until Requirements says otherwise</dd>
               <dt>Hands back</dt><dd>the suite, and what no test could be written for</dd>
               <dt>Done when</dt><dd>the suite fails against empty stand-ins, and notices each program removed</dd>
               <dt>Why here</dt><dd>Tests come before the program, from the statement, so a test can't pass by agreeing with a mistake. (Yes, people argue about this.)</dd>
@@ -209,14 +209,15 @@
 
       <section class="band" id="join">
         <h2>Join the lifecycle where you are.</h2>
-        <p>Everybody starts from something: an idea, a prototype, a skill, working code, a package. Find what you already have, and start at the stage it&#39;s ready for.</p>
+        <p>Everybody starts from something: an idea, a prototype, a skill, a codebase you're taking on, working code, a package. Find what you already have, and start at the stage it&#39;s ready for.</p>
         <ol class="lookup">
           <li><span class="lk-have">If you already have <b>an idea</b>,</span><span class="lk-start">start at <a class="stage-link" href="stages.html#requirements">Requirements</a></span></li>
           <li><span class="lk-have">If you already have <b>a prototype</b>,</span><span class="lk-start">start at <a class="stage-link" href="stages.html#test">Test</a>, then <a class="stage-link" href="stages.html#code">Code</a></span></li>
           <li><span class="lk-have">If you already use <b>a coding agent</b>,</span><span class="lk-start">start at <a class="stage-link" href="stages.html#requirements">Requirements</a>, then <a class="stage-link" href="your-coding-agent.html">hand it the Code stage</a></span></li>
           <li><span class="lk-have">If you already have <b>a skill</b> people run in their own assistant,</span><span class="lk-start">start at <a class="stage-link" href="stages.html#security">Security review</a>, then <a class="stage-link onramp" href="stages.html#package"><svg class="box-ico" viewBox="0 0 24 24" aria-hidden="true" focusable="false" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3 4 7v10l8 4 8-4V7z"/><path d="m4 7 8 4 8-4M12 11v10"/></svg>Package</a> <span class="onramp-tag">on-ramp</span></span><span class="lk-why">The person who ran it was the approval. Security review writes that down: what it may reach, what it may spend, and who says yes.</span></li>
           <li><span class="lk-have">If you already have <b>a written business process</b>,</span><span class="lk-start">start at <a class="stage-link" href="stages.html#source">Source</a></span><span class="lk-why">Its steps are what Source takes in. Write one at <a href="https://agentprocesses.ai">agentprocesses.ai</a>.</span></li>
-          <li><span class="lk-have">If you already have <b>working code</b>,</span><span class="lk-start">start at <a class="stage-link" href="stages.html#security">Security review</a>, then <a class="stage-link onramp" href="stages.html#package"><svg class="box-ico" viewBox="0 0 24 24" aria-hidden="true" focusable="false" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3 4 7v10l8 4 8-4V7z"/><path d="m4 7 8 4 8-4M12 11v10"/></svg>Package</a> <span class="onramp-tag">on-ramp</span></span></li>
+          <li><span class="lk-have">If you already have <b>an existing codebase</b> you're taking on,</span><span class="lk-start">start at <a class="stage-link" href="stages.html#reverse-engineering">Reverse engineering</a></span><span class="lk-why">It writes down what the code does today, with the evidence for each behavior. At Requirements you decide what to keep, what's a bug, and what to drop.</span></li>
+          <li><span class="lk-have">If you already have <b>working code</b> to ship as it is,</span><span class="lk-start">start at <a class="stage-link" href="stages.html#security">Security review</a>, then <a class="stage-link onramp" href="stages.html#package"><svg class="box-ico" viewBox="0 0 24 24" aria-hidden="true" focusable="false" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3 4 7v10l8 4 8-4V7z"/><path d="m4 7 8 4 8-4M12 11v10"/></svg>Package</a> <span class="onramp-tag">on-ramp</span></span></li>
           <li><span class="lk-have">If you already have <b>a package or an image</b>,</span><span class="lk-start">start at <a class="stage-link" href="stages.html#security">Security review</a>, then <a class="stage-link onramp" href="stages.html#release"><svg class="box-ico" viewBox="0 0 24 24" aria-hidden="true" focusable="false" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3 4 7v10l8 4 8-4V7z"/><path d="m4 7 8 4 8-4M12 11v10"/></svg>Release</a> <span class="onramp-tag">on-ramp</span>, then <a class="stage-link golive" href="stages.html#deploy"><svg class="live-ico" viewBox="0 0 24 24" aria-hidden="true" focusable="false" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v8"/><path d="M6.3 6.8a8 8 0 1 0 11.4 0"/></svg>Deploy</a> <span class="golive-tag">goes live</span></span></li>
           <li><span class="lk-have">If you already have <b>a remote agent with an A2A endpoint</b>,</span><span class="lk-start">register it; add what it refuses and records</span></li>
           <li><span class="lk-have">If you already have <b>an agent connected to a network through a node</b>,</span><span class="lk-start">it's already on; finish its <a class="stage-link" href="https://commonagent.net/descriptor.html">Descriptor</a></span></li>
@@ -238,7 +239,7 @@
             <svg viewBox="0 0 460 270" role="img" aria-label="Three very different routes, all ending in the same box labeled package">
               <text x="16" y="34">seven stages</text>
               <path d="M18,50 C110,50 130,18 196,42 S300,118 352,128" fill="none" stroke="var(--accent-ink)" stroke-width="4" stroke-linecap="round"/>
-              <text x="16" y="120">twenty-four stages</text>
+              <text x="16" y="120">twenty-five stages</text>
               <path d="M18,138 C78,98 118,180 178,140 S258,98 300,138 L352,134" fill="none" stroke="var(--evidence-ink)" stroke-width="4" stroke-linecap="round"/>
               <path d="M18,212 C88,212 98,160 158,186 S238,240 270,196 Q290,160 316,176 Q336,190 322,206 Q300,214 304,186 Q312,150 352,140" fill="none" stroke="var(--recorded-ink)" stroke-width="4" stroke-linecap="round"/>
               <text x="16" y="252">two stages and a lot of hope</text>
@@ -316,6 +317,7 @@ solution-planner</span></pre>
         <p>Open any stage for its role, its handoffs and its check.</p>
         <div class="map">
           <div class="phase"><h3>Define</h3><ul>
+            <li><a href="stages.html#reverse-engineering">Reverse engineering</a></li>
             <li><a href="stages.html#requirements">Requirements</a></li>
             <li><a href="stages.html#architecture">Architecture and Design</a></li>
             <li><a href="stages.html#impact">Impact</a></li>

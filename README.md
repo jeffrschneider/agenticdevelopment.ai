@@ -9,7 +9,7 @@ a stage held without approval needs a check the agent does not control.
 The site is these pages:
 
 - `your-coding-agent.html`: start here: the hand-off contract (AGENTS.md) to give your own coding agent for the Code stage
-- `index.html`: the argument, the map of twenty-four stages, and the ledger beside them
+- `index.html`: the argument, the map of twenty-five stages, the starting points, and the ledger beside them
 - `assets.html`: every asset, and which ones are required
 - `stages.html`: each stage: role, given, hands back, done when
 - `handoffs.html`: the artifact chain, and why it breaks where it does
