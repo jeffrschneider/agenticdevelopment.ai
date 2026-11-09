@@ -89,7 +89,7 @@
           <p class="why">Whoever builds from it can't ask what you meant, so it says everything, and never invents a name, a price or a permission.</p>
           <dl>
             <dt>Role</dt><dd><a href="https://agentroles.ai/spec-writer.html">spec writer</a> for an agent; <a href="https://agentroles.ai/solution-planner.html">solution planner</a> for a solution</dd>
-            <dt>Given</dt><dd>somebody's account of what they want, with whatever they have; where code already exists, the <a href="assets.html#as-built-record">as-built record</a>, each behavior in which the person approves, flags as a bug for the backlog, or drops</dd>
+            <dt>Given</dt><dd>somebody's account of what they want, with whatever they have; where code already exists, or where a build starts from the as-built record of code kept elsewhere, the <a href="assets.html#as-built-record">as-built record</a>, each behavior in which the person approves, flags as a bug for the backlog, or drops</dd>
             <dt>Hands back</dt><dd>a statement of the job: what it does, refuses, needs, records and costs, plus the open questions</dd>
             <dt>Done when</dt><dd>a package could be built from it, and nothing unsettled was invented</dd>
           </dl>
@@ -143,7 +143,7 @@
           <p class="why">Tests come before the program, from the statement, so a test can't pass by agreeing with a mistake. (Yes, people argue about this.)</p>
           <dl>
             <dt>Role</dt><dd><a href="https://agentroles.ai/test-writer.html">test writer</a></dd>
-            <dt>Given</dt><dd>the statement of the job; where code already exists, the behaviors and the existing tests and gaps (parts 1 and 5 of the <a href="assets.html#as-built-record">as-built record</a>), from which it writes characterization tests that pin today's behavior until Requirements says otherwise</dd>
+            <dt>Given</dt><dd>the statement of the job; where code already exists, the behaviors and the existing tests and gaps (parts 1 and 5 of the <a href="assets.html#as-built-record">as-built record</a>), from which it writes characterization tests that pin today's behavior until Requirements says otherwise; where a build starts from the as-built record of code kept elsewhere, the same parts and the interfaces (part 3), from which it writes tests that pin each behavior the person approved, for code written fresh</dd>
             <dt>Hands back</dt><dd>the suite, and what no test could be written for</dd>
             <dt>Done when</dt><dd>the suite fails against empty stand-ins, and notices each program removed</dd>
           </dl>
