@@ -356,7 +356,7 @@
             <tr><td><code>given</code></td><td>the artifacts of earlier stages the stage was given, as ids in the build's <code>artifacts</code>, only those made</td></tr>
             <tr><td><code>outputs</code></td><td>the build's artifacts this stage makes</td></tr>
             <tr><td><code>done_when</code></td><td>what done means for the stage, as stages.json says it</td></tr>
-            <tr><td><code>gate</code></td><td>the last time the stage waited on a person, or waits now; absent when it never has. <code>state</code> is <code>open</code> or <code>answered</code>; <code>actions</code> are, while it is open, the names of the build's actions at this stage that this person may take now, so its buttons are the build's; <code>answered</code> says who answered it, when, and with which action; <code>closed</code> says why it closed without an answer, such as a newer push to the pull request; <code>who_may</code> says who may answer it. At Requirements it also carries <code>open</code>, what the statement still leaves open for the person, and <code>features</code> (see <a href="#features">features</a>)</td></tr>
+            <tr><td><code>gate</code></td><td>the last time the stage waited on a person, or waits now; absent when it never has. <code>state</code> is <code>open</code> or <code>answered</code>; <code>actions</code> are, while it is open, the names of the build's actions at this stage that this person may take now, so its buttons are the build's; <code>answered</code> says who answered it, when, and with which action; <code>closed</code> says why it closed without an answer, such as a newer push to the pull request; <code>who_may</code> says who may answer it. At Requirements it also carries <code>open</code>, what the spec still leaves open for the person, and <code>features</code> (see <a href="#features">features</a>)</td></tr>
             <tr><td><code>features</code></td><td>the stage's features on this build, one short line each (see <a href="#features">features</a>)</td></tr>
           </tbody>
         </table>
@@ -415,7 +415,7 @@
         <p>Posting answers 400 in words for a stage the build's lifecycle leaves out, or one held by a person, an outside tool or anyone the service cannot send messages to; and 409 when no agent can answer now, such as when the model is not set.</p>
 
         <h2 id="boss">The product's boss answers for the whole product.</h2>
-        <p>The boss holds the <a href="https://agentroles.ai/boss.html">boss role</a>: a conversation at the product level with an agent that answers from the product's record. It routes a directive into the chat of the stage that owns it and says where it went; breaks a larger request into a plan, naming each stage in order and the gate the person meets at each; and proposes the first stage's existing action, or first the start of the next version when the request changes the agent's statement. It never answers a gate, never changes an artifact, and takes no action itself. A stage's action is taken with the actions operation, and the next version starts only when the person confirms that proposal to the boss.</p>
+        <p>The boss holds the <a href="https://agentroles.ai/boss.html">boss role</a>: a conversation at the product level with an agent that answers from the product's record. It routes a directive into the chat of the stage that owns it and says where it went; breaks a larger request into a plan, naming each stage in order and the gate the person meets at each; and proposes the first stage's existing action, or first the start of the next version when the request changes the agent's spec. It never answers a gate, never changes an artifact, and takes no action itself. A stage's action is taken with the actions operation, and the next version starts only when the person confirms that proposal to the boss.</p>
         <p><code>GET /products/{name}/boss/messages</code> answers the conversation, oldest first, each message naming the product's newest build and its version when it was said. <code>POST</code> to the same path with <code>{ text }</code>, and with <code>confirms</code> or <code>declines</code> naming an open proposal when the person answers one, says something to the boss. Anyone who may read the product may post, and a proposal of a gate's action is made only to a person who may answer that gate.</p>
         <div class="term">
           <div class="bar"><span class="lamp"></span>a reply from the boss</div>
@@ -423,10 +423,10 @@
   "id": "s2", "at": "2026-10-31T09:21:00Z",
   "build": "b1", "version": "0.1.0",
   "from": { "kind": "agent", "name": "The boss", "role": "boss" },
-  "text": "That changes the statement, so it is a new version. Here is the plan.",
+  "text": "That changes the spec, so it is a new version. Here is the plan.",
   "plan": [
     { "stage": "requirements",
-      "words": "The spec writer revises the statement.",
+      "words": "The spec writer revises the spec.",
       "gate": "You approve the spec. Anyone may answer this gate." },
     { "stage": "test", "words": "The test writer writes the suite." },
     { "stage": "code", "words": "Your coding agent writes the scripts.",

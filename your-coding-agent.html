@@ -73,11 +73,11 @@
         <h2 id="flow">Here is how the work moves.</h2>
         <p>Your coding agent holds one step, the scripts. Everything before it makes the contract, and everything after it checks the work against that contract.</p>
         <ol class="steps">
-          <li><span class="sn">Write the spec</span><span class="sw">the statement of the job, in the Common Agent shape, with its open questions</span><span class="sh"><a href="https://agentroles.ai/spec-writer.html">spec writer</a>, with the owner</span></li>
+          <li><span class="sn">Write the spec</span><span class="sw">the spec, each feature with its requirements and acceptance scenarios, with its open questions; then the agent's own files made from it, in the Common Agent shape</span><span class="sh"><a href="https://agentroles.ai/spec-writer.html">spec writer</a>, with the owner</span></li>
           <li><span class="sn">Approve the spec <span class="person-tag">a person</span></span><span class="sw">the owner answers the open questions and says yes</span><span class="sh">the owner</span></li>
-          <li><span class="sn">Write the suite</span><span class="sw">tests from the statement alone, shown to fail against nothing</span><span class="sh"><a href="https://agentroles.ai/test-writer.html">test writer</a></span></li>
+          <li><span class="sn">Write the suite</span><span class="sw">a test for each acceptance scenario of the spec, shown to fail against nothing</span><span class="sh"><a href="https://agentroles.ai/test-writer.html">test writer</a></span></li>
           <li><span class="sn">Hand off the code</span><span class="sw">the build folder written to a branch, with a pull request titled "Write the scripts"</span><span class="sh">the lifecycle</span></li>
-          <li><span class="sn">Write the scripts</span><span class="sw">the scripts the statement names, until <code>node .adlc/check.mjs</code> exits 0</span><span class="sh">your coding agent, or a person</span></li>
+          <li><span class="sn">Write the scripts</span><span class="sw">the scripts the agent's files name, written to the spec, until <code>node .adlc/check.mjs</code> exits 0</span><span class="sh">your coding agent, or a person</span></li>
           <li><span class="sn">Run the gate</span><span class="sw">the fence, a static review, and the suite with each script blanked, posted as the pull request's checks</span><span class="sh">the lifecycle</span></li>
           <li><span class="sn">Approve the scripts <span class="person-tag">a person</span></span><span class="sw">the owner says OK on the commit the gate passed, and the pull request is merged</span><span class="sh">the owner</span></li>
           <li class="onramp"><span class="sn"><svg class="box-ico" viewBox="0 0 24 24" aria-hidden="true" focusable="false" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3 4 7v10l8 4 8-4V7z"/><path d="m4 7 8 4 8-4M12 11v10"/></svg>Make the package <span class="onramp-tag">on-ramp</span></span><span class="sw">the package made from the merged commit, then the docs and the deploy request</span><span class="sh"><a href="https://agentroles.ai/package-maker.html">package maker</a></span></li>
@@ -90,9 +90,10 @@
           <thead><tr><th>Path</th><th>What it is</th><th>May you change it</th></tr></thead>
           <tbody>
             <tr><td>AGENTS.md</td><td>the house rules, written for whoever does the work; CLAUDE.md points to it</td><td>no</td></tr>
+            <tr><td>spec.json, spec.md</td><td>the spec, in the open format <a href="https://github.com/CommonAgent/adlc/blob/main/standards/spec.schema.json">spec-v1</a>, and its rendering for a person when one came: read it first</td><td>no</td></tr>
             <tr><td>agent-descriptor.json, agent-runtime-requirements.json, plugin.json, skills/&lt;slug&gt;/SKILL.md</td><td>the agent's declarations, in the <a href="https://commonagent.net/">Common Agent</a> shape</td><td>no</td></tr>
             <tr><td>test/</td><td>the suite, byte for byte, which is the contract</td><td>no, but you may add a new test file</td></tr>
-            <tr><td>scripts/</td><td>every script the statement names: the released script where there is one, otherwise a stub that exports what the suite imports</td><td>yes: this is the work</td></tr>
+            <tr><td>scripts/</td><td>every script the agent's files name: the released script where there is one, otherwise a stub that exports what the suite imports</td><td>yes: this is the work</td></tr>
             <tr><td>other files</td><td>every other file the released package carries, at its own path</td><td>no</td></tr>
             <tr><td>.adlc/</td><td>the local check, the same one the gate runs</td><td>no</td></tr>
             <tr><td>build.lock.json</td><td>the digest of every pinned file: the fence</td><td>no</td></tr>
@@ -112,6 +113,30 @@ and its test suite is written (test/). Your job, whoever you are (a coding
 agent or a person), is to write the scripts under scripts/ so that the suite
 passes. The steps after the code (review, security review, packing and
 deploy) take your work back through the same checks you can run here.
+
+<span class="g">## Read the spec first</span>
+
+spec.md in this folder is the spec: what the agent must do, and how anyone
+can tell that it does. spec.json holds the same, as data. Read it before
+anything else. It gives:
+
+- each feature's requirements (F1.R1, F1.R2, ...), each one sentence with
+  shall;
+- the exact words, patterns and numbers a requirement fixes (its exact).
+  Write each one into the scripts as it stands, byte for byte: a refusal's
+  words, a reply's wording, a pattern the agent must recognize, a limit, a
+  time;
+- the interfaces that must be kept (keep: true): a function under that name
+  in that module, async only when its signature says so; a command with
+  those flags; a file in that JSON Schema. test/kept-interfaces.test.mjs
+  checks them, where the suite has it;
+- the acceptance scenarios (F1.A1, F1.A2, ...), each a Given, When and Then
+  that the test named with its id checks.
+
+Then read the agent's files and the suite. The spec is pinned like them, so
+never change it. Where a test cannot pass without breaking what the spec
+says, stop as rule 3 says, and name the spec's requirement or scenario by
+its id.
 
 <span class="g">## The scripts to write</span>
 
@@ -173,7 +198,7 @@ send the folder back, as you were asked.</pre>
         <p>When the pull request is marked ready, the gate runs on its newest commit. Each part is posted as a check on the pull request, with its findings in a comment, so your coding agent can read them, fix the scripts and push again.</p>
         <ol>
           <li><b>The fence.</b> The pinned files must match the digests recorded when the hand-off was issued. The gate keeps its own record and never trusts the copy of build.lock.json in your repository. Only scripts/ may change, plus any new test file.</li>
-          <li><b>A static review.</b> The files you may change are read for credential values, hidden characters, and addresses the statement does not declare. A folder that fails the fence or this review is refused by name and never run.</li>
+          <li><b>A static review.</b> The files you may change are read for credential values, hidden characters, and addresses the agent's files do not declare. A folder that fails the fence or this review is refused by name and never run.</li>
           <li><b>The suite, and each script blanked.</b> The suite runs in your own account's sandbox, never where the platform keeps credentials, because this is the first time code nobody has reviewed is executed. Then it runs once per script with that script blanked, and the suite has to notice each one.</li>
         </ol>
         <p>The <a href="stages.html#review">Review</a> and <a href="stages.html#security">Security review</a> stages then read the change, as they read any code writer's work.</p>
