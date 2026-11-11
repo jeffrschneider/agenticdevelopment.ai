@@ -39,8 +39,11 @@ difference: `node tools/check-stages.mjs`, or give it a local copy as
 every push and pull request and once a day. To change a stage, change
 `stages.json` and the page together.
 
-Published by GitHub Pages from `main`, at agenticdevelopment.ai (see `CNAME`).
-A push to `main` publishes.
+Served from the Cloud Storage bucket `agenticdevelopment-site` behind the
+family sites' load balancer, like agentroles.ai and agentprocesses.ai. A push to
+`main` publishes nothing: `tools/publish-site.sh development` in the AgentMesh
+repository uploads `main` as it stands and clears the CDN. `tools/` is not
+uploaded.
 
 `draft/` holds a preview under review, published at
 agenticdevelopment.ai/draft/ with `noindex`. When it is approved, its pages
