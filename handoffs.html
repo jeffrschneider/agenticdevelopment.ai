@@ -172,7 +172,7 @@
           <li><span class="st"><a href="stages.html#decommission">Decommission</a></span><span class="hb">nothing running, records kept, address retired</span></li>
         </ol>
         <p>Real work loops back, after a failed test or a finding, but what passes between two stages is the same artifact every time.</p>
-        <p>The hand-off before Code is what lets the coding agent you already use hold that stage. It is given the folder, not a conversation, and the pull request's checks decide whether its work moves on. One holder may also hold every stage from Requirements to Code, and then the artifacts still pass between the stages, each held by its own check, though the author is the same. <a href="your-coding-agent.html">Here is how to give your own coding agent the whole build.</a></p>
+        <p>The hand-off before Code is what lets the coding agent you already use write the code. It is given the folder, not a conversation, and the pull request's checks decide whether its work moves on. The same coding agent can also write every stage from Requirements to Code. Each stage still hands the next one an artifact, and each artifact is checked before the next stage starts, even though one agent wrote them all. <a href="your-coding-agent.html">Here is how to give your own coding agent the whole build.</a></p>
       </div>
 
       <footer class="footer">
