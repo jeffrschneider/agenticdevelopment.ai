@@ -4,11 +4,11 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Your coding agent: Agentic Development</title>
-  <meta name="description" content="Your coding agent can write an agent from its spec through its code. The ADLC plugin gives it the instructions and a check it does not control at every stage, and the person approves the spec.">
+  <meta name="description" content="Your coding agent can write an agent from its spec through its code. The ADLC plugin gives it the instructions and a check it does not control, and the person approves the spec.">
   <meta property="og:type" content="website">
   <meta property="og:site_name" content="Agentic Development">
   <meta property="og:title" content="Your coding agent | Agentic Development">
-  <meta property="og:description" content="Your coding agent can write an agent from its spec through its code. The ADLC plugin gives it the instructions and a check it does not control at every stage, and the person approves the spec.">
+  <meta property="og:description" content="Your coding agent can write an agent from its spec through its code. The ADLC plugin gives it the instructions and a check it does not control, and the person approves the spec.">
   <meta property="og:url" content="https://agenticdevelopment.ai/your-coding-agent.html">
   <meta property="og:image" content="https://agenticdevelopment.ai/brand/png/og-image-v2.png">
   <meta property="og:image:width" content="1200">
@@ -57,7 +57,7 @@
 
       <header class="page-head">
         <h1>Let your coding agent write the whole agent.</h1>
-        <p class="turn">The coding agent you already use can write an agent from its spec through its code, in one folder and one context. It does not judge its own work: at every stage a check it does not control says what is missing, and a person approves the spec. Claude Code does this with the ADLC plugin, and any other coding agent, such as Codex or Cursor, or a person, can work the same folder from its AGENTS.md.</p>
+        <p class="turn">The coding agent you already use can write an agent from its spec through its code, in one folder and one context. It does not judge its own work: a check it does not control says what is missing, and a person approves the spec. Claude Code does this with the ADLC plugin, and any other coding agent, such as Codex or Cursor, or a person, can work the same folder from its AGENTS.md.</p>
         <ul class="jump" aria-label="Jump to a section">
           <li><a href="#install">Install the plugin</a></li>
           <li><a href="#flow">How the work moves</a></li>
@@ -77,20 +77,17 @@
 <pre><span class="k">&gt;</span> /plugin install adlc --marketplace CommonAgent/adlc
 <span class="k">&gt;</span> /adlc:start agents/release-notes Reads the pull requests merged since the last release and drafts release notes.</pre>
         </div>
-        <p>The start lays out a build folder for the new agent, keeps the person's own words in request.md, and begins at Requirements. The plugin is open source under Apache-2.0, at <a href="https://github.com/CommonAgent/adlc/tree/main/plugin">CommonAgent/adlc</a>.</p>
+        <p>The start lays out a build folder for the new agent, keeps the person's own words in request.md, and begins with the spec. The plugin is open source under Apache-2.0, at <a href="https://github.com/CommonAgent/adlc/tree/main/plugin">CommonAgent/adlc</a>.</p>
 
         <h2 id="flow">Here is how the work moves.</h2>
-        <p>Your coding agent writes every stage, in this order. Each stage is finished when its check passes, and its files can't change after that, so a later stage can't undo an earlier one.</p>
+        <p>The work has two phases. First your coding agent writes the spec, and the person approves it. Then it builds everything else, in whatever order works best for it, and the check judges the result.</p>
         <ol class="steps">
           <li><span class="sn">Write the spec</span><span class="sw">each feature with its requirements and acceptance scenarios, what the agent refuses, what it does when it finds nothing, and what it does when a system fails; what only the person can answer is asked</span><span class="sh">your coding agent, with the person</span></li>
           <li><span class="sn">Approve the spec <span class="person-tag">a person</span></span><span class="sw">the person reads the spec in plain words and approves it, and it can't change after that</span><span class="sh">the person</span></li>
-          <li><span class="sn">Write the architecture</span><span class="sw">the systems the agent stands on and each decision with its reason; the record is written from them by the solution architect's own code</span><span class="sh">your coding agent</span></li>
-          <li><span class="sn">Write the agent's files</span><span class="sw">the words of the declaration; the files are generated from the spec and the record, and the Common Agent packer must accept them</span><span class="sh">your coding agent</span></li>
-          <li><span class="sn">Write the suite</span><span class="sw">a test for every acceptance scenario, each named for what it checks, shown to fail against empty scripts</span><span class="sh">your coding agent</span></li>
-          <li><span class="sn">Write the scripts</span><span class="sw">the code, until the suite passes, each script is noticed when it is blanked, and the packer accepts the folder</span><span class="sh">your coding agent</span></li>
-          <li><span class="sn">Open the pull request</span><span class="sw">the folder committed, with every call the coding agent made that the person did not</span><span class="sh">your coding agent</span></li>
+          <li><span class="sn">Build the agent</span><span class="sw">the architecture record, the agent's files, the tests and the code, in any order; the check runs every gate over the folder and names what each still needs, and the tests can't change once the code has been judged against them</span><span class="sh">your coding agent</span></li>
+          <li><span class="sn">Open the pull request</span><span class="sw">once the build has passed every gate, the folder committed, with every call the coding agent made that the person did not</span><span class="sh">your coding agent</span></li>
         </ol>
-        <p>The roles of the <a href="https://agentroles.ai/spec-writer.html">spec writer</a>, the <a href="https://agentroles.ai/solution-architect.html">solution architect</a>, the <a href="https://agentroles.ai/test-writer.html">test writer</a> and the <a href="https://agentroles.ai/code-writer.html">code writer</a> all stay. Here one agent does the work of all four, and what keeps the work honest is the check at each stage, not a second author.</p>
+        <p>The roles of the <a href="https://agentroles.ai/spec-writer.html">spec writer</a>, the <a href="https://agentroles.ai/solution-architect.html">solution architect</a>, the <a href="https://agentroles.ai/test-writer.html">test writer</a> and the <a href="https://agentroles.ai/code-writer.html">code writer</a> all stay. Here one agent does the work of all four, and what keeps the work honest is the check, not a second author.</p>
 
         <h2 id="folder">Here is what is in the folder.</h2>
         <table class="tbl">
@@ -104,8 +101,8 @@
             <tr><td>test/</td><td>the suite: the standard checks every suite carries, and a test file per feature</td><td>the generator, then your coding agent</td></tr>
             <tr><td>scripts/</td><td>the code</td><td>your coding agent</td></tr>
             <tr><td>.adlc/</td><td>the check and the generators, the lifecycle's own code</td><td>nobody: it can't change from the start</td></tr>
-            <tr><td>build.lock.json</td><td>which stages have passed, and a fingerprint of every file that can't change any more</td><td>only the check and the person's approval</td></tr>
-            <tr><td>AGENTS.md, CLAUDE.md</td><td>the instructions for every stage, for whoever does the work</td><td>the start</td></tr>
+            <tr><td>build.lock.json</td><td>whether the spec is approved and the build has passed, and a fingerprint of every file that can't change any more</td><td>only the check and the person's approval</td></tr>
+            <tr><td>AGENTS.md, CLAUDE.md</td><td>the instructions, for whoever does the work</td><td>the start</td></tr>
           </tbody>
         </table>
 
@@ -113,32 +110,32 @@
         <div class="term">
           <div class="bar"><span class="lamp"></span>in the build folder</div>
 <pre><span class="k">$</span> node .adlc/check.mjs
-<span class="g">Requirements: 2 things missing.</span>
+<span class="g">The spec: 2 things missing.</span>
   - the empty case is not stated; say what the agent does when it is given
     nothing to work on or finds nothing
   - the failure case is not stated; say what the agent does when a system it
     reaches fails or answers wrongly</pre>
         </div>
-        <p>It names the stage the folder is at and what is missing there, and nothing else. It is the reference agents' own checks, carried into the folder unchanged: the spec writer's rules for a spec and for the agent's files, the solution architect's for the record, the test writer's for a suite, the code writer's for the code, and the Common Agent packer. <b>If a file that was already approved changes, the check stops</b>, and only the person, not the coding agent, can send the build back to the stage that wrote it.</p>
+        <p>Before the spec is approved, it says what the spec still needs. After that, it runs every gate over the folder at once (the architecture record, the agent's files, the tests and the code) and names what each still needs. It is the reference agents' own checks, carried into the folder unchanged: the spec writer's rules for a spec and for the agent's files, the solution architect's for the record, the test writer's for a suite, the code writer's for the code, and the Common Agent packer. <b>If a file that was already approved changes, the check stops</b>, and only the person, not the coding agent, can send the build back.</p>
 
         <h2 id="person">Here is what only the person does.</h2>
         <ul>
           <li><b>Answers what only they can decide.</b> The name, the price, what the agent may reach and spend, and every case their words leave open. The coding agent asks, gives its recommendation, and waits.</li>
           <li><b>Approves the spec.</b> <code>node .adlc/approve.mjs</code> is the person's command. In Claude Code a hook stops the coding agent from running it, from editing a file that can't change any more, and from editing the check itself.</li>
-          <li><b>Sends the build back.</b> <code>node .adlc/approve.mjs --send-back &lt;stage&gt;</code> opens that stage and every one after it again, when something it settled has to change.</li>
+          <li><b>Sends the build back.</b> <code>node .adlc/approve.mjs --send-back spec</code> opens the spec again, and <code>--send-back build</code> lets the tests change again, when something already settled has to change.</li>
         </ul>
         <p>On one machine with no service behind the folder, these are conventions the coding agent could break, because it runs with the person's rights. They become binding when a lifecycle service or a pull request check runs on the same folder.</p>
 
         <h2 id="back">Here is how the work comes back.</h2>
         <ul>
-          <li><b>A pull request, once every stage has passed.</b> Its description lists every call the coding agent made that the person did not.</li>
+          <li><b>A pull request, once the build has passed.</b> Its description lists every call the coding agent made that the person did not.</li>
           <li><b>The repository's own check.</b> A pull request check can run the Common Agent packer on the folder and the folder's own check, so the same check runs again where the coding agent can't change it.</li>
           <li><b>The stages after the code.</b> <a href="stages.html#review">Review</a>, <a href="stages.html#security">Security review</a> and <a href="stages.html#package">Package</a> read the work as they read anyone's.</li>
         </ul>
         <p>The plugin was proven on two agents built from a person's request by a fresh Claude Code session: a digest of the Hacker News stories about a topic, and a release-notes writer that reaches a code host, a team chat and a model. Each reached a pull request the packer accepted, and each stopped where only the person could decide.</p>
 
         <h2 id="others">Another coding agent works the same folder.</h2>
-        <p>Every build folder carries its instructions as AGENTS.md, which Codex, Cursor and most coding agents read on their own, and CLAUDE.md points to it. A coding agent without the plugin, or a person, follows the same stages and runs the same check; only the hooks are the plugin's.</p>
+        <p>Every build folder carries its instructions as AGENTS.md, which Codex, Cursor and most coding agents read on their own, and CLAUDE.md points to it. A coding agent without the plugin, or a person, follows the same two phases and runs the same check; only the hooks are the plugin's.</p>
 
       </div>
 
