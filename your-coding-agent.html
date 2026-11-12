@@ -95,7 +95,8 @@
           <tbody>
             <tr><td>request.md</td><td>the person's own words, which every requirement comes from</td><td>your coding agent, as the person said them</td></tr>
             <tr><td>spec.json</td><td>the spec, in the open format <a href="https://github.com/CommonAgent/adlc/blob/main/standards/spec.schema.json">spec-v1</a></td><td>your coding agent</td></tr>
-            <tr><td>answers.json</td><td>the person's answers to what only they can decide, such as the name and the price</td><td>your coding agent, from the person's words</td></tr>
+            <tr><td>answers.json</td><td>the person's answers to what only they can decide, such as the name, the price, what the agent may reach and what it may spend; each answer after the spec quotes the words the person said it in</td><td>your coding agent, from the person's words</td></tr>
+            <tr><td>said.md</td><td>what the person has said since request.md, as they said it, so the check can find the words each answer quotes</td><td>the plugin; never your coding agent</td></tr>
             <tr><td>architecture.json, architecture-record.md</td><td>the systems and decisions, and the record generated from them</td><td>your coding agent, then the generator</td></tr>
             <tr><td>prose.json, and the agent's files</td><td>the declaration's words, and agent-descriptor.json, agent-runtime-requirements.json, plugin.json and skills/&lt;slug&gt;/SKILL.md generated from the spec, the record and those words, in the <a href="https://commonagent.net/">Common Agent</a> shape</td><td>your coding agent, then the generator</td></tr>
             <tr><td>test/</td><td>the suite: the standard checks every suite carries, and a test file per feature</td><td>the generator, then your coding agent</td></tr>
