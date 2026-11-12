@@ -155,7 +155,7 @@
             <dt>Role</dt><dd><a href="https://agentroles.ai/code-writer.html">code writer</a>: the reference agent, your own coding agent, or a person</dd>
             <dt>Given</dt><dd>the spec, the agent's own files, the suite, and a prototype if there is one, as a build folder on a branch with a "Write the scripts" pull request</dd>
             <dt>Hands back</dt><dd>the programs, an account of what was written, and a record of every round</dd>
-            <dt>Done when</dt><dd>all the tests pass, removing any one program makes a test fail, and the tests, the spec and the agent's own files have not changed; every script the agent's files name is written, the scripts read only the settings the agent's files declare, and the Common Agent packer accepts the folder with its scripts</dd>
+            <dt>Done when</dt><dd>all the tests pass, removing any one program makes a test fail, and the approved spec and the tests, once fixed, have not changed; every script the agent's files name is written, the scripts read only the settings the agent's files declare, and the Common Agent packer accepts the folder with its scripts</dd>
           </dl>
           <p class="handoff-callout"><b>The hand-off.</b> The folder carries its instructions in AGENTS.md and a record of which files may not change, so the coding agent you already use can write this stage, or every stage from Requirements to Code. Either way, its work is checked by something it can't change: the pull request's checks, then the owner's OK. <a href="your-coding-agent.html">Start here with your own coding agent.</a></p>
         </section>
